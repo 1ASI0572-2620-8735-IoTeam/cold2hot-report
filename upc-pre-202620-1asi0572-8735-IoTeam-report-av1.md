@@ -99,9 +99,7 @@ En la industria actual de delivery de alimentos, uno de los mayores desafíos lo
 
 #### 1.2.2.1. Lean UX Problem Statements.
 
-De acuerdo con las guías de Lean UX para iniciativas de nuevos productos, se define el siguiente Problem Statement integral para la solución Cold2Hot:
-
-The current state of food delivery logistics has focused mainly on restaurant managers, delivery drivers, and end customers suffering from food temperature degradation, unauthorized box openings, and lack of real time route monitoring. What existing products or services fail to address is the absence of an active automated thermal control system and real time box security telemetry integrated with mobile and web platforms. Our product or service Cold2Hot will address this gap by combining an ESP32 based IoT embedded device equipped with DS18B20 temperature probe, Reed Switch magnetic door sensor, TCRT5000 IR sensor, 1 channel relay fan actuator, and active buzzer with real time web and mobile monitoring applications. Our initial focus will be small to medium sized restaurant chains and independent delivery drivers operating in urban areas. We will know we are successful when we see a 35% reduction in customer cold food complaints, a 90% completion rate of deliveries with zero unauthorized box openings, and a customer retention increase of at least 20% for participating restaurants.
+En el contexto actual de la logística de reparto de comida, los principales afectados son los gerentes de restaurantes, los repartidores y los clientes finales. Estos grupos enfrentan problemas como la pérdida de temperatura de los alimentos, la apertura no autorizada de los contenedores y la falta de monitoreo de rutas en tiempo real. Las soluciones existentes no abordan la ausencia de un sistema automatizado de control térmico activo ni de telemetría de seguridad del contenedor en tiempo real integrada con plataformas móviles y web. Nuestro producto, Cold2Hot, cubrirá esta carencia combinando un dispositivo IoT embebido basado en ESP32 equipado con una sonda de temperatura DS18B20, un sensor magnético de puerta Reed Switch, un sensor infrarrojo TCRT5000, un actuador de ventilador mediante relé de un canal y un zumbador activo con aplicaciones de monitoreo web y móvil en tiempo real. Nos dirigiremos inicialmente a cadenas de restaurantes de pequeño y mediano tamaño y a repartidores independientes que operen en zonas urbanas. Consideraremos que hemos tenido éxito cuando observemos una reducción del 35 % en las quejas de los clientes por comida fría, una tasa de finalización de entregas del 90 % sin aperturas no autorizadas de los contenedores y un aumento de al menos el 20 % en la retención de clientes para los restaurantes participantes.
 
 #### 1.2.2.2. Lean UX Assumptions.
 
@@ -134,22 +132,23 @@ The current state of food delivery logistics has focused mainly on restaurant ma
 
 Siguiendo la plantilla oficial de Lean UX, se definen las siguientes hipótesis:
 
-* Hypothesis Statement 1: We believe we will achieve a 35% reduction in cold food complaints if restaurant managers and delivery drivers attain automated thermal regulation and optimal internal box temperature preservation with the ESP32 microcontroller integrated with the DS18B20 temperature probe and 1 channel relay fan control system.
-* Hypothesis Statement 2: We believe we will achieve a 90% rate of deliveries completed with zero unauthorized box breaches if delivery drivers and restaurant supervisors attain immediate local and mobile notification of unexpected box lid openings with the Reed Switch magnetic sensor paired with the Active Buzzer and mobile push notification system.
-* Hypothesis Statement 3: We believe we will achieve a false monitoring session rate of less than 5% if restaurant dispatchers attain automatic session initiation and closure synchronized with physical package placement with the TCRT5000 infrared obstacle sensor integrated with the Web Application dashboard.
+* Declaración de Hipótesis 1: Creemos que lograremos una reducción del 35% en reclamos por comida fría si los administradores de restaurantes y repartidores obtienen regulación térmica automatizada y conservación óptima de la temperatura interna de la caja con el microcontrolador ESP32 integrado a la sonda de temperatura DS18B20 y el sistema de control de ventilador por relé de 1 canal.
+* Declaración de Hipótesis 2: Creemos que lograremos una tasa del 90% de entregas completadas sin aperturas no autorizadas si los repartidores y supervisores del restaurante obtienen notificación inmediata local y móvil de aperturas inesperadas de la tapa de la caja con el sensor magnético Reed Switch junto al Buzzer activo y notificaciones push móviles.
+* Declaración de Hipótesis 3: Creemos que lograremos una tasa de sesiones de monitoreo falsas menor al 5% si los despachadores del restaurante obtienen inicio y cierre automático de sesión sincronizado con la colocación del paquete con el sensor infrarrojo TCRT5000 integrado al panel web.
 
-#### 1.2.2.4. Lean UX Canvas.
+#### 1.2.2.4. Lean UX Canvas
 
-| Sección | Descripción |
-| :--- | :--- |
-| 1. Business Problem | Los restaurantes pierden clientes y dinero debido a entregas de comida que llegan frías, derramadas o abiertas durante el trayecto de delivery, sin tener forma de monitorear la caja en tiempo real. |
-| 2. Business Outcomes | Reducción del 35% en reclamos por comida fría, reducción del 90% en incidencias de manipulación no autorizada, incremento de satisfacción del cliente final. |
-| 3. Users | Administradores de restaurantes, repartidores de delivery y consumidores finales. |
-| 4. User Outcomes & Benefits | Restaurantes: Control total del estado de los envíos en tiempo real.<br>Repartidores: Alertas instantáneas auditivas y móviles sin distraer su conducción.<br>Consumidores: Garantía de comida caliente y segura. |
-| 5. Solution Ideas | Caja inteligente de delivery con ESP32, sensor térmico DS18B20, relé con mini ventilador, Reed Switch magnético, infrarrojo TCRT5000 y Buzzer activo, sincronizados con una app móvil y una aplicación web. |
-| 6. Hypotheses | Creemos que la automatización de la regulación térmica y las alertas de apertura en tiempo real garantizarán entregas seguras y a temperatura ideal, reduciendo reclamos. |
-| 7. What is the most important thing we need to learn first? | Determinar si la combinación del ESP32 con el DS18B20 y el Relé reacciona con suficiente velocidad para estabilizar la temperatura interna de la caja. |
-| 8. What is the least amount of work we need to do to learn the next most important thing? | Construir un prototipo físico funcional de la caja con el circuito ESP32 y realizar pruebas de simulación de ruta de 20 minutos midiendo la respuesta de temperatura y alarmas. |
+| Business Problem | Solutions | Business Outcomes |
+|---|---|---|
+| Los restaurantes y empresas de delivery pierden clientes y dinero debido a entregas de comida que llegan frías, derramadas o manipuladas durante el trayecto, sin contar con herramientas para supervisar el estado de la caja de transporte en tiempo real. | Implementación de una caja inteligente de delivery impulsada por el microcontrolador ESP32, integrada con sensor térmico DS18B20 con sonda metálica, sensor magnético de puerta Reed Switch, sensor infrarrojo de presencia TCRT5000, sistema de ventilación impulsado por relé de 1 canal y alarma sonora con Buzzer activo, sincronizados en tiempo real con una aplicación móvil y una plataforma web. | - Reducción del 35% en reclamos por alimentos entregados a temperatura inadecuada.<br>- Reducción del 90% en incidencias de manipulación o aperturas no autorizadas de la caja.<br>- Incremento en la satisfacción y retención del cliente final. |
+
+| Users and Customer | | User Outcomes & Benefits |
+|---|---|---|
+| Administradores de restaurantes: Necesitan garantizar la cadena de custodia de sus pedidos y reducir pérdidas por reembolsos.<br>Repartidores de delivery: Requieren alertas automáticas audibles y móviles que no interfieran con la conducción.<br>Consumidores finales: Exigen alimentos en temperatura óptima e higiene garantizada. | | - Los restaurantes obtienen visibilidad y control del estado de los despachos en tiempo real.<br>- Los repartidores reciben alertas instantáneas en su móvil y audibles ante variaciones térmicas o aperturas.<br>- Los clientes finales disfrutan de comida caliente, preservada y segura en su domicilio. |
+
+| Hypotheses | What is the most important thing we need to learn first? | What is the least amount of work we need to do to learn the next most important thing? |
+|---|---|---|
+| Creemos que la regulación térmica automática con ESP32, sensor DS18B20 y relé con ventilador, junto al sistema de seguridad con Reed Switch y Buzzer activo, garantizará entregas seguras y a temperatura ideal, reduciendo reclamos por comida fría en un 35% y aperturas no autorizadas en un 90%. | Determinar si la combinación del microcontrolador ESP32 con el sensor DS18B20 y el relé de ventilación reacciona con suficiente velocidad para estabilizar la temperatura interna de la caja durante trayectos urbanos reales. | Construir un prototipo físico funcional de la caja con el circuito ESP32 y realizar pruebas de simulación de ruta de 20 minutos midiendo la respuesta de temperatura y el funcionamiento de alarmas y notificaciones. |
 
 ## 1.3. Segmentos objetivo.
 
