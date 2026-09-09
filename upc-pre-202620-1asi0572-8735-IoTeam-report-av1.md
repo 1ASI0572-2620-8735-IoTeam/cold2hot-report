@@ -61,23 +61,115 @@ Teves Samaniego, Joan Fernando (U202117303)
 
 ### 1.1.1. Descripción de la Startup
 
+IoTeam es una startup tecnológica dedicada al desarrollo de soluciones basadas en Internet de las Cosas orientadas a la logística urbana y a la preservación de la cadena de custodia en el delivery de alimentos.
+
+* Misión: Garantizar la calidad, seguridad e integridad de los pedidos de comida durante su transporte mediante sistemas inteligentes de monitoreo ambiental y control térmico automatizado.
+* Visión: Posicionarse como la startup referente en Latinoamérica en tecnología IoT aplicada a la logística de última milla para el sector gastronómico.
+* Valores: Innovación constante, calidad de servicio, eficiencia energética, seguridad operacional y compromiso con la satisfacción del cliente final.
+
 ### 1.1.2. Perfiles de integrantes del equipo
+
+El equipo de IoTeam está conformado por 7 estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas:
+
+* Alvarado De La Cruz, Juan Carlos - U202216150
+* Carhuancote Dominguez, Gonzalo Alonso - U202210720
+* Diestra Zambrano, Adriana Maria - U202218110
+* Duran Diaz, Antonio Rodrigo - U202215721
+* Nakasone Gomes, Marco Antonio - U202210790
+* Shimabukuro Uku, Carlos Joel - U201912407
+* Teves Samaniego, Joan Fernando - U202117303
 
 ## 1.2. Solution Profile
 
+El producto desarrollado es Cold2Hot, un sistema inteligente de monitoreo térmico y seguridad integral diseñado para cajas de delivery de alimentos.
+
 ### 1.2.1 Antecedentes y problemática
+
+En la industria actual de delivery de alimentos, uno de los mayores desafíos logísticos es garantizar que los pedidos lleguen al consumidor en óptimas condiciones térmicas y de salubridad. Para un análisis detallado de la problemática se aplica la técnica 5W2H:
+
+* Who: Empresas y restaurantes de delivery de comida preparada, repartidores de última milla y los consumidores finales que reciben alimentos en mal estado térmico o manipulados.
+* What: Pérdida intempestiva de la temperatura ideal ya sea caliente y/o frío de los platillos en ruta, aperturas no autorizadas o mal cierre de la caja de transporte, y la falta de un sistema de monitoreo automatizado e higiénico.
+* Where: Durante el transporte urbano en motocicleta o bicicleta desde la salida del restaurante hasta el punto de entrega al cliente final.
+* When: Durante el trayecto de envío, especialmente en desplazamientos superiores a los 15 minutos o en condiciones climáticas adversas.
+* Why: Las cajas de delivery convencionales son recipientes pasivos de aislamiento limitado, sin sensores de temperatura, sin actuadores de ventilación ni alertas de seguridad ante aperturas.
+* How: Mediante un dispositivo embebido IoT impulsado por el microcontrolador ESP32, equipado con un sensor térmico de sonda metálica DS18B20, un sensor magnético Reed Switch, un infrarrojo TCRT5000, un actuador de ventilación vía Módulo Relé de 1 canal y un Buzzer activo, interconectados a aplicaciones web y móviles.
+* How Much: Los reclamos por entregas frías o dañadas representan pérdidas de hasta el 15% en ventas recurrentes para los restaurantes. La solución IoT propone un costo de hardware altamente accesible por caja inteligente.
 
 ### 1.2.2 Lean UX Process.
 
 #### 1.2.2.1. Lean UX Problem Statements.
 
+De acuerdo con las guías de Lean UX para iniciativas de nuevos productos, se define el siguiente Problem Statement integral para la solución Cold2Hot:
+
+The current state of food delivery logistics has focused mainly on restaurant managers, delivery drivers, and end customers suffering from food temperature degradation, unauthorized box openings, and lack of real time route monitoring. What existing products or services fail to address is the absence of an active automated thermal control system and real time box security telemetry integrated with mobile and web platforms. Our product or service Cold2Hot will address this gap by combining an ESP32 based IoT embedded device equipped with DS18B20 temperature probe, Reed Switch magnetic door sensor, TCRT5000 IR sensor, 1 channel relay fan actuator, and active buzzer with real time web and mobile monitoring applications. Our initial focus will be small to medium sized restaurant chains and independent delivery drivers operating in urban areas. We will know we are successful when we see a 35% reduction in customer cold food complaints, a 90% completion rate of deliveries with zero unauthorized box openings, and a customer retention increase of at least 20% for participating restaurants.
+
 #### 1.2.2.2. Lean UX Assumptions.
+
+1. Business Assumptions:
+* Creemos que los restaurantes están dispuestos a adoptar cajas de delivery IoT si el costo del hardware se mantiene accesible por unidad.
+* Creemos que ofrecer una plataforma de monitoreo en tiempo real permitirá cobrar una suscripción mensual accesible a los restaurantes por el servicio SaaS.
+* Creemos que reducir las pérdidas por comida fría incrementará la lealtad y recompra de los usuarios finales.
+
+2. Business Outcome Assumptions:
+* Lograremos una reducción del 35% en reclamos por alimentos entregados a temperatura inadecuada.
+* Lograremos que el 90% de los envíos monitoreados registren cero aperturas no autorizadas durante el trayecto.
+* Reduciremos en un 50% las disputas de reembolso entre restaurantes y repartidores mediante registros térmicos auditables.
+
+3. User Assumptions:
+* Creemos que los administradores de restaurantes necesitan un panel web centralizado para supervisar múltiples despachos activos simultáneamente.
+* Creemos que los repartidores necesitan un sistema completamente automatizado que regule la temperatura y emita alertas audibles sin requerir interacción manual mientras conducen.
+* Creemos que los clientes finales desean recibir confirmación de que su pedido se mantuvo protegido en todo momento.
+
+4. User Outcome and Benefit Assumptions:
+* Los administradores de restaurante obtendrán tranquilidad y visibilidad total de la cadena de custodia de sus despachos.
+* Los repartidores evitarán penalizaciones por comida entregada a destiempo o en mala temperatura.
+* Los clientes finales disfrutarán de comida caliente, preservada y segura en su domicilio.
+
+5. Feature Assumptions:
+* Feature 1: Regulador térmico automatizado que activa el ventilador vía relé de 1 canal procesado por el ESP32 cuando el sensor DS18B20 detecta temperaturas fuera del umbral establecido.
+* Feature 2: Sistema de seguridad para la tapa de la caja que acciona el Buzzer local y notifica a la app móvil del repartidor ante aperturas no autorizadas mediante el sensor Reed Switch.
+* Feature 3: Detector de presencia física del paquete en el compartimento mediante el sensor infrarrojo TCRT5000 para iniciar y cerrar automáticamente el seguimiento del despacho en la aplicación web.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements.
 
+Siguiendo la plantilla oficial de Lean UX, se definen las siguientes hipótesis:
+
+* Hypothesis Statement 1: We believe we will achieve a 35% reduction in cold food complaints if restaurant managers and delivery drivers attain automated thermal regulation and optimal internal box temperature preservation with the ESP32 microcontroller integrated with the DS18B20 temperature probe and 1 channel relay fan control system.
+* Hypothesis Statement 2: We believe we will achieve a 90% rate of deliveries completed with zero unauthorized box breaches if delivery drivers and restaurant supervisors attain immediate local and mobile notification of unexpected box lid openings with the Reed Switch magnetic sensor paired with the Active Buzzer and mobile push notification system.
+* Hypothesis Statement 3: We believe we will achieve a false monitoring session rate of less than 5% if restaurant dispatchers attain automatic session initiation and closure synchronized with physical package placement with the TCRT5000 infrared obstacle sensor integrated with the Web Application dashboard.
+
 #### 1.2.2.4. Lean UX Canvas.
 
+| Sección | Descripción |
+| :--- | :--- |
+| 1. Business Problem | Los restaurantes pierden clientes y dinero debido a entregas de comida que llegan frías, derramadas o abiertas durante el trayecto de delivery, sin tener forma de monitorear la caja en tiempo real. |
+| 2. Business Outcomes | Reducción del 35% en reclamos por comida fría, reducción del 90% en incidencias de manipulación no autorizada, incremento de satisfacción del cliente final. |
+| 3. Users | Administradores de restaurantes, repartidores de delivery y consumidores finales. |
+| 4. User Outcomes & Benefits | Restaurantes: Control total del estado de los envíos en tiempo real.<br>Repartidores: Alertas instantáneas auditivas y móviles sin distraer su conducción.<br>Consumidores: Garantía de comida caliente y segura. |
+| 5. Solution Ideas | Caja inteligente de delivery con ESP32, sensor térmico DS18B20, relé con mini ventilador, Reed Switch magnético, infrarrojo TCRT5000 y Buzzer activo, sincronizados con una app móvil y una aplicación web. |
+| 6. Hypotheses | Creemos que la automatización de la regulación térmica y las alertas de apertura en tiempo real garantizarán entregas seguras y a temperatura ideal, reduciendo reclamos. |
+| 7. What is the most important thing we need to learn first? | Determinar si la combinación del ESP32 con el DS18B20 y el Relé reacciona con suficiente velocidad para estabilizar la temperatura interna de la caja. |
+| 8. What is the least amount of work we need to do to learn the next most important thing? | Construir un prototipo físico funcional de la caja con el circuito ESP32 y realizar pruebas de simulación de ruta de 20 minutos midiendo la respuesta de temperatura y alarmas. |
+
 ## 1.3. Segmentos objetivo.
+
+Cold2Hot está dirigido a tres segmentos clave dentro del ecosistema de entregas a domicilio en Lima Metropolitana y principales ciudades urbanas del Perú:
+
+1. Restaurantes y Empresas de Catering o Delivery:
+   * Perfil Demográfico y Operativo: Establecimientos gastronómicos de tamaño mediano y pequeño dedicados a la venta de alimentos preparados en zonas urbanas con alto flujo de despacho a domicilio.
+   * Sustento Estadístico: Según la Cámara de Comercio de Lima, el sector de restaurantes y delivery creció más del 25% en el último trienio, representando más del 30% del volumen total de ventas en hora pico.
+   * Necesidad Principal: Garantizar la calidad percibida del platillo entregado, disminuir la tasa de reembolsos por entregas frías y contar con un registro auditable del despacho.
+
+2. Repartidores de Delivery:
+   * Perfil Demográfico y Operativo: Hombres y mujeres de 18 a 45 años, trabajadores independientes o en plantilla de restaurantes, que transitan en motocicletas o bicicletas de 6 a 10 horas diarias.
+   * Sustento Estadístico: En Lima operan más de 45000 repartidores activos en servicios de delivery. Aproximadamente el 65% realiza trayectos que superan los 12 minutos de duración por viaje.
+   * Necesidad Principal: Sistemas automatizados que no demanden manipulación continua mientras conducen, y avisos sonoros o móviles inmediatos ante la apertura no deseada de la mochila o caja de carga.
+
+3. Consumidores Finales:
+   * Perfil Demográfico: Hombres y mujeres de 18 a 60 años de los niveles socioeconómicos A, B y C1 que habitan en zonas urbanas y solicitan delivery de comida de 2 a 4 veces por semana.
+   * Sustento Estadístico: Reportes del INEI indican que el 58% de los usuarios de delivery han experimentado al menos una mala experiencia por recibir comida tibia o fría en los últimos 6 meses.
+   * Necesidad Principal: Disfrutar de sus platillos en la temperatura adecuada de consumo, con la certeza de que la caja se mantuvo sellada e higiénica durante todo el traslado.
+
 
 # Capítulo II: Requirements Elicitation & Analysis
 
