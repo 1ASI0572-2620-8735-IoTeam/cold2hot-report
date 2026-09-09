@@ -71,13 +71,15 @@ IoTeam es una startup tecnológica dedicada al desarrollo de soluciones basadas 
 
 El equipo de IoTeam está conformado por 7 estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas:
 
-* Alvarado De La Cruz, Juan Carlos - U202216150
-* Carhuancote Dominguez, Gonzalo Alonso - U202210720
-* Diestra Zambrano, Adriana Maria - U202218110
-* Duran Diaz, Antonio Rodrigo - U202215721
-* Nakasone Gomes, Marco Antonio - U202210790
-* Shimabukuro Uku, Carlos Joel - U201912407
-* Teves Samaniego, Joan Fernando - U202117303
+| Integrante | Descripcion de Carrera | Conocimientos y Habilidades a apuntar |
+| --------------------------------| ----------------------| ------------------------------------ |
+| ![Juan Carlos](./assets/foto1.jpg) <br> Alvarado De La Cruz, Juan Carlos | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Gonzalo Alonso](./assets/foto2.jpg) <br> Carhuancote Dominguez, Gonzalo Alonso | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Adriana Maria](./assets/foto3.jpg) <br> Diestra Zambrano, Adriana Maria | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Antonio Rodrigo](./assets/foto4.jpg) <br> Duran Diaz, Antonio Rodrigo | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Marco Antonio](./assets/foto5.jpg) <br> Nakasone Gomes, Marco Antonio | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Carlos Joel](./assets/foto6.jpg) <br> Shimabukuro Uku, Carlos Joel | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Joan Fernando](./assets/foto7.jpg) <br> Teves Samaniego, Joan Fernando | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
 
 ## 1.2. Solution Profile
 
