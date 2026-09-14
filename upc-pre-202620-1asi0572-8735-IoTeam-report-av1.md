@@ -88,7 +88,7 @@ Nuestra solución se denomina Cold2Hot, un sistema inteligente para cajas de del
 ### Antecedentes
 <div style="text-align: justify">
 
-A esta situación se suma el riesgo de manipulación de los alimentos durante el trayecto. La falta de mecanismos de seguridad automatizados en los contenedores de reparto impide que los negocios o los clientes finales tengan la seguridad de que el pedido no ha sido abierto sin autorización. La carencia de telemetría y sistemas de monitoreo en tiempo real crea un vacío de información operativo, donde el estado de la entrega es una incógnita hasta que llega a la puerta del cliente. Frente a esto, surge la necesidad de implementar soluciones de Internet de las Cosas (IoT) que permitan automatizar el control térmico y la seguridad, integrando sensores y actuadores conectados a plataformas digitales para asegurar una cadena de custodia transparente.
+A esta situación se suma el riesgo de manipulación de los alimentos durante el trayecto. La falta de mecanismos de seguridad automatizados y de controles de acceso en los contenedores de reparto impide que los negocios o los clientes finales tengan la certeza de que el pedido no ha sido abierto sin autorización. La carencia de telemetría, evidencias fotográficas al momento de la entrega y sistemas de monitoreo en tiempo real crea un vacío de información operativo, donde el estado de la entrega es una incógnita hasta que llega a la puerta del cliente. Frente a esto, surge la necesidad de implementar soluciones de Internet de las Cosas (IoT) que permitan automatizar el control térmico y la seguridad, integrando sensores, actuadores y códigos de acceso conectados a plataformas digitales para asegurar una cadena de custodia transparente.
 
 </div>
 
@@ -99,7 +99,7 @@ Para entender la necesidad del proyecto, se aplicó la técnica de las 5W's + 2H
 
 ### 5W's
 ### What (¿Cuál es el problema?):
-La pérdida intempestiva de la temperatura ideal (caliente o fría) de los alimentos durante la ruta de reparto, sumada al riesgo de aperturas no autorizadas del contenedor y la falta de un sistema de monitoreo en tiempo real que garantice la cadena de custodia.
+La pérdida intempestiva de la temperatura ideal (caliente o fría) de los alimentos durante la ruta de reparto, sumada al riesgo de aperturas no autorizadas del contenedor, la falta de controles de acceso físico y la ausencia de un sistema de monitoreo y evidencia en tiempo real que garantice la cadena de custodia.
 
 ### When (¿Cuándo ocurre el problema?):
 Durante el trayecto de envío urbano, especialmente en desplazamientos que superan los 15 minutos, en horas de alto tráfico o bajo condiciones climáticas adversas que aceleran la transferencia térmica.
@@ -108,21 +108,21 @@ Durante el trayecto de envío urbano, especialmente en desplazamientos que super
 En el espacio de transporte urbano (usualmente motocicletas o bicicletas) durante el tránsito desde el punto de despacho del restaurante hasta el domicilio del consumidor final.
 
 ### Who (¿A quién o quiénes afecta el problema?):
-- A los administradores de restaurantes y empresas de delivery, quienes asumen las pérdidas por reembolsos y el impacto negativo en la reputación de la marca.
+- A los administradores de operaciones de delivery, quienes asumen las pérdidas por reembolsos y el impacto negativo en la reputación de la marca al no contar con pruebas irrefutables de la entrega.
 
 - A los repartidores, que se exponen a penalizaciones operativas o conflictos con los clientes debido a factores logísticos que escapan de su control.
 
 - Al consumidor final, quien recibe un producto con calidad mermada o riesgos de salubridad.
 
 ### Why (¿Por qué sucede el problema?):
-Porque el sector logístico tradicional de alimentos emplea mochilas y cajas pasivas que carecen de sistemas de regulación térmica activa, sensores de seguridad y conectividad. No existe un ecosistema tecnológico integrado que alerte sobre desviaciones térmicas o manipulaciones. 
+Porque el sector logístico tradicional de alimentos emplea mochilas y cajas pasivas que carecen de sistemas de regulación térmica activa, sensores de seguridad y conectividad. No existe un ecosistema tecnológico integrado que gestione permisos de apertura, alerte sobre desviaciones térmicas o manipulaciones, y registre el momento exacto de entrega con evidencias.
 
 ### 2H's
 ### How (¿Cómo aparece el problema?):
-El problema se manifiesta a través de la disipación natural del calor o frío en contenedores sin aislamiento inteligente, y a través de cierres mecánicos simples como cremalleras o velcros que pueden ser abiertos y cerrados sin dejar evidencia física ni generar notificaciones. Inclusive las medidas de seguridad de los restaurantes al tratar de evitar aperturas no autorizadas usando cierres o etiquetas adhesivas se ven comprometidas porque estas pueden ser replicadas o rotas.
+El problema se manifiesta a través de la disipación natural del calor o frío en contenedores sin aislamiento inteligente, a través de cierres mecánicos simples (como cremalleras o velcros) que pueden ser abiertos por cualquier persona en la ruta, y por la ausencia de registros de auditoría y fotografías al concretar la entrega.Inclusive las medidas de seguridad de los restaurantes al tratar de evitar aperturas no autorizadas usando cierres o etiquetas adhesivas se ven comprometidas porque estas pueden ser replicadas o rotas.
 
 ### How Much (¿Cuánto afecta el problema?):
-Los reclamos por entregas frías o paquetes vulnerados pueden representar pérdidas de hasta el 15% en ventas recurrentes para los restaurantes, además del costo directo por reposiciones y reembolsos de pedidos dañados.
+Los reclamos por entregas frías o paquetes vulnerados representan una de las principales causas de pérdida de ventas recurrentes y clientes fidelizados para los restaurantes, impactando directamente en su rentabilidad mensual y generando altos costos operativos por la reposición y reembolso de pedidos dañados.
 
 </div>
 
@@ -130,70 +130,110 @@ Los reclamos por entregas frías o paquetes vulnerados pueden representar pérdi
 
 #### 1.2.2.1. Lean UX Problem Statements.
 
-En el contexto actual de la logística de reparto de comida, los principales afectados son los gerentes de restaurantes, los repartidores y los clientes finales. Estos grupos enfrentan problemas como la pérdida de temperatura de los alimentos, la apertura no autorizada de los contenedores y la falta de monitoreo de rutas en tiempo real. Las soluciones existentes no abordan la ausencia de un sistema automatizado de control térmico activo ni de telemetría de seguridad del contenedor en tiempo real integrada con plataformas móviles y web. Nuestro producto, Cold2Hot, cubrirá esta carencia combinando un dispositivo IoT embebido basado en ESP32 equipado con una sonda de temperatura DS18B20, un sensor magnético de puerta Reed Switch, un sensor infrarrojo TCRT5000, un actuador de ventilador mediante relé de un canal y un zumbador activo con aplicaciones de monitoreo web y móvil en tiempo real. Nos dirigiremos inicialmente a cadenas de restaurantes de pequeño y mediano tamaño y a repartidores independientes que operen en zonas urbanas. Consideraremos que hemos tenido éxito cuando observemos una reducción del 35 % en las quejas de los clientes por comida fría, una tasa de finalización de entregas del 90 % sin aperturas no autorizadas de los contenedores y un aumento de al menos el 20 % en la retención de clientes para los restaurantes participantes.
+<div style="text-align: justify">
+
+Nuestro producto, Cold2Hot, abordará esta brecha mediante la implementación de una caja inteligente de delivery equipada con un microcontrolador ESP32 NodeMCU. Este sistema se integrará con un sensor de temperatura DS18B20, un actuador de ventilación, y un sistema de seguridad de dos niveles procesado mediante la lectura conjunta de un sensor magnético Reed Switch y un sensor infrarrojo TCRT5000. Los datos emitidos se sincronizarán con un panel de administración para empresas y una aplicación móvil para repartidores, habilitando la gestión de perfiles térmicos, bloqueos por código, y reportes de auditoría en tiempo real. Nuestro enfoque inicial será cadenas de restaurantes de tamaño pequeño y mediano, así como repartidores independientes en zonas urbanas.
+
+Sabremos que hemos tenido éxito cuando observemos una reducción del 35% en quejas de clientes por alimentos en estado térmico deficiente, alcancemos una tasa del 90% de entregas sin alertas críticas de manipulación y logremos un aumento de al menos el 20% en la retención de clientes para los establecimientos afiliados mediante el uso de reportes de evidencia.
+
+</div>
 
 #### 1.2.2.2. Lean UX Assumptions.
 
-1. Business Assumptions:
-* Creemos que los restaurantes están dispuestos a adoptar cajas de delivery IoT si el costo del hardware se mantiene accesible por unidad.
-* Creemos que ofrecer una plataforma de monitoreo en tiempo real permitirá cobrar una suscripción mensual accesible a los restaurantes por el servicio SaaS.
-* Creemos que reducir las pérdidas por comida fría incrementará la lealtad y recompra de los usuarios finales.
+**Business Assumptions:**
 
-2. Business Outcome Assumptions:
-* Lograremos una reducción del 35% en reclamos por alimentos entregados a temperatura inadecuada.
-* Lograremos que el 90% de los envíos monitoreados registren cero aperturas no autorizadas durante el trayecto.
-* Reduciremos en un 50% las disputas de reembolso entre restaurantes y repartidores mediante registros térmicos auditables.
+1. Creemos que los restaurantes están dispuestos a invertir en la adopción de cajas inteligentes IoT si el costo unitario de hardware se mantiene accesible y justifica el retorno de inversión.
 
-3. User Assumptions:
-* Creemos que los administradores de restaurantes necesitan un panel web centralizado para supervisar múltiples despachos activos simultáneamente.
-* Creemos que los repartidores necesitan un sistema completamente automatizado que regule la temperatura y emita alertas audibles sin requerir interacción manual mientras conducen.
-* Creemos que los clientes finales desean recibir confirmación de que su pedido se mantuvo protegido en todo momento.
+2. Creemos que la oferta de una plataforma SaaS de monitoreo centralizado permitirá la monetización a través de suscripciones mensuales viables para los restaurantes o plataformas de delivery que quieran invertir y equipar a sus motorizados.
 
-4. User Outcome and Benefit Assumptions:
-* Los administradores de restaurante obtendrán tranquilidad y visibilidad total de la cadena de custodia de sus despachos.
-* Los repartidores evitarán penalizaciones por comida entregada a destiempo o en mala temperatura.
-* Los clientes finales disfrutarán de comida caliente, preservada y segura en su domicilio.
+3. Creemos que la validación de entregas mediante códigos y fotografías reducirá drásticamente las devoluciones fraudulentas por parte de malos clientes.
 
-5. Feature Assumptions:
-* Feature 1: Regulador térmico automatizado que activa el ventilador vía relé de 1 canal procesado por el ESP32 cuando el sensor DS18B20 detecta temperaturas fuera del umbral establecido.
-* Feature 2: Sistema de seguridad para la tapa de la caja que acciona el Buzzer local y notifica a la app móvil del repartidor ante aperturas no autorizadas mediante el sensor Reed Switch.
-* Feature 3: Detector de presencia física del paquete en el compartimento mediante el sensor infrarrojo TCRT5000 para iniciar y cerrar automáticamente el seguimiento del despacho en la aplicación web.
+4. Captaremos clientes mediante alianzas, referidos y estrategias digitales.
+
+**User Assumptions:**
+1. Creemos que los administradores de restaurantes necesitan un panel web centralizado para supervisar el despacho, configurar el tipo de temperatura de cada envío, y auditar los tiempos exactos de apertura de las cajas.
+
+2. Creemos que los repartidores requieren una aplicación que los asista proactivamente, exigiéndoles mantener la conectividad (Bluetooth) y guiándolos en el proceso de entrega mediante códigos de apertura y toma de evidencias.
+
+3. Creemos que los repartidores necesitan un sistema que diferencie entre un descuido (caja mal cerrada pero con el pedido dentro) y una manipulación real, emitiendo notificaciones proporcionales a la gravedad del evento.
+
+**Business Outcome Assumptions:**
+- Lograremos una reducción del 35% en reclamos y devoluciones por alimentos entregados fuera del rango térmico óptimo.
+- Alcanzaremos un 90% de entregas monitoreadas sin incidencias de aperturas no autorizadas.
+- Reduciremos en un 70% las disputas logísticas entre restaurantes, clientes y repartidores al contar con un historial auditable de tiempos de apertura y evidencias fotográficas.
+
+**User Outcome Assumptions:**
+- Los administradores de restaurante obtendrán visibilidad total, capacidad de definir perfiles térmicos antes del despacho, y evidencia digital irrefutable sobre el estado físico de los pedidos entregados.
+
+- Los repartidores minimizarán penalizaciones injustas trabajando con mayor seguridad, recibiendo avisos preventivos para corregir cierres accidentales y demostrando la correcta entrega de los paquetes.
+
+- Los clientes finales disfrutarán de una experiencia superior, recibiendo alimentos en temperatura ideal y con higiene garantizada.
+
+**Features:**
+- Regulador térmico automatizado operado por un ESP32 y un sensor DS18B20 cuya configuración modo frío o caliente es asignada remotamente desde el panel de la empresa al iniciar el despacho.
+
+- Sistema de seguridad de dos niveles que cruza datos del sensor magnético y el infrarrojo para diferenciar entre aperturas accidentales con el paquete dentro emitiendo un aviso preventivo y extracciones reales del pedido emitiendo una alerta crítica.
+
+- Sistema de control de acceso físico que mantiene el contenedor bloqueado hasta que el repartidor digite en su aplicación el código único de entrega generado por el restaurante.
+
+- Aplicación móvil para repartidores que incluye recordatorio inicial de conexión Bluetooth, lectura de métricas de temperatura, recepción de alertas, y un flujo de cierre de entrega con captura de fotografía como evidencia.
+
+- Panel de administración web/móvil para la empresa que permite generar códigos de acceso, configurar la temperatura, y visualizar reportes en tiempo real, tiempos exactos de apertura, estado de permanencia ocupado/desocupado, métricas térmicas y registro fotográfico.
+
 
 #### 1.2.2.3. Lean UX Hypothesis Statements.
 
-Siguiendo la plantilla oficial de Lean UX, se definen las siguientes hipótesis:
+Para la elaboración de los Hypothesis Statements, se empleó la plantilla recomendada Lean UX:
+We believe that [business outcome] will be achieved if [user] attains [benefit] with [feature].
 
-* Declaración de Hipótesis 1: Creemos que lograremos una reducción del 35% en reclamos por comida fría si los administradores de restaurantes y repartidores obtienen regulación térmica automatizada y conservación óptima de la temperatura interna de la caja con el microcontrolador ESP32 integrado a la sonda de temperatura DS18B20 y el sistema de control de ventilador por relé de 1 canal.
-* Declaración de Hipótesis 2: Creemos que lograremos una tasa del 90% de entregas completadas sin aperturas no autorizadas si los repartidores y supervisores del restaurante obtienen notificación inmediata local y móvil de aperturas inesperadas de la tapa de la caja con el sensor magnético Reed Switch junto al Buzzer activo y notificaciones push móviles.
-* Declaración de Hipótesis 3: Creemos que lograremos una tasa de sesiones de monitoreo falsas menor al 5% si los despachadores del restaurante obtienen inicio y cierre automático de sesión sincronizado con la colocación del paquete con el sensor infrarrojo TCRT5000 integrado al panel web.
+#### Hipótesis 1
+**Creemos que** la reducción del 35% en reclamos por alimentos en mal estado térmico **se logrará si** los administradores de restaurantes **obtienen** la capacidad de adaptar el entorno de la caja a cada pedido **con** una funcionalidad de configuración térmica remota (frío/caliente) integrada al ESP32 y al sensor DS18B20.
+
+#### Hipótesis 2
+**Creemos que** la reducción de fricción operativa y estrés en la conducción **se logrará si** los repartidores **obtienen** notificaciones precisas que eviten falsas alarmas **con** un sistema de seguridad de dos niveles que distingue entre una caja mal cerrada y una extracción real del pedido.
+
+#### Hipótesis 3
+**Creemos que** la erradicación de aperturas no autorizadas en ruta **se logrará si** los restaurantes y clientes **obtienen** garantía de inviolabilidad **con** un sistema de control de acceso físico que requiere la digitación de un código único para abrir el contenedor.
+
+#### Hipótesis 4
+**Creemos que** la disminución de penalizaciones injustas hacia los conductores **se logrará si** los repartidores **obtienen** una herramienta para registrar su desempeño **con** entregas seguras y confiables.
+
+#### Hipótesis 5
+**Creemos que** la reducción del 70% en disputas logísticas por reembolsos **se logrará si** los administradores de restaurantes **obtienen** visibilidad gerencial y auditoría total **con** un panel de administración que consolida reportes en tiempo real de temperatura, tiempos exactos de apertura, estado de ocupación del paquete y registro fotográfico.
 
 #### 1.2.2.4. Lean UX Canvas
 
 | Business Problem | Solutions | Business Outcomes |
 |---|---|---|
-| Los restaurantes y empresas de delivery pierden clientes y dinero debido a entregas de comida que llegan frías, derramadas o manipuladas durante el trayecto, sin contar con herramientas para supervisar el estado de la caja de transporte en tiempo real. | Implementación de una caja inteligente de delivery impulsada por el microcontrolador ESP32, integrada con sensor térmico DS18B20 con sonda metálica, sensor magnético de puerta Reed Switch, sensor infrarrojo de presencia TCRT5000, sistema de ventilación impulsado por relé de 1 canal y alarma sonora con Buzzer activo, sincronizados en tiempo real con una aplicación móvil y una plataforma web. | - Reducción del 35% en reclamos por alimentos entregados a temperatura inadecuada.<br>- Reducción del 90% en incidencias de manipulación o aperturas no autorizadas de la caja.<br>- Incremento en la satisfacción y retención del cliente final. |
+| Los restaurantes sufren pérdidas económicas y de reputación por entregas frías, vulneradas o reportadas falsamente como no recibidas. Existe una nula visibilidad del estado de la caja de transporte, falta de controles de acceso en ruta y carencia de evidencias al momento de la entrega, lo que impide garantizar la calidad del servicio logístico. | Implementación de una caja de delivery inteligente (ESP32) con regulación térmica configurable, seguridad de dos niveles, control de apertura por código, y aplicaciones web/móviles para reportes en tiempo real, alertas preventivas y captura fotográfica de entrega | - Disminución del 35% en reclamos por temperatura inadecuada.<br>- Reducción del 90% en incidencias de manipulación.<br>- Mejora en la rentabilidad y fidelización del cliente. |
 
 | Users and Customer | | User Outcomes & Benefits |
 |---|---|---|
-| Administradores de restaurantes: Necesitan garantizar la cadena de custodia de sus pedidos y reducir pérdidas por reembolsos.<br>Repartidores de delivery: Requieren alertas automáticas audibles y móviles que no interfieran con la conducción.<br>Consumidores finales: Exigen alimentos en temperatura óptima e higiene garantizada. | | - Los restaurantes obtienen visibilidad y control del estado de los despachos en tiempo real.<br>- Los repartidores reciben alertas instantáneas en su móvil y audibles ante variaciones térmicas o aperturas.<br>- Los clientes finales disfrutan de comida caliente, preservada y segura en su domicilio. |
+| Administradores de restaurantes: Requieren asegurar la cadena de custodia, controlar la temperatura remotamente y tener evidencia digital auditable.<br>Repartidores: Necesitan herramientas que avisen si la caja quedó mal cerrada sin emitir falsas alarmas, y poder demostrar que entregaron el pedido correctamente.<br>Consumidores: Buscan garantías de higiene y temperatura ideal. | | - Los restaurantes logran trazabilidad total del despacho en tiempo real, con marcas de tiempo precisas de apertura y fotos de entrega.<br>- Los repartidores reciben avisos preventivos para corregir descuidos, cuentan con recordatorios de conectividad y evitan sanciones mediante la evidencia fotográfica.<br>- Los consumidores disfrutan de alimentos protegidos. |
 
 | Hypotheses | What is the most important thing we need to learn first? | What is the least amount of work we need to do to learn the next most important thing? |
 |---|---|---|
-| Creemos que la regulación térmica automática con ESP32, sensor DS18B20 y relé con ventilador, junto al sistema de seguridad con Reed Switch y Buzzer activo, garantizará entregas seguras y a temperatura ideal, reduciendo reclamos por comida fría en un 35% y aperturas no autorizadas en un 90%. | Determinar si la combinación del microcontrolador ESP32 con el sensor DS18B20 y el relé de ventilación reacciona con suficiente velocidad para estabilizar la temperatura interna de la caja durante trayectos urbanos reales. | Construir un prototipo físico funcional de la caja con el circuito ESP32 y realizar pruebas de simulación de ruta de 20 minutos midiendo la respuesta de temperatura y el funcionamiento de alarmas y notificaciones. |
+| Creemos que dotar a los contenedores de telemetría activa, bloqueos por código, seguridad de dos niveles y un panel web de auditoría fotográfica reducirá las devoluciones un 35% y evitará manipulaciones en un 90%, blindando operativamente al restaurante y al repartidor. | Necesitamos validar si la interacción entre la generación del código en el restaurante y la digitación en la aplicación del repartidor para abrir la caja ocurre sin latencias que retrasen el proceso de entrega. | Desarrollar un flujo de interfaz y un prototipo físico del mecanismo de bloqueo, ejecutando pruebas de usabilidad cronometradas con repartidores ficticios ingresando códigos de apertura y tomando fotografías. |
 
 ## 1.3. Segmentos objetivo.
 
-Cold2Hot está dirigido a tres segmentos clave dentro del ecosistema de entregas a domicilio en Lima Metropolitana y principales ciudades urbanas del Perú:
+El modelo de negocio de Cold2Hot impacta en el ecosistema logístico urbano de última milla, dividiendo su enfoque en dos segmentos principales de usuarios directos:
 
-1. Restaurantes y Empresas de Catering o Delivery:
-   * Perfil Demográfico y Operativo: Establecimientos gastronómicos de tamaño mediano y pequeño dedicados a la venta de alimentos preparados en zonas urbanas con alto flujo de despacho a domicilio.
-   * Sustento Estadístico: Según la Cámara de Comercio de Lima, el sector de restaurantes y delivery creció más del 25% en el último trienio, representando más del 30% del volumen total de ventas en hora pico.
-   * Necesidad Principal: Garantizar la calidad percibida del platillo entregado, disminuir la tasa de reembolsos por entregas frías y contar con un registro auditable del despacho.
+### Segmento 1: Administradores de operaciones de delivery  
+- **Descripcion:** Encargados de la operación y gerencia de establecimientos con alto volumen de despachos. Supervisan el proceso a través de un panel de administración web o móvil para asignar perfiles térmicos (frío/caliente), verificar el estado de la caja (abierta/cerrada), y visualizar los reportes en tiempo real. 
+- **Sexo:** Masculino y femenino.
+- **Edades:** Adultos jóvenes (25-40 años) y adultos de mediana edad (41-55 años).
+- **Nivel socioeconómico**: Sectores B y A (media-alta y alta).
+- **Necesidades**: Reducir drásticamente la tasa de pedidos reembolsados por quejas de calidad o reportes falsos de no entrega. Requieren un registro inmutable y auditable (incluyendo métricas, tiempos exactos de apertura y evidencias fotográficas) para deslindar responsabilidades frente a los servicios de entrega de terceros y proteger el prestigio de la marca.
 
-2. Repartidores de Delivery:
-   * Perfil Demográfico y Operativo: Hombres y mujeres de 18 a 45 años, trabajadores independientes o en plantilla de restaurantes, que transitan en motocicletas o bicicletas de 6 a 10 horas diarias.
-   * Sustento Estadístico: En Lima operan más de 45000 repartidores activos en servicios de delivery. Aproximadamente el 65% realiza trayectos que superan los 12 minutos de duración por viaje.
-   * Necesidad Principal: Sistemas automatizados que no demanden manipulación continua mientras conducen, y avisos sonoros o móviles inmediatos ante la apertura no deseada de la mochila o caja de carga.
+### Segmento 2: Operadores de entrega
+- **Descripcion:** Conductores de motocicletas o bicicletas, ya sean independientes (asociados a aplicativos) o en planilla fija del restaurante. Interactúan con la caja inteligente mediante una aplicación móvil que les exige mantener conectividad Bluetooth, les permite ingresar códigos de apertura y registrar fotografías del pedido entregado.
+- **Sexo:** Masculino y femenino.
+- **Edades:** Jóvenes y adultos (18-45 años).
+- **Nivel socioeconómico**: Sectores C y D.
+- **Necesidades**: Evitar mermas en sus ingresos provocadas por penalizaciones injustas. Buscan soluciones tecnológicas que les avisen de forma inteligente si olvidaron cerrar la caja y que les permitan resguardar su trabajo mediante pruebas irrefutables de entrega exitosa.
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo II: Requirements Elicitation & Analysis
 
