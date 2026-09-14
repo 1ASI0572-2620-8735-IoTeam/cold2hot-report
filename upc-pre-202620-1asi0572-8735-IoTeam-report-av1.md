@@ -61,15 +61,13 @@ Teves Samaniego, Joan Fernando (U202117303)
 
 ### 1.1.1. Descripción de la Startup
 
-IoTeam es una startup tecnológica dedicada al desarrollo de soluciones basadas en Internet de las Cosas orientadas a la logística urbana y a la preservación de la cadena de custodia en el delivery de alimentos.
+IoTeam es una startup tecnológica que busca resolver un problema cotidiano y lograr que la comida a domicilio llegue en buenas condiciones. Para ello nos enfoncamos en crear una solución basada en Internet de las Cosas (IoT) para cuidar los pedidos durante su trayecto hasta llegar a la puerta del cliente.
 
-* Misión: Garantizar la calidad, seguridad e integridad de los pedidos de comida durante su transporte mediante sistemas inteligentes de monitoreo ambiental y control térmico automatizado.
-* Visión: Posicionarse como la startup referente en Latinoamérica en tecnología IoT aplicada a la logística de última milla para el sector gastronómico.
-* Valores: Innovación constante, calidad de servicio, eficiencia energética, seguridad operacional y compromiso con la satisfacción del cliente final.
+* Misión: Que cada pedido de comida llegue tan bueno como salió del restaurante, cuidando su temperatura y seguridad durante todo el camino.
+* Visión: Convertirnos en un referente en Latinoamérica para la tecnología con enfoque en IoT aplicada al delivery de comida, ayudando a que restaurantes y repartidores trabajen con más confianza.
+* Valores: Innovación, calidad de servicio, cuidado del medio ambiente, seguridad y, sobre todo, pensar siempre en la experiencia del cliente final
 
 ### 1.1.2. Perfiles de integrantes del equipo
-
-El equipo de IoTeam está conformado por 7 estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas:
 
 | Integrante | Descripcion de Carrera | Conocimientos y Habilidades a apuntar |
 | --------------------------------| ----------------------| ------------------------------------ |
@@ -83,19 +81,50 @@ El equipo de IoTeam está conformado por 7 estudiantes de la carrera de Ingenier
 
 ## 1.2. Solution Profile
 
-El producto desarrollado es Cold2Hot, un sistema inteligente de monitoreo térmico y seguridad integral diseñado para cajas de delivery de alimentos.
+Nuestra solución se denomina Cold2Hot, un sistema inteligente para cajas de delivery diseñado para proteger la calidad termica y la seguridad de los pedidos en trayecto.
 
 ### 1.2.1 Antecedentes y problemática
 
-En la industria actual de delivery de alimentos, uno de los mayores desafíos logísticos es garantizar que los pedidos lleguen al consumidor en óptimas condiciones térmicas y de salubridad. Para un análisis detallado de la problemática se aplica la técnica 5W2H:
+### Antecedentes
+<div style="text-align: justify">
 
-* Who: Empresas y restaurantes de delivery de comida preparada, repartidores de última milla y los consumidores finales que reciben alimentos en mal estado térmico o manipulados.
-* What: Pérdida intempestiva de la temperatura ideal ya sea caliente y/o frío de los platillos en ruta, aperturas no autorizadas o mal cierre de la caja de transporte, y la falta de un sistema de monitoreo automatizado e higiénico.
-* Where: Durante el transporte urbano en motocicleta o bicicleta desde la salida del restaurante hasta el punto de entrega al cliente final.
-* When: Durante el trayecto de envío, especialmente en desplazamientos superiores a los 15 minutos o en condiciones climáticas adversas.
-* Why: Las cajas de delivery convencionales son recipientes pasivos de aislamiento limitado, sin sensores de temperatura, sin actuadores de ventilación ni alertas de seguridad ante aperturas.
-* How: Mediante un dispositivo embebido IoT impulsado por el microcontrolador ESP32, equipado con un sensor térmico de sonda metálica DS18B20, un sensor magnético Reed Switch, un infrarrojo TCRT5000, un actuador de ventilación vía Módulo Relé de 1 canal y un Buzzer activo, interconectados a aplicaciones web y móviles.
-* How Much: Los reclamos por entregas frías o dañadas representan pérdidas de hasta el 15% en ventas recurrentes para los restaurantes. La solución IoT propone un costo de hardware altamente accesible por caja inteligente.
+A esta situación se suma el riesgo de manipulación de los alimentos durante el trayecto. La falta de mecanismos de seguridad automatizados en los contenedores de reparto impide que los negocios o los clientes finales tengan la seguridad de que el pedido no ha sido abierto sin autorización. La carencia de telemetría y sistemas de monitoreo en tiempo real crea un vacío de información operativo, donde el estado de la entrega es una incógnita hasta que llega a la puerta del cliente. Frente a esto, surge la necesidad de implementar soluciones de Internet de las Cosas (IoT) que permitan automatizar el control térmico y la seguridad, integrando sensores y actuadores conectados a plataformas digitales para asegurar una cadena de custodia transparente.
+
+</div>
+
+### Problemática
+
+<div align="justify">
+Para entender la necesidad del proyecto, se aplicó la técnica de las 5W's + 2H's:
+
+### 5W's
+### What (¿Cuál es el problema?):
+La pérdida intempestiva de la temperatura ideal (caliente o fría) de los alimentos durante la ruta de reparto, sumada al riesgo de aperturas no autorizadas del contenedor y la falta de un sistema de monitoreo en tiempo real que garantice la cadena de custodia.
+
+### When (¿Cuándo ocurre el problema?):
+Durante el trayecto de envío urbano, especialmente en desplazamientos que superan los 15 minutos, en horas de alto tráfico o bajo condiciones climáticas adversas que aceleran la transferencia térmica.
+
+### Where (¿Dónde ocurre el problema?):
+En el espacio de transporte urbano (usualmente motocicletas o bicicletas) durante el tránsito desde el punto de despacho del restaurante hasta el domicilio del consumidor final.
+
+### Who (¿A quién o quiénes afecta el problema?):
+- A los administradores de restaurantes y empresas de delivery, quienes asumen las pérdidas por reembolsos y el impacto negativo en la reputación de la marca.
+
+- A los repartidores, que se exponen a penalizaciones operativas o conflictos con los clientes debido a factores logísticos que escapan de su control.
+
+- Al consumidor final, quien recibe un producto con calidad mermada o riesgos de salubridad.
+
+### Why (¿Por qué sucede el problema?):
+Porque el sector logístico tradicional de alimentos emplea mochilas y cajas pasivas que carecen de sistemas de regulación térmica activa, sensores de seguridad y conectividad. No existe un ecosistema tecnológico integrado que alerte sobre desviaciones térmicas o manipulaciones. 
+
+### 2H's
+### How (¿Cómo aparece el problema?):
+El problema se manifiesta a través de la disipación natural del calor o frío en contenedores sin aislamiento inteligente, y a través de cierres mecánicos simples como cremalleras o velcros que pueden ser abiertos y cerrados sin dejar evidencia física ni generar notificaciones. Inclusive las medidas de seguridad de los restaurantes al tratar de evitar aperturas no autorizadas usando cierres o etiquetas adhesivas se ven comprometidas porque estas pueden ser replicadas o rotas.
+
+### How Much (¿Cuánto afecta el problema?):
+Los reclamos por entregas frías o paquetes vulnerados pueden representar pérdidas de hasta el 15% en ventas recurrentes para los restaurantes, además del costo directo por reposiciones y reembolsos de pedidos dañados.
+
+</div>
 
 ### 1.2.2 Lean UX Process.
 
@@ -165,12 +194,6 @@ Cold2Hot está dirigido a tres segmentos clave dentro del ecosistema de entregas
    * Perfil Demográfico y Operativo: Hombres y mujeres de 18 a 45 años, trabajadores independientes o en plantilla de restaurantes, que transitan en motocicletas o bicicletas de 6 a 10 horas diarias.
    * Sustento Estadístico: En Lima operan más de 45000 repartidores activos en servicios de delivery. Aproximadamente el 65% realiza trayectos que superan los 12 minutos de duración por viaje.
    * Necesidad Principal: Sistemas automatizados que no demanden manipulación continua mientras conducen, y avisos sonoros o móviles inmediatos ante la apertura no deseada de la mochila o caja de carga.
-
-3. Consumidores Finales:
-   * Perfil Demográfico: Hombres y mujeres de 18 a 60 años de los niveles socioeconómicos A, B y C1 que habitan en zonas urbanas y solicitan delivery de comida de 2 a 4 veces por semana.
-   * Sustento Estadístico: Reportes del INEI indican que el 58% de los usuarios de delivery han experimentado al menos una mala experiencia por recibir comida tibia o fría en los últimos 6 meses.
-   * Necesidad Principal: Disfrutar de sus platillos en la temperatura adecuada de consumo, con la certeza de que la caja se mantuvo sellada e higiénica durante todo el traslado.
-
 
 # Capítulo II: Requirements Elicitation & Analysis
 
