@@ -726,6 +726,27 @@ El diseño relacional para el bounded context Container & Device Management se i
     <img src="assets/CDM_database-diagram.png" alt="CDM Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
+### 4.2.3. Bounded Context: Thermal Monitoring & Telemetry
+
+El contexto delimitado Thermal Monitoring & Telemetry concentra la lógica relacionada con la recepción, validación, procesamiento y trazabilidad de la telemetría térmica generada por las SmartBoxes durante el transporte de los pedidos. Su responsabilidad principal es transformar las lecturas provenientes del hardware IoT en información de dominio que permita determinar si las condiciones térmicas del envío se mantienen dentro de los límites configurados.
+
+#### 4.2.3.1. Domain Layer.
+
+#### 4.2.3.2. Interface Layer.
+
+#### 4.2.3.3. Application Layer.
+
+#### 4.2.3.4. Infrastructure Layer.
+
+#### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.
+
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.
+
+##### 4.2.3.6.2. Bounded Context Database Design Diagram.
+
+
 ### 4.2.X. Bounded Context: <Bounded Context Name>
 
 #### 4.2.X.1. Domain Layer.
