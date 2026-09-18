@@ -1,54 +1,5 @@
 <div align="center">
 
-<p align="center">
-  <img src="assets/upc_logo.png" alt="logo" width="200"/>
-</p>
-
-<h3 align="center">
-Universidad Peruana de Ciencias Aplicadas
-</h3>
-
-<h3 align="center">
-Ingeniería de Software
-<br><br>
-Ciclo: 2026-20
-<br><br>
-1ASI0572 - Desarrollo de Soluciones IOT
-<br><br>
-NRC: 8735
-<br><br>
-Docente: Leon Bacca, Marco Antonio
-<br><br>
-<strong>Informe de Trabajo Final</strong>  
-<br><br>
-Startup: IoTeam
-<br><br>
-Producto: Cold2Hot  
-<br><br>
-<br><br>
-<strong>Integrantes</strong>  
-<br><br>
-Alvarado De La Cruz , Juan Carlos (U202216150) 
-<br><br>
-Carhuancote Dominguez, Gonzalo Alonso (U202210720) 
-<br><br>
-Diestra Zambrano, Adriana Maria (U202218110)
-<br><br>
-Duran Diaz, Antonio Rodrigo (U202215721)
-<br><br>
-Nakasone Gomes, Marco Antonio (U202210790)
-<br><br>
-Shimabukuro Uku, Carlos Joel (U201912407)
-<br><br>
-Teves Samaniego, Joan Fernando (U202117303)
-<br><br>
-<br>
-
-**Septiembre - 2026**
-
-</h3>
-</div>
-
 # Contenido
 
 ## Tabla de contenidos
@@ -117,20 +68,20 @@ Esta sección permite especificar los requisitos de los productos digitales que 
 
 A continuación, se presentan los requisitos definidos para la solución Cold2Hot, agrupados en Epics. Estos requisitos abarcan las interacciones de los distintos segmentos de usuarios (Administradores de operaciones, Operadores de entrega y Visitantes) con los diferentes productos de software (Landing Page, Web Application, Mobile App y el dispositivo IoT).
 
-| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
-| --- | --- | --- | --- | --- |
-| EP01 | Gestión y Trazabilidad Térmica | Como administrador de operaciones, quiero gestionar y monitorear los envíos desde un panel centralizado para asegurar la cadena de custodia térmica. | - El panel web permite crear, ver y auditar envíos.<br>- Muestra gráficos de temperatura y alertas en tiempo real. | - |
-| EP02 | Seguridad y Entrega | Como operador de entrega, quiero interactuar con la caja inteligente mediante una app móvil para realizar entregas seguras y evidenciar mi trabajo. | - La app se conecta por BLE a la caja.<br>- Permite desbloqueo por OTP y captura de fotos como evidencia. | - |
-| EP03 | Landing Page | Como visitante, quiero informarme sobre el producto y sus beneficios para decidir adquirirlo. | - La web es responsiva y explica el ROI, características técnicas y planes. | - |
-| US01 | Visualización de Calculadora ROI | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución. | **Given** que me encuentro en la sección de beneficios del Landing Page,<br>**When** ingreso la cantidad de pedidos y reclamos actuales,<br>**Then** el sistema calcula y muestra el dinero que ahorraré anualmente. | EP03 |
-| US02 | Visualización de Planes | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante. | **Given** que accedo a la sección de precios,<br>**When** hago scroll hacia la tabla de planes,<br>**Then** veo los costos mensuales, características incluidas y un botón para contactar ventas. | EP03 |
-| US03 | Creación de Envío | Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida (caliente/fría) para iniciar el monitoreo. | **Given** que me encuentro en el panel de despachos,<br>**When** ingreso los datos del pedido y selecciono el perfil térmico, y presiono "Crear",<br>**Then** se genera el envío en estado "Pendiente" y se emite un código OTP de apertura. | EP01 |
-| US04 | Monitoreo en Tiempo Real | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad. | **Given** que tengo envíos en curso,<br>**When** accedo al dashboard de monitoreo en la web,<br>**Then** visualizo una lista de cajas activas mostrando su temperatura actual, nivel de batería y estado del cerrojo. | EP01 |
-| US05 | Historial y Auditoría | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | **Given** que un cliente reporta un problema,<br>**When** busco el ID del pedido en el historial,<br>**Then** puedo visualizar la gráfica de temperatura del trayecto, los horarios de apertura de la caja y las fotos tomadas en la entrega. | EP01 |
-| US06 | Conexión BLE con la Caja | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica. | **Given** que estoy cerca de la caja asignada,<br>**When** abro la app móvil y selecciono "Conectar a SmartBox",<br>**Then** la app establece conexión por BLE y el LED de la caja confirma la vinculación. | EP02 |
-| US07 | Desbloqueo por OTP | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente. | **Given** que la app está conectada a la caja,<br>**When** ingreso el OTP provisto por el administrador y presiono "Desbloquear",<br>**Then** la caja inteligente libera su cerrojo y registra el evento de apertura exitosa. | EP02 |
-| US08 | Registro de Evidencia Fotográfica | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas. | **Given** que he entregado el producto,<br>**When** uso la cámara dentro de la app para fotografiar el paquete entregado y presiono "Enviar",<br>**Then** la imagen se sube a la plataforma asociándose al ID del envío y cerrando el ciclo logístico. | EP02 |
-| US09 | Registro Térmico (Technical Story) | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable. | **Given** que la caja inteligente está encendida y en ruta,<br>**When** transcurre un minuto,<br>**Then** el ESP32 envía un payload JSON con la temperatura actual, timestamp y estado de sensores hacia el endpoint correspondiente. | EP01 |
+| Epic / Story ID | Título                             | Descripción                                                                                                                                                                    | Criterios de Aceptación                                                                                                                                                                                                                                             | Relacionado con (Epic ID) |
+| --------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| EP01            | Gestión y Trazabilidad Térmica    | Como administrador de operaciones, quiero gestionar y monitorear los envíos desde un panel centralizado para asegurar la cadena de custodia térmica.                          | - El panel web permite crear, ver y auditar envíos.- Muestra gráficos de temperatura y alertas en tiempo real.                                                                                                                                                     | -                         |
+| EP02            | Seguridad y Entrega                 | Como operador de entrega, quiero interactuar con la caja inteligente mediante una app móvil para realizar entregas seguras y evidenciar mi trabajo.                            | - La app se conecta por BLE a la caja.- Permite desbloqueo por OTP y captura de fotos como evidencia.                                                                                                                                                                | -                         |
+| EP03            | Landing Page                        | Como visitante, quiero informarme sobre el producto y sus beneficios para decidir adquirirlo.                                                                                   | - La web es responsiva y explica el ROI, características técnicas y planes.                                                                                                                                                                                        | -                         |
+| US01            | Visualización de Calculadora ROI   | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución.                                           | **Given** que me encuentro en la sección de beneficios del Landing Page,**When** ingreso la cantidad de pedidos y reclamos actuales,**Then** el sistema calcula y muestra el dinero que ahorraré anualmente.                                     | EP03                      |
+| US02            | Visualización de Planes            | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante.                                                        | **Given** que accedo a la sección de precios,**When** hago scroll hacia la tabla de planes,**Then** veo los costos mensuales, características incluidas y un botón para contactar ventas.                                                       | EP03                      |
+| US03            | Creación de Envío                 | Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida (caliente/fría) para iniciar el monitoreo.             | **Given** que me encuentro en el panel de despachos,**When** ingreso los datos del pedido y selecciono el perfil térmico, y presiono "Crear",**Then** se genera el envío en estado "Pendiente" y se emite un código OTP de apertura.            | EP01                      |
+| US04            | Monitoreo en Tiempo Real            | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad.          | **Given** que tengo envíos en curso,**When** accedo al dashboard de monitoreo en la web,**Then** visualizo una lista de cajas activas mostrando su temperatura actual, nivel de batería y estado del cerrojo.                                    | EP01                      |
+| US05            | Historial y Auditoría              | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | **Given** que un cliente reporta un problema,**When** busco el ID del pedido en el historial,**Then** puedo visualizar la gráfica de temperatura del trayecto, los horarios de apertura de la caja y las fotos tomadas en la entrega.             | EP01                      |
+| US06            | Conexión BLE con la Caja           | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica.                              | **Given** que estoy cerca de la caja asignada,**When** abro la app móvil y selecciono "Conectar a SmartBox",**Then** la app establece conexión por BLE y el LED de la caja confirma la vinculación.                                             | EP02                      |
+| US07            | Desbloqueo por OTP                  | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente.                                                    | **Given** que la app está conectada a la caja,**When** ingreso el OTP provisto por el administrador y presiono "Desbloquear",**Then** la caja inteligente libera su cerrojo y registra el evento de apertura exitosa.                             | EP02                      |
+| US08            | Registro de Evidencia Fotográfica  | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas.                              | **Given** que he entregado el producto,**When** uso la cámara dentro de la app para fotografiar el paquete entregado y presiono "Enviar",**Then** la imagen se sube a la plataforma asociándose al ID del envío y cerrando el ciclo logístico. | EP02                      |
+| US09            | Registro Térmico (Technical Story) | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable.                                           | **Given** que la caja inteligente está encendida y en ruta,**When** transcurre un minuto,**Then** el ESP32 envía un payload JSON con la temperatura actual, timestamp y estado de sensores hacia el endpoint correspondiente.                    | EP01                      |
 
 ## 3.2. Impact Mapping.
 
@@ -139,6 +90,7 @@ A continuación, se presenta el Impact Mapping de Cold2Hot, una representación 
 ![Impact Mapping](./assets/impact-mapping.png)
 
 *(Nota: En la herramienta MURAL / Miro se ha construido el diagrama completo en donde se observa:*
+
 * **Business Goal:** Reducir en un 35% las devoluciones por comida fría o paquetes adulterados en los restaurantes afiliados durante los primeros 6 meses.
 * **Personas:** Administrador de operaciones, Operador de entrega.
 * **Impacts:** "Detectar incidentes en tiempo real", "Entregar evidencia innegable de calidad", "Bloquear accesos no autorizados".
@@ -148,21 +100,21 @@ A continuación, se presenta el Impact Mapping de Cold2Hot, una representación 
 
 Se ha elaborado y priorizado el Product Backlog en nuestra herramienta de gestión de proyectos (por ejemplo, Trello o Jira). Los User Stories han sido estimados utilizando puntos de historia (Story Points), siguiendo la sucesión de Fibonacci (1, 2, 3, 5, 8). Se ha priorizado los User Stories relacionados con el acceso, la información del Landing Page y las funcionalidades core de seguridad e IoT en las primeras posiciones.
 
-**Enlace público al Product Backlog:** [https://trello.com/b/example-cold2hot-backlog](https://trello.com/b/example-cold2hot-backlog)
+**Enlace público al Product Backlog:** [marcoanakasone-1789698062967.atlassian.net/jira/software/projects/KAN/boards/1/backlog?atlOrigin=eyJpIjoiNTk0N2Q4MGJiNjQ0NGQzZDk5MzFkZWZiZDdmNTBkMjUiLCJwIjoiaiJ9](https://marcoanakasone-1789698062967.atlassian.net/jira/software/projects/KAN/boards/1/backlog?atlOrigin=eyJpIjoiNTk0N2Q4MGJiNjQ0NGQzZDk5MzFkZWZiZDdmNTBkMjUiLCJwIjoiaiJ9)
 
-![Product Backlog Trello Board](./assets/product-backlog.png)
+![Product Backlog Trello Board](./assets/product-backlog.jpeg)
 
-| # Orden | User Story Id | Título | Descripción | Story Points (1 / 2 / 3 / 5 / 8) |
-| --- | --- | --- | --- | --- |
-| 1 | US01 | Visualización de Calculadora ROI | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución. | 3 |
-| 2 | US02 | Visualización de Planes | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante. | 2 |
-| 3 | US09 | Registro Térmico (Technical Story) | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable. | 8 |
-| 4 | US06 | Conexión BLE con la Caja | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica. | 5 |
-| 5 | US07 | Desbloqueo por OTP | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente. | 5 |
-| 6 | US03 | Creación de Envío | Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida (caliente/fría) para iniciar el monitoreo. | 3 |
-| 7 | US04 | Monitoreo en Tiempo Real | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad. | 5 |
-| 8 | US08 | Registro de Evidencia Fotográfica | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas. | 3 |
-| 9 | US05 | Historial y Auditoría | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | 3 |
+| # Orden | User Story Id | Título                             | Descripción                                                                                                                                                                    | Story Points (1 / 2 / 3 / 5 / 8) |
+| ------- | ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| 1       | US01          | Visualización de Calculadora ROI   | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución.                                           | 3                                |
+| 2       | US02          | Visualización de Planes            | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante.                                                        | 2                                |
+| 3       | US09          | Registro Térmico (Technical Story) | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable.                                           | 8                                |
+| 4       | US06          | Conexión BLE con la Caja           | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica.                              | 5                                |
+| 5       | US07          | Desbloqueo por OTP                  | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente.                                                    | 5                                |
+| 6       | US03          | Creación de Envío                 | Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida (caliente/fría) para iniciar el monitoreo.             | 3                                |
+| 7       | US04          | Monitoreo en Tiempo Real            | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad.          | 5                                |
+| 8       | US08          | Registro de Evidencia Fotográfica  | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas.                              | 3                                |
+| 9       | US05          | Historial y Auditoría              | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | 3                                |
 
 # Capítulo IV: Solution Software Design
 
@@ -190,7 +142,7 @@ Se ha elaborado y priorizado el Product Backlog en nuestra herramienta de gesti�
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
-### 4.2.X. Bounded Context: <Bounded Context Name>
+### 4.2.X. Bounded Context: <Bounded Context Name></bounded>
 
 #### 4.2.X.1. Domain Layer.
 
