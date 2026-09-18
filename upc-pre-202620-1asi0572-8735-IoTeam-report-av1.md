@@ -504,6 +504,26 @@ El diseño de persistencia para el contexto IAM se implementa en el motor relaci
     <img src="assets/IAM_Database-diagram.png" alt="IAM Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
+### 4.2.X. Bounded Context: Container & Device Management
+
+El contexto delimitado Container & Device Management se encarga de administrar el ciclo de vida, la disponibilidad operativa y la vinculación del hardware de los contenedores térmicos inteligentes (SmartBoxes) con sus respectivos microcontroladores ESP32 y sensores IoT.
+
+#### 4.2.2.1. Domain Layer.
+
+#### 4.2.2.2. Interface Layer.
+
+#### 4.2.2.3. Application Layer.
+
+#### 4.2.2.4. Infrastructure Layer.
+
+#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.
+
+##### 4.2.2.6.2. Bounded Context Database Design Diagram.
+
 ### 4.2.X. Bounded Context: <Bounded Context Name>
 
 #### 4.2.X.1. Domain Layer.
