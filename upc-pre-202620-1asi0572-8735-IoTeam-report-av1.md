@@ -701,6 +701,31 @@ El diagrama de clases UML modela las entidades, objetos de valor e interfaces qu
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram.
 
+El diseño relacional para el bounded context Container & Device Management se implementa en MySQL 8.0, garantizando normalización formal en tercera forma normal (3FN) y atomicidad transaccional (ACID).
+
+- Tabla cdm_devices:
+  - Almacena las características técnicas y el estado de enlace del hardware.
+  - id: clave primaria de longitud fija (VARCHAR(36)) para alojar identificadores UUID v4 generados en el dominio.
+  - mac_address: cadena de longitud fija (VARCHAR(17)) con restricción de unicidad (UNIQUE) e índice dedicado (idx_cdm_devices_mac) para acelerar las validaciones durante el emparejamiento.
+  - battery_level: entero validado entre 0 y 100 con valor por defecto de 100.
+  - last_heartbeat: marca de tiempo configurada con actualización automática (ON UPDATE CURRENT_TIMESTAMP), permitiendo detectar desbalances de conectividad si transcurre un período prolongado sin reportes.
+
+- Tabla cdm_smart_boxes:
+  - Gestiona las unidades de transporte asignables a los despachos.
+  - id: clave primaria de tipo UUID (VARCHAR(36)).
+  - serial_number: identificador físico con restricción única (UNIQUE) indexado para consultas operativas rápidas.
+  - operational_status: almacena el valor textual del enum (AVAILABLE, IN_TRANSIT, MAINTENANCE, DECOMMISSIONED), respaldado por el índice idx_cdm_smart_boxes_status para optimizar las consultas de cajas disponibles al momento del despacho.
+  - max_payload_weight_kg: valor decimal de precisión fija (DECIMAL(5,2)) para evitar errores de redondeo en cálculos de capacidad de carga.
+
+- Integridad referencial y relaciones:
+  - La vinculación entre el contenedor y el dispositivo se establece mediante la clave foránea device_id en cdm_smart_boxes, la cual apunta a cdm_devices.id.
+  - Cuenta con restricción de unicidad (UNIQUE), forzando una relación estricta de uno a uno (1:1) entre una caja y un módulo ESP32.
+  - La regla de eliminación está definida como ON DELETE SET NULL, garantizando que si un dispositivo ESP32 es dado de baja por avería o reemplazo en laboratorio, el registro histórico del contenedor SmartBox se preserve sin generar inconsistencias de integridad referencial. 
+
+<div align="center">
+    <img src="assets/CDM_database-diagram.png" alt="CDM Database diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 ### 4.2.X. Bounded Context: <Bounded Context Name>
 
 #### 4.2.X.1. Domain Layer.
