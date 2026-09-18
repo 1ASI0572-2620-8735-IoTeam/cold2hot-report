@@ -1203,11 +1203,178 @@ El contexto delimitado Orders & Audit concentra la gestión del ciclo de vida de
 
 #### 4.2.5.1. Domain Layer.
 
+La capa de dominio representa el pedido, su estado de despacho y la evidencia generada durante la entrega.
+
+- Order (Aggregate Root)
+  - Propósito: Representa el pedido que será transportado y controla su ciclo de vida dentro de Cold2Hot.
+  - Atributos:
+    - id: OrderId
+    - smartBoxId: SmartBoxId
+    - operatorId: UserId
+    - temperatureProfileId: ThermalProfileId
+    - status: OrderStatus
+    - dispatchedAt: Timestamp
+    - completedAt: CompletionTimestamp
+  - Métodos:
+    - + assignToBox(boxId: SmartBoxId): void
+    - + assignOperator(operatorId: UserId): void
+    - + dispatch(): void
+    - + complete(): void
+    - + cancel(): void
+
+- DeliveryEvidence (Entity)
+  - Propósito: Representa la evidencia fotográfica registrada por el operador al finalizar la entrega.
+  - Atributos:
+    - id: EvidenceId
+    - photoUrl: PhotoUrl
+    - capturedAt: Timestamp
+    - operatorId: UserId
+  - Métodos:
+    - + register(): void
+    - + isValid(): Boolean
+
+- AuditReport (Entity)
+  - Propósito: Representa la consolidación de evidencias y eventos de un pedido finalizado.
+  - Atributos:
+    - id: AuditReportId
+    - orderId: OrderId
+    - custodyStatus: CustodyStatus
+    - generatedAt: Timestamp
+    - reportUrl: String
+  - Métodos:
+    - + generate(): void
+    - + markComplete(): void
+
+- OrderId (Value Object)
+  - Propósito: Identifica unívocamente un pedido.
+
+- PhotoUrl (Value Object)
+  - Propósito: Representa la ubicación de una evidencia fotográfica almacenada externamente.
+
+- CustodyStatus (Value Object)
+  - Propósito: Representa el resultado de la consolidación de los eventos de custodia.
+  - Valores: COMPLIANT, INCIDENT_DETECTED, INCOMPLETE.
+
+- CompletionTimestamp (Value Object)
+  - Propósito: Representa el momento en el cual se considera finalizada la entrega.
+
+- OrderStatus (Enumeration)
+  - Valores: CREATED, ASSIGNED, IN_TRANSIT, DELIVERED, COMPLETED, CANCELLED.
+
+- IOrderRepository (Repository Interface)
+  - Métodos:
+    - + findById(id: OrderId): Optional
+    - + findByStatus(status: OrderStatus): List
+    - + save(order: Order): Order
+
+- IAuditReportRepository (Repository Interface)
+  - Métodos:
+    - + findByOrderId(orderId: OrderId): Optional
+    - + save(report: AuditReport): AuditReport
+
+- Domain Events
+  - OrderDispatchedEvent
+  - EvidenceUploadedEvent
+  - AuditReportGeneratedEvent
+  - OrderCompletedEvent
+
 #### 4.2.5.2. Interface Layer.
+
+La capa de interfaz recibe solicitudes desde la aplicación web administrativa y la aplicación móvil del repartidor.
+
+- OrderController (REST Controller)
+  - Propósito: Gestiona las operaciones de creación, asignación y seguimiento de pedidos.
+  - Métodos:
+    - + createOrder(request: CreateOrderRequestDto): ResponseEntity<ApiResponse>
+      - POST /api/v1/orders
+    - + assignOrder(request: AssignOrderRequestDto): ResponseEntity<ApiResponse>
+      - POST /api/v1/orders/{orderId}/assign
+    - + getOrder(orderId: UUID): ResponseEntity<ApiResponse>
+      - GET /api/v1/orders/{orderId}
+    - + getActiveOrders(): ResponseEntity<ApiResponse>
+      - GET /api/v1/orders/active
+
+DeliveryEvidenceController (REST Controller)
+  - Propósito: Recibe la evidencia fotográfica tomada por el operador.
+  - Métodos:
+    - + uploadEvidence(request: UploadEvidenceRequestDto): ResponseEntity<ApiResponse>
+      - POST /api/v1/orders/{orderId}/evidence
+
+- AuditController (REST Controller)
+  - Propósito: Permite consultar y generar reportes de auditoría.
+  - Métodos:
+    - + generateReport(orderId: UUID): ResponseEntity<ApiResponse>
+      - POST /api/v1/audits/orders/{orderId}
+    - + getAuditReport(orderId: UUID): ResponseEntity<ApiResponse>
+      - GET /api/v1/audits/orders/{orderId}
+
+- Data Transfer Objects (DTOs)
+  - CreateOrderRequestDto: información básica del pedido y requerimiento térmico.
+  - AssignOrderRequestDto: orderId, smartBoxId, operatorId.
+  - OrderDto: información actual del pedido y estado de despacho.
+  - UploadEvidenceRequestDto: orderId, photo.
+  - AuditReportDto: estado de custodia, timestamps, evidencia y resultado de auditoría.
 
 #### 4.2.5.3. Application Layer.
 
+La Application Layer coordina el ciclo de vida de los pedidos y la generación de evidencias.
+
+- CreateOrderCommand & CreateOrderCommandHandler
+  - Propósito: Registra un nuevo pedido y solicita/configura las condiciones térmicas correspondientes.
+  - Método:
+    - + handle(command: CreateOrderCommand): OrderId
+
+- AssignOrderToBoxCommand & AssignOrderToBoxCommandHandler
+  - Propósito: Vincula un pedido con una SmartBox disponible y un operador.
+  - Método:
+    - + handle(command: AssignOrderToBoxCommand): void
+
+- DispatchOrderCommand & DispatchOrderCommandHandler
+  - Propósito: Cambia el pedido a estado IN_TRANSIT y publica OrderDispatchedEvent.
+  - Método:
+    - + handle(command: DispatchOrderCommand): void
+
+- CaptureDeliveryEvidenceCommand & CaptureDeliveryEvidenceCommandHandler
+  - Propósito: Registra la fotografía de entrega y la asocia al pedido.
+  - Método:
+    - + handle(command: CaptureDeliveryEvidenceCommand): EvidenceId
+
+- GenerateAuditReportCommand & GenerateAuditReportCommandHandler
+  - Propósito: Consolida la evidencia fotográfica y los eventos asociados al pedido para generar el reporte de auditoría.
+  - Método:
+    - + handle(command: GenerateAuditReportCommand): AuditReportId
+
+- GetOrderHistoryQuery & GetOrderHistoryQueryHandler
+  - Propósito: Recupera el historial del pedido y su estado de custodia.
+  - Método:
+    - + handle(query: GetOrderHistoryQuery): OrderHistoryDto
+
 #### 4.2.5.4. Infrastructure Layer.
+
+La infraestructura implementa los mecanismos necesarios para persistir los pedidos y conectarse con los servicios que proporcionan evidencia y datos complementarios.
+
+- OrderRepositoryImpl
+Implementa IOrderRepository mediante Spring Data JPA y MySQL.
+
+- AuditReportRepositoryImpl
+Persiste los reportes generados y sus metadatos.
+
+- CloudinaryEvidenceAdapter
+  - Propósito: Gestiona el almacenamiento de las fotografías tomadas por el repartidor.
+  -  Se establece explícitamente el uso de Cloudinary para la persistencia y distribución de archivos multimedia de auditoría.
+
+- ThermalDataAdapter
+  - Propósito: Consulta o consume eventos provenientes del contexto Thermal Monitoring & Telemetry.
+
+- SecurityEventAdapter
+  - Propósito: Consume eventos generados por Access & Security.
+
+- AuditReportGenerator
+  - Propósito: Consolida la información del pedido, evidencia fotográfica, historial térmico y eventos de seguridad.
+
+- OrderPersistenceMapper
+  - Propósito: Convierte entre entidades JPA y objetos del dominio.
+
 
 #### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
 
