@@ -732,11 +732,193 @@ El contexto delimitado Thermal Monitoring & Telemetry concentra la lógica relac
 
 #### 4.2.3.1. Domain Layer.
 
+La capa de dominio constituye el núcleo de las reglas de negocio del contexto Thermal Monitoring & Telemetry, manteniéndose independiente de frameworks, mecanismos de persistencia y servicios externos. Su función es representar el concepto de perfil térmico y establecer las reglas necesarias para interpretar cada lectura de temperatura.
+
+- ThermalProfile (Aggregate Root)
+  - Propósito: Representa la configuración térmica asociada a un envío monitoreado, centralizando los límites de temperatura que determinan las condiciones aceptables durante el transporte.
+  - Atributos:
+    - id: ThermalProfileId
+    - orderId: OrderId
+    - temperatureMode: TemperatureMode
+    - thresholdRange: ThresholdRange
+    - isActive: Boolean
+  - Métodos:
+    - + configureRange(range: ThresholdRange): void
+      - Establece los límites mínimo y máximo permitidos para el transporte.
+    - + evaluateTemperature(temperature: TemperatureValue): ThermalStatus
+      - Determina si una lectura se encuentra dentro o fuera del rango configurado.
+    - + deactivate(): void
+      - Inhabilita el perfil térmico cuando finaliza el monitoreo del envío.
+
+- TelemetryLog (Entity)
+  - Propósito: Representa una lectura individual de telemetría térmica obtenida desde una SmartBox.
+  - Atributos:
+    - id: TelemetryLogId
+    - smartBoxId: SmartBoxId
+    - temperature: TemperatureValue
+    - timestamp: Timestamp
+    - status: ThermalStatus
+  - Métodos:
+    - + markAsNormal(): void
+    - + markAsBreach(): void
+    - + isWithinRange(profile: ThermalProfile): Boolean
+
+- ThermalProfileId (Value Object)
+  - Propósito: Representa de manera única e inmutable el identificador del perfil térmico.
+  - Atributos:
+    - value: UUID
+  - Métodos:
+    - + getValue(): UUID
+    - + equals(other: Object): Boolean
+- TelemetryLogId (Value Object)
+  - Propósito: Identifica de forma única cada registro histórico de telemetría.
+  - Atributos:
+    - value: UUID
+  - Métodos:
+    - + getValue(): UUID
+
+- TemperatureValue (Value Object)
+  - Propósito: Encapsula el valor numérico de temperatura y evita que el dominio trabaje con valores sin validación.
+  - Atributos:
+    - value: Decimal
+    - unit: CelsiusUnit
+  - Métodos:
+    - + getValue(): Decimal
+    - + isValid(): Boolean
+
+- CelsiusUnit (Value Object)
+  - Propósito: Representa la unidad de temperatura utilizada por el sistema.
+  - Atributos:
+    - symbol: String
+  - Métodos:
+    - + getSymbol(): String
+
+- Timestamp (Value Object)
+  - Propósito: Representa el instante exacto en el que fue obtenida una lectura.
+  - Atributos:
+    - value: DateTime
+  - Métodos:
+    - + getValue(): DateTime
+
+- ThresholdRange (Value Object)
+  - Propósito: Encapsula los límites mínimo y máximo que determinan el rango térmico permitido.
+  - Atributos:
+    - minTemperature: TemperatureValue
+    - maxTemperature: TemperatureValue
+  - Métodos:
+    - + contains(temperature: TemperatureValue): Boolean
+    - + isExceeded(temperature: TemperatureValue): Boolean
+
+- TemperatureMode (Enumeration)
+  - Propósito: Define el tipo de conservación térmica requerido por el pedido.
+  - Valores: COLD, HOT.
+
+- ThermalStatus (Enumeration)
+  - Propósito: Define el resultado de la evaluación de una lectura.
+  - Valores: WITHIN_RANGE, THERMAL_BREACH.
+
+- IThermalProfileRepository (Repository Interface)
+  - Propósito: Define el contrato abstracto para la persistencia del agregado ThermalProfile.
+  - Métodos:
+    - + findById(id: ThermalProfileId): Optional
+    - + findByOrderId(orderId: OrderId): Optional
+    - + save(profile: ThermalProfile): ThermalProfile
+
+- ITelemetryRepository (Repository Interface)
+  - Propósito: Define las operaciones necesarias para persistir y consultar los registros históricos de telemetría.
+  - Métodos:
+    - + save(log: TelemetryLog): TelemetryLog
+    - + findLatestBySmartBoxId(boxId: SmartBoxId): Optional
+    - + findBySmartBoxIdAndPeriod(boxId: SmartBoxId, period: TimeRange): List
+
+- Domain Events
+  - TelemetryIngestedEvent: Se emite cuando una lectura de temperatura ha sido recibida y registrada correctamente.
+  - ThermalProfileConfiguredEvent: Notifica la creación o actualización de un perfil térmico.
+  - ThermalBreachDetectedEvent: Se emite cuando una lectura supera los límites establecidos para el envío.
+
 #### 4.2.3.2. Interface Layer.
+
+La capa de interfaz constituye el perímetro de comunicación del contexto, recibiendo las lecturas procedentes del Edge Service y exponiendo operaciones protegidas para la configuración y consulta del monitoreo térmico..
+
+- TelemetryController (REST Controller)
+  - Propósito: Recibe los registros de temperatura generados por las SmartBoxes.
+  - Métodos:
+    - + ingestTelemetry(request: IngestTelemetryRequestDto): ResponseEntity<ApiResponse>
+      - Maneja POST /api/v1/telemetry.
+    - + getCurrentTemperature(boxId: UUID): ResponseEntity<ApiResponse>
+      - Maneja GET /api/v1/telemetry/boxes/{boxId}/current.
+    - + getHistory(boxId: UUID, request: HistoryRequestDto): ResponseEntity<ApiResponse>
+      - Maneja GET /api/v1/telemetry/boxes/{boxId}/history.
+
+- ThermalProfileController (REST Controller)
+  - Propósito: Permite al administrador configurar las condiciones térmicas de un envío.
+  - Métodos:
+    - + configureProfile(request: ConfigureThermalProfileRequestDto): ResponseEntity<ApiResponse>
+      - Maneja POST /api/v1/thermal-profiles.
+    - + getProfile(orderId: UUID): ResponseEntity<ApiResponse>
+      - Maneja GET /api/v1/thermal-profiles/orders/{orderId}.
+
+- Data Transfer Objects (DTOs)
+  - IngestTelemetryRequestDto: smartBoxId, temperature, timestamp.
+  - ConfigureThermalProfileRequestDto: orderId, temperatureMode, minTemperature, maxTemperature.
+  - TelemetryResponseDto: smartBoxId, temperature, timestamp, thermalStatus.
+  - ThermalProfileDto: id, orderId, temperatureMode, minTemperature, maxTemperature, isActive.
 
 #### 4.2.3.3. Application Layer.
 
+La capa de aplicación coordina los casos de uso del contexto mediante comandos y consultas, siguiendo el patrón CQRS utilizado en los demás Bounded Contexts del documento de referencia. Los handlers coordinan repositorios, entidades de dominio y publicación de eventos, evitando trasladar la lógica de negocio hacia los controladores.
+
+- IngestTelemetryDataCommand & IngestTelemetryDataCommandHandler
+  - Propósito: Procesa una lectura recibida desde el Edge Service.
+  - El handler valida la información recibida, recupera el perfil térmico correspondiente, crea TelemetryLog, ejecuta la evaluación de temperatura, persiste el registro y publica TelemetryIngestedEvent.
+  - Si la temperatura se encuentra fuera del rango, publica ThermalBreachDetectedEvent..
+  - Métodos:
+    - + handle(command: IngestTelemetryDataCommand): TelemetryLogId
+
+- SetThermalProfileCommand & SetThermalProfileCommandHandler
+  - Propósito: Crea o actualiza los límites térmicos asociados a un envío.
+  - Métodos del handler:
+    - + handle(command: SetThermalProfileCommand): ThermalProfileId
+
+- ProcessTemperatureReadingCommand & ProcessTemperatureReadingCommandHandler
+  - Propósito: Evalúa una lectura contra el perfil térmico activo y determina su estado.
+  - Métodos:
+    - + handle(command: ProcessTemperatureReadingCommand): ThermalStatus
+
+- GetCurrentTemperatureQuery & GetCurrentTemperatureQueryHandler
+  - Propósito: Recupera la última lectura registrada de una SmartBox.
+  - Métodos:
+    - + handle(query: GetCurrentTemperatureQuery): TelemetryResponseDto
+
+- GetThermalHistoryQuery & GetThermalHistoryQueryHandler
+  - Propósito: Recupera el historial de lecturas térmicas para permitir el monitoreo y posterior auditoría.
+  - Métodos:
+    - + handle(query: GetThermalHistoryQuery): List<TelemetryResponseDto>
+
 #### 4.2.3.4. Infrastructure Layer.
+
+La infraestructura implementa los contratos definidos por las capas internas y conecta el modelo de dominio con los servicios tecnológicos de Cold2Hot.
+
+- ThermalProfileRepositoryImpl
+  - Propósito: Implementa IThermalProfileRepository mediante Spring Data JPA y MySQL.
+
+  - Utiliza ThermalProfilePersistenceMapper para convertir entre objetos persistentes y objetos de dominio.
+
+- TelemetryRepositoryImpl
+  - Propósito: Implementa ITelemetryRepository para almacenar y consultar el historial térmico.
+  - Utiliza TelemetryPersistenceMapper para separar el modelo relacional del modelo de dominio.
+
+- TelemetryEntity & ThermalProfileEntity
+  - Propósito: Representan el mapeo JPA de las tablas tmt_telemetry_logs y tmt_thermal_profiles.
+
+- EdgeTelemetryAdapter
+  - Propósito: Abstrae la recepción de datos provenientes del Edge Service instalado en la SmartBox.
+
+- DomainEventPublisher
+  - Propósito: Publica eventos de dominio como ThermalBreachDetectedEvent para que otros componentes puedan generar alertas o registrar auditoría.
+
+- TelemetrySyncAdapter
+  - Propósito: Coordina la recepción de lecturas almacenadas temporalmente en SQLite cuando el Edge Service recupera la conectividad.
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.
 
