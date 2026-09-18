@@ -344,6 +344,12 @@ El diagrama de componentes (C4 Nivel 3) ilustra la organización estructural int
 
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams.
 
+El diagrama de clases UML modela las entidades, objetos de valor, interfaces y enumeraciones que conforman exclusivamente la capa de dominio de IAM, especificando la visibilidad de atributos (+, -), las firmas de métodos y las relaciones de asociación, dependencia y composición.
+
+<div align="center">
+    <img src="assets/iam-class-diagram.png" alt="IAM Class diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram.
 
 ### 4.2.X. Bounded Context: <Bounded Context Name>
