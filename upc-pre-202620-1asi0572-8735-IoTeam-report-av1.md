@@ -1166,6 +1166,37 @@ La raíz SecurityPasscode debe controlar la transición de un código entre los 
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram.
 
+El diseño relacional se implementa en MySQL 8.0. del bounded context Access & Security. Está compuesto por las tablas normalizadas:
+
+- Tabla acs_security_passcodes
+  - id: UUID, clave primaria.
+  - order_id: UUID.
+  - smart_box_id: UUID.
+  - otp_hash: representación protegida del código.
+  - expiration_time.
+  - status.
+  - created_at.
+  - used_at.
+
+- Tabla acs_access_attempts
+  - id: UUID, clave primaria.
+  - security_passcode_id: clave foránea.
+  - security_passcode_id: FK.
+  - attempted_at.
+  - result.
+  - operator_id.
+
+- Tabla acs_security_logs
+  - id: UUID, clave primaria.
+  - smart_box_id.
+  - event_type.
+  - tamper_status.
+  - occurred_at.
+
+<div align="center">
+    <img src="assets/ Access_&_ Security_Database-diagram.png" alt=" Thermal Monitoring & Telemetry Database diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 ### 4.2.X. Bounded Context: <Bounded Context Name>
 
 #### 4.2.X.1. Domain Layer.
