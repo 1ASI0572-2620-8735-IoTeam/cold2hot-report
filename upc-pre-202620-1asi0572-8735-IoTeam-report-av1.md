@@ -170,8 +170,43 @@ A partir del análisis del panorama competitivo y la matriz FODA, **IoTeam** def
 
 ### 2.2.2. Registro de entrevistas.
 
+A continuación, se presenta el registro de las entrevistas realizadas a los representantes de nuestros dos segmentos objetivo. Estas sesiones se llevaron a cabo de forma virtual/presencial con el fin de validar nuestras hipótesis de negocio y entender a profundidad sus necesidades.
+
+**Entrevista 1**
+* **Nombres y Apellidos:** Roberto Fernández
+* **Segmento Objetivo:** Segmento 1 - Administrador de operaciones de delivery
+* **Edad:** 35 años
+* **Fecha de Entrevista:** 15/09/2026
+* **Duración:** 18 minutos
+
+**Entrevista 2**
+* **Nombres y Apellidos:** Katia Torres
+* **Segmento Objetivo:** Segmento 2 - Operador de entrega (Repartidor)
+* **Edad:** 26 años
+* **Fecha de Entrevista:** 16/09/2026
+* **Duración:** 15 minutos
+<img src="./assets/Entrevista1.png">
+
+https://upcedupe-my.sharepoint.com/:v:/g/personal/u202117303_upc_edu_pe/IQCw2iS8WZqYSpyTqV73I-zyAV2gmtetVbyAsgyOkBEmwIM
+---
+
 ### 2.2.3. Análisis de entrevistas.
 
+Tras procesar las respuestas obtenidas en las entrevistas, se identificaron patrones de comportamiento, dolores recurrentes (pains) y expectativas (gains) que validan directamente la necesidad de la solución **Cold2Hot**. A continuación, se detallan los hallazgos principales por segmento:
+
+**Hallazgos del Segmento 1 (Administradores de operaciones de delivery):**
+1. **La ceguera operativa es el mayor dolor financiero:** Los administradores confirmaron que, una vez que el pedido sale del local, pierden el control total sobre la cadena de frío y la manipulación. Esto se traduce en pérdidas económicas constantes debido a que las plataformas de delivery suelen priorizar el reclamo del cliente y aplicar reembolsos automáticos descontados al restaurante.
+2. **Las medidas de seguridad actuales son insuficientes:** El uso de cintas adhesivas o grapas en las bolsas es visto como una medida paliativa que no evita aperturas no autorizadas y no ofrece ninguna prueba técnica en caso de disputas.
+3. **Alta disposición a la adopción tecnológica:** La funcionalidad de un registro de auditoría (timestamp de apertura por PIN + evidencia fotográfica) fue identificada como la característica de mayor valor. Los administradores ven este panel no solo como una herramienta de calidad, sino como un mecanismo de defensa contra el fraude de clientes malintencionados.
+
+**Hallazgos del Segmento 2 (Operadores de entrega / Repartidores):**
+1. **Fricción física y deterioro de herramientas:** Las mochilas térmicas tradicionales se desgastan rápidamente (velcros y cierres), lo que propicia aperturas accidentales por el viento, baches o la prisa, derivando en pedidos fríos.
+2. **Vulnerabilidad ante penalizaciones injustas:** Los repartidores (como Katia) sienten una profunda frustración al recibir descuentos económicos y bajas calificaciones por factores que escapan de su control (mal empaque desde el restaurante, tráfico, clima o clientes que reportan entregas incompletas falsamente). 
+3. **Recepción positiva de la automatización:** La idea de una caja inteligente que regule la temperatura de manera autónoma fue percibida como un gran alivio que reduce el estrés al conducir.
+4. **La seguridad como "seguro laboral":** Contrario a lo que se podría asumir (que un PIN o tomar una foto genera pérdida de tiempo), los motorizados ven el mecanismo de bloqueo y la captura fotográfica obligatoria como un beneficio. Lo consideran una herramienta que los deslinda de responsabilidad y los protege frente al soporte técnico de las aplicaciones.
+
+**Conclusión General y Validación de Hipótesis:**
+Las entrevistas validan rotundamente las hipótesis planteadas en nuestro *Lean UX Canvas*. Ambos segmentos sufren las consecuencias de la falta de trazabilidad y seguridad en la última milla, pero desde perspectivas distintas (el administrador pierde dinero por mermas; el repartidor pierde dinero por penalizaciones). La implementación de la caja inteligente **Cold2Hot** con bi-direccionalidad de datos (PIN de apertura y registro fotográfico) resuelve el dolor principal de ambos actores: **elimina las disputas logísticas al proveer una fuente de verdad única, automatizada e inmutable.**
 ## 2.3. Needfinding.
 
 ### 2.3.1. User Personas.
