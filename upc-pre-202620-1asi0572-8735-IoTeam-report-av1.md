@@ -976,11 +976,171 @@ El contexto delimitado Access & Security administra los mecanismos de seguridad 
 
 #### 4.2.4.1. Domain Layer.
 
+La capa de dominio concentra las reglas relacionadas con la generación, expiración y validación del código de acceso, así como con la evaluación de eventos de seguridad.
+
+- SecurityPasscode (Aggregate Root)
+  - Propósito: Representa el código temporal de acceso generado para autorizar la apertura de una SmartBox en destino.
+  - Atributos:
+    - id: SecurityPasscodeId
+    - orderId: OrderId
+    - smartBoxId: SmartBoxId
+    - code: OTPCode
+    - expirationTime: ExpirationTime
+    - status: PasscodeStatus
+  - Métodos:
+    - + validate(code: OTPCode, currentTime: Timestamp): UnlockResult
+    - + expire(): void
+    - + markAsUsed(): void
+
+- AccessAttempt (Entity)
+  - Propósito: Registra cada intento realizado para utilizar un código de apertura.
+  - Atributos:
+    - id: AccessAttemptId
+    - attemptedCode: OTPCode
+    - timestamp: Timestamp
+    - result: UnlockResult
+  - Métodos:
+    - + registerResult(result: UnlockResult): void
+
+- SecurityLog (Entity)
+  - Propósito: Registra eventos relevantes relacionados con la seguridad física del contenedor.
+  - Atributos:
+    - id: SecurityLogId
+    - smartBoxId: SmartBoxId
+    - eventType: SecurityEventType
+    - timestamp: Timestamp
+    - tamperStatus: TamperStatus
+  - Métodos:
+    - + registerEvent(): void
+
+- OTPCode (Value Object)
+  - Propósito: Representa el código numérico temporal utilizado para la apertura.
+  - Atributos:
+    - value: String
+  - Métodos:
+    - + getValue(): String
+    - + validateFormat(): Boolean
+
+- ExpirationTime (Value Object)
+  - Propósito: Representa el momento límite de validez del OTP.
+  - Atributos:
+    - value: DateTime
+  - Métodos:
+    - + isExpired(currentTime: DateTime): Boolean
+
+- TamperStatus (Value Object)
+  - Propósito: Representa el resultado de la evaluación de los sensores de seguridad.
+  - Atributos:
+    - lidOpen: Boolean
+    - packagePresent: Boolean
+  - Métodos:
+    - + isUnauthorizedOpening(): Boolean
+- UnlockResult (Value Object)
+  - Propósito: Representa el resultado de una solicitud de desbloqueo.
+  - Valores: AUTHORIZED, INVALID_CODE, EXPIRED_CODE, ALREADY_USED, DENIED.
+
+- PasscodeStatus (Enumeration)
+  - Valores: ACTIVE, USED, EXPIRED, REVOKED.
+
+- SecurityEventType (Enumeration)
+  - Valores: OTP_GENERATED, CONTAINER_UNLOCKED, INVALID_OTP, TAMPERING_DETECTED.
+
+- ISecurityPasscodeRepository (Repository Interface)
+  - Métodos:
+    - + findById(id: SecurityPasscodeId): Optional
+    - + findActiveByOrderId(orderId: OrderId): Optional
+    - + save(passcode: SecurityPasscode): SecurityPasscode
+
+- Domain Events
+  - OTPGeneratedEvent
+  - ContainerUnlockedEvent
+  - SecurityBreachDetectedEvent
+  - InvalidOTPAttemptedEvent.
+
 #### 4.2.4.2. Interface Layer.
+
+La capa de interfaz recibe solicitudes desde la Delivery Operator Mobile Application, el Edge Service y el panel administrativo.
+
+- SecurityController (REST Controller)
+  - Propósito: Gestiona la generación y validación de códigos OTP.
+Métodos:
+    - + generateOTP(request: GenerateOTPRequestDto): ResponseEntity<ApiResponse>
+      - POST /api/v1/security/otp
+    - + validateOTP(request: ValidateOTPRequestDto): ResponseEntity<ApiResponse>
+      - POST /api/v1/security/otp/validate
+
+- UnlockController (REST Controller)
+  - Propósito: Coordina las solicitudes de apertura física.
+  - Métodos:
+    - + unlockContainer(request: UnlockContainerRequestDto): ResponseEntity<ApiResponse>
+POST /api/v1/security/unlock
+
+- SecurityEventController (REST Controller)
+  - Propósito: Recibe eventos de sensores de seguridad generados por la SmartBox.
+  - Métodos:
+    - + reportTamperEvent(request: TamperEventRequestDto): ResponseEntity<ApiResponse>
+      - POST /api/v1/security/tamper-events
+
+- Data Transfer Objects (DTOs)
+  - GenerateOTPRequestDto: orderId, smartBoxId.
+  - ValidateOTPRequestDto: orderId, smartBoxId, otp.
+  - UnlockContainerRequestDto: smartBoxId, otp.
+  - TamperEventRequestDto: smartBoxId, lidOpen, packagePresent, timestamp.
+  - SecurityEventDto: eventType, smartBoxId, timestamp, status.
 
 #### 4.2.4.3. Application Layer.
 
+La capa de aplicación coordina los casos de uso relacionados con la seguridad utilizando Commands y Handlers.
+
+- GenerateOTPCommand & GenerateOTPCommandHandler
+  - Propósito: Genera un nuevo código OTP para el pedido y SmartBox correspondientes.
+  - Método:
+    - + handle(command: GenerateOTPCommand): OTPCode
+
+- ValidateOTPCommand & ValidateOTPCommandHandler
+  - Propósito: Recupera el código activo, verifica su validez y registra el resultado del intento.
+  - Método:
+    - + handle(command: ValidateOTPCommand): UnlockResult
+
+- EvaluateTamperRiskCommand & EvaluateTamperRiskCommandHandler
+  - Propósito: Interpreta la combinación de estados del Reed Switch y TCRT5000 para determinar si existe un riesgo de manipulación.
+  - Método:
+    - + handle(command: EvaluateTamperRiskCommand): TamperStatus
+
+- UnlockContainerCommand & UnlockContainerCommandHandler
+  - Propósito: Coordina la validación del OTP y la solicitud de apertura física del mecanismo de bloqueo.
+  - Método:
+    - + handle(command: UnlockContainerCommand): UnlockResult
+
+- GetSecurityHistoryQuery & GetSecurityHistoryQueryHandler
+  - Propósito: Recupera los eventos e intentos de acceso asociados a una SmartBox.
+  - Método:
+    - + handle(query: GetSecurityHistoryQuery): List<SecurityEventDto>
+
 #### 4.2.4.4. Infrastructure Layer.
+
+La infraestructura implementa los mecanismos tecnológicos requeridos para conectar el dominio de seguridad con el Cloud Core y el hardware físico.
+
+- SecurityPasscodeRepositoryImpl
+  - Propósito: Implementa ISecurityPasscodeRepository utilizando Spring Data JPA y MySQL.
+
+- SecurityLogRepositoryImpl
+  - Propósito: Persiste los eventos e intentos relacionados con la seguridad física.
+
+- OTPGeneratorAdapter
+  - Propósito: Genera códigos numéricos temporales utilizando un generador seguro y configurable.
+
+- EdgeUnlockAdapter
+  - Propósito: Abstrae la comunicación con el Edge Service para transmitir la orden de apertura del mecanismo físico.
+
+- TamperEventAdapter
+  - Propósito: Recibe los estados enviados por el Reed Switch y TCRT5000.
+
+- SecurityPersistenceMapper
+  - Propósito: Convierte entre entidades JPA y objetos de dominio.
+
+- SecurityAuditLogger
+  - Propósito: Registra los intentos de acceso, desbloqueos autorizados y eventos de manipulación.
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.
 
