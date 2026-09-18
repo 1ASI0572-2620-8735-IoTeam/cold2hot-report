@@ -146,6 +146,28 @@ A partir del análisis del panorama competitivo y la matriz FODA, **IoTeam** def
 
 ### 2.2.1. Diseño de entrevistas.
 
+**Segmento 1: Administradores de operaciones de delivery**
+
+1. ¿Cuál es tu rol y cuánto tiempo llevas gestionando las operaciones de delivery en este local?
+2. ¿Cuáles son los principales problemas logísticos que enfrentan desde que el pedido sale de la cocina hasta que llega al cliente?
+3. ¿Con qué frecuencia reciben reclamos por pedidos fríos, derramados o manipulados, y cómo impactan económicamente a fin de mes?
+4. Ante el reporte de un paquete abierto, ¿cómo determinan actualmente si fue culpa del motorizado o si es un reclamo falso del cliente?
+5. ¿Qué medidas de seguridad (cintas, sellos, etc.) utilizan actualmente en sus empaques y qué tan efectivas resultan en la ruta?
+6. ¿Qué valor le aportaría a su gestión diaria poder monitorear la temperatura exacta de la caja de reparto en tiempo real?
+7. ¿Qué opina de un sistema donde la caja de transporte se bloquee físicamente en el local y solo se abra con un PIN único en el destino?
+8. ¿Qué tan útil le resultaría recibir un reporte automático con la foto de entrega y la hora exacta de apertura para resolver disputas con las apps de delivery?
+
+**Segmento 2: Operadores de entrega (repartidores)**
+
+1. ¿Cuánto tiempo llevas trabajando como repartidor y con qué aplicaciones trabajas con mayor frecuencia?
+2. ¿Qué problemas de temperatura, cierres o seguridad presentan las mochilas que usas actualmente para transportar los alimentos?
+3. ¿Alguna vez te han penalizado o descontado dinero injustamente por un pedido que llegó frío o maltratado por el tráfico?
+4. ¿Has tenido experiencias con clientes que reportan falsamente entregas incompletas? ¿Cómo te defiendes ante la aplicación?
+5. ¿Cómo te ayudaría en tu trabajo si tu caja regulara la temperatura (frío/calor) automáticamente durante el trayecto sin que te preocupes?
+6. ¿Qué te parece la idea de recibir una alerta preventiva en tu celular si olvidas asegurar bien la tapa antes de arrancar la moto?
+7. Si la caja se mantiene bloqueada hasta que ingresas un PIN en el destino, ¿crees que te ayudaría a demostrar que no manipulaste el paquete?
+8. ¿Estarías dispuesto a tomar una foto obligatoria del paquete entregado usando nuestra app si eso te garantiza que no te pondrán multas injustas?
+
 ### 2.2.2. Registro de entrevistas.
 
 ### 2.2.3. Análisis de entrevistas.
