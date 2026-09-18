@@ -1155,6 +1155,15 @@ Cuando la validación es satisfactoria, UnlockContainerCommandHandler utiliza Ed
 
 ##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.
 
+El diagrama UML debe representar SecurityPasscode como Aggregate Root y AccessAttempt y SecurityLog como entidades relacionadas con la trazabilidad de las operaciones de seguridad.
+Los Value Objects OTPCode, ExpirationTime, TamperStatus y UnlockResult permiten mantener las reglas de validación y significado de los datos dentro del dominio.
+
+La raíz SecurityPasscode debe controlar la transición de un código entre los estados ACTIVE, USED, EXPIRED y REVOKED, evitando que un OTP pueda reutilizarse después de una apertura exitosa.
+
+<div align="center">
+    <img src="assets/ access-&-security-class-diagram.png" alt=" Thermal Monitoring & Telemetry Class diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram.
 
 ### 4.2.X. Bounded Context: <Bounded Context Name>
