@@ -935,6 +935,13 @@ Finalmente, TelemetryRepository implementa la persistencia mediante Spring Data 
 
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.
 
+El diagrama de clases UML representa exclusivamente los elementos pertenecientes al dominio de Thermal Monitoring & Telemetry. La raíz de agregado ThermalProfile encapsula los límites térmicos y utiliza ThresholdRange para determinar si una temperatura es válida para las condiciones de transporte.
+TelemetryLog representa cada medición individual y se relaciona con TemperatureValue y Timestamp. La interfaz IThermalProfileRepository establece el contrato de persistencia sin introducir dependencias de MySQL 8.0. o Spring Data en el núcleo del dominio.
+
+<div align="center">
+    <img src="assets/ thermal-monitoring-&-telemetry-class-diagram.png" alt=" Thermal Monitoring & Telemetry Class diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram.
 
 
