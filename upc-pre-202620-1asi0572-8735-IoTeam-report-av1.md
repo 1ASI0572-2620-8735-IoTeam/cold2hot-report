@@ -195,7 +195,7 @@ IoTeam es una startup tecnológica que busca resolver un problema cotidiano y lo
 | ![Adriana Maria](./assets/foto-adriana.jpg) <br> Diestra Zambrano, Adriana Maria | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
 | ![Antonio Rodrigo](./assets/foto-rodrigo.png) <br> Duran Diaz, Antonio Rodrigo | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Soy estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. En este proyecto espero seguir mejorando mis habilidades y conocimientos, además de lograr un buen desempeño en el trabajo grupal |
 | ![Marco Antonio](./assets/foto-marco.jpg) <br> Nakasone Gomes, Marco Antonio | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
-| ![Carlos Joel](./assets/foto-carlos.jpg) <br> Shimabukuro Uku, Carlos Joel | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Carlos Joel](./assets/foto-carlos.jpg) <br> Shimabukuro Uku, Carlos Joel | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Con experiencia en C++, además de tener conocimientos en HTML, CSS y JavaScript. En este proyecto, mi objetivo es aplicar los conocimientos adquiridos hasta ahora y obtener una comprensión más profunda sobre mi futuro rol como profesional en esta área. |
 | ![Joan Fernando](./assets/foto-joan.jpg) <br> Teves Samaniego, Joan Fernando | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
 
 ## 1.2. Solution Profile
