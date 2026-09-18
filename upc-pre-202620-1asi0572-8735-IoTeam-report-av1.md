@@ -970,6 +970,26 @@ El diseño para el bounded context Thermal Monitoring & Telemetry se implementa 
     <img src="assets/ Thermal_Monitoring_&_Telemetry _Database-diagram.png" alt=" Thermal Monitoring & Telemetry Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
+### 4.2.4. Bounded Context: Access & Security
+
+El contexto delimitado Access & Security administra los mecanismos de seguridad asociados a la apertura física de las SmartBoxes durante la entrega. Su responsabilidad comprende la generación y validación de códigos OTP de un solo uso, el control de las solicitudes de desbloqueo y el análisis de eventos provenientes de los sensores de seguridad.
+
+#### 4.2.4.1. Domain Layer.
+
+#### 4.2.4.2. Interface Layer.
+
+#### 4.2.4.3. Application Layer.
+
+#### 4.2.4.4. Infrastructure Layer.
+
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram.
+
 ### 4.2.X. Bounded Context: <Bounded Context Name>
 
 #### 4.2.X.1. Domain Layer.
