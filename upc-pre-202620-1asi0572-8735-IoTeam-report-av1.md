@@ -320,6 +320,26 @@ El diagrama de despliegue detalla la topología de infraestructura física y en 
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
+### 4.2.1. Bounded Context: Identity & Access (IAM)
+
+El contexto delimitado IAM gestiona integralmente el registro, autenticación, autorización y emisión de credenciales criptográficas para todos los actores que interactúan con la plataforma Cold2Hot. Asegura la separación de privilegios entre los administradores de operaciones del restaurante y los operadores de entrega (repartidores), garantizando un acceso restringido y trazable a los recursos del sistema.
+
+#### 4.2.1.1. Domain Layer.
+
+#### 4.2.1.2. Interface Layer.
+
+#### 4.2.1.3. Application Layer.
+
+#### 4.2.1.4. Infrastructure Layer.
+
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.
+
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams.
+
+##### 4.2.1.6.2. Bounded Context Database Design Diagram.
+
 ### 4.2.X. Bounded Context: <Bounded Context Name>
 
 #### 4.2.X.1. Domain Layer.
