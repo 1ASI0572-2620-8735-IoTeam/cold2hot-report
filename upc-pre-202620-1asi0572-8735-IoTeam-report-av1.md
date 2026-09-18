@@ -326,11 +326,157 @@ El contexto delimitado IAM gestiona integralmente el registro, autenticación, a
 
 #### 4.2.1.1. Domain Layer.
 
+La capa de dominio constituye el núcleo de la lógica del contexto IAM, implementada sin dependencias de frameworks ni bibliotecas de persistencia. Encapsula las reglas del negocio relacionadas con la validez de credenciales, la seguridad de contraseñas y el ciclo de vida de los perfiles de usuario.
+
+- User (Aggregate Root)
+  - Propósito: Modela la entidad principal del sistema, centralizando la comprobación de credenciales, el cambio de contraseña y las transiciones de estado operativo.
+  - Atributos:
+    - id: UserId
+    - email: Email
+    - password: HashedPassword
+    - fullName: FullName
+    - role: Role
+    - isActive: Boolean
+  - Métodos:
+    - + authenticate(plainPassword: String, passwordEncoder: IPasswordEncoder): Boolean
+      - Verifica si la contraseña proporcionada coincide con el hash almacenado mediante el servicio de dominio de cifrado.
+    - + updateProfile(fullName: FullName): void
+      - Actualiza los nombres y apellidos manteniendo la inmutabilidad de la identidad.
+    - + changePassword(oldPass: String, newPass: String, encoder: IPasswordEncoder): void
+      - Evalúa la contraseña anterior y asigna una nueva después de validar complejidad y cifrado.
+    - + deactivate(): void
+      - Inhabilita la cuenta para impedir futuros inicios de sesión.
+
+- UserId (Value Object)
+  - Propósito: Representa de forma unívoca e inmutable el identificador universal del usuario (UUID v4).
+  - Atributos:
+    - value: UUID
+  - Métodos:
+    - + getValue(): UUID
+    - + equals(other: Object): Boolean
+
+- Email (Value Object)
+  - Propósito: Modela la dirección electrónica y garantiza el cumplimiento del formato estándar RFC 5322.
+  - Atributos:
+    - address: String
+  - Métodos:
+    - + getAddress(): String
+    - - validate(address: String): void
+
+- HashedPassword (Value Object)
+  - Propósito: Encapsula la cadena cifrada resultante del proceso de hashing de contraseña mediante un algoritmo seguro, evitando que valores en texto plano residan en el modelo de dominio.
+  - Atributos:
+    - hash: String
+  - Métodos:
+    - + getHash(): String
+    - + matches(raw: String, encoder: IPasswordEncoder): Boolean
+
+- FullName (Value Object)
+  - Propósito: Representa la composición inmutable del nombre y apellido de la persona titular de la cuenta.
+  - Atributos:
+    - firstName: String
+    - lastName: String
+  - Métodos:
+    - + getFullName(): String
+
+- Role (Entity)
+  - Propósito: Define el esquema de privilegios asignados al usuario para el control de acceso basado en roles (RBAC).
+  - Atributos:
+    - id: Long
+    - name: RoleType
+    - description: String
+  - Métodos:
+    - + getName(): RoleType
+
+- RoleType (Enumeration)
+  - Propósito: Lista los roles autorizados en la plataforma.
+  - Valores: ROLE_ADMIN, ROLE_DELIVERY_OPERATOR.
+
+- IPasswordEncoder (Domain Service Interface)
+  - Propósito: Contrato de abstracción que delega el hashing criptográfico sin acoplar el dominio a librerías de seguridad externas.
+  - Métodos:
+    - + encode(rawPassword: String): String
+    - + matches(rawPassword: String, encodedPassword: String): Boolean
+
+- IUserRepository (Repository Interface)
+  - Propósito: Define los métodos de acceso y consulta a la persistencia del agregado User.
+  - Métodos:
+    - + findById(id: UserId): Optional<User>
+    - + findByEmail(email: Email): Optional<User>
+    - + existsByEmail(email: Email): Boolean
+    - + save(user: User): User
+
+- Domain Events
+  - UserRegisteredEvent: Se emite cuando se crea una nueva cuenta en el sistema. Incluye userId, email, role y occurredOn.
+  - UserAuthenticatedEvent: Notifica un inicio de sesión exitoso para fines de auditoría.
+
 #### 4.2.1.2. Interface Layer.
+
+Actúa como el perímetro de entrada de solicitudes externas hacia el contexto, exponiendo controladores HTTP bajo el estilo arquitectónico RESTful y documentados mediante la especificación OpenAPI.
+
+- AuthController (REST Controller)
+  - Propósito: Expone endpoints públicos para el ingreso a la plataforma y el alta inicial de usuarios.
+  - Métodos:
+    - + register(request: RegisterUserRequestDto): ResponseEntity<ApiResponse<UserDto>>
+      - Gestiona la petición POST /api/v1/auth/register.
+    - + login(request: LoginRequestDto): ResponseEntity<ApiResponse<AuthTokenDto>>
+      - Gestiona la petición POST /api/v1/auth/login.
+
+- UserController (REST Controller)
+  - Propósito: Expone endpoints protegidos para la consulta de información del perfil y la actualización de datos de cuenta.
+  - Métodos:
+    - + getProfile(principal: UserPrincipal): ResponseEntity<ApiResponse<UserDto>>
+      - Procesa la petición GET /api/v1/users/me.
+    - + updateProfile(principal: UserPrincipal, request: UpdateProfileRequestDto): ResponseEntity<ApiResponse<Void>>
+      - Procesa la petición PUT /api/v1/users/me.
+
+- Data Transfer Objects (DTOs)
+  - RegisterUserRequestDto: Objeto con los datos de entrada para registro (email, password, firstName, lastName, role).
+  - LoginRequestDto: Objeto de entrada con las credenciales de acceso (email, password).
+  - AuthTokenDto: Respuesta con el token generado (token, tokenType, expiresIn).
+  - UserDto: Proyección segura del usuario sin información sensible (id, email, firstName, lastName, role, isActive).
 
 #### 4.2.1.3. Application Layer.
 
+Coordina los flujos de trabajo de los casos de uso implementando el patrón CQRS para desacoplar las operaciones de escritura (comandos) de las lecturas (consultas).
+
+- RegisterUserCommand & RegisterUserCommandHandler
+  - Propósito: Traslada la intención de crear un usuario en el sistema.
+  - El manejador valida que el correo electrónico no esté en uso, codifica la contraseña mediante IPasswordEncoder, construye el agregado User, lo almacena mediante el repositorio y publica el evento UserRegisteredEvent.
+  - Métodos del handler:
+    - + handle(command: RegisterUserCommand): UserId
+
+- AuthenticateUserCommand & AuthenticateUserCommandHandler
+  - Propósito: Traslada las credenciales para la autenticación.
+  - El manejador busca al usuario por correo, invoca el método authenticate del agregado y, si la validación es correcta, solicita al adaptador de seguridad la generación de un token JWT firmado.
+  - Métodos del handler:
+    - + handle(command: AuthenticateUserCommand): AuthTokenDto
+
+- GetUserByIdQuery & GetUserByIdQueryHandler
+  - Propósito: Recupera el estado actual del perfil solicitado y lo transforma en un DTO de solo lectura.
+  - Métodos del handler:
+    - + handle(query: GetUserByIdQuery): UserDto
+
 #### 4.2.1.4. Infrastructure Layer.
+
+Proporciona las implementaciones tecnológicas concretas para las interfaces definidas por las capas internas de la arquitectura.
+
+- UserRepositoryImpl
+  - Propósito: Implementa el contrato IUserRepository utilizando Spring Data JPA para comunicarse con la base de datos relacional MySQL.
+  - Componentes: Inyecta SpringDataJpaUserRepository y utiliza UserPersistenceMapper para convertir entre la entidad de persistencia (UserEntity) y el agregado de dominio puro (User).
+
+- BCryptPasswordEncoderAdapter
+  - Propósito: Implementa la interfaz IPasswordEncoder utilizando Spring Security Crypto para generar hashes BCrypt con un factor de costo configurable.
+
+- JwtTokenProvider
+  - Propósito: Gestiona la creación, firma criptográfica (algoritmo HMAC-SHA256) y validación de tokens de acceso web JWT mediante la biblioteca JJWT.
+  - Métodos:
+    - + generateToken(userId: UUID, email: String, role: String): String
+    - + validateToken(token: String): Boolean
+    - + getEmailFromToken(token: String): String
+
+- UserEntity & RoleEntity
+  - Propósito: Clases anotadas con JPA (@Entity, @Table) que definen el mapeo objeto-relacional directo contra las tablas iam_users e iam_roles en MySQL.   
 
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.
 
