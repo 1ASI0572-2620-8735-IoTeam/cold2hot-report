@@ -1144,6 +1144,13 @@ La infraestructura implementa los mecanismos tecnológicos requeridos para conec
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.
 
+El diagrama de componentes debe mostrar el flujo desde la Delivery Operator Mobile Application hacia SecurityController, pasando posteriormente por ValidateOTPCommandHandler y SecurityPasscode.
+Cuando la validación es satisfactoria, UnlockContainerCommandHandler utiliza EdgeUnlockAdapter para enviar la orden de desbloqueo al Edge Service y posteriormente al actuador físico.
+
+<div align="center">
+    <img src="assets/Access_&_ Security_Component_Diagram.png" alt="Access & Security Components diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.
 
 ##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.
