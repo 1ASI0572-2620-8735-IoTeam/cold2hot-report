@@ -510,11 +510,157 @@ El contexto delimitado Container & Device Management se encarga de administrar e
 
 #### 4.2.2.1. Domain Layer.
 
+Encapsula las reglas del negocio asociadas al inventario de cajas de reparto, la compatibilidad física de carga, la calibración de sensores y las transiciones de estado operativo.
+
+- SmartBox (Aggregate Root)
+  - Propósito: Entidad raíz que controla el estado operativo del contenedor físico, sus especificaciones mecánicas y el hardware embebido asociado.
+  - Atributos:
+    - id: SmartBoxId
+    - serialNumber: SerialNumber
+    - operationalStatus: BoxStatus
+    - device: ESP32Device
+    - maxPayloadWeightKg: Double
+  - Métodos:
+    - + pairDevice(device: ESP32Device): void
+      - Asocia un microcontrolador verificado garantizando que no esté vinculado a otra unidad activa.
+    - + markInTransit(): void
+      - Modifica el estado a IN_TRANSIT cuando la caja es asignada a un despacho en ruta.
+    - + markAvailable(): void
+      - Restablece el estado a AVAILABLE tras la conclusión exitosa de una entrega.
+    - + sendToMaintenance(reason: String): void
+      - Inhabilita la caja para operaciones de reparto ante fallas de hardware o calibración.
+
+- ESP32Device (Entity)
+  - Propósito: Modela el microcontrolador físico y los módulos de telemetría instalados en el contenedor.
+  - Atributos:
+    - id: DeviceId
+    - macAddress: MacAddress
+    - firmwareVersion: FirmwareVersion
+    - batteryLevel: Integer
+    - isConnected: Boolean
+  - Métodos:
+    - + updateBattery(level: Integer): void
+      - Registra el nivel porcentual remanente de energía de la batería.
+    - + updateFirmware(version: FirmwareVersion): void
+      - Actualiza la versión de software embebido tras un proceso de flasheo u OTA.
+    - + markDisconnected(): void
+      - Registra la pérdida de comunicación con la unidad de procesamiento.
+
+- SmartBoxId (Value Object)
+  - Propósito: Identificador unívoco e inmutable de la caja térmica (UUID v4).
+  - Atributos:
+    - value: UUID
+  - Métodos:
+    - + getValue(): UUID
+    - + equals(other: Object): Boolean
+
+- DeviceId (Value Object)
+  - Propósito: Identificador universal inmutable del microcontrolador (UUID v4).
+  - Atributos:
+    - value: UUID
+  - Métodos:
+    - + getValue(): UUID
+
+- MacAddress (Value Object)
+  - Propósito: Dirección física de red del chip ESP32 (formato XX:XX:XX:XX:XX:XX).
+  - Atributos:
+    - value: String
+  - Métodos:
+    - + getValue(): String
+    - - validate(value: String): void
+
+- SerialNumber (Value Object)
+  - Propósito: Código alfanumérico grabado en el chasis físico del contenedor para identificación visual.
+  - Atributos:
+    - code: String
+  - Métodos:
+    - + getCode(): String
+
+- FirmwareVersion (Value Object)
+  - Propósito: Representación formal del versionado semántico del firmware embebido (vX.Y.Z).
+  - Atributos:
+    - versionString: String
+  - Métodos:
+    - + getVersion(): String
+
+- BoxStatus (Enumeration)
+  - Propósito: Estados válidos para el flujo operativo de los contenedores.
+  - Valores: AVAILABLE, IN_TRANSIT, MAINTENANCE, DECOMMISSIONED.
+
+- ISmartBoxRepository (Repository Interface)
+  - Propósito: Contrato abstracto para la persistencia transaccional del agregado SmartBox.
+  - Métodos:
+    - + findById(id: SmartBoxId): Optional<SmartBox>
+    - + findBySerialNumber(sn: SerialNumber): Optional<SmartBox>
+    - + findByMacAddress(mac: MacAddress): Optional<SmartBox>
+    - + save(box: SmartBox): SmartBox
+
+- Domain Events
+  - SmartBoxRegisteredEvent: Emite la incorporación de un nuevo contenedor con smartBoxId, serialNumber y occurredOn.
+  - DevicePairedToSmartBoxEvent: Notifica la asociación exitosa de hardware con smartBoxId, deviceId, macAddress y occurredOn.
+  - SmartBoxStatusChangedEvent: Notifica las transiciones de estado operativo con smartBoxId, newStatus y occurredOn.
+
 #### 4.2.2.2. Interface Layer.
+
+Punto perimetral de recepción de peticiones desde el panel de control web y desde el servicio Edge.
+
+- SmartBoxController (REST Controller)
+  - Propósito: Expone endpoints administrativos para la gestión del inventario y la vinculación de hardware.
+  - Métodos:
+    - + registerBox(request: RegisterBoxRequestDto): ResponseEntity<ApiResponse<SmartBoxDto>>
+      - Maneja POST /api/v1/smartboxes.
+    - + pairDevice(boxId: UUID, request: PairDeviceRequestDto): ResponseEntity<ApiResponse<Void>>
+      - Maneja POST /api/v1/smartboxes/{boxId}/pair-device.
+    - + getAvailableBoxes(): ResponseEntity<ApiResponse<List<SmartBoxDto>>>
+      - Maneja GET /api/v1/smartboxes/available.
+
+- DeviceStateController (REST Controller)
+  - Propósito: Endpoint técnico consumido por el contenedor Edge Service para reportar latidos operativos (heartbeats) y telemetría de batería.
+  - Métodos:
+    - + reportHeartbeat(request: HeartbeatRequestDto): ResponseEntity<Void>
+      - Maneja POST /api/v1/devices/heartbeat.
+
+- Data Transfer Objects (DTOs)
+  - RegisterBoxRequestDto: serialNumber, maxPayloadWeightKg.
+  - PairDeviceRequestDto: macAddress, initialFirmware.
+  - HeartbeatRequestDto: macAddress, batteryLevel, isConnected.
+  - SmartBoxDto: id, serialNumber, operationalStatus, deviceMacAddress, maxPayloadWeightKg.
 
 #### 4.2.2.3. Application Layer.
 
+Orquesta los casos de uso implementando CQRS, coordinando repositorios de persistencia y publicadores de eventos.
+
+- RegisterSmartBoxCommand & RegisterSmartBoxCommandHandler
+  - Propósito: Coordina la verificación de duplicados por número de serie, instancia el agregado SmartBox, invoca la persistencia y emite el evento de creación.
+  - Métodos del handler:
+    - + handle(command: RegisterSmartBoxCommand): SmartBoxId
+
+- PairDeviceCommand & PairDeviceCommandHandler
+  - Propósito: Valida la existencia del contenedor, crea la entidad ESP32Device tras validar su MacAddress, ejecuta SmartBox.pairDevice(...) y guarda los cambios.
+  - Métodos del handler:
+    - + handle(command: PairDeviceCommand): void
+
+- UpdateBoxStatusCommand & UpdateBoxStatusCommandHandler
+  - Propósito: Ejecuta las transiciones controladas de disponibilidad según eventos de despacho o retorno.
+  - Métodos del handler:
+    - + handle(command: UpdateBoxStatusCommand): void
+
+- GetAvailableSmartBoxesQuery & GetAvailableSmartBoxesQueryHandler
+  - Propósito: Consulta los contenedores aptos para ser asignados a nuevos despachos y los transforma a DTOs.
+  - Métodos del handler:
+    - + handle(query: GetAvailableSmartBoxesQuery): List<SmartBoxDto>
+
 #### 4.2.2.4. Infrastructure Layer.
+
+Implementa la persistencia concreta sobre el motor relacional MySQL mediante adaptadores transaccionales.
+
+- SmartBoxRepositoryImpl
+  - Propósito: Implementa el contrato ISmartBoxRepository mediante Spring Data JPA.
+  - Componentes: Inyecta SpringDataJpaSmartBoxRepository y utiliza SmartBoxPersistenceMapper para la conversión bidireccional entre las entidades de persistencia y los agregados de dominio.
+
+- SmartBoxEntity & ESP32DeviceEntity
+  - Propósito: Mapeo relacional JPA para las tablas cdm_smart_boxes y cdm_devices.
+  - Atributos clave: Anotaciones @Entity, @Table, @OneToOne y @JoinColumn para garantizar la integridad referencial. 
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.
 
