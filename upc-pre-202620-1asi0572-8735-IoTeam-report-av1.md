@@ -1378,6 +1378,15 @@ Persiste los reportes generados y sus metadatos.
 
 #### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
 
+El diagrama C4 Nivel 3 representa la estructura interna del contexto Orders & Audit dentro del Cloud Core RESTful API.
+Las solicitudes de administración ingresan mediante OrderController, mientras que la evidencia fotográfica proveniente de la Delivery Operator Mobile Application es recibida por DeliveryEvidenceController.
+Los Command Handlers coordinan las operaciones sobre el agregado Order. Cuando el pedido es despachado se publica OrderDispatchedEvent. Al finalizar la entrega, CaptureDeliveryEvidenceCommandHandler registra la evidencia mediante CloudinaryEvidenceAdapter.
+El AuditReportGenerator consolida información del pedido junto con los eventos térmicos y de seguridad para construir el reporte final. De esta forma, el contexto funciona como consumidor de información proveniente de Thermal Monitoring & Telemetry y Access & Security, sin asumir sus responsabilidades internas.
+
+<div align="center">
+    <img src="assets/Orders_&_Audit_Component_Diagram.png" alt="Orders & Audit Components diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
 
 ##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
