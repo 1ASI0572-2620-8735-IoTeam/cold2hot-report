@@ -944,6 +944,31 @@ TelemetryLog representa cada medición individual y se relaciona con Temperature
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram.
 
+El diseño para el bounded context Thermal Monitoring & Telemetry se implementa en MySQL 8.0. Está compuesto por las tablas normalizadas:
+
+- Tabla tmt_thermal_profiles
+  - id: UUID, clave primaria.
+  - order_id: UUID del envío asociado.
+  - temperature_mode: COLD o HOT.
+  - min_temperature: valor decimal.
+  - max_temperature: valor decimal.
+  - is_active: indicador de vigencia.
+  - created_at.
+  - updated_at.
+
+- Tabla tmt_telemetry_logs
+  - id: UUID, clave primaria.
+  - thermal_profile_id: clave foránea.
+  - smart_box_id: identificador de la SmartBox.
+  - temperature: valor decimal.
+  - unit: unidad de medición.
+  - thermal_status: resultado de evaluación.
+  - recorded_at: timestamp de la lectura.
+  - received_at: timestamp de recepción en la nube.
+
+<div align="center">
+    <img src="assets/ Thermal_Monitoring_&_Telemetry _Database-diagram.png" alt=" Thermal Monitoring & Telemetry Database diagram" style="margin: 10px 0;" width="80%"/>
+</div>
 
 ### 4.2.X. Bounded Context: <Bounded Context Name>
 
