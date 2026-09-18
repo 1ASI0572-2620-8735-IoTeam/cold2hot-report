@@ -1197,23 +1197,25 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Access & S
     <img src="assets/ Access_&_ Security_Database-diagram.png" alt=" Thermal Monitoring & Telemetry Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
-### 4.2.X. Bounded Context: <Bounded Context Name>
+### 4.2.5. Bounded Context: Orders & Audit
 
-#### 4.2.X.1. Domain Layer.
+El contexto delimitado Orders & Audit concentra la gestión del ciclo de vida de los envíos y la construcción de la evidencia asociada a su entrega. Su responsabilidad comprende la asignación de pedidos a SmartBoxes, el seguimiento del estado del despacho, el registro de evidencia fotográfica y la consolidación de información necesaria para generar reportes de auditoría.
 
-#### 4.2.X.2. Interface Layer.
+#### 4.2.5.1. Domain Layer.
 
-#### 4.2.X.3. Application Layer.
+#### 4.2.5.2. Interface Layer.
 
-#### 4.2.X.4. Infrastructure Layer.
+#### 4.2.5.3. Application Layer.
 
-#### 4.2.X.5. Bounded Context Software Architecture Component Level Diagrams.
+#### 4.2.5.4. Infrastructure Layer.
 
-#### 4.2.X.6. Bounded Context Software Architecture Code Level Diagrams.
+#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
 
-##### 4.2.X.6.1. Bounded Context Domain Layer Class Diagrams.
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
 
-##### 4.2.X.6.2. Bounded Context Database Design Diagram.
+##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
+
+##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
 # Capítulo V: Solution UI/UX Design
 
