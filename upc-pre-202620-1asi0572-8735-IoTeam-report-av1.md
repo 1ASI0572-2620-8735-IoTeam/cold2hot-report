@@ -191,7 +191,7 @@ IoTeam es una startup tecnológica que busca resolver un problema cotidiano y lo
 | Integrante | Descripcion de Carrera | Conocimientos y Habilidades a apuntar |
 | --------------------------------| ----------------------| ------------------------------------ |
 | ![Juan Carlos](./assets/foto1.jpg) <br> Alvarado De La Cruz, Juan Carlos | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
-| ![Gonzalo Alonso](./assets/foto2.jpg) <br> Carhuancote Dominguez, Gonzalo Alonso | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
+| ![Gonzalo Alonso](./assets/foto-gonzalo.jpg) <br> Carhuancote Dominguez, Gonzalo Alonso | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con experiencia práctica en desarrollo backend y lógica de negocio. Posee dominio técnico en lenguajes como C++, Java, TypeScript y Python, aportando al diseño de arquitectura de software, implementación de servicios RESTful y configuración de entornos. |
 | ![Adriana Maria](./assets/foto3.jpg) <br> Diestra Zambrano, Adriana Maria | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
 | ![Antonio Rodrigo](./assets/foto4.jpg) <br> Duran Diaz, Antonio Rodrigo | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
 | ![Marco Antonio](./assets/foto5.jpg) <br> Nakasone Gomes, Marco Antonio | Ingeniería de Software <br>Universidad Peruana de Ciencias Aplicadas | Descripcion |
