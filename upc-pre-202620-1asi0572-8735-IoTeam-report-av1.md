@@ -334,6 +334,12 @@ El contexto delimitado IAM gestiona integralmente el registro, autenticación, a
 
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.
 
+El diagrama de componentes (C4 Nivel 3) ilustra la organización estructural interna del contenedor backend Cloud Core RESTful API para dar soporte al contexto IAM. Refleja el flujo de llamadas desde las aplicaciones cliente hacia los controladores REST, la delegación hacia los manejadores de comandos de la capa de aplicación, la invocación de las entidades del modelo de dominio y la resolución técnica de persistencia ejecutada por los repositorios hacia la base de datos relacional MySQL.
+
+<div align="center">
+    <img src="assets/IAM_Component_Diagram.png" alt="IAM Components diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 #### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams.
 
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams.
