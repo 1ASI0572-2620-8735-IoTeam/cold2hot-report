@@ -922,6 +922,15 @@ La infraestructura implementa los contratos definidos por las capas internas y c
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.
 
+El diagrama de componentes C4 Nivel 3 debe representar la estructura interna del Cloud Core RESTful API encargada del procesamiento de la telemetría térmica.
+La interacción externa comienza en TelemetryController, que recibe los datos procedentes del Edge Service. La solicitud es transferida al IngestTelemetryDataCommandHandler, encargado de coordinar la evaluación mediante el agregado ThermalProfile, registrar TelemetryLog y publicar los eventos correspondientes.
+El componente Thermal Monitoring Domain encapsula las reglas de evaluación térmica mediante ThermalProfile, ThresholdRange y TemperatureValue, evitando que los límites de temperatura sean determinados directamente desde la API.
+Finalmente, TelemetryRepository implementa la persistencia mediante Spring Data JPA y MySQL. Cuando se detecta una desviación térmica, DomainEventPublisher publica ThermalBreachDetectedEvent, que puede ser consumido por el mecanismo de notificaciones del sistema.
+
+<div align="center">
+    <img src="assets/Thermal_Monitoring_&_Telemetry_Component_Diagram.png" alt="Thermal Monitoring & Telemetry Components diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.
 
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.
