@@ -1401,6 +1401,36 @@ Los Value Objects OrderId, PhotoUrl, CustodyStatus y CompletionTimestamp proporc
 
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
+
+El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & Audit. Está compuesto por las tablas normalizadas:
+
+- Tabla ord_orders
+  - id: UUID, clave primaria.
+  - operator_id: UUID.
+  - thermal_profile_id: UUID.
+  - status.
+  - created_at.
+  - dispatched_at.
+  - completed_at.
+
+- Tabla ord_delivery_evidence
+  - id: UUID, clave primaria.
+  - order_id: FK.
+  - operator_id.
+  - photo_url.
+  - captured_at
+
+- Tabla ord_audit_reports
+  - id: UUID, clave primaria.
+  - order_id: FK.
+  - custody_status.
+  - generated_at.
+  - report_url.
+
+<div align="center">
+    <img src="assets/Orders_&_Audit _Database-diagram.png" alt=" Orders & Audit Database diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 # Capítulo V: Solution UI/UX Design
 
 ## 5.1. Style Guidelines.
