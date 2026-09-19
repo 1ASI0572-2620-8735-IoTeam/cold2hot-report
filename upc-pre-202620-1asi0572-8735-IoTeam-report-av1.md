@@ -928,7 +928,7 @@ El componente Thermal Monitoring Domain encapsula las reglas de evaluación tér
 Finalmente, TelemetryRepository implementa la persistencia mediante Spring Data JPA y MySQL. Cuando se detecta una desviación térmica, DomainEventPublisher publica ThermalBreachDetectedEvent, que puede ser consumido por el mecanismo de notificaciones del sistema.
 
 <div align="center">
-    <img src="assets/Thermal_Monitoring_&_Telemetry_Component_Diagram.png" alt="Thermal Monitoring & Telemetry Components diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/TMT_Component_Diagram.png" alt="TMT Components diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.
@@ -939,7 +939,7 @@ El diagrama de clases UML representa exclusivamente los elementos pertenecientes
 TelemetryLog representa cada medición individual y se relaciona con TemperatureValue y Timestamp. La interfaz IThermalProfileRepository establece el contrato de persistencia sin introducir dependencias de MySQL 8.0. o Spring Data en el núcleo del dominio.
 
 <div align="center">
-    <img src="assets/ thermal-monitoring-&-telemetry-class-diagram.png" alt=" Thermal Monitoring & Telemetry Class diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/tmt-class-diagram.png" alt="TMT Class diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram.
@@ -967,7 +967,7 @@ El diseño para el bounded context Thermal Monitoring & Telemetry se implementa 
   - received_at: timestamp de recepción en la nube.
 
 <div align="center">
-    <img src="assets/ Thermal_Monitoring_&_Telemetry _Database-diagram.png" alt=" Thermal Monitoring & Telemetry Database diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/TMT _Database-diagram.png" alt="TMT y Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 ### 4.2.4. Bounded Context: Access & Security
@@ -1148,7 +1148,7 @@ El diagrama de componentes debe mostrar el flujo desde la Delivery Operator Mobi
 Cuando la validación es satisfactoria, UnlockContainerCommandHandler utiliza EdgeUnlockAdapter para enviar la orden de desbloqueo al Edge Service y posteriormente al actuador físico.
 
 <div align="center">
-    <img src="assets/Access_&_ Security_Component_Diagram.png" alt="Access & Security Components diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/AS_Component_Diagram.png" alt="AS Components diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.
@@ -1161,7 +1161,7 @@ Los Value Objects OTPCode, ExpirationTime, TamperStatus y UnlockResult permiten 
 La raíz SecurityPasscode debe controlar la transición de un código entre los estados ACTIVE, USED, EXPIRED y REVOKED, evitando que un OTP pueda reutilizarse después de una apertura exitosa.
 
 <div align="center">
-    <img src="assets/ access-&-security-class-diagram.png" alt=" Thermal Monitoring & Telemetry Class diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/AS_class-diagram.png" alt="AS Class diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram.
@@ -1194,7 +1194,7 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Access & S
   - occurred_at.
 
 <div align="center">
-    <img src="assets/ Access_&_ Security_Database-diagram.png" alt=" Thermal Monitoring & Telemetry Database diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/AS_database-diagram.png" alt="AS Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 ### 4.2.5. Bounded Context: Orders & Audit
@@ -1384,7 +1384,7 @@ Los Command Handlers coordinan las operaciones sobre el agregado Order. Cuando e
 El AuditReportGenerator consolida información del pedido junto con los eventos térmicos y de seguridad para construir el reporte final. De esta forma, el contexto funciona como consumidor de información proveniente de Thermal Monitoring & Telemetry y Access & Security, sin asumir sus responsabilidades internas.
 
 <div align="center">
-    <img src="assets/Orders_&_Audit_Component_Diagram.png" alt="Orders & Audit Components diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/OA_Component_Diagram.png" alt="OA Components diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
@@ -1396,7 +1396,7 @@ Order controla las transiciones de estado del despacho, mientras que DeliveryEvi
 Los Value Objects OrderId, PhotoUrl, CustodyStatus y CompletionTimestamp proporcionan semántica e inmutabilidad a los datos fundamentales del contexto.
 
 <div align="center">
-    <img src="assets/ orders-&-audit-class-diagram.png" alt=" Orders & Audit Class diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/OA_class-diagram.png" alt="OA Class diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
@@ -1428,7 +1428,7 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
   - report_url.
 
 <div align="center">
-    <img src="assets/Orders_&_Audit _Database-diagram.png" alt=" Orders & Audit Database diagram" style="margin: 10px 0;" width="80%"/>
+    <img src="assets/OA_database-diagram.png" alt="OA Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
 # Capítulo V: Solution UI/UX Design
