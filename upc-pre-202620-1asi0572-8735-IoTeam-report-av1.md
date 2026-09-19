@@ -1,4 +1,53 @@
+<div align="center">
 
+<p align="center">
+  <img src="assets/upc_logo.png" alt="logo" width="200"/>
+</p>
+
+<h3 align="center">
+Universidad Peruana de Ciencias Aplicadas
+</h3>
+
+<h3 align="center">
+Ingeniería de Software
+<br><br>
+Ciclo: 2026-20
+<br><br>
+1ASI0572 - Desarrollo de Soluciones IOT
+<br><br>
+NRC: 8735
+<br><br>
+Docente: Leon Bacca, Marco Antonio
+<br><br>
+<strong>Informe de Trabajo Final</strong>  
+<br><br>
+Startup: IoTeam
+<br><br>
+Producto: Cold2Hot  
+<br><br>
+<br><br>
+<strong>Integrantes</strong>  
+<br><br>
+Alvarado De La Cruz , Juan Carlos (U202216150) 
+<br><br>
+Carhuancote Dominguez, Gonzalo Alonso (U202210720) 
+<br><br>
+Diestra Zambrano, Adriana Maria (U202218110)
+<br><br>
+Duran Diaz, Antonio Rodrigo (U202215721)
+<br><br>
+Nakasone Gomes, Marco Antonio (U202210790)
+<br><br>
+Shimabukuro Uku, Carlos Joel (U201912407)
+<br><br>
+Teves Samaniego, Joan Fernando (U202117303)
+<br><br>
+<br>
+
+**Septiembre - 2026**
+
+</h3>
+</div>
 
 # Contenido
 
@@ -69,50 +118,6 @@
         - [4.2.X.6.1. Bounded Context Domain Layer Class Diagrams](#42x61-bounded-context-domain-layer-class-diagrams)
         - [4.2.X.6.2. Bounded Context Database Design Diagram](#42x62-bounded-context-database-design-diagram)
 
-- [Capítulo V: Solution UI/UX Design](#capitulo-v-solution-uiux-design)
-  - [5.1. Style Guidelines](#51-style-guidelines)
-    - [5.1.1. General Style Guidelines](#511-general-style-guidelines)
-    - [5.1.2. Web, Mobile and IoT Style Guidelines](#512-web-mobile-and-iot-style-guidelines)
-  - [5.2. Information Architecture](#52-information-architecture)
-    - [5.2.1. Organization Systems](#521-organization-systems)
-    - [5.2.2. Labeling Systems](#522-labeling-systems)
-    - [5.2.3. SEO Tags and Meta Tags](#523-seo-tags-and-meta-tags)
-    - [5.2.4. Searching Systems](#524-searching-systems)
-    - [5.2.5. Navigation Systems](#525-navigation-systems)
-  - [5.3. Landing Page UI Design](#53-landing-page-ui-design)
-    - [5.3.1. Landing Page Wireframe](#531-landing-page-wireframe)
-    - [5.3.2. Landing Page Mock-up](#532-landing-page-mock-up)
-  - [5.4. Applications UX/UI Design](#54-applications-uxui-design)
-    - [5.4.1. Applications Wireframes](#541-applications-wireframes)
-    - [5.4.2. Applications Wireflow Diagrams](#542-applications-wireflow-diagrams)
-    - [5.4.2. Applications Mock-ups](#542-applications-mock-ups)
-    - [5.4.3. Applications User Flow Diagrams](#543-applications-user-flow-diagrams)
-  - [5.5. Applications Prototyping](#55-applications-prototyping)
-  - [5.6. IoT Device Design](#56-iot-device-design)
-
-- [Capítulo VI: Product Implementation, Validation & Deployment](#capitulo-vi-product-implementation-validation--deployment)
-  - [6.1. Software Configuration Management](#61-software-configuration-management)
-    - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
-    - [6.1.2. Source Code Management](#612-source-code-management)
-    - [6.1.3. Source Code Style Guide & Conventions](#613-source-code-style-guide--conventions)
-    - [6.1.4. Software Deployment Configuration](#614-software-deployment-configuration)
-  - [6.2. Landing Page, Services & Applications Implementation](#62-landing-page-services--applications-implementation)
-    - [6.2.X. Sprint n](#62x-sprint-n)
-      - [6.2.X.1. Sprint Planning n](#62x1-sprint-planning-n)
-      - [6.2.X.2. Aspect Leaders and Collaborators](#62x2-aspect-leaders-and-collaborators)
-      - [6.2.X.3. Sprint Backlog n](#62x3-sprint-backlog-n)
-      - [6.2.X.4. Development Evidence for Sprint Review](#62x4-development-evidence-for-sprint-review)
-      - [6.2.X.5. Testing Suite Evidence for Sprint Review](#62x5-testing-suite-evidence-for-sprint-review)
-      - [6.2.X.6. Execution Evidence for Sprint Review](#62x6-execution-evidence-for-sprint-review)
-      - [6.2.X.7. Services Documentation Evidence for Sprint Review](#62x7-services-documentation-evidence-for-sprint-review)
-      - [6.2.X.8. Software Deployment Evidence for Sprint Review](#62x8-software-deployment-evidence-for-sprint-review)
-      - [6.2.X.9. Team Collaboration Insights during Sprint](#62x9-team-collaboration-insights-during-sprint)
-  - [6.3. Validation Interviews](#63-validation-interviews)
-    - [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
-    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
-    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-según-heurísticas)
-  - [6.4. Video About-the-Product](#64-video-about-the-product)
-
 - [Conclusiones](#conclusiones)
   - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 
@@ -124,6 +129,19 @@
 
 
 # Student Outcome
+
+El curso contribuye al cumplimiento del Student Outcome ABET:
+
+**ABET – EAC - Student Outcome 5**
+
+**Criterio:** La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos.
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
+
+| Criterio específico | Acciones realizadas | Conclusiones |
+| ------------------- | ------------------- | ------------ |
+| Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Alvarado De La Cruz, Juan Carlos**<br>*AV1*<br>- Lideré la elaboración del análisis competitivo del Capítulo II, definiendo la matriz de competidores y el perfil de marketing de cada uno.<br>- Conduje la definición de las estrategias y tácticas frente a competidores, y las sometí a revisión del equipo antes de integrarlas al informe.<br><br>**Carhuancote Dominguez, Gonzalo Alonso**<br>*AV1*<br>- Tomé la iniciativa de definir la estructura base del informe y la carátula del documento, estableciendo el estándar de trabajo que siguió todo el equipo.<br>- Lideré el diseño del Containers Diagram y del Component Diagram del Cloud Core RESTful API, orientando las decisiones de arquitectura de la solución.<br><br>**Diestra Zambrano, Adriana Maria**<br>*AV1*<br>- Lideré la sesión de EventStorming y la definición del Domain-Driven Design estratégico, guiando al equipo en la identificación de los bounded contexts.<br>- Conduje la elaboración del Context Mapping y de las relaciones upstream/downstream entre contextos.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*AV1*<br>- Lideré la redacción del Capítulo I, articulando el Startup Profile, el planteamiento del problema con 5W2H y el Lean UX Process.<br>- Asumí la construcción y el mantenimiento de la tabla de contenidos del informe, asegurando la navegabilidad del documento para todo el equipo.<br><br>**Nakasone Gomes, Marco Antonio**<br>*AV1*<br>- Lideré la integración del trabajo de todas las ramas de capítulos hacia la rama principal, revisando y aprobando los Pull Requests del equipo.<br>- Conduje la elaboración completa del Capítulo III, definiendo las User Stories, el Impact Mapping y el Product Backlog del producto.<br><br>**Shimabukuro Uku, Carlos Joel**<br>*AV1*<br>- Lideré el diseño del bounded context de Thermal Monitoring & Telemetry, núcleo funcional de la solución IoT.<br>- Conduje el modelado del bounded context de Access & Security, elaborando sus diagramas de clases, de componentes y de base de datos.<br><br>**Teves Samaniego, Joan Fernando**<br>*AV1*<br>- Lideré el proceso de entrevistas, elaborando el diseño de preguntas dirigidas a los segmentos objetivo.<br>- Conduje la construcción de los User Personas y de la Task Matrix a partir de los hallazgos del needfinding.<br> | Como equipo distribuimos el liderazgo por capítulos en lugar de concentrarlo en una sola persona: cada integrante asumió la conducción de una sección del informe y respondió por ella ante el grupo.<br><br>Esta rotación nos permitió que todos ejerciéramos un rol de liderazgo técnico en el ámbito de nuestra especialidad, y que las decisiones de arquitectura y de producto las tomáramos de forma conjunta y no impuesta.<br><br>Consideramos que el trabajo sobre ramas independientes por capítulo, con revisión mediante Pull Requests, evidencia que ejercimos el liderazgo de manera colegiada y verificable. |
+| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Alvarado De La Cruz, Juan Carlos**<br>*AV1*<br>- Cumplí con la entrega de la sección de competidores dentro del plazo acordado por el equipo, trabajando sobre mi propia rama de capítulo.<br>- Incorporé las observaciones de mis compañeros sobre el formato de los logos y perfiles de competidores.<br><br>**Carhuancote Dominguez, Gonzalo Alonso**<br>*AV1*<br>- Establecí junto con el equipo la convención de ramas por capítulo y de mensajes de commit, lo que nos permitió trabajar en paralelo sin bloqueos.<br>- Cumplí con la documentación de los bounded contexts de Container & Device Management e Identity & Access Management en los plazos previstos.<br><br>**Diestra Zambrano, Adriana Maria**<br>*AV1*<br>- Colaboré activamente en la integración de los artefactos de DDD al Capítulo IV, coordinando con mis compañeros para evitar conflictos en el documento.<br>- Completé los bounded context canvases que me fueron asignados y actualicé las imágenes faltantes del capítulo.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*AV1*<br>- Consolidé en la tabla de perfiles del equipo la información de todos los integrantes, asegurando que ninguno quedara sin representación en el informe.<br>- Cumplí con la actualización del Lean UX Canvas y de los segmentos objetivo según lo planificado para la entrega.<br><br>**Nakasone Gomes, Marco Antonio**<br>*AV1*<br>- Coordiné la resolución de conflictos de integración entre las ramas de los distintos capítulos, preservando el trabajo de cada integrante.<br>- Mantuve la sincronización entre el Product Backlog documentado en el informe y el tablero del equipo, con 20 User Stories acordadas.<br><br>**Shimabukuro Uku, Carlos Joel**<br>*AV1*<br>- Trabajé de forma sostenida a lo largo de toda la entrega, siendo uno de los integrantes con mayor número de contribuciones al repositorio.<br>- Cumplí con la entrega de todos los diagramas de mis bounded contexts asignados dentro del cronograma del equipo.<br><br>**Teves Samaniego, Joan Fernando**<br>*AV1*<br>- Documenté los hallazgos de las entrevistas de manera que el resto del equipo pudiera reutilizarlos en el needfinding y en el Capítulo III.<br>- Cumplí con la expansión de las secciones de User Personas y Task Matrix acordadas en la planificación.<br> | Establecimos desde el inicio metas por entrega y una convención de trabajo común (ramas por capítulo, mensajes de commit descriptivos y revisión por Pull Request), lo que nos permitió que siete personas trabajáramos en paralelo sobre un mismo documento.<br><br>Reflejamos la planificación de tareas en la asignación explícita de capítulos y bounded contexts a cada integrante, y su cumplimiento quedó registrado en el historial del repositorio.<br><br>Mantuvimos un entorno de trabajo inclusivo: todos contamos con contribuciones registradas y con nuestro perfil incorporado al informe, y resolvimos los conflictos de integración preservando el aporte de cada autor en lugar de sobrescribirlo. |
 
 # Capítulo I: Introducción
 
@@ -1934,93 +1952,35 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
     <img src="assets/OA_database-diagram.png" alt="OA Database diagram" style="margin: 10px 0;" width="80%"/>
 </div>
 
-# Capítulo V: Solution UI/UX Design
-
-## 5.1. Style Guidelines.
-
-### 5.1.1. General Style Guidelines.
-
-### 5.1.2. Web, Mobile and IoT Style Guidelines.
-
-## 5.2. Information Architecture.
-
-### 5.2.1. Organization Systems.
-
-### 5.2.2. Labeling Systems.
-
-### 5.2.3. SEO Tags and Meta Tags
-
-### 5.2.4. Searching Systems.
-
-### 5.2.5. Navigation Systems.
-
-## 5.3. Landing Page UI Design.
-
-### 5.3.1. Landing Page Wireframe.
-
-### 5.3.2. Landing Page Mock-up.
-
-## 5.4. Applications UX/UI Design.
-
-### 5.4.1. Applications Wireframes.
-
-### 5.4.2. Applications Wireflow Diagrams.
-
-### 5.4.2. Applications Mock-ups.
-
-### 5.4.3. Applications User Flow Diagrams.
-
-## 5.5. Applications Prototyping.
-
-## 5.6. IoT Device Design.
-
-# Capítulo VI: Product Implementation, Validation & Deployment
-
-## 6.1. Software Configuration Management.
-
-### 6.1.1. Software Development Environment Configuration.
-
-### 6.1.2. Source Code Management.
-
-### 6.1.3. Source Code Style Guide & Conventions.
-
-### 6.1.4. Software Deployment Configuration.
-
-## 6.2. Landing Page, Services & Applications Implementation.
-
-### 6.2.X. Sprint n
-
-#### 6.2.X.1. Sprint Planning n.
-
-#### 6.2.X.2. Aspect Leaders and Collaborators.
-
-#### 6.2.X.3. Sprint Backlog n.
-
-#### 6.2.X.4. Development Evidence for Sprint Review.
-
-#### 6.2.X.5. Testing Suite Evidence for Sprint Review.
-
-#### 6.2.X.6. Execution Evidence for Sprint Review.
-
-#### 6.2.X.7. Services Documentation Evidence for Sprint Review.
-
-#### 6.2.X.8. Software Deployment Evidence for Sprint Review.
-
-#### 6.2.X.9. Team Collaboration Insights during Sprint.
-
-## 6.3. Validation Interviews.
-
-### 6.3.1. Diseño de Entrevistas.
-
-### 6.3.2. Registro de Entrevistas.
-
-### 6.3.3. Evaluaciones según heurísticas.
-
-## 6.4. Video About-the-Product.
-
 # Conclusiones
 
 ## Conclusiones y recomendaciones.
+
+### Conclusiones
+
+- El problema abordado por Cold2Hot no se limita a la pérdida de temperatura de los alimentos durante el reparto: el trabajo de needfinding y las entrevistas evidenciaron que la falta de trazabilidad y de evidencia sobre la manipulación del pedido es igual de crítica para los administradores de operaciones de delivery, ya que es la que genera reclamos que hoy no pueden refutar.
+
+- El análisis competitivo mostró que las soluciones existentes en el mercado atienden el control térmico o la seguridad del contenedor de forma aislada, pero no de manera integrada ni con telemetría en tiempo real. Esa brecha es la que sustenta la propuesta de valor de Cold2Hot.
+
+- La aplicación de Domain-Driven Design permitió descomponer la solución en bounded contexts con responsabilidades claras (monitoreo térmico y telemetría, acceso y seguridad, gestión de contenedores y dispositivos, e identidad y acceso), lo que facilitó repartir el diseño entre los integrantes sin generar dependencias bloqueantes entre ellos.
+
+- El uso de un microcontrolador ESP32 junto con el sensor DS18B20 y el esquema de seguridad de dos niveles (Reed Switch e infrarrojo TCRT5000) resulta viable para los objetivos planteados, y su definición temprana permitió alinear el diseño de software con las restricciones reales del hardware.
+
+- La segmentación en dos perfiles de usuario con necesidades distintas —administradores de operaciones y repartidores— obligó a diseñar dos experiencias diferenciadas, una web de supervisión y una móvil de operación en ruta, en lugar de una única aplicación genérica.
+
+- El trabajo colaborativo sobre un repositorio compartido, con ramas por capítulo y revisión mediante Pull Requests, permitió que siete integrantes avanzaran en paralelo sobre un mismo documento manteniendo la trazabilidad de cada aporte.
+
+### Recomendaciones
+
+- Validar con usuarios reales los umbrales de temperatura y los tiempos de alerta antes de la implementación, ya que los valores actuales provienen del análisis del problema y no de mediciones en ruta.
+
+- Incorporar métricas de línea base en los establecimientos piloto antes del despliegue, de modo que los objetivos planteados (reducción del 35% en reclamos por temperatura y 90% de entregas sin alertas críticas de manipulación) puedan medirse contra un punto de partida verificable.
+
+- Definir el comportamiento del dispositivo ante pérdida de conectividad durante el trayecto, contemplando el almacenamiento local de la telemetría y su sincronización posterior, para que no existan vacíos en la cadena de custodia.
+
+- Considerar el consumo energético del dispositivo y la autonomía de la batería como requisito no funcional explícito, dado que el sistema debe operar durante toda la jornada de reparto sin acceso a una fuente de alimentación fija.
+
+- Mantener actualizada la tabla de contenidos y verificar el documento antes de cada entrega, evitando el uso de formateadores automáticos de Markdown sobre el informe, ya que el documento contiene bloques HTML que dichas herramientas alteran.
 
 # Video About-the-Team.
 
