@@ -1391,6 +1391,14 @@ El AuditReportGenerator consolida información del pedido junto con los eventos 
 
 ##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
 
+El diagrama UML debe representar a Order como raíz del agregado y mostrar las entidades relacionadas con la evidencia de entrega y auditoría.
+Order controla las transiciones de estado del despacho, mientras que DeliveryEvidence representa la evidencia física registrada por el repartidor. AuditReport representa la consolidación de información utilizada para verificar la custodia.
+Los Value Objects OrderId, PhotoUrl, CustodyStatus y CompletionTimestamp proporcionan semántica e inmutabilidad a los datos fundamentales del contexto.
+
+<div align="center">
+    <img src="assets/ orders-&-audit-class-diagram.png" alt=" Orders & Audit Class diagram" style="margin: 10px 0;" width="80%"/>
+</div>
+
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
 # Capítulo V: Solution UI/UX Design
