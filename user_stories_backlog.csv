@@ -1,0 +1,21 @@
+Summary,Description,Issue Type,Epic Name,Story Points
+US01 - Visualización de Calculadora ROI,"Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución.",Story,EP03 Landing Page,3
+US02 - Visualización de Planes,"Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante.",Story,EP03 Landing Page,2
+US03 - Creación de Envío,"Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida para iniciar el monitoreo.",Story,EP01 Gestión y Trazabilidad Térmica,3
+US04 - Monitoreo en Tiempo Real,"Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad.",Story,EP01 Gestión y Trazabilidad Térmica,5
+US05 - Historial y Auditoría,"Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes.",Story,EP01 Gestión y Trazabilidad Térmica,3
+US06 - Conexión BLE con la Caja,"Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica.",Story,EP02 Seguridad y Entrega,5
+US07 - Desbloqueo por OTP,"Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente.",Story,EP02 Seguridad y Entrega,5
+US08 - Registro de Evidencia Fotográfica,"Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas.",Story,EP02 Seguridad y Entrega,3
+US09 - Registro Térmico (Technical Story),"Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable.",Story,EP01 Gestión y Trazabilidad Térmica,8
+US10 - Registro de Restaurante,"Como administrador de operaciones, quiero registrar mi cuenta y mi restaurante para acceder a la plataforma.",Story,EP04 Authentication & Authorization,3
+US11 - Inicio de Sesión (Web y App),"Como usuario, quiero iniciar sesión con mis credenciales para acceder a mi perfil de forma segura.",Story,EP04 Authentication & Authorization,3
+US12 - Gestión de Operadores,"Como administrador, quiero registrar las cuentas de mis operadores de entrega para que puedan acceder a la App Móvil.",Story,EP04 Authentication & Authorization,3
+US13 - Registro de Caja (SmartBox),"Como administrador, quiero registrar una nueva caja inteligente mediante su MAC address para asignarla a mi restaurante.",Story,EP05 Device Management,3
+US14 - Estado de Batería y Mantenimiento,"Como administrador, quiero recibir alertas si la batería de una caja es baja o el sensor de temperatura falla.",Story,EP05 Device Management,2
+US15 - Suscripción a un plan,"Como administrador, quiero seleccionar un plan y registrar mi método de pago para comenzar a utilizar el servicio.",Story,EP06 Subscriptions & Payments,5
+US16 - Alertas de Incumplimiento Térmico,"Como administrador, quiero recibir una notificación si un envío sale de los rangos de temperatura aceptables.",Story,EP07 Alertas y Notificaciones,3
+US17 - Alertas de Apertura No Autorizada,"Como administrador, quiero ser notificado inmediatamente si el sensor detecta una apertura forzada sin el uso del OTP.",Story,EP07 Alertas y Notificaciones,3
+US18 - Internacionalización (i18n),"Como visitante/usuario, quiero cambiar el idioma de la plataforma (Inglés/Español) para navegar en mi idioma nativo.",Story,EP08 Internacionalización & Analítica,3
+US19 - Dashboard de Analítica de Repartidores,"Como administrador, quiero ver un gráfico con el rendimiento de mis repartidores para identificar quién tiene más entregas perfectas.",Story,EP08 Internacionalización & Analítica,5
+US20 - Recuperación de Contraseña,"Como usuario, quiero poder recuperar mi contraseña mediante mi correo electrónico por si la olvido.",Story,EP04 Authentication & Authorization,2
