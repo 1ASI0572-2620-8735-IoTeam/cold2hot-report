@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UXPressia - Impact Mapping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f4f5f7; }
+        .card { background-color: white; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1rem; position: relative; border: 1px solid #e2e8f0; }
+        .connector-right::after { content: ''; position: absolute; right: -2rem; top: 50%; width: 2rem; height: 2px; background-color: #cbd5e1; z-index: 0;}
+        .connector-both::before { content: ''; position: absolute; left: -2rem; top: 50%; width: 2rem; height: 2px; background-color: #cbd5e1; z-index: 0;}
+        .connector-both::after { content: ''; position: absolute; right: -2rem; top: 50%; width: 2rem; height: 2px; background-color: #cbd5e1; z-index: 0;}
+        .connector-left::before { content: ''; position: absolute; left: -2rem; top: 50%; width: 2rem; height: 2px; background-color: #cbd5e1; z-index: 0;}
+    </style>
+</head>
+<body class="p-8">
+
+    <div class="max-w-[1400px] mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-200 overflow-x-auto">
+        
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-2xl font-bold text-gray-800">Cold2Hot - Impact Map</h1>
+            <div class="text-sm text-gray-500 font-medium px-3 py-1 bg-gray-100 rounded">UXPressia Export</div>
+        </div>
+
+        <!-- Layout de 5 columnas -->
+        <div class="flex min-w-[1200px] gap-8 relative z-10">
+            <!-- 1. GOAL -->
+            <div class="w-1/5 flex flex-col">
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">1. Business Goal</h3>
+                <div class="card border-l-4 border-blue-500 connector-right mt-32">
+                    <span class="text-xs font-bold text-blue-500 uppercase">Primary Goal</span>
+                    <p class="text-sm font-semibold text-gray-800 mt-2">Reducir en un 35% las devoluciones por comida fría o paquetes adulterados en los restaurantes afiliados durante los primeros 6 meses.</p>
+                </div>
+            </div>
+
+            <!-- 2. PERSONAS -->
+            <div class="w-1/5 flex flex-col">
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">2. Personas (Actors)</h3>
+                
+                <div class="card border-l-4 border-purple-500 connector-both mb-24 mt-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xs">AO</div>
+                        <span class="text-xs font-bold text-purple-600 uppercase">Actor Clave</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-800">Administrador de operaciones (Restaurante)</p>
+                </div>
+
+                <div class="card border-l-4 border-green-500 connector-both mt-16">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xs">OE</div>
+                        <span class="text-xs font-bold text-green-600 uppercase">Actor Clave</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-800">Operador de entrega (Repartidor)</p>
+                </div>
+            </div>
+
+            <!-- 3. IMPACTS -->
+            <div class="w-1/5 flex flex-col">
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">3. Impacts</h3>
+                
+                <!-- Admin Impacts -->
+                <div class="card border-l-4 border-purple-300 connector-both">
+                    <p class="text-sm font-semibold text-gray-700">Detectar incidentes térmicos en tiempo real para reaccionar antes de que llegue al cliente.</p>
+                </div>
+                <div class="card border-l-4 border-purple-300 connector-both mb-8 mt-12">
+                    <p class="text-sm font-semibold text-gray-700">Resolver disputas con evidencia innegable de calidad.</p>
+                </div>
+
+                <!-- Courier Impacts -->
+                <div class="card border-l-4 border-green-300 connector-both mt-12">
+                    <p class="text-sm font-semibold text-gray-700">Bloquear accesos no autorizados al paquete en la ruta.</p>
+                </div>
+                <div class="card border-l-4 border-green-300 connector-both mt-12">
+                    <p class="text-sm font-semibold text-gray-700">Demostrar fotográficamente que la entrega fue exitosa.</p>
+                </div>
+            </div>
+
+            <!-- 4. DELIVERABLES -->
+            <div class="w-1/5 flex flex-col">
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">4. Deliverables</h3>
+                
+                <div class="card border-l-4 border-gray-400 connector-both">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded mb-2 inline-block">Web App</span>
+                    <p class="text-sm font-semibold text-gray-800">Panel de telemetría y dashboard en vivo.</p>
+                </div>
+                
+                <div class="card border-l-4 border-gray-400 connector-both mb-6 mt-12">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded mb-2 inline-block">API / DB</span>
+                    <p class="text-sm font-semibold text-gray-800">Historial inmutable de auditoría.</p>
+                </div>
+
+                <div class="card border-l-4 border-gray-400 connector-both mt-10">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded mb-2 inline-block">IoT + Mobile App</span>
+                    <p class="text-sm font-semibold text-gray-800">Candado inteligente con desbloqueo BLE y OTP.</p>
+                </div>
+                
+                <div class="card border-l-4 border-gray-400 connector-both mt-10">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded mb-2 inline-block">Mobile App</span>
+                    <p class="text-sm font-semibold text-gray-800">Cámara in-app para registro atado al envío.</p>
+                </div>
+            </div>
+
+            <!-- 5. USER STORIES -->
+            <div class="w-1/5 flex flex-col">
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">5. User Stories</h3>
+                
+                <div class="card border-l-4 border-yellow-400 connector-left">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-1 rounded mb-1 inline-block">US04</span>
+                    <p class="text-xs text-gray-600 italic">"Como administrador, deseo visualizar el estado de temperatura y apertura en vivo para asegurar la calidad."</p>
+                </div>
+                
+                <div class="card border-l-4 border-yellow-400 connector-left mb-6 mt-2">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-1 rounded mb-1 inline-block">US05</span>
+                    <p class="text-xs text-gray-600 italic">"Como administrador, deseo revisar el historial de reportes con fotos para resolver disputas de clientes."</p>
+                </div>
+
+                <div class="card border-l-4 border-yellow-400 connector-left mt-2">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-1 rounded mb-1 inline-block">US07</span>
+                    <p class="text-xs text-gray-600 italic">"Como operador, deseo ingresar un OTP para desbloquear la caja inteligente de forma segura."</p>
+                </div>
+                
+                <div class="card border-l-4 border-yellow-400 connector-left mt-4">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-1 rounded mb-1 inline-block">US08</span>
+                    <p class="text-xs text-gray-600 italic">"Como operador, deseo tomar una foto in-app para dejar constancia física de la entrega exitosa."</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
