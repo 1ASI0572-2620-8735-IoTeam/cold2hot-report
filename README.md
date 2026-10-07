@@ -2202,7 +2202,28 @@ A continuación se presenta el registro formal de la sesión de planificación d
 
 #### 6.2.1.2. Aspect Leaders and Collaborators
 
-Para asegurar una ejecución eficiente, ordenada y alineada con las competencias individuales, se asignaron líderes de aspecto y colaboradores técnicos para cada ámbito del desarrollo:
+Para asegurar una ejecución eficiente, ordenada y alineada con las competencias individuales, se elaboró la matriz **Leadership-and-Collaboration Matrix (LACX)**. En esta iteración se definieron siete aspectos clave para el alcance del Sprint 1:
+1. **Aspect 1 (Landing Page & ROI):** Desarrollo de la presencia comercial responsiva y calculadora de retorno de inversión.
+2. **Aspect 2 (Angular Web Application):** Implementación de la plataforma de administración en Angular 22 basada en prototipos de Figma.
+3. **Aspect 3 (IAM Microservice):** Lógica de autenticación, emisión de tokens JWT y registro de establecimientos.
+4. **Aspect 4 (Telemetry Microservice):** Modelado de lecturas de sensores térmicos Dallas DS18B20 e ingesta de telemetría IoT.
+5. **Aspect 5 (API Gateway & Cloud Deployment):** Enrutamiento perimetral, proxies y despliegue en Render.com y GitHub Pages.
+6. **Aspect 6 (QA, Testing Suite & OpenAPI):** Especificación BDD en Gherkin, suite de pruebas unitarias y documentación interactiva Swagger.
+7. **Aspect 7 (Agile Management & Technical Report):** Facilitación Scrum, control del Sprint Backlog y consolidación técnica del informe.
+
+A continuación, se presenta la matriz **Leadership-and-Collaboration Matrix (LACX)** formal con la designación de Líderes (**L**) y Colaboradores (**C**):
+
+| Team Member (Last Name, First Name) | GitHub Username | Aspect 1: Landing & ROI (L/C) | Aspect 2: Web App (L/C) | Aspect 3: IAM Service (L/C) | Aspect 4: Telemetry (L/C) | Aspect 5: Gateway & Deploy (L/C) | Aspect 6: Testing & OpenAPI (L/C) | Aspect 7: Agile & Report (L/C) |
+| :---------------------------------- | :-------------: | :---------------------------: | :---------------------: | :-------------------------: | :-----------------------: | :------------------------------: | :-------------------------------: | :----------------------------: |
+| **Alvarado De La Cruz, Juan Carlos**    | `JuanCarlosAlvarado900` |             **L**             |            C            |              C              |             C             |                C                 |                 C                 |               C                |
+| **Carhuancote Dominguez, Gonzalo Alonso**| `GGonzalo`     |               C               |            C            |            **L**            |             C             |                C                 |                 C                 |               C                |
+| **Diestra Zambrano, Adriana Maria**     | `adriii`        |               C               |          **L**          |              C              |             C             |                C                 |                 C                 |               C                |
+| **Duran Diaz, Antonio Rodrigo**         | `Sltcrd`        |               C               |            C            |              C              |             C             |                C                 |               **L**               |               C                |
+| **Nakasone Gomes, Marco Antonio**       | `marcoanakasone`|               C               |            C            |              C              |             C             |              **L**               |                 C                 |               C                |
+| **Shimabukuro Uku, Carlos Joel**        | `CarlosSh43`    |               C               |            C            |              C              |           **L**           |                C                 |                 C                 |               C                |
+| **Teves Samaniego, Joan Fernando**      | `JoanTeves`     |               C               |            C            |              C              |             C             |                C                 |                 C                 |             **L**              |
+
+Asimismo, a continuación se detallan las responsabilidades técnicas principales asignadas a cada integrante en el Sprint:
 
 | Miembro del Equipo                              | Rol de Liderazgo en el Sprint                               | Responsabilidades Técnicas Asignadas                                                                                                                                                                                      |
 | :---------------------------------------------- | :---------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2217,6 +2238,10 @@ Para asegurar una ejecución eficiente, ordenada y alineada con las competencias
 ---
 
 #### 6.2.1.3. Sprint Backlog 1
+
+El Sprint Backlog del Sprint 1 tiene como objetivo principal materializar la primera versión desplegada y operativa de la plataforma Cold2Hot, integrando la presencia web comercial, la aplicación administrativa en Angular 22 y la arquitectura perimetral de microservicios con documentación interactiva OpenAPI.
+
+* **Tablero de gestión ágil en la nube (Jira Software):** [Tablero Kanban - Cold2Hot Backlog](https://marcoanakasone-1789698062967.atlassian.net/jira/software/projects/KAN/boards/1/backlog?atlOrigin=eyJpIjoiNTk0N2Q4MGJiNjQ0NGQzZDk5MzFkZWZiZDdmNTBkMjUiLCJwIjoiaiJ9)
 
 A continuación se detalla la tabla de control de estado del Sprint Backlog para el Sprint 1:
 
@@ -2312,6 +2337,16 @@ Feature: Administrator Authentication on Web Platform
     Then the IAM service issues a valid session JWT token
     And the user is redirected to the Monitoring Dashboard at "/dashboard/monitoring"
 ```
+
+#### 4. Registro de Commits Vinculados a la Suite de Testing
+
+De acuerdo con las directrices de control de versiones, la siguiente tabla detalla los commits asociados a la configuración de pruebas automatizadas y verificación de integración:
+
+| Repositorio | Rama | Commit Id | Commit Message | Commit Message Body | Commited on |
+| :--- | :---: | :---: | :--- | :--- | :---: |
+| **`cold2hot-web-app`** | `master` | `11bc83f` | `feat(ci): add GitHub Actions Pages workflow` | Configura el job de compilación estricta y suite de pruebas unitarias en entorno Ubuntu con Node.js 22. | 2026-10-07 |
+| **`cold2hot-web-app`** | `master` | `3bffdc1` | `fix(ci): upgrade Node.js runner to v22` | Corrige incompatibilidad de compilador de Angular 22 en runner de pruebas CI. | 2026-10-07 |
+| **`cold2hot-backend`** | `develop` | `15a9855` | `feat: setup initial microservices architecture` | Implementa contratos de prueba OpenAPI, verificación de healthcheck `/` y pruebas de ingesta de telemetría. | 2026-10-07 |
 
 ---
 
