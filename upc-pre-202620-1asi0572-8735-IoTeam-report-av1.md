@@ -2441,9 +2441,74 @@ flowchart TD
 
 ## 5.3. Landing Page UI Design
 
+La Landing Page presenta la propuesta de valor de Cold2Hot y lleva al visitante a solicitar una demo. Está publicada en [cold2hot-landing-page](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/#inicio).
+
 ### 5.3.1. Landing Page Wireframe
 
+El wireframe define el orden de las secciones y la ubicación de cada elemento, sin color ni imágenes.
+ 
+![Wireframe 1 de la Landing Page](./assets/ui/landing/landing-wireframe1.png)
+
+![Wireframe 2 de la Landing Page](./assets/ui/landing/landing-wireframe2.png)
+
+![Wireframe 3 de la Landing Page](./assets/ui/landing/landing-wireframe3.png)
+
+Figura 5.3.1. Wireframe de la Landing Page.
+ 
+| Sección | Objetivo | Contenido principal |
+| :--- | :--- | :--- |
+| Navegación | Moverse por la página | Logo, enlaces de secciones, selector ES y EN, botón Solicitar demo |
+| Hero | Explicar la propuesta en segundos | Titular, descripción, dos botones, tres etiquetas y tarjeta de telemetría en tiempo real |
+| Indicadores | Dar respaldo con cifras | Cuatro objetivos de impacto |
+| Problema | Mostrar el dolor del cliente | Tres tarjetas: comida fuera de temperatura, pedidos manipulados y disputas sin evidencia |
+| Solución | Presentar la plataforma | Seis tarjetas de funciones |
+| Cómo funciona | Explicar el proceso | Cuatro pasos numerados |
+| Para quién | Hablar a cada segmento | Panel web para administradores y app móvil para repartidores |
+| Calculadora ROI | Cuantificar el ahorro | Parámetros del negocio y retorno de inversión estimado |
+| Comparativa | Diferenciarse | Tabla de Cold2Hot frente a otras alternativas |
+| Hardware | Dar confianza técnica | Cinco tarjetas de componentes IoT |
+| Planes | Mostrar precios | Starter, Pro y Enterprise |
+| Nosotros | Presentar al equipo | Misión, visión y siete integrantes |
+| Contacto | Convertir | Formulario de demo y descarga de la app |
+| Footer | Cerrar y reorientar | Marca, enlaces y derechos |
+ 
+Decisiones de estructura:
+ 
+- El botón Solicitar demo aparece en la navegación, en el hero y en el cierre.
+- El recorrido sigue el orden problema, solución, prueba, precio y contacto.
+- Las tarjetas se agrupan en tres columnas para facilitar la comparación.
+- Los fondos de las secciones se alternan para separar los bloques.
+
 ### 5.3.2. Landing Page Mock-up
+
+El mock-up aplica la identidad visual de Cold2Hot sobre el wireframe.
+ 
+![Mock-up 1 de la Landing Page](./assets/ui/landing/landing-mockup1.png)
+ 
+![Mock-up 2 de la Landing Page](./assets/ui/landing/landing-mockup2.png)
+
+![Mock-up 3 de la Landing Page](./assets/ui/landing/landing-mockup3.png)
+ 
+Figura 5.3.2. Mock-up de la Landing Page.
+ 
+| Aspecto | Decisión |
+| :--- | :--- |
+| Colores | Azul para frío, naranja para caliente y verde para estados correctos |
+| Tipografía | Space Grotesk en títulos e Inter en el texto |
+| Hero | Titular grande con la tarjeta de telemetría como elemento visual |
+| Indicadores | Banda oscura con cifras grandes para destacar el impacto |
+| Tarjetas | Esquinas redondeadas, sombra suave y un ícono por tarjeta |
+| Planes | El plan Pro resaltado con la etiqueta Más elegido |
+| Equipo | Fotografías reales de los siete integrantes |
+| Footer | Tres columnas: Solución, Empresa y Soporte y Legal |
+ 
+Cambios respecto al wireframe:
+ 
+- Los íconos reemplazan los marcadores de imagen.
+- Las fotografías del equipo reemplazan los marcadores del wireframe.
+- El footer se amplía con enlaces organizados por tema.
+- Los indicadores pasan a una banda oscura.
+Los colores y la tipografía de la Landing Page son la base de los tokens que usan la Web App y la Mobile App
 
 ## 5.4. Applications UX/UI Design
 
