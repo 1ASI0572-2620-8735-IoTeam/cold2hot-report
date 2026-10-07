@@ -1,69 +1,20 @@
 <div align="center">
 
-<p align="center">
-  <img src="assets/upc_logo.png" alt="logo" width="200"/>
-</p>
-
-<h3 align="center">
-Universidad Peruana de Ciencias Aplicadas
-</h3>
-
-<h3 align="center">
-Ingeniería de Software
-<br><br>
-Ciclo: 2026-20
-<br><br>
-1ASI0572 - Desarrollo de Soluciones IOT
-<br><br>
-NRC: 8735
-<br><br>
-Docente: Leon Bacca, Marco Antonio
-<br><br>
-<strong>Informe de Trabajo Final</strong>  
-<br><br>
-Startup: IoTeam
-<br><br>
-Producto: Cold2Hot  
-<br><br>
-<br><br>
-<strong>Integrantes</strong>  
-<br><br>
-Alvarado De La Cruz , Juan Carlos (U202216150) 
-<br><br>
-Carhuancote Dominguez, Gonzalo Alonso (U202210720) 
-<br><br>
-Diestra Zambrano, Adriana Maria (U202218110)
-<br><br>
-Duran Diaz, Antonio Rodrigo (U202215721)
-<br><br>
-Nakasone Gomes, Marco Antonio (U202210790)
-<br><br>
-Shimabukuro Uku, Carlos Joel (U201912407)
-<br><br>
-Teves Samaniego, Joan Fernando (U202117303)
-<br><br>
-<br>
-
-**Septiembre - 2026**
-
-</h3>
-</div>
-
 # Registro de versiones del informe
 
-| Versión | Fecha | Autor | Descripción de modificación |
-| :---: | :---: | :--- | :--- |
-| **1.0.0** | 14/09/2026 | Carhuancote Dominguez, Gonzalo Alonso | Estructuración inicial del informe, configuración del repositorio GitFlow y diseño de carátula. |
-| **1.1.0** | 15/09/2026 | Duran Diaz, Antonio Rodrigo | Redacción del Capítulo I: Startup Profile, 5W2H, Lean UX Process y Segmentos Objetivo. |
-| **1.2.0** | 16/09/2026 | Alvarado De La Cruz, Juan Carlos | Elaboración del análisis competitivo, matriz comparativa de competidores y estrategias de mercado en el Capítulo II. |
-| **1.3.0** | 16/09/2026 | Teves Samaniego, Joan Fernando | Redacción del diseño de entrevistas, transcripción y análisis de hallazgos para los segmentos objetivo. |
-| **1.4.0** | 17/09/2026 | Diestra Zambrano, Adriana Maria | Elaboración del EventStorming (Big Picture y Design-Level), Context Mapping y modelos C4 en los Capítulos II y IV. |
-| **1.5.0** | 17/09/2026 | Nakasone Gomes, Marco Antonio | Redacción completa del Capítulo III: especificación de 20 User Stories, Impact Mapping y Product Backlog en Jira. |
-| **1.6.0** | 18/09/2026 | Shimabukuro Uku, Carlos Joel | Modelado del Tactical DDD para Thermal Monitoring & Telemetry, Access & Security y Orders & Audit. |
-| **1.7.0** | 18/09/2026 | Carhuancote Dominguez, Gonzalo Alonso | Modelado del Tactical DDD para IAM y Container & Device Management, diagramas C4 y bases de datos. |
-| **1.8.0** | 18/09/2026 | Nakasone Gomes, Marco Antonio | Consolidación del informe, integración de ramas por capítulo, resolución de conflictos y redacción de conclusiones de AV1. |
-| **1.9.0** | 30/09/2026 | Nakasone Gomes, Marco Antonio | Normalización integral de formato, corrección de enlaces de imágenes, generación de diagramas arquitectónicos y adición de anexos. |
-| **2.0.0** | 07/10/2026 | Nakasone Gomes, Marco Antonio | Redacción completa del Capítulo VI: Product Implementation, Validation & Deployment, configuración de gestión de configuración de software, Sprint 1, evidencias de desarrollo, ejecución, documentación OpenAPI y despliegue cloud en producción para el hito TB1. |
+|    Versión    |   Fecha   | Autor                                 | Descripción de modificación                                                                                                                                                                                                                                               |
+| :-------------: | :--------: | :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1.0.0** | 14/09/2026 | Carhuancote Dominguez, Gonzalo Alonso | Estructuración inicial del informe, configuración del repositorio GitFlow y diseño de carátula.                                                                                                                                                                         |
+| **1.1.0** | 15/09/2026 | Duran Diaz, Antonio Rodrigo           | Redacción del Capítulo I: Startup Profile, 5W2H, Lean UX Process y Segmentos Objetivo.                                                                                                                                                                                    |
+| **1.2.0** | 16/09/2026 | Alvarado De La Cruz, Juan Carlos      | Elaboración del análisis competitivo, matriz comparativa de competidores y estrategias de mercado en el Capítulo II.                                                                                                                                                     |
+| **1.3.0** | 16/09/2026 | Teves Samaniego, Joan Fernando        | Redacción del diseño de entrevistas, transcripción y análisis de hallazgos para los segmentos objetivo.                                                                                                                                                                 |
+| **1.4.0** | 17/09/2026 | Diestra Zambrano, Adriana Maria       | Elaboración del EventStorming (Big Picture y Design-Level), Context Mapping y modelos C4 en los Capítulos II y IV.                                                                                                                                                        |
+| **1.5.0** | 17/09/2026 | Nakasone Gomes, Marco Antonio         | Redacción completa del Capítulo III: especificación de 20 User Stories, Impact Mapping y Product Backlog en Jira.                                                                                                                                                        |
+| **1.6.0** | 18/09/2026 | Shimabukuro Uku, Carlos Joel          | Modelado del Tactical DDD para Thermal Monitoring & Telemetry, Access & Security y Orders & Audit.                                                                                                                                                                          |
+| **1.7.0** | 18/09/2026 | Carhuancote Dominguez, Gonzalo Alonso | Modelado del Tactical DDD para IAM y Container & Device Management, diagramas C4 y bases de datos.                                                                                                                                                                          |
+| **1.8.0** | 18/09/2026 | Nakasone Gomes, Marco Antonio         | Consolidación del informe, integración de ramas por capítulo, resolución de conflictos y redacción de conclusiones de AV1.                                                                                                                                             |
+| **1.9.0** | 30/09/2026 | Nakasone Gomes, Marco Antonio         | Normalización integral de formato, corrección de enlaces de imágenes, generación de diagramas arquitectónicos y adición de anexos.                                                                                                                                    |
+| **2.0.0** | 07/10/2026 | Nakasone Gomes, Marco Antonio         | Redacción completa del Capítulo VI: Product Implementation, Validation & Deployment, configuración de gestión de configuración de software, Sprint 1, evidencias de desarrollo, ejecución, documentación OpenAPI y despliegue cloud en producción para el hito TB1. |
 
 # Project Report Collaboration Insights
 
@@ -74,6 +25,7 @@ El desarrollo del informe de trabajo final para el proyecto **Cold2Hot** ha sido
 * **Tablero de gestión ágil (Jira Software):** [Tablero Kanban - Cold2Hot Backlog](https://marcoanakasone-1789698062967.atlassian.net/jira/software/projects/KAN/boards/1/backlog?atlOrigin=eyJpIjoiNTk0N2Q4MGJiNjQ0NGQzZDk5MzFkZWZiZDdmNTBkMjUiLCJwIjoiaiJ9)
 
 ### Metodología de Colaboración y Control de Versiones
+
 1. **Flujo de Ramas por Capítulo (GitFlow):** Se estructuró el trabajo en ramas aisladas (`feature/chapter-1`, `feature/chapter-2`, `feature/chapter-3`, `feature/chapter-4`), evitando colisiones y garantizando la autonomía de redacción de cada sección técnica.
 2. **Integración Mediante Pull Requests y Code Review:** Ningún cambio se incorporó directamente a la rama `develop`; cada entrega fue revisada mediante Pull Requests con validación cruzada entre pares para certificar la consistencia del Markdown y la validez técnica de los artefactos.
 3. **Participación Equitativa y Trazabilidad:** La totalidad de integrantes registra commits con autoría individual y contribuciones significativas en el historial del repositorio, sustentando el cumplimiento del Student Outcome ABET 5.
@@ -99,7 +51,7 @@ El desarrollo del informe de trabajo final para el proyecto **Cold2Hot** ha sido
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-- [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation-analysis)
+- [Capítulo II: Requirements Elicitation &amp; Analysis](#capítulo-ii-requirements-elicitation-analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
     - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
@@ -131,47 +83,47 @@ El desarrollo del informe de trabajo final para el proyecto **Cold2Hot** ha sido
       - [4.1.3.3. Software Architecture Container Level Diagrams](#4133-software-architecture-container-level-diagrams)
       - [4.1.3.4. Software Architecture Deployment Diagrams](#4134-software-architecture-deployment-diagrams)
   - [4.2. Tactical-Level Domain-Driven Design](#42-tactical-level-domain-driven-design)
-    - [4.2.1. Bounded Context: Identity & Access (IAM)](#421-bounded-context-identity-access-iam)
+    - [4.2.1. Bounded Context: Identity &amp; Access (IAM)](#421-bounded-context-identity-access-iam)
       - [4.2.1.1. Domain Layer](#4211-domain-layer)
       - [4.2.1.2. Interface Layer](#4212-interface-layer)
       - [4.2.1.3. Application Layer](#4213-application-layer)
       - [4.2.1.4. Infrastructure Layer](#4214-infrastructure-layer)
       - [4.2.1.5. Bounded Context Software Architecture Component Level Diagrams](#4215-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.1.6. Bounded Context Software Architecture Code Level Diagrams](#4216-bounded-context-software-architecture-code-level-diagrams)
-    - [4.2.2. Bounded Context: Container & Device Management](#422-bounded-context-container-device-management)
+    - [4.2.2. Bounded Context: Container &amp; Device Management](#422-bounded-context-container-device-management)
       - [4.2.2.1. Domain Layer](#4221-domain-layer)
       - [4.2.2.2. Interface Layer](#4222-interface-layer)
       - [4.2.2.3. Application Layer](#4223-application-layer)
       - [4.2.2.4. Infrastructure Layer](#4224-infrastructure-layer)
       - [4.2.2.5. Bounded Context Software Architecture Component Level Diagrams](#4225-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.2.6. Bounded Context Software Architecture Code Level Diagrams](#4226-bounded-context-software-architecture-code-level-diagrams)
-    - [4.2.3. Bounded Context: Thermal Monitoring & Telemetry](#423-bounded-context-thermal-monitoring-telemetry)
+    - [4.2.3. Bounded Context: Thermal Monitoring &amp; Telemetry](#423-bounded-context-thermal-monitoring-telemetry)
       - [4.2.3.1. Domain Layer](#4231-domain-layer)
       - [4.2.3.2. Interface Layer](#4232-interface-layer)
       - [4.2.3.3. Application Layer](#4233-application-layer)
       - [4.2.3.4. Infrastructure Layer](#4234-infrastructure-layer)
       - [4.2.3.5. Bounded Context Software Architecture Component Level Diagrams](#4235-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.3.6. Bounded Context Software Architecture Code Level Diagrams](#4236-bounded-context-software-architecture-code-level-diagrams)
-    - [4.2.4. Bounded Context: Access & Security](#424-bounded-context-access-security)
+    - [4.2.4. Bounded Context: Access &amp; Security](#424-bounded-context-access-security)
       - [4.2.4.1. Domain Layer](#4241-domain-layer)
       - [4.2.4.2. Interface Layer](#4242-interface-layer)
       - [4.2.4.3. Application Layer](#4243-application-layer)
       - [4.2.4.4. Infrastructure Layer](#4244-infrastructure-layer)
       - [4.2.4.5. Bounded Context Software Architecture Component Level Diagrams](#4245-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.4.6. Bounded Context Software Architecture Code Level Diagrams](#4246-bounded-context-software-architecture-code-level-diagrams)
-    - [4.2.5. Bounded Context: Orders & Audit](#425-bounded-context-orders-audit)
+    - [4.2.5. Bounded Context: Orders &amp; Audit](#425-bounded-context-orders-audit)
       - [4.2.5.1. Domain Layer](#4251-domain-layer)
       - [4.2.5.2. Interface Layer](#4252-interface-layer)
       - [4.2.5.3. Application Layer](#4253-application-layer)
       - [4.2.5.4. Infrastructure Layer](#4254-infrastructure-layer)
       - [4.2.5.5. Bounded Context Software Architecture Component Level Diagrams](#4255-bounded-context-software-architecture-component-level-diagrams)
-- [Capítulo VI: Product Implementation, Validation & Deployment](#capítulo-vi-product-implementation-validation--deployment)
+- [Capítulo VI: Product Implementation, Validation &amp; Deployment](#capítulo-vi-product-implementation-validation--deployment)
   - [6.1. Software Configuration Management](#61-software-configuration-management)
     - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
     - [6.1.2. Source Code Management](#612-source-code-management)
-    - [6.1.3. Source Code Style Guide & Conventions](#613-source-code-style-guide--conventions)
+    - [6.1.3. Source Code Style Guide &amp; Conventions](#613-source-code-style-guide--conventions)
     - [6.1.4. Software Deployment Configuration](#614-software-deployment-configuration)
-  - [6.2. Landing Page, Services & Applications Implementation](#62-landing-page-services--applications-implementation)
+  - [6.2. Landing Page, Services &amp; Applications Implementation](#62-landing-page-services--applications-implementation)
     - [6.2.1. Sprint 1](#621-sprint-1)
       - [6.2.1.1. Sprint Planning 1](#6211-sprint-planning-1)
       - [6.2.1.2. Aspect Leaders and Collaborators](#6212-aspect-leaders-and-collaborators)
@@ -187,6 +139,7 @@ El desarrollo del informe de trabajo final para el proyecto **Cold2Hot** ha sido
 - [Video About-the-Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
+
 # Student Outcome
 
 El curso contribuye al cumplimiento del Student Outcome ABET:
@@ -197,10 +150,10 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
 
-| Criterio específico | Acciones realizadas | Conclusiones |
-| ------------------- | ------------------- | ------------ |
-| Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Alvarado De La Cruz, Juan Carlos**<br>*AV1*<br>- Lideré la elaboración del análisis competitivo del Capítulo II, definiendo la matriz de competidores y el perfil de marketing de cada uno.<br>- Conduje la definición de las estrategias y tácticas frente a competidores, y las sometí a revisión del equipo antes de integrarlas al informe.<br><br>**Carhuancote Dominguez, Gonzalo Alonso**<br>*AV1*<br>- Tomé la iniciativa de definir la estructura base del informe y la carátula del documento, estableciendo el estándar de trabajo que siguió todo el equipo.<br>- Lideré el diseño del Containers Diagram y del Component Diagram del Cloud Core RESTful API, orientando las decisiones de arquitectura de la solución.<br><br>**Diestra Zambrano, Adriana Maria**<br>*AV1*<br>- Lideré la sesión de EventStorming y la definición del Domain-Driven Design estratégico, guiando al equipo en la identificación de los bounded contexts.<br>- Conduje la elaboración del Context Mapping y de las relaciones upstream/downstream entre contextos.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*AV1*<br>- Lideré la redacción del Capítulo I, articulando el Startup Profile, el planteamiento del problema con 5W2H y el Lean UX Process.<br>- Asumí la construcción y el mantenimiento de la tabla de contenidos del informe, asegurando la navegabilidad del documento para todo el equipo.<br><br>**Nakasone Gomes, Marco Antonio**<br>*AV1*<br>- Lideré la integración del trabajo de todas las ramas de capítulos hacia la rama principal, revisando y aprobando los Pull Requests del equipo.<br>- Conduje la elaboración completa del Capítulo III, definiendo las User Stories, el Impact Mapping y el Product Backlog del producto.<br><br>**Shimabukuro Uku, Carlos Joel**<br>*AV1*<br>- Lideré el diseño del bounded context de Thermal Monitoring & Telemetry, núcleo funcional de la solución IoT.<br>- Conduje el modelado del bounded context de Access & Security, elaborando sus diagramas de clases, de componentes y de base de datos.<br><br>**Teves Samaniego, Joan Fernando**<br>*AV1*<br>- Lideré el proceso de entrevistas, elaborando el diseño de preguntas dirigidas a los segmentos objetivo.<br>- Conduje la construcción de los User Personas y de la Task Matrix a partir de los hallazgos del needfinding.<br> | Como equipo distribuimos el liderazgo por capítulos en lugar de concentrarlo en una sola persona: cada integrante asumió la conducción de una sección del informe y respondió por ella ante el grupo.<br><br>Esta rotación nos permitió que todos ejerciéramos un rol de liderazgo técnico en el ámbito de nuestra especialidad, y que las decisiones de arquitectura y de producto las tomáramos de forma conjunta y no impuesta.<br><br>Consideramos que el trabajo sobre ramas independientes por capítulo, con revisión mediante Pull Requests, evidencia que ejercimos el liderazgo de manera colegiada y verificable. |
-| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Alvarado De La Cruz, Juan Carlos**<br>*AV1*<br>- Cumplí con la entrega de la sección de competidores dentro del plazo acordado por el equipo, trabajando sobre mi propia rama de capítulo.<br>- Incorporé las observaciones de mis compañeros sobre el formato de los logos y perfiles de competidores.<br><br>**Carhuancote Dominguez, Gonzalo Alonso**<br>*AV1*<br>- Establecí junto con el equipo la convención de ramas por capítulo y de mensajes de commit, lo que nos permitió trabajar en paralelo sin bloqueos.<br>- Cumplí con la documentación de los bounded contexts de Container & Device Management e Identity & Access Management en los plazos previstos.<br><br>**Diestra Zambrano, Adriana Maria**<br>*AV1*<br>- Colaboré activamente en la integración de los artefactos de DDD al Capítulo IV, coordinando con mis compañeros para evitar conflictos en el documento.<br>- Completé los bounded context canvases que me fueron asignados y actualicé las imágenes faltantes del capítulo.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*AV1*<br>- Consolidé en la tabla de perfiles del equipo la información de todos los integrantes, asegurando que ninguno quedara sin representación en el informe.<br>- Cumplí con la actualización del Lean UX Canvas y de los segmentos objetivo según lo planificado para la entrega.<br><br>**Nakasone Gomes, Marco Antonio**<br>*AV1*<br>- Coordiné la resolución de conflictos de integración entre las ramas de los distintos capítulos, preservando el trabajo de cada integrante.<br>- Mantuve la sincronización entre el Product Backlog documentado en el informe y el tablero del equipo, con 20 User Stories acordadas.<br><br>**Shimabukuro Uku, Carlos Joel**<br>*AV1*<br>- Trabajé de forma sostenida a lo largo de toda la entrega, siendo uno de los integrantes con mayor número de contribuciones al repositorio.<br>- Cumplí con la entrega de todos los diagramas de mis bounded contexts asignados dentro del cronograma del equipo.<br><br>**Teves Samaniego, Joan Fernando**<br>*AV1*<br>- Documenté los hallazgos de las entrevistas de manera que el resto del equipo pudiera reutilizarlos en el needfinding y en el Capítulo III.<br>- Cumplí con la expansión de las secciones de User Personas y Task Matrix acordadas en la planificación.<br> | Establecimos desde el inicio metas por entrega y una convención de trabajo común (ramas por capítulo, mensajes de commit descriptivos y revisión por Pull Request), lo que nos permitió que siete personas trabajáramos en paralelo sobre un mismo documento.<br><br>Reflejamos la planificación de tareas en la asignación explícita de capítulos y bounded contexts a cada integrante, y su cumplimiento quedó registrado en el historial del repositorio.<br><br>Mantuvimos un entorno de trabajo inclusivo: todos contamos con contribuciones registradas y con nuestro perfil incorporado al informe, y resolvimos los conflictos de integración preservando el aporte de cada autor en lugar de sobrescribirlo. |
+| Criterio específico                                                                            | Acciones realizadas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Conclusiones                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Trabaja en equipo para proporcionar liderazgo en forma conjunta                                 | **Alvarado De La Cruz, Juan Carlos***AV1*- Lideré la elaboración del análisis competitivo del Capítulo II, definiendo la matriz de competidores y el perfil de marketing de cada uno.- Conduje la definición de las estrategias y tácticas frente a competidores, y las sometí a revisión del equipo antes de integrarlas al informe.**Carhuancote Dominguez, Gonzalo Alonso***AV1*- Tomé la iniciativa de definir la estructura base del informe y la carátula del documento, estableciendo el estándar de trabajo que siguió todo el equipo.- Lideré el diseño del Containers Diagram y del Component Diagram del Cloud Core RESTful API, orientando las decisiones de arquitectura de la solución.**Diestra Zambrano, Adriana Maria***AV1*- Lideré la sesión de EventStorming y la definición del Domain-Driven Design estratégico, guiando al equipo en la identificación de los bounded contexts.- Conduje la elaboración del Context Mapping y de las relaciones upstream/downstream entre contextos.**Duran Diaz, Antonio Rodrigo***AV1*- Lideré la redacción del Capítulo I, articulando el Startup Profile, el planteamiento del problema con 5W2H y el Lean UX Process.- Asumí la construcción y el mantenimiento de la tabla de contenidos del informe, asegurando la navegabilidad del documento para todo el equipo.**Nakasone Gomes, Marco Antonio***AV1*- Lideré la integración del trabajo de todas las ramas de capítulos hacia la rama principal, revisando y aprobando los Pull Requests del equipo.- Conduje la elaboración completa del Capítulo III, definiendo las User Stories, el Impact Mapping y el Product Backlog del producto.**Shimabukuro Uku, Carlos Joel***AV1*- Lideré el diseño del bounded context de Thermal Monitoring & Telemetry, núcleo funcional de la solución IoT.- Conduje el modelado del bounded context de Access & Security, elaborando sus diagramas de clases, de componentes y de base de datos.**Teves Samaniego, Joan Fernando***AV1*- Lideré el proceso de entrevistas, elaborando el diseño de preguntas dirigidas a los segmentos objetivo.- Conduje la construcción de los User Personas y de la Task Matrix a partir de los hallazgos del needfinding. | Como equipo distribuimos el liderazgo por capítulos en lugar de concentrarlo en una sola persona: cada integrante asumió la conducción de una sección del informe y respondió por ella ante el grupo.Esta rotación nos permitió que todos ejerciéramos un rol de liderazgo técnico en el ámbito de nuestra especialidad, y que las decisiones de arquitectura y de producto las tomáramos de forma conjunta y no impuesta.Consideramos que el trabajo sobre ramas independientes por capítulo, con revisión mediante Pull Requests, evidencia que ejercimos el liderazgo de manera colegiada y verificable.                                                                                          |
+| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Alvarado De La Cruz, Juan Carlos***AV1*- Cumplí con la entrega de la sección de competidores dentro del plazo acordado por el equipo, trabajando sobre mi propia rama de capítulo.- Incorporé las observaciones de mis compañeros sobre el formato de los logos y perfiles de competidores.**Carhuancote Dominguez, Gonzalo Alonso***AV1*- Establecí junto con el equipo la convención de ramas por capítulo y de mensajes de commit, lo que nos permitió trabajar en paralelo sin bloqueos.- Cumplí con la documentación de los bounded contexts de Container & Device Management e Identity & Access Management en los plazos previstos.**Diestra Zambrano, Adriana Maria***AV1*- Colaboré activamente en la integración de los artefactos de DDD al Capítulo IV, coordinando con mis compañeros para evitar conflictos en el documento.- Completé los bounded context canvases que me fueron asignados y actualicé las imágenes faltantes del capítulo.**Duran Diaz, Antonio Rodrigo***AV1*- Consolidé en la tabla de perfiles del equipo la información de todos los integrantes, asegurando que ninguno quedara sin representación en el informe.- Cumplí con la actualización del Lean UX Canvas y de los segmentos objetivo según lo planificado para la entrega.**Nakasone Gomes, Marco Antonio***AV1*- Coordiné la resolución de conflictos de integración entre las ramas de los distintos capítulos, preservando el trabajo de cada integrante.- Mantuve la sincronización entre el Product Backlog documentado en el informe y el tablero del equipo, con 20 User Stories acordadas.**Shimabukuro Uku, Carlos Joel***AV1*- Trabajé de forma sostenida a lo largo de toda la entrega, siendo uno de los integrantes con mayor número de contribuciones al repositorio.- Cumplí con la entrega de todos los diagramas de mis bounded contexts asignados dentro del cronograma del equipo.**Teves Samaniego, Joan Fernando***AV1*- Documenté los hallazgos de las entrevistas de manera que el resto del equipo pudiera reutilizarlos en el needfinding y en el Capítulo III.- Cumplí con la expansión de las secciones de User Personas y Task Matrix acordadas en la planificación.                   | Establecimos desde el inicio metas por entrega y una convención de trabajo común (ramas por capítulo, mensajes de commit descriptivos y revisión por Pull Request), lo que nos permitió que siete personas trabajáramos en paralelo sobre un mismo documento.Reflejamos la planificación de tareas en la asignación explícita de capítulos y bounded contexts a cada integrante, y su cumplimiento quedó registrado en el historial del repositorio.Mantuvimos un entorno de trabajo inclusivo: todos contamos con contribuciones registradas y con nuestro perfil incorporado al informe, y resolvimos los conflictos de integración preservando el aporte de cada autor en lugar de sobrescribirlo. |
 
 # Capítulo I: Introducción
 
@@ -216,15 +169,15 @@ IoTeam es una startup tecnológica que busca resolver un problema cotidiano y lo
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-| Integrante | Descripción de Carrera | Conocimientos y Habilidades a aportar |
-| :--- | :--- | :--- |
-| <div align="center"><img src="assets/foto-juan.jpeg" width="100" style="border-radius: 50%;"><br>**Alvarado De La Cruz, Juan Carlos**<br>*(U202216150)*</div> | Ingeniería de Software<br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con sólidos conocimientos en bases de datos relacionales, análisis competitivo y modelado de requerimientos para plataformas IoT. En este proyecto lidera el estudio de mercado, la definición táctica frente a competidores y el aseguramiento del cumplimiento de los plazos del equipo. |
-| <div align="center"><img src="assets/foto-gonzalo.jpg" width="100" style="border-radius: 50%;"><br>**Carhuancote Dominguez, Gonzalo Alonso**<br>*(U202210720)*</div> | Ingeniería de Software<br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con amplia experiencia práctica en desarrollo backend y lógica de negocio. Posee dominio técnico en C++, Java, TypeScript y Python, liderando el diseño de la arquitectura de software C4, la implementación de servicios RESTful y el diseño táctico de los bounded contexts IAM y Container & Device Management. |
-| <div align="center"><img src="assets/foto-adriana.jpg" width="100" style="border-radius: 50%;"><br>**Diestra Zambrano, Adriana Maria**<br>*(U202218110)*</div> | Ingeniería de Software<br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con enfoque full-stack. Cuenta con conocimientos en Vue 3, Node.js, Kotlin, Docker y Spring Boot, orientados a la creación de interfaces, estructuración de microservicios y conducción de sesiones de EventStorming y Context Mapping para el diseño estratégico de Domain-Driven Design. |
-| <div align="center"><img src="assets/foto-rodrigo.png" width="100" style="border-radius: 50%;"><br>**Duran Diaz, Antonio Rodrigo**<br>*(U202215721)*</div> | Ingeniería de Software<br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software especializado en metodologías ágiles de diseño de producto (Lean UX), análisis 5W2H y segmentación de clientes. Lidera la conceptualización del Startup Profile, la definición de problemáticas e hipótesis de valor y el mantenimiento de la coherencia estructural del proyecto. |
-| <div align="center"><img src="assets/foto-marco.png" width="100" style="border-radius: 50%;"><br>**Nakasone Gomes, Marco Antonio**<br>*(U202210790)*</div> | Ingeniería de Software<br>Universidad Peruana de Ciencias Aplicadas | Estudiante de 9no ciclo de Ingeniería de Software con experiencia en desarrollo backend con Spring Boot (Java), aplicaciones web y móviles con Flutter, integración de APIs RESTful y gestión de repositorios mediante GitFlow. Conduce la integración de ramas por capítulos, la gestión del Product Backlog en Jira y la redacción de User Stories bajo formato Gherkin. |
-| <div align="center"><img src="assets/foto-carlos.jpg" width="100" style="border-radius: 50%;"><br>**Shimabukuro Uku, Carlos Joel**<br>*(U201912407)*</div> | Ingeniería de Software<br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con dominio de C++, JavaScript, TypeScript y bases de datos relacionales MySQL. Lidera el diseño táctico y diagramación de software de los bounded contexts de Thermal Monitoring & Telemetry, Access & Security y Orders & Audit, conectando la lógica de negocio con el hardware embebido. |
-| <div align="center"><img src="assets/foto-joan.jpeg" width="100" style="border-radius: 50%;"><br>**Teves Samaniego, Joan Fernando**<br>*(U202117303)*</div> | Ingeniería de Software<br>Universidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con experiencia en integración ciberfísica de microcontroladores (ESP32) y sensores electrónicos. Lidera la fase de needfinding, diseño y conducción de entrevistas de validación con administradores y repartidores, así como la elaboración de User Personas y matrices de tareas. |
+| Integrante | Descripción de Carrera                                          | Conocimientos y Habilidades a aportar                                                                                                                                                                                                                                                                                                                                              |
+| :--------- | :--------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|            | Ingeniería de SoftwareUniversidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con sólidos conocimientos en bases de datos relacionales, análisis competitivo y modelado de requerimientos para plataformas IoT. En este proyecto lidera el estudio de mercado, la definición táctica frente a competidores y el aseguramiento del cumplimiento de los plazos del equipo.                                               |
+|            | Ingeniería de SoftwareUniversidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con amplia experiencia práctica en desarrollo backend y lógica de negocio. Posee dominio técnico en C++, Java, TypeScript y Python, liderando el diseño de la arquitectura de software C4, la implementación de servicios RESTful y el diseño táctico de los bounded contexts IAM y Container & Device Management.                    |
+|            | Ingeniería de SoftwareUniversidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con enfoque full-stack. Cuenta con conocimientos en Vue 3, Node.js, Kotlin, Docker y Spring Boot, orientados a la creación de interfaces, estructuración de microservicios y conducción de sesiones de EventStorming y Context Mapping para el diseño estratégico de Domain-Driven Design.                                              |
+|            | Ingeniería de SoftwareUniversidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software especializado en metodologías ágiles de diseño de producto (Lean UX), análisis 5W2H y segmentación de clientes. Lidera la conceptualización del Startup Profile, la definición de problemáticas e hipótesis de valor y el mantenimiento de la coherencia estructural del proyecto.                                                  |
+|            | Ingeniería de SoftwareUniversidad Peruana de Ciencias Aplicadas | Estudiante de 9no ciclo de Ingeniería de Software con experiencia en desarrollo backend con Spring Boot (Java), aplicaciones web y móviles con Flutter, integración de APIs RESTful y gestión de repositorios mediante GitFlow. Conduce la integración de ramas por capítulos, la gestión del Product Backlog en Jira y la redacción de User Stories bajo formato Gherkin. |
+|            | Ingeniería de SoftwareUniversidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con dominio de C++, JavaScript, TypeScript y bases de datos relacionales MySQL. Lidera el diseño táctico y diagramación de software de los bounded contexts de Thermal Monitoring & Telemetry, Access & Security y Orders & Audit, conectando la lógica de negocio con el hardware embebido.                                             |
+|            | Ingeniería de SoftwareUniversidad Peruana de Ciencias Aplicadas | Estudiante de Ingeniería de Software con experiencia en integración ciberfísica de microcontroladores (ESP32) y sensores electrónicos. Lidera la fase de needfinding, diseño y conducción de entrevistas de validación con administradores y repartidores, así como la elaboración de User Personas y matrices de tareas.                                                 |
 
 ## 1.2. Solution Profile
 
@@ -233,47 +186,13 @@ Nuestra solución se denomina Cold2Hot, un sistema inteligente para cajas de del
 ### 1.2.1 Antecedentes y problemática
 
 ### Antecedentes
+
 <div style="text-align: justify">
-
-En los últimos años, el mercado de entrega de comida a domicilio (*food delivery*) ha experimentado una expansión sin precedentes en las principales zonas urbanas, consolidándose como un canal de venta indispensable tanto para grandes cadenas gastronómicas como para medianos y pequeños restaurantes. Sin embargo, este crecimiento exponencial ha expuesto serias limitaciones en la etapa logística más crítica del servicio: **la última milla**. Los métodos de transporte predominantes continúan empleando mochilas térmicas y cajas pasivas de lona o plástico convencional que dependen de un aislamiento térmico estático incapaz de responder ante retrasos por congestión vehicular, distancias prolongadas o condiciones climáticas desfavorables. En consecuencia, una porción alarmante de los pedidos llega a manos del comensal fuera del rango térmico óptimo (comida caliente tibia o fría, o alimentos refrigerados descongelados), lo cual no solo degrada la experiencia organoléptica del cliente y deteriora la reputación del restaurante, sino que plantea riesgos sanitarios por proliferación bacteriana en alimentos perecibles.
-
-A esta situación se suma el riesgo de manipulación de los alimentos durante el trayecto. La falta de mecanismos de seguridad automatizados y de controles de acceso en los contenedores de reparto impide que los negocios o los clientes finales tengan la certeza de que el pedido no ha sido abierto sin autorización. La carencia de telemetría, evidencias fotográficas al momento de la entrega y sistemas de monitoreo en tiempo real crea un vacío de información operativo, donde el estado de la entrega es una incógnita hasta que llega a la puerta del cliente. Frente a esto, surge la necesidad de implementar soluciones de Internet de las Cosas (IoT) que permitan automatizar el control térmico y la seguridad, integrando sensores, actuadores y códigos de acceso conectados a plataformas digitales para asegurar una cadena de custodia transparente.
-
-</div>
 
 ### Problemática
 
 <div align="justify">
 Para entender la necesidad del proyecto, se aplicó la técnica de las 5W's + 2H's:
-
-### 5W's
-### What (¿Cuál es el problema?):
-La pérdida intempestiva de la temperatura ideal (caliente o fría) de los alimentos durante la ruta de reparto, sumada al riesgo de aperturas no autorizadas del contenedor, la falta de controles de acceso físico y la ausencia de un sistema de monitoreo y evidencia en tiempo real que garantice la cadena de custodia.
-
-### When (¿Cuándo ocurre el problema?):
-Durante el trayecto de envío urbano, especialmente en desplazamientos que superan los 15 minutos, en horas de alto tráfico o bajo condiciones climáticas adversas que aceleran la transferencia térmica.
-
-### Where (¿Dónde ocurre el problema?):
-En el espacio de transporte urbano (usualmente motocicletas o bicicletas) durante el tránsito desde el punto de despacho del restaurante hasta el domicilio del consumidor final.
-
-### Who (¿A quién o quiénes afecta el problema?):
-- A los administradores de operaciones de delivery, quienes asumen las pérdidas por reembolsos y el impacto negativo en la reputación de la marca al no contar con pruebas irrefutables de la entrega.
-
-- A los repartidores, que se exponen a penalizaciones operativas o conflictos con los clientes debido a factores logísticos que escapan de su control.
-
-- Al consumidor final, quien recibe un producto con calidad mermada o riesgos de salubridad.
-
-### Why (¿Por qué sucede el problema?):
-Porque el sector logístico tradicional de alimentos emplea mochilas y cajas pasivas que carecen de sistemas de regulación térmica activa, sensores de seguridad y conectividad. No existe un ecosistema tecnológico integrado que gestione permisos de apertura, alerte sobre desviaciones térmicas o manipulaciones, y registre el momento exacto de entrega con evidencias.
-
-### 2H's
-### How (¿Cómo aparece el problema?):
-El problema se manifiesta a través de la disipación natural del calor o frío en contenedores sin aislamiento inteligente, a través de cierres mecánicos simples (como cremalleras o velcros) que pueden ser abiertos por cualquier persona en la ruta, y por la ausencia de registros de auditoría y fotografías al concretar la entrega.Inclusive las medidas de seguridad de los restaurantes al tratar de evitar aperturas no autorizadas usando cierres o etiquetas adhesivas se ven comprometidas porque estas pueden ser replicadas o rotas.
-
-### How Much (¿Cuánto afecta el problema?):
-Los reclamos por entregas frías o paquetes vulnerados representan una de las principales causas de pérdida de ventas recurrentes y clientes fidelizados para los restaurantes, impactando directamente en su rentabilidad mensual y generando altos costos operativos por la reposición y reembolso de pedidos dañados.
-
-</div>
 
 ### 1.2.2 Lean UX Process.
 
@@ -281,54 +200,40 @@ Los reclamos por entregas frías o paquetes vulnerados representan una de las pr
 
 <div style="text-align: justify">
 
-Nuestro producto, Cold2Hot, abordará esta brecha mediante la implementación de una caja inteligente de delivery equipada con un microcontrolador ESP32 NodeMCU. Este sistema se integrará con un sensor de temperatura DS18B20, un actuador de ventilación, y un sistema de seguridad de dos niveles procesado mediante la lectura conjunta de un sensor magnético Reed Switch y un sensor infrarrojo TCRT5000. Los datos emitidos se sincronizarán con un panel de administración para empresas y una aplicación móvil para repartidores, habilitando la gestión de perfiles térmicos, bloqueos por código, y reportes de auditoría en tiempo real. Nuestro enfoque inicial será cadenas de restaurantes de tamaño pequeño y mediano, así como repartidores independientes en zonas urbanas.
-
-Sabremos que hemos tenido éxito cuando observemos una reducción del 35% en quejas de clientes por alimentos en estado térmico deficiente, alcancemos una tasa del 90% de entregas sin alertas críticas de manipulación y logremos un aumento de al menos el 20% en la retención de clientes para los establecimientos afiliados mediante el uso de reportes de evidencia.
-
-</div>
-
 #### 1.2.2.2. Lean UX Assumptions.
 
 **Business Assumptions:**
 
 1. Creemos que los restaurantes están dispuestos a invertir en la adopción de cajas inteligentes IoT si el costo unitario de hardware se mantiene accesible y justifica el retorno de inversión.
-
 2. Creemos que la oferta de una plataforma SaaS de monitoreo centralizado permitirá la monetización a través de suscripciones mensuales viables para los restaurantes o plataformas de delivery que quieran invertir y equipar a sus motorizados.
-
 3. Creemos que la validación de entregas mediante códigos y fotografías reducirá drásticamente las devoluciones fraudulentas por parte de malos clientes.
-
 4. Captaremos clientes mediante alianzas, referidos y estrategias digitales.
 
 **User Assumptions:**
+
 1. Creemos que los administradores de restaurantes necesitan un panel web centralizado para supervisar el despacho, configurar el tipo de temperatura de cada envío, y auditar los tiempos exactos de apertura de las cajas.
-
 2. Creemos que los repartidores requieren una aplicación que los asista proactivamente, exigiéndoles mantener la conectividad (Bluetooth) y guiándolos en el proceso de entrega mediante códigos de apertura y toma de evidencias.
-
 3. Creemos que los repartidores necesitan un sistema que diferencie entre un descuido (caja mal cerrada pero con el pedido dentro) y una manipulación real, emitiendo notificaciones proporcionales a la gravedad del evento.
 
 **Business Outcome Assumptions:**
+
 - Lograremos una reducción del 35% en reclamos y devoluciones por alimentos entregados fuera del rango térmico óptimo.
 - Alcanzaremos un 90% de entregas monitoreadas sin incidencias de aperturas no autorizadas.
 - Reduciremos en un 70% las disputas logísticas entre restaurantes, clientes y repartidores al contar con un historial auditable de tiempos de apertura y evidencias fotográficas.
 
 **User Outcome Assumptions:**
+
 - Los administradores de restaurante obtendrán visibilidad total, capacidad de definir perfiles térmicos antes del despacho, y evidencia digital irrefutable sobre el estado físico de los pedidos entregados.
-
 - Los repartidores minimizarán penalizaciones injustas trabajando con mayor seguridad, recibiendo avisos preventivos para corregir cierres accidentales y demostrando la correcta entrega de los paquetes.
-
 - Los clientes finales disfrutarán de una experiencia superior, recibiendo alimentos en temperatura ideal y con higiene garantizada.
 
 **Features:**
+
 - Regulador térmico automatizado operado por un ESP32 y un sensor DS18B20 cuya configuración modo frío o caliente es asignada remotamente desde el panel de la empresa al iniciar el despacho.
-
 - Sistema de seguridad de dos niveles que cruza datos del sensor magnético y el infrarrojo para diferenciar entre aperturas accidentales con el paquete dentro emitiendo un aviso preventivo y extracciones reales del pedido emitiendo una alerta crítica.
-
 - Sistema de control de acceso físico que mantiene el contenedor bloqueado hasta que el repartidor digite en su aplicación el código único de entrega generado por el restaurante.
-
 - Aplicación móvil para repartidores que incluye recordatorio inicial de conexión Bluetooth, lectura de métricas de temperatura, recepción de alertas, y un flujo de cierre de entrega con captura de fotografía como evidencia.
-
 - Panel de administración web/móvil para la empresa que permite generar códigos de acceso, configurar la temperatura, y visualizar reportes en tiempo real, tiempos exactos de apertura, estado de permanencia ocupado/desocupado, métricas térmicas y registro fotográfico.
-
 
 #### 1.2.2.3. Lean UX Hypothesis Statements.
 
@@ -336,46 +241,53 @@ Para la elaboración de los Hypothesis Statements, se empleó la plantilla recom
 We believe that [business outcome] will be achieved if [user] attains [benefit] with [feature].
 
 #### Hipótesis 1
+
 **Creemos que** la reducción del 35% en reclamos por alimentos en mal estado térmico **se logrará si** los administradores de restaurantes **obtienen** la capacidad de adaptar el entorno de la caja a cada pedido **con** una funcionalidad de configuración térmica remota (frío/caliente) integrada al ESP32 y al sensor DS18B20.
 
 #### Hipótesis 2
+
 **Creemos que** la reducción de fricción operativa y estrés en la conducción **se logrará si** los repartidores **obtienen** notificaciones precisas que eviten falsas alarmas **con** un sistema de seguridad de dos niveles que distingue entre una caja mal cerrada y una extracción real del pedido.
 
 #### Hipótesis 3
+
 **Creemos que** la erradicación de aperturas no autorizadas en ruta **se logrará si** los restaurantes y clientes **obtienen** garantía de inviolabilidad **con** un sistema de control de acceso físico que requiere la digitación de un código único para abrir el contenedor.
 
 #### Hipótesis 4
+
 **Creemos que** la disminución de penalizaciones injustas hacia los conductores **se logrará si** los repartidores **obtienen** una herramienta para registrar su desempeño **con** entregas seguras y confiables.
 
 #### Hipótesis 5
+
 **Creemos que** la reducción del 70% en disputas logísticas por reembolsos **se logrará si** los administradores de restaurantes **obtienen** visibilidad gerencial y auditoría total **con** un panel de administración que consolida reportes en tiempo real de temperatura, tiempos exactos de apertura, estado de ocupación del paquete y registro fotográfico.
 
 #### 1.2.2.4. Lean UX Canvas
 
-| Business Problem | Solutions | Business Outcomes |
-|---|---|---|
-| Los restaurantes sufren pérdidas económicas y de reputación por entregas frías, vulneradas o reportadas falsamente como no recibidas. Existe una nula visibilidad del estado de la caja de transporte, falta de controles de acceso en ruta y carencia de evidencias al momento de la entrega, lo que impide garantizar la calidad del servicio logístico. | Implementación de una caja de delivery inteligente (ESP32) con regulación térmica configurable, seguridad de dos niveles, control de apertura por código, y aplicaciones web/móviles para reportes en tiempo real, alertas preventivas y captura fotográfica de entrega | - Disminución del 35% en reclamos por temperatura inadecuada.<br>- Reducción del 90% en incidencias de manipulación.<br>- Mejora en la rentabilidad y fidelización del cliente. |
+| Business Problem                                                                                                                                                                                                                                                                                                                                                | Solutions                                                                                                                                                                                                                                                                     | Business Outcomes                                                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Los restaurantes sufren pérdidas económicas y de reputación por entregas frías, vulneradas o reportadas falsamente como no recibidas. Existe una nula visibilidad del estado de la caja de transporte, falta de controles de acceso en ruta y carencia de evidencias al momento de la entrega, lo que impide garantizar la calidad del servicio logístico. | Implementación de una caja de delivery inteligente (ESP32) con regulación térmica configurable, seguridad de dos niveles, control de apertura por código, y aplicaciones web/móviles para reportes en tiempo real, alertas preventivas y captura fotográfica de entrega | - Disminución del 35% en reclamos por temperatura inadecuada.- Reducción del 90% en incidencias de manipulación.- Mejora en la rentabilidad y fidelización del cliente. |
 
-| Users and Customer | | User Outcomes & Benefits |
-|---|---|---|
-| Administradores de restaurantes: Requieren asegurar la cadena de custodia, controlar la temperatura remotamente y tener evidencia digital auditable.<br>Repartidores: Necesitan herramientas que avisen si la caja quedó mal cerrada sin emitir falsas alarmas, y poder demostrar que entregaron el pedido correctamente.<br>Consumidores: Buscan garantías de higiene y temperatura ideal. | | - Los restaurantes logran trazabilidad total del despacho en tiempo real, con marcas de tiempo precisas de apertura y fotos de entrega.<br>- Los repartidores reciben avisos preventivos para corregir descuidos, cuentan con recordatorios de conectividad y evitan sanciones mediante la evidencia fotográfica.<br>- Los consumidores disfrutan de alimentos protegidos. |
+| Users and Customer                                                                                                                                                                                                                                                                                                                                                                    |  | User Outcomes & Benefits                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Administradores de restaurantes: Requieren asegurar la cadena de custodia, controlar la temperatura remotamente y tener evidencia digital auditable.Repartidores: Necesitan herramientas que avisen si la caja quedó mal cerrada sin emitir falsas alarmas, y poder demostrar que entregaron el pedido correctamente.Consumidores: Buscan garantías de higiene y temperatura ideal. |  | - Los restaurantes logran trazabilidad total del despacho en tiempo real, con marcas de tiempo precisas de apertura y fotos de entrega.- Los repartidores reciben avisos preventivos para corregir descuidos, cuentan con recordatorios de conectividad y evitan sanciones mediante la evidencia fotográfica.- Los consumidores disfrutan de alimentos protegidos. |
 
-| Hypotheses | What is the most important thing we need to learn first? | What is the least amount of work we need to do to learn the next most important thing? |
-|---|---|---|
+| Hypotheses                                                                                                                                                                                                                                                                           | What is the most important thing we need to learn first?                                                                                                                                                                | What is the least amount of work we need to do to learn the next most important thing?                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Creemos que dotar a los contenedores de telemetría activa, bloqueos por código, seguridad de dos niveles y un panel web de auditoría fotográfica reducirá las devoluciones un 35% y evitará manipulaciones en un 90%, blindando operativamente al restaurante y al repartidor. | Necesitamos validar si la interacción entre la generación del código en el restaurante y la digitación en la aplicación del repartidor para abrir la caja ocurre sin latencias que retrasen el proceso de entrega. | Desarrollar un flujo de interfaz y un prototipo físico del mecanismo de bloqueo, ejecutando pruebas de usabilidad cronometradas con repartidores ficticios ingresando códigos de apertura y tomando fotografías. |
 
 ## 1.3. Segmentos objetivo.
 
 El modelo de negocio de Cold2Hot impacta en el ecosistema logístico urbano de última milla, dividiendo su enfoque en dos segmentos principales de usuarios directos:
 
-### Segmento 1: Administradores de operaciones de delivery  
-- **Descripcion:** Encargados de la operación y gerencia de establecimientos con alto volumen de despachos. Supervisan el proceso a través de un panel de administración web o móvil para asignar perfiles térmicos (frío/caliente), verificar el estado de la caja (abierta/cerrada), y visualizar los reportes en tiempo real. 
+### Segmento 1: Administradores de operaciones de delivery
+
+- **Descripcion:** Encargados de la operación y gerencia de establecimientos con alto volumen de despachos. Supervisan el proceso a través de un panel de administración web o móvil para asignar perfiles térmicos (frío/caliente), verificar el estado de la caja (abierta/cerrada), y visualizar los reportes en tiempo real.
 - **Sexo:** Masculino y femenino.
 - **Edades:** Adultos jóvenes (25-40 años) y adultos de mediana edad (41-55 años).
 - **Nivel socioeconómico**: Sectores B y A (media-alta y alta).
 - **Necesidades**: Reducir drásticamente la tasa de pedidos reembolsados por quejas de calidad o reportes falsos de no entrega. Requieren un registro inmutable y auditable (incluyendo métricas, tiempos exactos de apertura y evidencias fotográficas) para deslindar responsabilidades frente a los servicios de entrega de terceros y proteger el prestigio de la marca.
 
 ### Segmento 2: Operadores de entrega
+
 - **Descripcion:** Conductores de motocicletas o bicicletas, ya sean independientes (asociados a aplicativos) o en planilla fija del restaurante. Interactúan con la caja inteligente mediante una aplicación móvil que les exige mantener conectividad Bluetooth, les permite ingresar códigos de apertura y registrar fotografías del pedido entregado.
 - **Sexo:** Masculino y femenino.
 - **Edades:** Jóvenes y adultos (18-45 años).
@@ -386,8 +298,8 @@ El modelo de negocio de Cold2Hot impacta en el ecosistema logístico urbano de �
 
 # Capítulo II: Requirements Elicitation & Analysis
 
-
 ## 2.1. Competidores.
+
 En el mercado actual de logística urbana y reparto de última milla, la entrega de alimentos y productos sensibles a la temperatura enfrenta constantes desafíos vinculados con la pérdida de calidad térmica y la vulnerabilidad física de los paquetes en ruta. Para comprender a cabalidad el entorno competitivo de **Cold2Hot** (desarrollado por la startup **IoTeam**), se identificaron tres competidores clave con ofertas directas e indirectas en el rubro de logística y transporte de temperatura controlada:
 
 1. **Thermotecnica (Mochilas y Cajas Térmicas Pasivas):** Principal referente en la provisión de mochilas térmicas tradicionales para repartidores independientes y operadores de última milla (Rappi, PedidosYa). Su enfoque es enteramente analógico y pasivo, recurriendo a aislamiento con poliestireno expandido o mantas térmicas convencionales.
@@ -402,23 +314,23 @@ A continuación, se desarrolla el **Competitive Analysis Landscape** para contra
 
 ### Competitive Analysis Landscape
 
-| ¿Por qué llevar a cabo este análisis? | El objetivo de este análisis competitivo es identificar las brechas existentes en el mercado de entrega urbana de última milla de alimentos, evaluando las carencias telemáticas y de seguridad física en las soluciones convencionales frente a las herramientas corporativas de cadena de frío, con el fin de consolidar la diferenciación y viabilidad operativa de **Cold2Hot**. |
-| :--- | :--- |
+| ¿Por qué llevar a cabo este análisis? | El objetivo de este análisis competitivo es identificar las brechas existentes en el mercado de entrega urbana de última milla de alimentos, evaluando las carencias telemáticas y de seguridad física en las soluciones convencionales frente a las herramientas corporativas de cadena de frío, con el fin de consolidar la diferenciación y viabilidad operativa de**Cold2Hot**. |
+| :--------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-| Dimensiones | Nuestra Startup: **Cold2Hot (IoTeam)** | Competidor 1: **Thermotecnica** | Competidor 2: **Controlant** | Competidor 3: **Peli BioThermal** |
-| :--- | :--- | :--- | :--- | :--- |
-| **Logotipo / Identidad** | | <div align="center"><img src="assets/thermotecnica-logo.png" alt="Thermotecnica" width="90"></div> | <div align="center"><img src="assets/controlant-logo.png" alt="Controlant" width="90"></div> | <div align="center"><img src="assets/peli-biothermal-logo.jpg" alt="Peli BioThermal" width="90"></div> |
-| **Perfil (Overview)** | Solución integral IoT para delivery urbano que combina una caja inteligente con regulación térmica activa (ESP32, DS18B20), seguridad física con desbloqueo por código OTP (Reed Switch + TCRT5000), telemetría continua y captura de evidencias fotográficas. | Fabricante y comercializador de mochilas, bolsas y cajas térmicas pasivas con aislamiento estándar, diseñadas para mensajería y entrega tradicional de comida rápida en bicicletas y motocicletas. | Empresa de monitoreo digital de cadena de frío que ofrece registradores de datos IoT celulares/cloud en tiempo real y software de análisis de visibilidad logística a gran escala. | Fabricante de soluciones avanzadas de embalaje pasivo y semi-activo con aislamiento de alta densidad y monitoreo de temperatura para transporte de insumos biológicos y perecibles de alta exigencia. |
-| **Ventaja competitiva** | Trazabilidad integral en última milla: regulación térmica activa, bloqueo físico desarmable únicamente mediante OTP en destino, prevención de manipulaciones mediante seguridad de dos niveles y generación automática de reportes de auditoría con evidencia fotográfica. | Muy bajo costo de adquisición inicial, ligereza de transporte, amplia disponibilidad comercial y nulo requerimiento de mantenimiento tecnológico o energético. | Plataforma en la nube de alta confiabilidad con cobertura telemática global continua (redes celulares IoT/GPS) y cumplimiento de estándares internacionales de auditoría (FDA, GMP). | Embalajes térmicos reutilizables con materiales de cambio de fase (PCM) de altísima eficiencia pasiva (hasta 120 horas de estabilidad térmica) sin consumo de batería. |
-| **Perfil de Marketing: Mercado objetivo** | Restaurantes medianos y pequeños, cadenas de comida rápida con flota propia o tercerizada, y repartidores urbanos que requieren certificar la entrega higiénica y la temperatura del alimento. | Repartidores independientes de aplicaciones móviles de delivery (Rappi, PedidosYa, Uber Eats) y pequeños negocios gastronómicos locales. | Corporaciones farmacéuticas multinacionales, distribuidores de vacunas y grandes empresas de logística de perecibles a gran escala (B2B industrial). | Laboratorios clínicos, sector biotecnológico, farmacias hospitalarias y servicios de catering gourmet/médico corporativo de alto presupuesto. |
-| **Perfil de Marketing: Estrategias de marketing** | Venta directa B2B a cadenas de restaurantes, planes de suscripción SaaS mensual para el uso del software de gestión y auditoría, alianzas con asociaciones gastronómicas locales y demos funcionales. | Venta por catálogo físico, presencia en distribuidores de accesorios para motos/bicicletas, marketplaces de comercio electrónico y compras corporativas directas por volumen. | Venta consultiva corporativa B2B de ciclo largo, presencia en ferias internacionales de supply chain/farma, marketing de contenidos sobre regulaciones y modelos PaaS (Product as a Service). | Venta técnica B2B mediante representantes comerciales autorizados, certificaciones internacionales de calidad y contratos corporativos de leasing/retorno de contenedores. |
-| **Perfil de Producto: Productos & Servicios** | - Caja inteligente *SmartBox* con microcontrolador ESP32.<br>- Panel web centralizado de despacho y auditoría para restaurantes.<br>- Aplicación móvil para repartidores (control BLE, desbloqueo OTP, captura de fotos).<br>- Reportes inmutables de cadena de custodia térmica. | - Mochilas térmicas de lona oxford con aislante de espuma.<br>- Bolsas de mano térmicas.<br>- Cajas rígidas de fibra de vidrio sin componentes electrónicos ni sensores. | - Dispositivos registradores IoT (Saga Card / Pods) con conectividad celular/IoT.<br>- Plataforma en la nube *Controlant Cloud* para trazabilidad en tiempo real.<br>- Servicios de alertas automáticas 24/7 y analítica de datos. | - Cajas y contenedores rígidos con tecnología de cambio de fase (Credo Cube).<br>- Sensores pasivos/registradores de temperatura USB/RF.<br>- Software de seguimiento de inventario térmico y calibración. |
-| **Precios & Costos** | Hardware accesible de costo moderado (orientado a ensamble ágil y componentes estandarizados) complementado con una suscripción de software SaaS mensual accesible para pymes gastronómicas. | Costo único muy bajo por mochila/caja (aprox. $25 - $60 USD), sin costos recurrentes ni tarifas de software. | Alto costo operativo; modelo de suscripción por viaje o por dispositivo anual de alto valor (centenas o miles de dólares por contrato corporativo). | Costo unitario elevado por contenedor térmico ($150 - $500+ USD) sumado a costos de recertificación y reposición de geles/placas PCM. |
-| **Canales de distribución** | Plataforma Web oficial (Landing Page institucional), venta corporativa directa y distribución de aplicaciones móviles vía Google Play Store y Apple App Store. | Puntos de venta retail especializados, tiendas de motociclismo, plataformas de e-commerce (MercadoLibre, Amazon) y convenios directos con apps de delivery. | Canal corporativo directo B2B a través de oficinas regionales y red global de socios tecnológicos y logísticos. | Red de distribuidores técnicos certificados, representantes comerciales B2B y despacho logístico programado. |
-| **Análisis SWOT: Fortalezas** | - Solución diseñada a la medida del dolor de la última milla gastronómica.<br>- Seguridad física inviolable por OTP que erradica la apertura no autorizada.<br>- Seguridad de dos niveles (Reed Switch + TCRT5000) para descartar falsas alarmas.<br>- Plataforma de software integral (Web + Móvil + Edge IoT). | - Marca reconocida y posicionada en el sector de repartidores independientes.<br>- Precios altamente competitivos y sin barreras tecnológicas de entrada.<br>- Alta durabilidad mecánica y facilidad de reemplazo inmediato. | - Plataforma de software madura, escalable y con alta reputación internacional.<br>- Conectividad global y acuerdos con operadores de telecomunicaciones.<br>- Infraestructura en la nube con soporte 24/7 y analítica predictiva. | - Aislamiento térmico pasivo de ingeniería avanzada y de larga duración.<br>- Estructuras sólidas y de máxima durabilidad reutilizable.<br>- Amplio cumplimiento normativo para transporte sensible. |
-| **Análisis SWOT: Debilidades** | - Startup en etapa de introducción y validación inicial.<br>- Dependencia de la recarga de batería del dispositivo IoT en la jornada diaria.<br>- Necesidad de capacitar al repartidor en el uso de la aplicación móvil y el flujo de entrega. | - Nula tecnología: carece de telemetría, sensores, alertas y controles de acceso.<br>- Imposibilidad de acreditar la cadena de custodia o demostrar adulteraciones.<br>- La temperatura decae progresivamente sin aviso ni control activo. | - Modelo de precios inviable para el sector de restaurantes y entrega de comida rápida.<br>- Dispositivos no integrados a mecanismos físicos de apertura o cerradura de cajas.<br>- No contempla la captura de evidencias fotográficas de entrega ni apps operativas para couriers de comida. | - No cuenta con conectividad nativa en tiempo real para última milla urbana.<br>- Operación pesada que requiere acondicionamiento previo de placas PCM.<br>- Costo unitario prohibitivo para la gran mayoría de restaurantes y repartidores independientes. |
-| **Análisis SWOT: Oportunidades** | - Crecimiento sostenido del delivery de comida gourmet y productos frescos que exigen control térmico.<br>- Alta tasa de reclamos por comida fría o paquetes vulnerados en plataformas de delivery.<br>- Demanda de soluciones que reduzcan las pérdidas por devoluciones injustas en restaurantes. | - Posibilidad de añadir cierres de combinación mecánicos económicos.<br>- Creciente número de trabajadores de delivery en las principales ciudades de la región. | - Expansión de sus servicios hacia la logística urbana de última milla para farmacias o alimentos ultra frescos.<br>- Alianzas con flotas de transporte terrestre. | - Adaptación de modelos más compactos y económicos orientados a catering corporativo o delivery prémium. |
-| **Análisis SWOT: Amenazas** | - Resistencia de algunos repartidores a adoptar controles más estrictos de apertura y fotografía.<br>- Competidores tradicionales que incorporen precintos de seguridad mecánicos económicos.<br>- Subida en los costos de adquisición de microcontroladores y sensores electrónicos. | - Penetración de cajas inteligentes que vuelvan obsoletas las mochilas térmicas convencionales.<br>- Mayores regulaciones municipales y sanitarias sobre el transporte de alimentos preparados. | - Nuevos competidores de telemetría IoT low-cost que ingresen al mercado con tarifas agresivas. | - Entrada de fabricantes asiáticos que comercialicen contenedores con materiales aislantes avanzados a bajo costo. |
+| Dimensiones                                             | Nuestra Startup:**Cold2Hot (IoTeam)**                                                                                                                                                                                                                                                                | Competidor 1:**Thermotecnica**                                                                                                                                                                                                 | Competidor 2:**Controlant**                                                                                                                                                                                                                                                        | Competidor 3:**Peli BioThermal**                                                                                                                                                                                                                 |
+| :------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Logotipo / Identidad**                          |                                                                                                                                                                                                                                                                                                            |                                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                        |
+| **Perfil (Overview)**                             | Solución integral IoT para delivery urbano que combina una caja inteligente con regulación térmica activa (ESP32, DS18B20), seguridad física con desbloqueo por código OTP (Reed Switch + TCRT5000), telemetría continua y captura de evidencias fotográficas.                                      | Fabricante y comercializador de mochilas, bolsas y cajas térmicas pasivas con aislamiento estándar, diseñadas para mensajería y entrega tradicional de comida rápida en bicicletas y motocicletas.                              | Empresa de monitoreo digital de cadena de frío que ofrece registradores de datos IoT celulares/cloud en tiempo real y software de análisis de visibilidad logística a gran escala.                                                                                                    | Fabricante de soluciones avanzadas de embalaje pasivo y semi-activo con aislamiento de alta densidad y monitoreo de temperatura para transporte de insumos biológicos y perecibles de alta exigencia.                                                 |
+| **Ventaja competitiva**                           | Trazabilidad integral en última milla: regulación térmica activa, bloqueo físico desarmable únicamente mediante OTP en destino, prevención de manipulaciones mediante seguridad de dos niveles y generación automática de reportes de auditoría con evidencia fotográfica.                       | Muy bajo costo de adquisición inicial, ligereza de transporte, amplia disponibilidad comercial y nulo requerimiento de mantenimiento tecnológico o energético.                                                                    | Plataforma en la nube de alta confiabilidad con cobertura telemática global continua (redes celulares IoT/GPS) y cumplimiento de estándares internacionales de auditoría (FDA, GMP).                                                                                                  | Embalajes térmicos reutilizables con materiales de cambio de fase (PCM) de altísima eficiencia pasiva (hasta 120 horas de estabilidad térmica) sin consumo de batería.                                                                             |
+| **Perfil de Marketing: Mercado objetivo**         | Restaurantes medianos y pequeños, cadenas de comida rápida con flota propia o tercerizada, y repartidores urbanos que requieren certificar la entrega higiénica y la temperatura del alimento.                                                                                                          | Repartidores independientes de aplicaciones móviles de delivery (Rappi, PedidosYa, Uber Eats) y pequeños negocios gastronómicos locales.                                                                                          | Corporaciones farmacéuticas multinacionales, distribuidores de vacunas y grandes empresas de logística de perecibles a gran escala (B2B industrial).                                                                                                                                   | Laboratorios clínicos, sector biotecnológico, farmacias hospitalarias y servicios de catering gourmet/médico corporativo de alto presupuesto.                                                                                                       |
+| **Perfil de Marketing: Estrategias de marketing** | Venta directa B2B a cadenas de restaurantes, planes de suscripción SaaS mensual para el uso del software de gestión y auditoría, alianzas con asociaciones gastronómicas locales y demos funcionales.                                                                                                  | Venta por catálogo físico, presencia en distribuidores de accesorios para motos/bicicletas, marketplaces de comercio electrónico y compras corporativas directas por volumen.                                                     | Venta consultiva corporativa B2B de ciclo largo, presencia en ferias internacionales de supply chain/farma, marketing de contenidos sobre regulaciones y modelos PaaS (Product as a Service).                                                                                            | Venta técnica B2B mediante representantes comerciales autorizados, certificaciones internacionales de calidad y contratos corporativos de leasing/retorno de contenedores.                                                                            |
+| **Perfil de Producto: Productos & Servicios**     | - Caja inteligente*SmartBox* con microcontrolador ESP32.- Panel web centralizado de despacho y auditoría para restaurantes.- Aplicación móvil para repartidores (control BLE, desbloqueo OTP, captura de fotos).- Reportes inmutables de cadena de custodia térmica.                                 | - Mochilas térmicas de lona oxford con aislante de espuma.- Bolsas de mano térmicas.- Cajas rígidas de fibra de vidrio sin componentes electrónicos ni sensores.                                                                 | - Dispositivos registradores IoT (Saga Card / Pods) con conectividad celular/IoT.- Plataforma en la nube *Controlant Cloud* para trazabilidad en tiempo real.- Servicios de alertas automáticas 24/7 y analítica de datos.                                                           | - Cajas y contenedores rígidos con tecnología de cambio de fase (Credo Cube).- Sensores pasivos/registradores de temperatura USB/RF.- Software de seguimiento de inventario térmico y calibración.                                                 |
+| **Precios & Costos**                              | Hardware accesible de costo moderado (orientado a ensamble ágil y componentes estandarizados) complementado con una suscripción de software SaaS mensual accesible para pymes gastronómicas.                                                                                                            | Costo único muy bajo por mochila/caja (aprox. $25 - $60 USD), sin costos recurrentes ni tarifas de software.                                                                                                                        | Alto costo operativo; modelo de suscripción por viaje o por dispositivo anual de alto valor (centenas o miles de dólares por contrato corporativo).                                                                                                                                    | Costo unitario elevado por contenedor térmico ($150 - $500+ USD) sumado a costos de recertificación y reposición de geles/placas PCM.                                                                                                               |
+| **Canales de distribución**                      | Plataforma Web oficial (Landing Page institucional), venta corporativa directa y distribución de aplicaciones móviles vía Google Play Store y Apple App Store.                                                                                                                                          | Puntos de venta retail especializados, tiendas de motociclismo, plataformas de e-commerce (MercadoLibre, Amazon) y convenios directos con apps de delivery.                                                                          | Canal corporativo directo B2B a través de oficinas regionales y red global de socios tecnológicos y logísticos.                                                                                                                                                                       | Red de distribuidores técnicos certificados, representantes comerciales B2B y despacho logístico programado.                                                                                                                                         |
+| **Análisis SWOT: Fortalezas**                    | - Solución diseñada a la medida del dolor de la última milla gastronómica.- Seguridad física inviolable por OTP que erradica la apertura no autorizada.- Seguridad de dos niveles (Reed Switch + TCRT5000) para descartar falsas alarmas.- Plataforma de software integral (Web + Móvil + Edge IoT). | - Marca reconocida y posicionada en el sector de repartidores independientes.- Precios altamente competitivos y sin barreras tecnológicas de entrada.- Alta durabilidad mecánica y facilidad de reemplazo inmediato.               | - Plataforma de software madura, escalable y con alta reputación internacional.- Conectividad global y acuerdos con operadores de telecomunicaciones.- Infraestructura en la nube con soporte 24/7 y analítica predictiva.                                                             | - Aislamiento térmico pasivo de ingeniería avanzada y de larga duración.- Estructuras sólidas y de máxima durabilidad reutilizable.- Amplio cumplimiento normativo para transporte sensible.                                                      |
+| **Análisis SWOT: Debilidades**                   | - Startup en etapa de introducción y validación inicial.- Dependencia de la recarga de batería del dispositivo IoT en la jornada diaria.- Necesidad de capacitar al repartidor en el uso de la aplicación móvil y el flujo de entrega.                                                                | - Nula tecnología: carece de telemetría, sensores, alertas y controles de acceso.- Imposibilidad de acreditar la cadena de custodia o demostrar adulteraciones.- La temperatura decae progresivamente sin aviso ni control activo. | - Modelo de precios inviable para el sector de restaurantes y entrega de comida rápida.- Dispositivos no integrados a mecanismos físicos de apertura o cerradura de cajas.- No contempla la captura de evidencias fotográficas de entrega ni apps operativas para couriers de comida. | - No cuenta con conectividad nativa en tiempo real para última milla urbana.- Operación pesada que requiere acondicionamiento previo de placas PCM.- Costo unitario prohibitivo para la gran mayoría de restaurantes y repartidores independientes. |
+| **Análisis SWOT: Oportunidades**                 | - Crecimiento sostenido del delivery de comida gourmet y productos frescos que exigen control térmico.- Alta tasa de reclamos por comida fría o paquetes vulnerados en plataformas de delivery.- Demanda de soluciones que reduzcan las pérdidas por devoluciones injustas en restaurantes.             | - Posibilidad de añadir cierres de combinación mecánicos económicos.- Creciente número de trabajadores de delivery en las principales ciudades de la región.                                                                   | - Expansión de sus servicios hacia la logística urbana de última milla para farmacias o alimentos ultra frescos.- Alianzas con flotas de transporte terrestre.                                                                                                                        | - Adaptación de modelos más compactos y económicos orientados a catering corporativo o delivery prémium.                                                                                                                                           |
+| **Análisis SWOT: Amenazas**                      | - Resistencia de algunos repartidores a adoptar controles más estrictos de apertura y fotografía.- Competidores tradicionales que incorporen precintos de seguridad mecánicos económicos.- Subida en los costos de adquisición de microcontroladores y sensores electrónicos.                        | - Penetración de cajas inteligentes que vuelvan obsoletas las mochilas térmicas convencionales.- Mayores regulaciones municipales y sanitarias sobre el transporte de alimentos preparados.                                        | - Nuevos competidores de telemetría IoT low-cost que ingresen al mercado con tarifas agresivas.                                                                                                                                                                                         | - Entrada de fabricantes asiáticos que comercialicen contenedores con materiales aislantes avanzados a bajo costo.                                                                                                                                    |
 
 ---
 
@@ -427,6 +339,7 @@ A continuación, se desarrolla el **Competitive Analysis Landscape** para contra
 A partir del análisis del panorama competitivo y la matriz FODA, **IoTeam** define un conjunto de estrategias y tácticas comerciales, de producto y operativas para consolidar la entrada y el posicionamiento de **Cold2Hot**:
 
 #### 1. Estrategia de Enfoque en el Nicho de Última Milla Gastronómica (Frente a Thermotecnica y competidores pasivos)
+
 * **Objetivo:** Demostrar que el costo de una caja pasiva convencional es en realidad más alto a largo plazo debido a los reembolsos por comida fría y las disputas por manipulación del paquete.
 * **Tácticas:**
   * **Cálculo de Retorno de Inversión (ROI):** Proveer a los administradores de restaurantes una calculadora de pérdidas operativas en el Landing Page de Cold2Hot, evidenciando cómo una reducción del 35% en reclamos amortiza rápidamente el costo de la tecnología.
@@ -434,6 +347,7 @@ A partir del análisis del panorama competitivo y la matriz FODA, **IoTeam** def
   * **Adopción Simple y Guiada:** Diseñar la aplicación móvil del repartidor con una curva de aprendizaje mínima (diseño UX intuitivo y compatible con Bluetooth de bajo consumo), facilitando que los repartidores la perciban como un escudo contra penalizaciones injustas y no como una carga de trabajo.
 
 #### 2. Estrategia de Liderazgo en Costos Tecnológicos y Modelo SaaS Accesible (Frente a Controlant)
+
 * **Objetivo:** Ofrecer las ventajas de la telemetría en tiempo real y la trazabilidad en la nube sin los precios corporativos prohibitivos del sector farmacéutico.
 * **Tácticas:**
   * **Arquitectura IoT Eficiente:** Basar el hardware en componentes de código abierto y alta confiabilidad (microcontrolador ESP32 NodeMCU, sensor DS18B20, sensores TCRT5000 y Reed Switch), optimizando los costos de manufactura del prototipo.
@@ -441,6 +355,7 @@ A partir del análisis del panorama competitivo y la matriz FODA, **IoTeam** def
   * **Integración de Flujos de Cierre de Entrega:** Incluir dentro de la misma solución el registro fotográfico obligatorio (Proof of Delivery), funcionalidad que los proveedores globales de trazabilidad industrial no ofrecen al estar desligados de la interacción directa con el consumidor final.
 
 #### 3. Estrategia de Conectividad y Automatización Activa (Frente a Peli BioThermal)
+
 * **Objetivo:** Superar la rigidez de los sistemas pasivos avanzados que requieren acondicionamientos químicos previos y carecen de comunicación telemática en ruta.
 * **Tácticas:**
   * **Ajuste Dinámico de Perfiles Térmicos:** Permitir al administrador configurar perfiles de frío o calor desde el panel web de despacho en segundos, activando automáticamente la regulación del contenedor inteligente sin necesidad de cambiar placas físicas de enfriamiento.
@@ -478,6 +393,7 @@ A partir del análisis del panorama competitivo y la matriz FODA, **IoTeam** def
 A continuación, se presenta el registro de las entrevistas realizadas a los representantes de nuestros dos segmentos objetivo. Estas sesiones se llevaron a cabo de forma virtual/presencial con el fin de validar nuestras hipótesis de negocio y entender a profundidad sus necesidades.
 
 **Entrevista 1**
+
 * **Nombres y Apellidos:** Roberto Fernández
 * **Segmento Objetivo:** Segmento 1 - Administrador de operaciones de delivery
 * **Edad:** 35 años
@@ -485,33 +401,36 @@ A continuación, se presenta el registro de las entrevistas realizadas a los rep
 * **Duración:** 18 minutos
 
 **Entrevista 2**
+
 * **Nombres y Apellidos:** Katia Torres
 * **Segmento Objetivo:** Segmento 2 - Operador de entrega (Repartidor)
 * **Edad:** 26 años
 * **Fecha de Entrevista:** 16/09/2026
 * **Duración:** 15 minutos
-<img src="./assets/Entrevista1.png">
 
 https://upcedupe-my.sharepoint.com/:v:/g/personal/u202117303_upc_edu_pe/IQCw2iS8WZqYSpyTqV73I-zyAV2gmtetVbyAsgyOkBEmwIM
----
+-----------------------------------------------------------------------------------------------------------------------
 
 ### 2.2.3. Análisis de entrevistas.
 
 Tras procesar las respuestas obtenidas en las entrevistas, se identificaron patrones de comportamiento, dolores recurrentes (pains) y expectativas (gains) que validan directamente la necesidad de la solución **Cold2Hot**. A continuación, se detallan los hallazgos principales por segmento:
 
 **Hallazgos del Segmento 1 (Administradores de operaciones de delivery):**
+
 1. **La ceguera operativa es el mayor dolor financiero:** Los administradores confirmaron que, una vez que el pedido sale del local, pierden el control total sobre la cadena de frío y la manipulación. Esto se traduce en pérdidas económicas constantes debido a que las plataformas de delivery suelen priorizar el reclamo del cliente y aplicar reembolsos automáticos descontados al restaurante.
 2. **Las medidas de seguridad actuales son insuficientes:** El uso de cintas adhesivas o grapas en las bolsas es visto como una medida paliativa que no evita aperturas no autorizadas y no ofrece ninguna prueba técnica en caso de disputas.
 3. **Alta disposición a la adopción tecnológica:** La funcionalidad de un registro de auditoría (timestamp de apertura por PIN + evidencia fotográfica) fue identificada como la característica de mayor valor. Los administradores ven este panel no solo como una herramienta de calidad, sino como un mecanismo de defensa contra el fraude de clientes malintencionados.
 
 **Hallazgos del Segmento 2 (Operadores de entrega / Repartidores):**
+
 1. **Fricción física y deterioro de herramientas:** Las mochilas térmicas tradicionales se desgastan rápidamente (velcros y cierres), lo que propicia aperturas accidentales por el viento, baches o la prisa, derivando en pedidos fríos.
-2. **Vulnerabilidad ante penalizaciones injustas:** Los repartidores (como Katia) sienten una profunda frustración al recibir descuentos económicos y bajas calificaciones por factores que escapan de su control (mal empaque desde el restaurante, tráfico, clima o clientes que reportan entregas incompletas falsamente). 
+2. **Vulnerabilidad ante penalizaciones injustas:** Los repartidores (como Katia) sienten una profunda frustración al recibir descuentos económicos y bajas calificaciones por factores que escapan de su control (mal empaque desde el restaurante, tráfico, clima o clientes que reportan entregas incompletas falsamente).
 3. **Recepción positiva de la automatización:** La idea de una caja inteligente que regule la temperatura de manera autónoma fue percibida como un gran alivio que reduce el estrés al conducir.
 4. **La seguridad como "seguro laboral":** Contrario a lo que se podría asumir (que un PIN o tomar una foto genera pérdida de tiempo), los motorizados ven el mecanismo de bloqueo y la captura fotográfica obligatoria como un beneficio. Lo consideran una herramienta que los deslinda de responsabilidad y los protege frente al soporte técnico de las aplicaciones.
 
 **Conclusión General y Validación de Hipótesis:**
 Las entrevistas validan rotundamente las hipótesis planteadas en nuestro *Lean UX Canvas*. Ambos segmentos sufren las consecuencias de la falta de trazabilidad y seguridad en la última milla, pero desde perspectivas distintas (el administrador pierde dinero por mermas; el repartidor pierde dinero por penalizaciones). La implementación de la caja inteligente **Cold2Hot** con bi-direccionalidad de datos (PIN de apertura y registro fotográfico) resuelve el dolor principal de ambos actores: **elimina las disputas logísticas al proveer una fuente de verdad única, automatizada e inmutable.**
+
 ## 2.3. Needfinding.
 
 ### 2.3.1. User Personas.
@@ -519,10 +438,8 @@ Las entrevistas validan rotundamente las hipótesis planteadas en nuestro *Lean 
 Con el propósito de garantizar una comprensión profunda y precisa de los segmentos identificados como clave para nuestro proyecto, hemos llevado a cabo un proceso estructurado y cuidadoso de creación de User Personas. Este procedimiento nos permitió definir un perfil específico y representativo para cada segmento objetivo, lo que nos brinda una perspectiva más clara y detallada de nuestros usuarios. De esta manera, podemos diseñar y ofrecer soluciones que respondan de manera efectiva a sus necesidades, expectativas y contextos particulares.
 
 UserPersona 1
-<img src="./assets/Carlos_Mendoza.png">
 
 UserPersona 2
-<img src="./assets/Miguel_Torres.png">
 
 ### 2.3.2. User Task Matrix
 
@@ -536,30 +453,32 @@ Es importante destacar que las tareas (tasks) reflejan actividades que los usuar
 **Indicadores de Importancia y Frecuencia**
 
 *Indicadores de Importancia:*
+
 * **ALTA →** La tarea es crítica para el cumplimiento de los objetivos del usuario.
 * **MEDIA →** La tarea es importante pero no afecta directamente el resultado global.
 * **BAJA →** La tarea aporta valor complementario o se realiza ocasionalmente.
 
 *Indicadores de Frecuencia:*
+
 * **ALTA →** Se realiza de manera constante o diaria.
 * **MEDIA →** Se realiza semanal o mensualmente.
 * **BAJA →** Se realiza esporádicamente o en circunstancias específicas.
 
 **Tabla de Matriz de Tareas de Usuario**
 
-| Tareas | Administradores de Delivery | Operadores de Entrega | Frecuencia | Importancia | Frecuencia | Importancia |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Empacar y preparar el pedido | Alta | Baja | Alta | Alta | Baja | Baja |
-| Asegurar / bloquear el contenedor de transporte | Alta | Alta | Alta | Alta | Alta | Alta |
-| Transportar pedidos en entorno urbano | Nunca | Alta | - | - | Alta | Alta |
-| Revisar estado físico del paquete en ruta | Nunca | Alta | - | - | Alta | Alta |
-| Verificar la temperatura del alimento | Media | Baja | Media | Alta | Baja | Media |
-| Resolver incidentes de aperturas accidentales | Media | Alta | Media | Alta | Alta | Alta |
-| Desbloquear contenedor en el destino | Nunca | Alta | - | - | Alta | Alta |
-| Registrar foto de evidencia de la entrega | Baja | Alta | Baja | Media | Alta | Alta |
-| Monitorear flota de despachos en tiempo real | Alta | Nunca | Alta | Alta | - | - |
-| Auditar tiempos de entrega e incidencias | Media | Baja | Media | Alta | Baja | Baja |
-| Conciliar pagos y penalizaciones de plataformas | Media | Media | Media | Alta | Media | Alta |
+| Tareas                                          | Administradores de Delivery | Operadores de Entrega | Frecuencia | Importancia | Frecuencia | Importancia |
+| :---------------------------------------------- | :-------------------------- | :-------------------- | :--------- | :---------- | :--------- | :---------- |
+| Empacar y preparar el pedido                    | Alta                        | Baja                  | Alta       | Alta        | Baja       | Baja        |
+| Asegurar / bloquear el contenedor de transporte | Alta                        | Alta                  | Alta       | Alta        | Alta       | Alta        |
+| Transportar pedidos en entorno urbano           | Nunca                       | Alta                  | -          | -           | Alta       | Alta        |
+| Revisar estado físico del paquete en ruta      | Nunca                       | Alta                  | -          | -           | Alta       | Alta        |
+| Verificar la temperatura del alimento           | Media                       | Baja                  | Media      | Alta        | Baja       | Media       |
+| Resolver incidentes de aperturas accidentales   | Media                       | Alta                  | Media      | Alta        | Alta       | Alta        |
+| Desbloquear contenedor en el destino            | Nunca                       | Alta                  | -          | -           | Alta       | Alta        |
+| Registrar foto de evidencia de la entrega       | Baja                        | Alta                  | Baja       | Media       | Alta       | Alta        |
+| Monitorear flota de despachos en tiempo real    | Alta                        | Nunca                 | Alta       | Alta        | -          | -           |
+| Auditar tiempos de entrega e incidencias        | Media                       | Baja                  | Media      | Alta        | Baja       | Baja        |
+| Conciliar pagos y penalizaciones de plataformas | Media                       | Media                 | Media      | Alta        | Media      | Alta        |
 
 **Análisis de Tareas**
 
@@ -567,6 +486,7 @@ Es importante destacar que las tareas (tasks) reflejan actividades que los usuar
 Tanto administradores como repartidores presentan alta frecuencia e importancia en tareas como: **Asegurar/bloquear el contenedor de transporte** y la **resolución de incidentes de aperturas accidentales**. Estas tareas reflejan la necesidad crítica de mantener la cadena de custodia y proteger la carga ante las condiciones del tránsito urbano.
 
 *Principales diferencias entre segmentos de usuarios*
+
 * **Monitoreo y Auditoría:** Tiene alta frecuencia e importancia para los administradores, ya que su rentabilidad depende de verificar el estado de los despachos; para los repartidores, el monitoreo propio es nulo.
 * **Transporte y evidencia:** Es una tarea de importancia alta y exclusiva para los repartidores (manejar y tomar la foto de entrega), mientras que el administrador solo consume esa información a posteriori.
 * **Empaque y preparación:** Es esencial y frecuente para los administradores de restaurantes, mientras que los repartidores reciben el producto ya finalizado.
@@ -583,37 +503,35 @@ User Journey Mapping - Segmento Administrador de operaciones de delivery
 <img src="./assets/Customer _journey_map_1.png">
 
 User Journey Mapping - Segmento Operador de entrega
-<img src="./assets/Customer_journey_map_2.png">
 
 ### 2.3.4. Empathy Mapping.
 
 Segmento 1: Administradores de operaciones de delivery preocupados por la rentabilidad y la trazabilidad de los pedidos
-<img src="./assets/Empathy_map.png">
 
 Segmento 2: Operadores de entrega (motorizados) enfocados en la agilidad y en proteger sus ingresos de penalizaciones injustas
-<img src="./assets/Empathy_map2.png">
+
 ## 2.4. Big Picture EventStorming.
 
 <img src="./assets/EventStorming.jpg">
 
 ## 2.5. Ubiquitous Language.
 
-| Term (English) | Término (Español) | Definition (Definición en español) |
-| :--- | :--- | :--- |
-| Smart Box | Caja Inteligente | Contenedor físico para delivery equipado con hardware IoT (ESP32, sensores y regulador) que mantiene la cadena de custodia. |
-| Thermal Profile | Perfil Térmico | Configuración específica (modo Frío o Calor) asignada remotamente al ESP32 para regular la temperatura del interior. |
-| Access Code / PIN | Código de Acceso | Clave numérica única generada por el sistema que el repartidor utiliza en su App para desbloquear la caja en el destino. |
-| Dispatch Hub | Panel de Despacho | Interfaz web utilizada por el administrador para asignar pedidos, configurar la temperatura y monitorear la flota en tiempo real. |
-| Telemetry | Telemetría | Datos de temperatura y estado de la batería enviados continuamente por el ESP32 hacia el servidor durante el trayecto. |
-| Magnetic Sensor | Sensor Magnético | Componente de hardware (Reed Switch) que detecta el estado físico de la tapa de la caja (abierta/cerrada). |
-| Infrared Sensor | Sensor Infrarrojo | Componente de hardware (TCRT5000) utilizado para detectar la presencia o ausencia del paquete dentro del contenedor. |
-| Two-Level Security | Seguridad de Dos Niveles | Lógica del sistema que cruza los datos magnéticos e infrarrojos para distinguir entre una caja mal cerrada y una extracción real. |
-| Preventive Alert | Alerta Preventiva | Notificación enviada al repartidor para que ajuste la tapa si la caja se desajusta accidentalmente sin extraerse el pedido. |
-| Critical Alert | Alerta Crítica | Notificación enviada al administrador indicando que el pedido fue extraído de la caja en pleno tránsito, sugiriendo manipulación. |
-| Delivery Evidence | Evidencia de Entrega | Fotografía obligatoria tomada por el repartidor desde la App tras abrir la caja, que certifica el estado del paquete al entregarlo. |
-| Audit Report | Reporte de Auditoría | Registro inmutable de una entrega finalizada que incluye marcas de tiempo, gráfica térmica y evidencia fotográfica para resolver disputas. |
-| Route Monitoring | Monitoreo en Ruta | Seguimiento GPS combinado con la telemetría térmica visible desde el panel de administración. |
-| Delivery Courier | Operador de Entrega | Persona (motorizado o ciclista) encargada del transporte físico del contenedor desde el restaurante hasta el cliente. |
+| Term (English)     | Término (Español)      | Definition (Definición en español)                                                                                                          |
+| :----------------- | :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| Smart Box          | Caja Inteligente         | Contenedor físico para delivery equipado con hardware IoT (ESP32, sensores y regulador) que mantiene la cadena de custodia.                  |
+| Thermal Profile    | Perfil Térmico          | Configuración específica (modo Frío o Calor) asignada remotamente al ESP32 para regular la temperatura del interior.                       |
+| Access Code / PIN  | Código de Acceso        | Clave numérica única generada por el sistema que el repartidor utiliza en su App para desbloquear la caja en el destino.                    |
+| Dispatch Hub       | Panel de Despacho        | Interfaz web utilizada por el administrador para asignar pedidos, configurar la temperatura y monitorear la flota en tiempo real.             |
+| Telemetry          | Telemetría              | Datos de temperatura y estado de la batería enviados continuamente por el ESP32 hacia el servidor durante el trayecto.                       |
+| Magnetic Sensor    | Sensor Magnético        | Componente de hardware (Reed Switch) que detecta el estado físico de la tapa de la caja (abierta/cerrada).                                   |
+| Infrared Sensor    | Sensor Infrarrojo        | Componente de hardware (TCRT5000) utilizado para detectar la presencia o ausencia del paquete dentro del contenedor.                          |
+| Two-Level Security | Seguridad de Dos Niveles | Lógica del sistema que cruza los datos magnéticos e infrarrojos para distinguir entre una caja mal cerrada y una extracción real.          |
+| Preventive Alert   | Alerta Preventiva        | Notificación enviada al repartidor para que ajuste la tapa si la caja se desajusta accidentalmente sin extraerse el pedido.                  |
+| Critical Alert     | Alerta Crítica          | Notificación enviada al administrador indicando que el pedido fue extraído de la caja en pleno tránsito, sugiriendo manipulación.         |
+| Delivery Evidence  | Evidencia de Entrega     | Fotografía obligatoria tomada por el repartidor desde la App tras abrir la caja, que certifica el estado del paquete al entregarlo.          |
+| Audit Report       | Reporte de Auditoría    | Registro inmutable de una entrega finalizada que incluye marcas de tiempo, gráfica térmica y evidencia fotográfica para resolver disputas. |
+| Route Monitoring   | Monitoreo en Ruta        | Seguimiento GPS combinado con la telemetría térmica visible desde el panel de administración.                                              |
+| Delivery Courier   | Operador de Entrega      | Persona (motorizado o ciclista) encargada del transporte físico del contenedor desde el restaurante hasta el cliente.                        |
 
 # Capítulo III: Requirements Specification
 
@@ -623,36 +541,36 @@ Esta sección permite especificar los requisitos de los productos digitales que 
 
 A continuación, se presentan los requisitos definidos para la solución Cold2Hot, agrupados en Epics. Estos requisitos abarcan las interacciones de los distintos segmentos de usuarios (Administradores de operaciones, Operadores de entrega y Visitantes) con los diferentes productos de software (Landing Page, Web Application, Mobile App y el dispositivo IoT).
 
-| Epic / Story ID | Título                             | Descripción                                                                                                                                                                    | Criterios de Aceptación                                                                                                                                                                                                                                             | Relacionado con (Epic ID) |
-| --------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| EP01            | Gestión y Trazabilidad Térmica    | Como administrador de operaciones, quiero gestionar y monitorear los envíos desde un panel centralizado para asegurar la cadena de custodia térmica.                          | - El panel web permite crear, ver y auditar envíos.- Muestra gráficos de temperatura y alertas en tiempo real.                                                                                                                                                     | -                         |
-| EP02            | Seguridad y Entrega                 | Como operador de entrega, quiero interactuar con la caja inteligente mediante una app móvil para realizar entregas seguras y evidenciar mi trabajo.                            | - La app se conecta por BLE a la caja.- Permite desbloqueo por OTP y captura de fotos como evidencia.                                                                                                                                                                | -                         |
-| EP03            | Landing Page                        | Como visitante, quiero informarme sobre el producto y sus beneficios para decidir adquirirlo.                                                                                   | - La web es responsiva y explica el ROI, características técnicas y planes.                                                                                                                                                                                        | -                         |
-| US01            | Visualización de Calculadora ROI   | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución.                                           | **Given** que me encuentro en la sección de beneficios del Landing Page,**When** ingreso la cantidad de pedidos y reclamos actuales,**Then** el sistema calcula y muestra el dinero que ahorraré anualmente.                                     | EP03                      |
-| US02            | Visualización de Planes            | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante.                                                        | **Given** que accedo a la sección de precios,**When** hago scroll hacia la tabla de planes,**Then** veo los costos mensuales, características incluidas y un botón para contactar ventas.                                                       | EP03                      |
-| US03            | Creación de Envío                 | Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida (caliente/fría) para iniciar el monitoreo.             | **Given** que me encuentro en el panel de despachos,**When** ingreso los datos del pedido y selecciono el perfil térmico, y presiono "Crear",**Then** se genera el envío en estado "Pendiente" y se emite un código OTP de apertura.            | EP01                      |
-| US04            | Monitoreo en Tiempo Real            | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad.          | **Given** que tengo envíos en curso,**When** accedo al dashboard de monitoreo en la web,**Then** visualizo una lista de cajas activas mostrando su temperatura actual, nivel de batería y estado del cerrojo.                                    | EP01                      |
-| US05            | Historial y Auditoría              | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | **Given** que un cliente reporta un problema,**When** busco el ID del pedido en el historial,**Then** puedo visualizar la gráfica de temperatura del trayecto, los horarios de apertura de la caja y las fotos tomadas en la entrega.             | EP01                      |
-| US06            | Conexión BLE con la Caja           | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica.                              | **Given** que estoy cerca de la caja asignada,**When** abro la app móvil y selecciono "Conectar a SmartBox",**Then** la app establece conexión por BLE y el LED de la caja confirma la vinculación.                                             | EP02                      |
-| US07            | Desbloqueo por OTP                  | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente.                                                    | **Given** que la app está conectada a la caja,**When** ingreso el OTP provisto por el administrador y presiono "Desbloquear",**Then** la caja inteligente libera su cerrojo y registra el evento de apertura exitosa.                             | EP02                      |
-| US08            | Registro de Evidencia Fotográfica  | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas.                              | **Given** que he entregado el producto,**When** uso la cámara dentro de la app para fotografiar el paquete entregado y presiono "Enviar",**Then** la imagen se sube a la plataforma asociándose al ID del envío y cerrando el ciclo logístico. | EP02                      |
-| US09            | Registro Térmico (Technical Story) | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable.                                           | **Given** que la caja inteligente está encendida y en ruta,**When** transcurre un minuto,**Then** el ESP32 envía un payload JSON con la temperatura actual, timestamp y estado de sensores hacia el endpoint correspondiente.                    | EP01                      |
-| EP04            | Authentication & Authorization     | Como administrador de operaciones, quiero gestionar el acceso seguro a la plataforma para mi equipo.                                                                                            | - Permite registro, login y gestión de usuarios.                                                                                                                                                                                                   | -                         |
-| EP05            | Device Management                  | Como administrador, quiero gestionar los dispositivos IoT asociados a mi restaurante para mantener su operatividad.                                                                             | - Permite registrar cajas y ver su estado de batería.                                                                                                                                                                                              | -                         |
-| EP06            | Subscriptions & Payments           | Como administrador, quiero gestionar el plan de suscripción de la plataforma.                                                                                                                  | - Pasarela de pago y selección de plan.                                                                                                                                                                                                            | -                         |
-| EP07            | Alertas y Notificaciones           | Como administrador, quiero recibir alertas sobre el estado de los envíos para tomar acción inmediata.                                                                                           | - Notificaciones push/web de temperatura y apertura.                                                                                                                                                                                               | -                         |
-| US10            | Registro de Restaurante            | Como administrador de operaciones, quiero registrar mi cuenta y mi restaurante para acceder a la plataforma.                                                                                    | **Given** que estoy en el formulario de registro,<br>**When** ingreso mis datos y los del negocio,<br>**Then** se crea la cuenta y puedo acceder al panel.                                                                                       | EP04                      |
-| US11            | Inicio de Sesión (Web y App)       | Como usuario, quiero iniciar sesión con mis credenciales para acceder a mi perfil de forma segura.                                                                                              | **Given** que estoy en la pantalla de login,<br>**When** ingreso usuario y contraseña válidos,<br>**Then** accedo al dashboard o vista principal.                                                                                              | EP04                      |
-| US12            | Gestión de Operadores              | Como administrador, quiero registrar las cuentas de mis operadores de entrega para que puedan acceder a la App Móvil.                                                                           | **Given** que estoy en la sección de equipo,<br>**When** agrego el nombre y correo de un operador,<br>**Then** se le envía una invitación para acceder a la app.                                                                                | EP04                      |
-| US13            | Registro de Caja (SmartBox)        | Como administrador, quiero registrar una nueva caja inteligente mediante su MAC address para asignarla a mi restaurante.                                                                        | **Given** que recibí una nueva SmartBox,<br>**When** ingreso su MAC Address en el panel,<br>**Then** el dispositivo queda vinculado a mi inventario.                                                                                             | EP05                      |
-| US14            | Estado de Batería y Mantenimiento  | Como administrador, quiero recibir alertas si la batería de una caja es baja o el sensor de temperatura falla.                                                                                  | **Given** que una caja tiene batería menor al 15%,<br>**When** el dispositivo reporta su estado,<br>**Then** aparece una alerta visual en el dashboard.                                                                                        | EP05                      |
-| US15            | Suscripción a un plan              | Como administrador, quiero seleccionar un plan y registrar mi método de pago para comenzar a utilizar el servicio.                                                                              | **Given** que estoy en la sección de facturación,<br>**When** selecciono un plan mensual e ingreso mi tarjeta,<br>**Then** mi cuenta se actualiza al nivel correspondiente.                                                                      | EP06                      |
-| US16            | Alertas de Incumplimiento Térmico  | Como administrador, quiero recibir una notificación si un envío sale de los rangos de temperatura aceptables.                                                                                   | **Given** que un envío activo sale de su rango térmico,<br>**When** el sistema detecta la desviación,<br>**Then** se genera una alerta inmediata en la vista del administrador.                                                                | EP07                      |
-| US17            | Alertas de Apertura No Autorizada  | Como administrador, quiero ser notificado inmediatamente si el sensor detecta una apertura forzada sin el uso del OTP.                                                                          | **Given** que una caja es abierta forzadamente,<br>**When** el sensor detecta la apertura sin código válido,<br>**Then** se emite una alerta crítica indicando una posible adulteración.                                                        | EP07                      |
-| EP08            | Internacionalización & Analítica   | Como administrador, quiero opciones globales y reportes para mejorar la gestión y experiencia.                                                                                                  | - Soporte i18n y dashboards gráficos de rendimiento.                                                                                                                                                                                               | -                         |
-| US18            | Internacionalización (i18n)        | Como usuario, quiero cambiar el idioma de la plataforma (Inglés/Español) para navegar en mi idioma nativo.                                                                                      | **Given** que accedo a la web,<br>**When** selecciono "English" en el menú,<br>**Then** la interfaz cambia inmediatamente de idioma a inglés.                                                                                                    | EP08                      |
-| US19            | Dashboard Analítica de Repartidores| Como administrador, quiero ver un gráfico con el rendimiento de mis repartidores para identificar quién tiene más entregas perfectas.                                                           | **Given** que entro al panel de analítica,<br>**When** selecciono un mes,<br>**Then** veo un gráfico comparativo de entregas exitosas por operador.                                                                                             | EP08                      |
-| US20            | Recuperación de Contraseña         | Como usuario, quiero poder recuperar mi contraseña mediante mi correo electrónico por si la olvido.                                                                                             | **Given** que olvidé mi clave,<br>**When** ingreso mi email en "Olvidé mi contraseña",<br>**Then** recibo un enlace seguro para restablecerla.                                                                                                   | EP04                      |
+| Epic / Story ID | Título                              | Descripción                                                                                                                                                                    | Criterios de Aceptación                                                                                                                                                                                                                                             | Relacionado con (Epic ID) |
+| --------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| EP01            | Gestión y Trazabilidad Térmica     | Como administrador de operaciones, quiero gestionar y monitorear los envíos desde un panel centralizado para asegurar la cadena de custodia térmica.                          | - El panel web permite crear, ver y auditar envíos.- Muestra gráficos de temperatura y alertas en tiempo real.                                                                                                                                                     | -                         |
+| EP02            | Seguridad y Entrega                  | Como operador de entrega, quiero interactuar con la caja inteligente mediante una app móvil para realizar entregas seguras y evidenciar mi trabajo.                            | - La app se conecta por BLE a la caja.- Permite desbloqueo por OTP y captura de fotos como evidencia.                                                                                                                                                                | -                         |
+| EP03            | Landing Page                         | Como visitante, quiero informarme sobre el producto y sus beneficios para decidir adquirirlo.                                                                                   | - La web es responsiva y explica el ROI, características técnicas y planes.                                                                                                                                                                                        | -                         |
+| US01            | Visualización de Calculadora ROI    | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución.                                           | **Given** que me encuentro en la sección de beneficios del Landing Page,**When** ingreso la cantidad de pedidos y reclamos actuales,**Then** el sistema calcula y muestra el dinero que ahorraré anualmente.                                     | EP03                      |
+| US02            | Visualización de Planes             | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante.                                                        | **Given** que accedo a la sección de precios,**When** hago scroll hacia la tabla de planes,**Then** veo los costos mensuales, características incluidas y un botón para contactar ventas.                                                       | EP03                      |
+| US03            | Creación de Envío                  | Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida (caliente/fría) para iniciar el monitoreo.             | **Given** que me encuentro en el panel de despachos,**When** ingreso los datos del pedido y selecciono el perfil térmico, y presiono "Crear",**Then** se genera el envío en estado "Pendiente" y se emite un código OTP de apertura.            | EP01                      |
+| US04            | Monitoreo en Tiempo Real             | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad.          | **Given** que tengo envíos en curso,**When** accedo al dashboard de monitoreo en la web,**Then** visualizo una lista de cajas activas mostrando su temperatura actual, nivel de batería y estado del cerrojo.                                    | EP01                      |
+| US05            | Historial y Auditoría               | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | **Given** que un cliente reporta un problema,**When** busco el ID del pedido en el historial,**Then** puedo visualizar la gráfica de temperatura del trayecto, los horarios de apertura de la caja y las fotos tomadas en la entrega.             | EP01                      |
+| US06            | Conexión BLE con la Caja            | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica.                              | **Given** que estoy cerca de la caja asignada,**When** abro la app móvil y selecciono "Conectar a SmartBox",**Then** la app establece conexión por BLE y el LED de la caja confirma la vinculación.                                             | EP02                      |
+| US07            | Desbloqueo por OTP                   | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente.                                                    | **Given** que la app está conectada a la caja,**When** ingreso el OTP provisto por el administrador y presiono "Desbloquear",**Then** la caja inteligente libera su cerrojo y registra el evento de apertura exitosa.                             | EP02                      |
+| US08            | Registro de Evidencia Fotográfica   | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas.                              | **Given** que he entregado el producto,**When** uso la cámara dentro de la app para fotografiar el paquete entregado y presiono "Enviar",**Then** la imagen se sube a la plataforma asociándose al ID del envío y cerrando el ciclo logístico. | EP02                      |
+| US09            | Registro Térmico (Technical Story)  | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable.                                           | **Given** que la caja inteligente está encendida y en ruta,**When** transcurre un minuto,**Then** el ESP32 envía un payload JSON con la temperatura actual, timestamp y estado de sensores hacia el endpoint correspondiente.                    | EP01                      |
+| EP04            | Authentication & Authorization       | Como administrador de operaciones, quiero gestionar el acceso seguro a la plataforma para mi equipo.                                                                            | - Permite registro, login y gestión de usuarios.                                                                                                                                                                                                                    | -                         |
+| EP05            | Device Management                    | Como administrador, quiero gestionar los dispositivos IoT asociados a mi restaurante para mantener su operatividad.                                                             | - Permite registrar cajas y ver su estado de batería.                                                                                                                                                                                                               | -                         |
+| EP06            | Subscriptions & Payments             | Como administrador, quiero gestionar el plan de suscripción de la plataforma.                                                                                                  | - Pasarela de pago y selección de plan.                                                                                                                                                                                                                             | -                         |
+| EP07            | Alertas y Notificaciones             | Como administrador, quiero recibir alertas sobre el estado de los envíos para tomar acción inmediata.                                                                         | - Notificaciones push/web de temperatura y apertura.                                                                                                                                                                                                                 | -                         |
+| US10            | Registro de Restaurante              | Como administrador de operaciones, quiero registrar mi cuenta y mi restaurante para acceder a la plataforma.                                                                    | **Given** que estoy en el formulario de registro,**When** ingreso mis datos y los del negocio,**Then** se crea la cuenta y puedo acceder al panel.                                                                                                 | EP04                      |
+| US11            | Inicio de Sesión (Web y App)        | Como usuario, quiero iniciar sesión con mis credenciales para acceder a mi perfil de forma segura.                                                                             | **Given** que estoy en la pantalla de login,**When** ingreso usuario y contraseña válidos,**Then** accedo al dashboard o vista principal.                                                                                                        | EP04                      |
+| US12            | Gestión de Operadores               | Como administrador, quiero registrar las cuentas de mis operadores de entrega para que puedan acceder a la App Móvil.                                                          | **Given** que estoy en la sección de equipo,**When** agrego el nombre y correo de un operador,**Then** se le envía una invitación para acceder a la app.                                                                                        | EP04                      |
+| US13            | Registro de Caja (SmartBox)          | Como administrador, quiero registrar una nueva caja inteligente mediante su MAC address para asignarla a mi restaurante.                                                        | **Given** que recibí una nueva SmartBox,**When** ingreso su MAC Address en el panel,**Then** el dispositivo queda vinculado a mi inventario.                                                                                                      | EP05                      |
+| US14            | Estado de Batería y Mantenimiento   | Como administrador, quiero recibir alertas si la batería de una caja es baja o el sensor de temperatura falla.                                                                 | **Given** que una caja tiene batería menor al 15%,**When** el dispositivo reporta su estado,**Then** aparece una alerta visual en el dashboard.                                                                                                   | EP05                      |
+| US15            | Suscripción a un plan               | Como administrador, quiero seleccionar un plan y registrar mi método de pago para comenzar a utilizar el servicio.                                                             | **Given** que estoy en la sección de facturación,**When** selecciono un plan mensual e ingreso mi tarjeta,**Then** mi cuenta se actualiza al nivel correspondiente.                                                                              | EP06                      |
+| US16            | Alertas de Incumplimiento Térmico   | Como administrador, quiero recibir una notificación si un envío sale de los rangos de temperatura aceptables.                                                                 | **Given** que un envío activo sale de su rango térmico,**When** el sistema detecta la desviación,**Then** se genera una alerta inmediata en la vista del administrador.                                                                         | EP07                      |
+| US17            | Alertas de Apertura No Autorizada    | Como administrador, quiero ser notificado inmediatamente si el sensor detecta una apertura forzada sin el uso del OTP.                                                          | **Given** que una caja es abierta forzadamente,**When** el sensor detecta la apertura sin código válido,**Then** se emite una alerta crítica indicando una posible adulteración.                                                               | EP07                      |
+| EP08            | Internacionalización & Analítica   | Como administrador, quiero opciones globales y reportes para mejorar la gestión y experiencia.                                                                                 | - Soporte i18n y dashboards gráficos de rendimiento.                                                                                                                                                                                                                | -                         |
+| US18            | Internacionalización (i18n)         | Como usuario, quiero cambiar el idioma de la plataforma (Inglés/Español) para navegar en mi idioma nativo.                                                                    | **Given** que accedo a la web,**When** selecciono "English" en el menú,**Then** la interfaz cambia inmediatamente de idioma a inglés.                                                                                                            | EP08                      |
+| US19            | Dashboard Analítica de Repartidores | Como administrador, quiero ver un gráfico con el rendimiento de mis repartidores para identificar quién tiene más entregas perfectas.                                        | **Given** que entro al panel de analítica,**When** selecciono un mes,**Then** veo un gráfico comparativo de entregas exitosas por operador.                                                                                                      | EP08                      |
+| US20            | Recuperación de Contraseña         | Como usuario, quiero poder recuperar mi contraseña mediante mi correo electrónico por si la olvido.                                                                           | **Given** que olvidé mi clave,**When** ingreso mi email en "Olvidé mi contraseña",**Then** recibo un enlace seguro para restablecerla.                                                                                                          | EP04                      |
 
 ## 3.2. Impact Mapping.
 
@@ -675,27 +593,27 @@ Se ha elaborado y priorizado el Product Backlog en nuestra herramienta de gesti�
 
 ![Product Backlog Board](./assets/product-backlog.jpeg)
 
-| # Orden | User Story Id | Título                             | Descripción                                                                                                                                                                    | Story Points (1 / 2 / 3 / 5 / 8) |
-| ------- | ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| 1       | US01          | Visualización de Calculadora ROI   | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución.                                           | 3                                |
-| 2       | US02          | Visualización de Planes            | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante.                                                        | 2                                |
-| 3       | US10          | Registro de Restaurante            | Como administrador de operaciones, quiero registrar mi cuenta y mi restaurante para acceder a la plataforma.                                                                    | 3                                |
-| 4       | US11          | Inicio de Sesión (Web y App)       | Como usuario, quiero iniciar sesión con mis credenciales para acceder a mi perfil de forma segura.                                                                              | 3                                |
-| 5       | US15          | Suscripción a un plan              | Como administrador, quiero seleccionar un plan y registrar mi método de pago para comenzar a utilizar el servicio.                                                              | 5                                |
-| 6       | US09          | Registro Térmico (Technical Story) | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable.                                           | 8                                |
-| 7       | US13          | Registro de Caja (SmartBox)        | Como administrador, quiero registrar una nueva caja inteligente mediante su MAC address para asignarla a mi restaurante.                                                        | 3                                |
-| 8       | US06          | Conexión BLE con la Caja           | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica.                              | 5                                |
-| 9       | US07          | Desbloqueo por OTP                 | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente.                                                    | 5                                |
+| # Orden | User Story Id | Título                              | Descripción                                                                                                                                                                    | Story Points (1 / 2 / 3 / 5 / 8) |
+| ------- | ------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| 1       | US01          | Visualización de Calculadora ROI    | Como visitante, quiero visualizar la calculadora de ROI en el Landing Page para entender el ahorro operativo que genera la solución.                                           | 3                                |
+| 2       | US02          | Visualización de Planes             | Como visitante, quiero ver los planes de suscripción de software SaaS para elegir el más adecuado para mi restaurante.                                                        | 2                                |
+| 3       | US10          | Registro de Restaurante              | Como administrador de operaciones, quiero registrar mi cuenta y mi restaurante para acceder a la plataforma.                                                                    | 3                                |
+| 4       | US11          | Inicio de Sesión (Web y App)        | Como usuario, quiero iniciar sesión con mis credenciales para acceder a mi perfil de forma segura.                                                                             | 3                                |
+| 5       | US15          | Suscripción a un plan               | Como administrador, quiero seleccionar un plan y registrar mi método de pago para comenzar a utilizar el servicio.                                                             | 5                                |
+| 6       | US09          | Registro Térmico (Technical Story)  | Como Developer, quiero que el dispositivo IoT envíe registros de temperatura cada minuto a la API para mantener el rastro inmutable.                                           | 8                                |
+| 7       | US13          | Registro de Caja (SmartBox)          | Como administrador, quiero registrar una nueva caja inteligente mediante su MAC address para asignarla a mi restaurante.                                                        | 3                                |
+| 8       | US06          | Conexión BLE con la Caja            | Como operador de entrega, quiero conectar mi app móvil por Bluetooth a la caja inteligente para poder gestionar el candado de forma inalámbrica.                              | 5                                |
+| 9       | US07          | Desbloqueo por OTP                   | Como operador de entrega, quiero ingresar el código OTP en la app para desbloquear la caja y entregar el pedido al cliente.                                                    | 5                                |
 | 10      | US03          | Creación de Envío                  | Como administrador de operaciones, quiero crear un nuevo envío en la plataforma especificando la temperatura requerida (caliente/fría) para iniciar el monitoreo.             | 3                                |
-| 11      | US12          | Gestión de Operadores              | Como administrador, quiero registrar las cuentas de mis operadores de entrega para que puedan acceder a la App Móvil.                                                           | 3                                |
-| 12      | US04          | Monitoreo en Tiempo Real           | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad.          | 5                                |
-| 13      | US16          | Alertas de Incumplimiento Térmico  | Como administrador, quiero recibir una notificación si un envío sale de los rangos de temperatura aceptables.                                                                   | 3                                |
-| 14      | US17          | Alertas de Apertura No Autorizada  | Como administrador, quiero ser notificado inmediatamente si el sensor detecta una apertura forzada sin el uso del OTP.                                                          | 3                                |
-| 15      | US14          | Estado de Batería y Mantenimiento  | Como administrador, quiero recibir alertas si la batería de una caja es baja o el sensor de temperatura falla.                                                                  | 2                                |
-| 16      | US08          | Registro de Evidencia Fotográfica  | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas.                              | 3                                |
-| 17      | US05          | Historial y Auditoría              | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | 3                                |
-| 18      | US18          | Internacionalización (i18n)        | Como visitante/usuario, quiero cambiar el idioma de la plataforma (Inglés/Español) para navegar en mi idioma nativo.                                                          | 3                                |
-| 19      | US19          | Dashboard Analítica de Repartidores| Como administrador, quiero ver un gráfico con el rendimiento de mis repartidores para identificar quién tiene más entregas perfectas.                                         | 5                                |
+| 11      | US12          | Gestión de Operadores               | Como administrador, quiero registrar las cuentas de mis operadores de entrega para que puedan acceder a la App Móvil.                                                          | 3                                |
+| 12      | US04          | Monitoreo en Tiempo Real             | Como administrador de operaciones, quiero visualizar el estado en tiempo real (temperatura y estado de apertura) de los envíos en tránsito para asegurar la calidad.          | 5                                |
+| 13      | US16          | Alertas de Incumplimiento Térmico   | Como administrador, quiero recibir una notificación si un envío sale de los rangos de temperatura aceptables.                                                                 | 3                                |
+| 14      | US17          | Alertas de Apertura No Autorizada    | Como administrador, quiero ser notificado inmediatamente si el sensor detecta una apertura forzada sin el uso del OTP.                                                          | 3                                |
+| 15      | US14          | Estado de Batería y Mantenimiento   | Como administrador, quiero recibir alertas si la batería de una caja es baja o el sensor de temperatura falla.                                                                 | 2                                |
+| 16      | US08          | Registro de Evidencia Fotográfica   | Como operador de entrega, quiero tomar una foto del pedido entregado usando la app para dejar constancia física y evitar penalizaciones injustas.                              | 3                                |
+| 17      | US05          | Historial y Auditoría               | Como administrador de operaciones, quiero revisar el historial de reportes de entrega (con evidencias fotográficas) para resolver disputas de clientes por alimentos dañados. | 3                                |
+| 18      | US18          | Internacionalización (i18n)         | Como visitante/usuario, quiero cambiar el idioma de la plataforma (Inglés/Español) para navegar en mi idioma nativo.                                                          | 3                                |
+| 19      | US19          | Dashboard Analítica de Repartidores | Como administrador, quiero ver un gráfico con el rendimiento de mis repartidores para identificar quién tiene más entregas perfectas.                                        | 5                                |
 | 20      | US20          | Recuperación de Contraseña         | Como usuario, quiero poder recuperar mi contraseña mediante mi correo electrónico por si la olvido.                                                                           | 2                                |
 
 # Capítulo IV: Solution Software Design
@@ -705,19 +623,20 @@ Se ha elaborado y priorizado el Product Backlog en nuestra herramienta de gesti�
 El diseño de nivel estratégico nos permite descomponer el dominio del negocio de logística y custodia térmica de delivery en subdominios delimitados (Bounded Contexts), asegurando una separación clara de responsabilidades y un lenguaje ubicuo consistente.
 
 ### 4.1.1. Design-Level EventStorming.
+
 #### 4.1.1.1. Candidate Context Discovery.
 
-A partir del análisis del dominio y de los eventos, comandos y agregados identificados en el Design-Level EventStorming, se identificaron cinco Bounded Contexts candidatos para el ecosistema Cold2Hot: **IAM**, **Container & Device Management**, **Thermal Monitoring & Telemetry**, **Access & Security**, y **Orders & Audit**. 
+A partir del análisis del dominio y de los eventos, comandos y agregados identificados en el Design-Level EventStorming, se identificaron cinco Bounded Contexts candidatos para el ecosistema Cold2Hot: **IAM**, **Container & Device Management**, **Thermal Monitoring & Telemetry**, **Access & Security**, y **Orders & Audit**.
 
 Cada uno de estos contextos agrupa capacidades del negocio con lenguaje ubicuo, reglas y responsabilidades propias, lo que garantiza una alta cohesión interna y un bajo acoplamiento en la arquitectura del sistema.
 
-| Candidate Bounded Context | Purpose |
-| :--- | :--- |
-| **IAM (Identity & Access Management)** | Gestiona la autenticación, autorización, perfiles de usuario (repartidores, administradores) y sesiones de acceso. |
-| **Container & Device Management** | Gestiona el inventario, registro, estado operativo y vinculación de los contenedores térmicos inteligentes (*SmartBoxes*) y sus sensores IoT. |
-| **Thermal Monitoring & Telemetry** | Gestiona la lectura en tiempo real de temperatura, generación de historiales térmicos y alertas de desviación de temperatura. |
-| **Access & Security** | Gestiona la validación de contraseñas de un solo uso (OTP), el control físico de apertura del contenedor y la detección de riesgos de alteración o manipulaciones no autorizadas. |
-| **Orders & Audit** | Gestiona el seguimiento de pedidos asignados al contenedor, el registro de evidencias fotográficas de entrega y la generación de reportes de auditoría para los restaurantes/clientes. |
+| Candidate Bounded Context                    | Purpose                                                                                                                                                                                   |
+| :------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **IAM (Identity & Access Management)** | Gestiona la autenticación, autorización, perfiles de usuario (repartidores, administradores) y sesiones de acceso.                                                                      |
+| **Container & Device Management**      | Gestiona el inventario, registro, estado operativo y vinculación de los contenedores térmicos inteligentes (*SmartBoxes*) y sus sensores IoT.                                         |
+| **Thermal Monitoring & Telemetry**     | Gestiona la lectura en tiempo real de temperatura, generación de historiales térmicos y alertas de desviación de temperatura.                                                          |
+| **Access & Security**                  | Gestiona la validación de contraseñas de un solo uso (OTP), el control físico de apertura del contenedor y la detección de riesgos de alteración o manipulaciones no autorizadas.    |
+| **Orders & Audit**                     | Gestiona el seguimiento de pedidos asignados al contenedor, el registro de evidencias fotográficas de entrega y la generación de reportes de auditoría para los restaurantes/clientes. |
 
 <div align="center">
     <img src="assets/Candidate Context Discovery.jpg" alt="Candidate Context Discovery" style="margin: 10px 0;" width="80%"/>
@@ -747,71 +666,71 @@ A continuación se presentan los Bounded Context Canvases para cada uno de los c
 
 ### 1. IAM (Identity & Access Management) Bounded Context
 
-| Atributo | Descripción |
-| :--- | :--- |
-| **Name** | IAM (Identity & Access Management) |
-| **Purpose** | Gestionar la autenticación, autorización, perfiles de usuarios (administradores, operadores/repartidores) y la emisión de tokens de acceso seguros. |
-| **Domain Classification** | Supporting Subdomain |
-| **Ubiquitous Language** | `User`, `Credentials`, `Role`, `JWT Token`, `Authentication`, `Permission`, `Operator Profile`. |
-| **Inbound Messages / Commands** | `RegisterUser`, `AuthenticateUser`, `AssignRole`, `ValidateToken`. |
-| **Outbound Messages / Events** | `UserRegistered`, `UserAuthenticated`, `RoleAssigned`. |
-| **Aggregates & Entities** | **Aggregate Root:** `User` <br> **Entities:** `Role`, `Permission` <br> **Value Objects:** `UserId`, `Email`, `HashedPassword`, `RoleType`. |
+| Atributo                              | Descripción                                                                                                                                                        |
+| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Name**                        | IAM (Identity & Access Management)                                                                                                                                  |
+| **Purpose**                     | Gestionar la autenticación, autorización, perfiles de usuarios (administradores, operadores/repartidores) y la emisión de tokens de acceso seguros.              |
+| **Domain Classification**       | Supporting Subdomain                                                                                                                                                |
+| **Ubiquitous Language**         | `User`, `Credentials`, `Role`, `JWT Token`, `Authentication`, `Permission`, `Operator Profile`.                                                       |
+| **Inbound Messages / Commands** | `RegisterUser`, `AuthenticateUser`, `AssignRole`, `ValidateToken`.                                                                                          |
+| **Outbound Messages / Events**  | `UserRegistered`, `UserAuthenticated`, `RoleAssigned`.                                                                                                        |
+| **Aggregates & Entities**       | **Aggregate Root:** `User`  **Entities:** `Role`, `Permission`  **Value Objects:** `UserId`, `Email`, `HashedPassword`, `RoleType`. |
 
 ---
 
 ### 2. Container & Device Management Bounded Context
 
-| Atributo | Descripción |
-| :--- | :--- |
-| **Name** | Container & Device Management |
-| **Purpose** | Administrar el ciclo de vida, registro, emparejamiento de sensores/actuadores y estado operativo de las cajas térmicas (*SmartBoxes*) y dispositivos ESP32. |
-| **Domain Classification** | Supporting Subdomain |
-| **Ubiquitous Language** | `SmartBox`, `ESP32 Device`, `Sensor Pairing`, `Actuator Calibration`, `Device State`, `Lock Mechanism`. |
-| **Inbound Messages / Commands** | `RegisterSmartBox`, `PairSensor`, `UpdateDeviceStatus`, `CalibrateActuator`. |
-| **Outbound Messages / Events** | `SmartBoxRegistered`, `SensorPaired`, `DeviceStatusUpdated`. |
-| **Aggregates & Entities** | **Aggregate Root:** `SmartBox` <br> **Entities:** `DeviceSensor`, `Actuator` <br> **Value Objects:** `BoxId`, `MACAddress`, `FirmwareVersion`, `BoxStatus` (*Available, InTransit, Maintenance*). |
+| Atributo                              | Descripción                                                                                                                                                                                                                |
+| :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                        | Container & Device Management                                                                                                                                                                                               |
+| **Purpose**                     | Administrar el ciclo de vida, registro, emparejamiento de sensores/actuadores y estado operativo de las cajas térmicas (*SmartBoxes*) y dispositivos ESP32.                                                              |
+| **Domain Classification**       | Supporting Subdomain                                                                                                                                                                                                        |
+| **Ubiquitous Language**         | `SmartBox`, `ESP32 Device`, `Sensor Pairing`, `Actuator Calibration`, `Device State`, `Lock Mechanism`.                                                                                                         |
+| **Inbound Messages / Commands** | `RegisterSmartBox`, `PairSensor`, `UpdateDeviceStatus`, `CalibrateActuator`.                                                                                                                                        |
+| **Outbound Messages / Events**  | `SmartBoxRegistered`, `SensorPaired`, `DeviceStatusUpdated`.                                                                                                                                                          |
+| **Aggregates & Entities**       | **Aggregate Root:** `SmartBox`  **Entities:** `DeviceSensor`, `Actuator`  **Value Objects:** `BoxId`, `MACAddress`, `FirmwareVersion`, `BoxStatus` (*Available, InTransit, Maintenance*). |
 
 ---
 
 ### 3. Thermal Monitoring & Telemetry Bounded Context
 
-| Atributo | Descripción |
-| :--- | :--- |
-| **Name** | Thermal Monitoring & Telemetry |
-| **Purpose** | Procesar en tiempo real la telemetría de temperatura transmitida por el hardware IoT, verificar rangos térmicos configurados y gatillar alertas de desviación. |
-| **Domain Classification** | Core Subdomain |
-| **Ubiquitous Language** | `Telemetry Stream`, `Thermal Profile`, `Temperature Reading`, `Threshold`, `Thermal Breach Alert`, `Historical Log`. |
-| **Inbound Messages / Commands** | `IngestTelemetryData`, `SetThermalProfile`, `ProcessTemperatureReading`. |
-| **Outbound Messages / Events** | `TelemetryIngested`, `ThermalProfileConfigured`, `ThermalBreachDetected`. |
-| **Aggregates & Entities** | **Aggregate Root:** `ThermalProfile` <br> **Entities:** `TelemetryLog` <br> **Value Objects:** `TemperatureValue`, `CelsiusUnit`, `Timestamp`, `ThresholdRange`. |
+| Atributo                              | Descripción                                                                                                                                                                           |
+| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                        | Thermal Monitoring & Telemetry                                                                                                                                                         |
+| **Purpose**                     | Procesar en tiempo real la telemetría de temperatura transmitida por el hardware IoT, verificar rangos térmicos configurados y gatillar alertas de desviación.                      |
+| **Domain Classification**       | Core Subdomain                                                                                                                                                                         |
+| **Ubiquitous Language**         | `Telemetry Stream`, `Thermal Profile`, `Temperature Reading`, `Threshold`, `Thermal Breach Alert`, `Historical Log`.                                                       |
+| **Inbound Messages / Commands** | `IngestTelemetryData`, `SetThermalProfile`, `ProcessTemperatureReading`.                                                                                                         |
+| **Outbound Messages / Events**  | `TelemetryIngested`, `ThermalProfileConfigured`, `ThermalBreachDetected`.                                                                                                        |
+| **Aggregates & Entities**       | **Aggregate Root:** `ThermalProfile`  **Entities:** `TelemetryLog`  **Value Objects:** `TemperatureValue`, `CelsiusUnit`, `Timestamp`, `ThresholdRange`. |
 
 ---
 
 ### 4. Access & Security Bounded Context
 
-| Atributo | Descripción |
-| :--- | :--- |
-| **Name** | Access & Security |
-| **Purpose** | Generar y validar las claves OTP de un solo uso para la apertura del contenedor en destino, evaluar riesgos de manipulación indebida (*Tampering*) y controlar el mecanismo físico de bloqueo. |
-| **Domain Classification** | Core Subdomain |
-| **Ubiquitous Language** | `OTP (One-Time Password)`, `PIN Generation`, `Unlock Request`, `Tamper Detection`, `Reed Switch Alert`, `Security Event`. |
-| **Inbound Messages / Commands** | `GenerateOTP`, `ValidateOTP`, `EvaluateTamperRisk`, `UnlockContainer`. |
-| **Outbound Messages / Events** | `OTPGenerated`, `ContainerUnlocked`, `SecurityBreachDetected`, `InvalidOTPAttempted`. |
-| **Aggregates & Entities** | **Aggregate Root:** `SecurityPasscode` <br> **Entities:** `AccessAttempt`, `SecurityLog` <br> **Value Objects:** `OTPCode`, `ExpirationTime`, `TamperStatus`, `UnlockResult`. |
+| Atributo                              | Descripción                                                                                                                                                                                          |
+| :------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                        | Access & Security                                                                                                                                                                                     |
+| **Purpose**                     | Generar y validar las claves OTP de un solo uso para la apertura del contenedor en destino, evaluar riesgos de manipulación indebida (*Tampering*) y controlar el mecanismo físico de bloqueo.    |
+| **Domain Classification**       | Core Subdomain                                                                                                                                                                                        |
+| **Ubiquitous Language**         | `OTP (One-Time Password)`, `PIN Generation`, `Unlock Request`, `Tamper Detection`, `Reed Switch Alert`, `Security Event`.                                                                 |
+| **Inbound Messages / Commands** | `GenerateOTP`, `ValidateOTP`, `EvaluateTamperRisk`, `UnlockContainer`.                                                                                                                        |
+| **Outbound Messages / Events**  | `OTPGenerated`, `ContainerUnlocked`, `SecurityBreachDetected`, `InvalidOTPAttempted`.                                                                                                         |
+| **Aggregates & Entities**       | **Aggregate Root:** `SecurityPasscode`  **Entities:** `AccessAttempt`, `SecurityLog`  **Value Objects:** `OTPCode`, `ExpirationTime`, `TamperStatus`, `UnlockResult`. |
 
 ---
 
 ### 5. Orders & Audit Bounded Context
 
-| Atributo | Descripción |
-| :--- | :--- |
-| **Name** | Orders & Audit |
-| **Purpose** | Orquestar la vinculación de pedidos con contenedores térmicos, consolidar la evidencia fotográfica de entrega y estructurar los reportes de auditoría de custodia térmica. |
-| **Domain Classification** | Core Subdomain |
-| **Ubiquitous Language** | `Order`, `Thermal Custody`, `Delivery Evidence`, `Proof of Delivery`, `Audit Report`, `Dispatch`. |
-| **Inbound Messages / Commands** | `AssignOrderToBox`, `CaptureDeliveryEvidence`, `UploadDeliveryPhoto`, `GenerateAuditReport`. |
-| **Outbound Messages / Events** | `OrderDispatched`, `EvidenceUploaded`, `AuditReportGenerated`, `OrderCompleted`. |
-| **Aggregates & Entities** | **Aggregate Root:** `Order` <br> **Entities:** `DeliveryEvidence`, `AuditReport` <br> **Value Objects:** `OrderId`, `PhotoUrl`, `CustodyStatus`, `CompletionTimestamp`. |
+| Atributo                              | Descripción                                                                                                                                                                                    |
+| :------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                        | Orders & Audit                                                                                                                                                                                  |
+| **Purpose**                     | Orquestar la vinculación de pedidos con contenedores térmicos, consolidar la evidencia fotográfica de entrega y estructurar los reportes de auditoría de custodia térmica.                 |
+| **Domain Classification**       | Core Subdomain                                                                                                                                                                                  |
+| **Ubiquitous Language**         | `Order`, `Thermal Custody`, `Delivery Evidence`, `Proof of Delivery`, `Audit Report`, `Dispatch`.                                                                                   |
+| **Inbound Messages / Commands** | `AssignOrderToBox`, `CaptureDeliveryEvidence`, `UploadDeliveryPhoto`, `GenerateAuditReport`.                                                                                            |
+| **Outbound Messages / Events**  | `OrderDispatched`, `EvidenceUploaded`, `AuditReportGenerated`, `OrderCompleted`.                                                                                                        |
+| **Aggregates & Entities**       | **Aggregate Root:** `Order`  **Entities:** `DeliveryEvidence`, `AuditReport`  **Value Objects:** `OrderId`, `PhotoUrl`, `CustodyStatus`, `CompletionTimestamp`. |
 
 ### 4.1.2. Context Mapping.
 
@@ -844,11 +763,8 @@ El diagrama de contexto (Context Diagram) delimita formalmente la frontera perim
 A diferencia del panorama global, en esta vista el foco se concentra en el sistema de software desarrollado por IoTeam:
 
 - Delivery Operations Administrator: Interactúa con la plataforma a través de canales seguros HTTPS/TLS para configurar rangos térmicos admisibles, monitorear la ubicación de la flota y auditar incidentes o aperturas registradas durante los envíos.
-
 - Delivery Operator: Se autentica en el sistema mediante su dispositivo móvil para sincronizar órdenes asignadas, validar códigos de apertura de un solo uso (OTP) y enviar las fotografías que acreditan la entrega exitosa del paquete.
-
 - SmartBox IoT Hardware Enclosure: Representa el entorno ciberfísico en ruta (microcontrolador ESP32 NodeMCU, bus One-Wire con sensor DS18B20, entradas digitales para Reed Switch y TCRT5000, actuador de ventilación y cerrojo mecánico solenoide). Este dispositivo actúa como un sistema externo que transmite flujos continuos de telemetría y eventos de intrusión vía serial o Bluetooth Low Energy (BLE), y recibe órdenes de desbloqueo físico emitidas por el software.
-
 - Sistemas Externos de Soporte: El sistema delega responsabilidades no troncales consumiendo las APIs REST gratuitas de OpenStreetMap & OSRM para la geolocalización, Firebase Cloud Messaging para la emisión de notificaciones push prioritarias, y Cloudinary para la persistencia y distribución de archivos multimedia de auditoría.
 
 <div align="center">
@@ -859,18 +775,12 @@ A diferencia del panorama global, en esta vista el foco se concentra en el siste
 
 El diagrama de contenedores descompone el sistema Cold2Hot en sus unidades fundamentales de ejecución y despliegue desacopladas, definiendo las responsabilidades funcionales, las tecnologías seleccionadas y los protocolos de integración entre cada bloque:
 
-- Landing Page: Sitio web estático desarrollado con HTML5, CSS3 y JavaScript vanilla. Su función principal es exponer la propuesta de valor comercial de IoTeam, planes de suscripción para restaurantes y enlaces de redirección hacia las aplicaciones operativas. 
-
+- Landing Page: Sitio web estático desarrollado con HTML5, CSS3 y JavaScript vanilla. Su función principal es exponer la propuesta de valor comercial de IoTeam, planes de suscripción para restaurantes y enlaces de redirección hacia las aplicaciones operativas.
 - Delivery Admin Web Application: Aplicación web cliente desarrollada con Angular y TypeScript, estructurada bajo el sistema de diseño Material Design mediante la biblioteca Angular Material. Proporciona a los administradores un panel de control interactivo para la gestión de despachos, visualización de métricas térmicas y auditoría de incidentes.
-
 - Delivery Operator Mobile Application: Aplicación móvil multiplataforma desarrollada con Flutter y Dart. Permite al conductor autenticarse, enlazarse vía Bluetooth Low Energy (BLE) con la SmartBox más cercana, digitar el PIN OTP de apertura y tomar la fotografía de comprobación física.
-
 - Cloud Core RESTful API: Servicio backend empresarial desarrollado sobre el marco de trabajo Spring Boot en Java. Centraliza las reglas de negocio globales, gestiona la persistencia de datos, valida accesos e identidades (IAM) y orquesta la comunicación con los servicios externos gratuitos (FCM, Cloudinary, OSRM).
-
 - Cloud Relational Database: Instancia de base de datos relacional PostgreSQL que almacena los registros de usuarios, configuraciones de cajas térmicas, historiales de pedidos y eventos de auditoría.
-
 - Edge Service: Microservicio intermedio desarrollado en Python utilizando el microframework Flask y Peewee ORM. Se ejecuta en el hardware del contenedor para procesar señales analíticas locales, evaluar discrepancias inmediatas de seguridad y garantizar la operación de desbloqueo incluso en escenarios con pérdida total de conectividad a internet.
-
 - Edge Local Database: Base de datos relacional ligera basada en SQLite que almacena en caché local las claves temporales activas y los últimos registros de telemetría pendientes de sincronización con la nube.
 
 <div align="center">
@@ -882,18 +792,13 @@ El diagrama de contenedores descompone el sistema Cold2Hot en sus unidades funda
 El diagrama de despliegue detalla la topología de infraestructura física y en la nube donde residen los contenedores de software en un entorno de producción, garantizando alta disponibilidad con costes controlados mediante esquemas Free Tier:
 
 - Estación de Trabajo del Administrador (Hardware de Escritorio): Los administradores acceden a través de navegadores web estándar (Chrome, Firefox, Safari o Edge) a la Landing Page y a la Delivery Admin Web Application, las cuales son servidas de manera estática y con certificados SSL activos mediante la plataforma PaaS gratuita de Vercel o GitHub Pages.
-
 - Dispositivo Móvil del Repartidor (Smartphone Android/iOS): Aloja localmente la Delivery Operator Mobile Application instalada. El teléfono se comunica simultáneamente con la nube mediante HTTPS/4G-5G y con la SmartBox a través de su antena Bluetooth Low Energy (BLE).
-
 - Gabinete Físico SmartBox (Entorno Edge e IoT en Vehículo): Compuesto por un computador de placa reducida (SoC Linux) que hospeda el Edge Service y la base de datos SQLite, interconectado por comunicación serial UART/GPIO al microcontrolador ESP32 NodeMCU, el cual gestiona directamente los pines de los sensores DS18B20, TCRT5000, Reed Switch y el relé de apertura.
-
 - Infraestructura Cloud Gratuita (PaaS / BaaS):
 
-    - El Cloud Core RESTful API opera en un contenedor virtualizado dentro de los servicios gratuitos de Render Free Web Service.   
-
-    - La persistencia transaccional reside en una base de datos gestionada PostgreSQL provista por el nivel gratuito de Supabase.
-
-    - El repositorio multimedia de evidencias opera bajo la capa gratuita de Cloudinary, la cual almacena las capturas optimizadas sin consumo de disco en el servidor principal. 
+  - El Cloud Core RESTful API opera en un contenedor virtualizado dentro de los servicios gratuitos de Render Free Web Service.
+  - La persistencia transaccional reside en una base de datos gestionada PostgreSQL provista por el nivel gratuito de Supabase.
+  - El repositorio multimedia de evidencias opera bajo la capa gratuita de Cloudinary, la cual almacena las capturas optimizadas sin consumo de disco en el servidor principal.
 
 <div align="center">
     <img src="assets/ProductionDeployment-Diagram.png" alt="Deployment Diagram" style="margin: 10px 0;" width="80%"/>
@@ -910,6 +815,7 @@ El contexto delimitado IAM gestiona integralmente el registro, autenticación, a
 La capa de dominio constituye el núcleo de la lógica del contexto IAM, implementada sin dependencias de frameworks ni bibliotecas de persistencia. Encapsula las reglas del negocio relacionadas con la validez de credenciales, la seguridad de contraseñas y el ciclo de vida de los perfiles de usuario.
 
 - User (Aggregate Root)
+
   - Propósito: Modela la entidad principal del sistema, centralizando la comprobación de credenciales, el cambio de contraseña y las transiciones de estado operativo.
   - Atributos:
     - id: UserId
@@ -920,47 +826,51 @@ La capa de dominio constituye el núcleo de la lógica del contexto IAM, impleme
     - isActive: Boolean
   - Métodos:
     - + authenticate(plainPassword: String, passwordEncoder: IPasswordEncoder): Boolean
+
       - Verifica si la contraseña proporcionada coincide con el hash almacenado mediante el servicio de dominio de cifrado.
     - + updateProfile(fullName: FullName): void
+
       - Actualiza los nombres y apellidos manteniendo la inmutabilidad de la identidad.
     - + changePassword(oldPass: String, newPass: String, encoder: IPasswordEncoder): void
+
       - Evalúa la contraseña anterior y asigna una nueva después de validar complejidad y cifrado.
     - + deactivate(): void
-      - Inhabilita la cuenta para impedir futuros inicios de sesión.
 
+      - Inhabilita la cuenta para impedir futuros inicios de sesión.
 - UserId (Value Object)
+
   - Propósito: Representa de forma unívoca e inmutable el identificador universal del usuario (UUID v4).
   - Atributos:
     - value: UUID
   - Métodos:
     - + getValue(): UUID
     - + equals(other: Object): Boolean
-
 - Email (Value Object)
+
   - Propósito: Modela la dirección electrónica y garantiza el cumplimiento del formato estándar RFC 5322.
   - Atributos:
     - address: String
   - Métodos:
     - + getAddress(): String
     - - validate(address: String): void
-
 - HashedPassword (Value Object)
+
   - Propósito: Encapsula la cadena cifrada resultante del proceso de hashing de contraseña mediante un algoritmo seguro, evitando que valores en texto plano residan en el modelo de dominio.
   - Atributos:
     - hash: String
   - Métodos:
     - + getHash(): String
     - + matches(raw: String, encoder: IPasswordEncoder): Boolean
-
 - FullName (Value Object)
+
   - Propósito: Representa la composición inmutable del nombre y apellido de la persona titular de la cuenta.
   - Atributos:
     - firstName: String
     - lastName: String
   - Métodos:
     - + getFullName(): String
-
 - Role (Entity)
+
   - Propósito: Define el esquema de privilegios asignados al usuario para el control de acceso basado en roles (RBAC).
   - Atributos:
     - id: Long
@@ -968,26 +878,26 @@ La capa de dominio constituye el núcleo de la lógica del contexto IAM, impleme
     - description: String
   - Métodos:
     - + getName(): RoleType
-
 - RoleType (Enumeration)
+
   - Propósito: Lista los roles autorizados en la plataforma.
   - Valores: ROLE_ADMIN, ROLE_DELIVERY_OPERATOR.
-
 - IPasswordEncoder (Domain Service Interface)
+
   - Propósito: Contrato de abstracción que delega el hashing criptográfico sin acoplar el dominio a librerías de seguridad externas.
   - Métodos:
     - + encode(rawPassword: String): String
     - + matches(rawPassword: String, encodedPassword: String): Boolean
-
 - IUserRepository (Repository Interface)
+
   - Propósito: Define los métodos de acceso y consulta a la persistencia del agregado User.
   - Métodos:
-    - + findById(id: UserId): Optional<User>
-    - + findByEmail(email: Email): Optional<User>
+    - + findById(id: UserId): Optional<User></user>
+    - + findByEmail(email: Email): Optional<User></user>
     - + existsByEmail(email: Email): Boolean
     - + save(user: User): User
-
 - Domain Events
+
   - UserRegisteredEvent: Se emite cuando se crea una nueva cuenta en el sistema. Incluye userId, email, role y occurredOn.
   - UserAuthenticatedEvent: Notifica un inicio de sesión exitoso para fines de auditoría.
 
@@ -996,22 +906,27 @@ La capa de dominio constituye el núcleo de la lógica del contexto IAM, impleme
 Actúa como el perímetro de entrada de solicitudes externas hacia el contexto, exponiendo controladores HTTP bajo el estilo arquitectónico RESTful y documentados mediante la especificación OpenAPI.
 
 - AuthController (REST Controller)
+
   - Propósito: Expone endpoints públicos para el ingreso a la plataforma y el alta inicial de usuarios.
   - Métodos:
     - + register(request: RegisterUserRequestDto): ResponseEntity<ApiResponse`<UserDto>`>
+
       - Gestiona la petición POST /api/v1/auth/register.
     - + login(request: LoginRequestDto): ResponseEntity<ApiResponse`<AuthTokenDto>`>
-      - Gestiona la petición POST /api/v1/auth/login.
 
+      - Gestiona la petición POST /api/v1/auth/login.
 - UserController (REST Controller)
+
   - Propósito: Expone endpoints protegidos para la consulta de información del perfil y la actualización de datos de cuenta.
   - Métodos:
     - + getProfile(principal: UserPrincipal): ResponseEntity<ApiResponse`<UserDto>`>
-      - Procesa la petición GET /api/v1/users/me.
-    - + updateProfile(principal: UserPrincipal, request: UpdateProfileRequestDto): ResponseEntity<ApiResponse<Void>>
-      - Procesa la petición PUT /api/v1/users/me.
 
+      - Procesa la petición GET /api/v1/users/me.
+    - + updateProfile(principal: UserPrincipal, request: UpdateProfileRequestDto): ResponseEntity<ApiResponse<Void></void>>
+
+      - Procesa la petición PUT /api/v1/users/me.
 - Data Transfer Objects (DTOs)
+
   - RegisterUserRequestDto: Objeto con los datos de entrada para registro (email, password, firstName, lastName, role).
   - LoginRequestDto: Objeto de entrada con las credenciales de acceso (email, password).
   - AuthTokenDto: Respuesta con el token generado (token, tokenType, expiresIn).
@@ -1022,18 +937,19 @@ Actúa como el perímetro de entrada de solicitudes externas hacia el contexto, 
 Coordina los flujos de trabajo de los casos de uso implementando el patrón CQRS para desacoplar las operaciones de escritura (comandos) de las lecturas (consultas).
 
 - RegisterUserCommand & RegisterUserCommandHandler
+
   - Propósito: Traslada la intención de crear un usuario en el sistema.
   - El manejador valida que el correo electrónico no esté en uso, codifica la contraseña mediante IPasswordEncoder, construye el agregado User, lo almacena mediante el repositorio y publica el evento UserRegisteredEvent.
   - Métodos del handler:
     - + handle(command: RegisterUserCommand): UserId
-
 - AuthenticateUserCommand & AuthenticateUserCommandHandler
+
   - Propósito: Traslada las credenciales para la autenticación.
   - El manejador busca al usuario por correo, invoca el método authenticate del agregado y, si la validación es correcta, solicita al adaptador de seguridad la generación de un token JWT firmado.
   - Métodos del handler:
     - + handle(command: AuthenticateUserCommand): AuthTokenDto
-
 - GetUserByIdQuery & GetUserByIdQueryHandler
+
   - Propósito: Recupera el estado actual del perfil solicitado y lo transforma en un DTO de solo lectura.
   - Métodos del handler:
     - + handle(query: GetUserByIdQuery): UserDto
@@ -1043,21 +959,22 @@ Coordina los flujos de trabajo de los casos de uso implementando el patrón CQRS
 Proporciona las implementaciones tecnológicas concretas para las interfaces definidas por las capas internas de la arquitectura.
 
 - UserRepositoryImpl
+
   - Propósito: Implementa el contrato IUserRepository utilizando Spring Data JPA para comunicarse con la base de datos relacional MySQL.
   - Componentes: Inyecta SpringDataJpaUserRepository y utiliza UserPersistenceMapper para convertir entre la entidad de persistencia (UserEntity) y el agregado de dominio puro (User).
-
 - BCryptPasswordEncoderAdapter
-  - Propósito: Implementa la interfaz IPasswordEncoder utilizando Spring Security Crypto para generar hashes BCrypt con un factor de costo configurable.
 
+  - Propósito: Implementa la interfaz IPasswordEncoder utilizando Spring Security Crypto para generar hashes BCrypt con un factor de costo configurable.
 - JwtTokenProvider
+
   - Propósito: Gestiona la creación, firma criptográfica (algoritmo HMAC-SHA256) y validación de tokens de acceso web JWT mediante la biblioteca JJWT.
   - Métodos:
     - + generateToken(userId: UUID, email: String, role: String): String
     - + validateToken(token: String): Boolean
     - + getEmailFromToken(token: String): String
-
 - UserEntity & RoleEntity
-  - Propósito: Clases anotadas con JPA (@Entity, @Table) que definen el mapeo objeto-relacional directo contra las tablas iam_users e iam_roles en MySQL.   
+
+  - Propósito: Clases anotadas con JPA (@Entity, @Table) que definen el mapeo objeto-relacional directo contra las tablas iam_users e iam_roles en MySQL.
 
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.
 
@@ -1094,6 +1011,7 @@ El contexto delimitado Container & Device Management se encarga de administrar e
 Encapsula las reglas del negocio asociadas al inventario de cajas de reparto, la compatibilidad física de carga, la calibración de sensores y las transiciones de estado operativo.
 
 - SmartBox (Aggregate Root)
+
   - Propósito: Entidad raíz que controla el estado operativo del contenedor físico, sus especificaciones mecánicas y el hardware embebido asociado.
   - Atributos:
     - id: SmartBoxId
@@ -1103,15 +1021,19 @@ Encapsula las reglas del negocio asociadas al inventario de cajas de reparto, la
     - maxPayloadWeightKg: Double
   - Métodos:
     - + pairDevice(device: ESP32Device): void
+
       - Asocia un microcontrolador verificado garantizando que no esté vinculado a otra unidad activa.
     - + markInTransit(): void
+
       - Modifica el estado a IN_TRANSIT cuando la caja es asignada a un despacho en ruta.
     - + markAvailable(): void
+
       - Restablece el estado a AVAILABLE tras la conclusión exitosa de una entrega.
     - + sendToMaintenance(reason: String): void
-      - Inhabilita la caja para operaciones de reparto ante fallas de hardware o calibración.
 
+      - Inhabilita la caja para operaciones de reparto ante fallas de hardware o calibración.
 - ESP32Device (Entity)
+
   - Propósito: Modela el microcontrolador físico y los módulos de telemetría instalados en el contenedor.
   - Atributos:
     - id: DeviceId
@@ -1121,62 +1043,65 @@ Encapsula las reglas del negocio asociadas al inventario de cajas de reparto, la
     - isConnected: Boolean
   - Métodos:
     - + updateBattery(level: Integer): void
+
       - Registra el nivel porcentual remanente de energía de la batería.
     - + updateFirmware(version: FirmwareVersion): void
+
       - Actualiza la versión de software embebido tras un proceso de flasheo u OTA.
     - + markDisconnected(): void
-      - Registra la pérdida de comunicación con la unidad de procesamiento.
 
+      - Registra la pérdida de comunicación con la unidad de procesamiento.
 - SmartBoxId (Value Object)
+
   - Propósito: Identificador unívoco e inmutable de la caja térmica (UUID v4).
   - Atributos:
     - value: UUID
   - Métodos:
     - + getValue(): UUID
     - + equals(other: Object): Boolean
-
 - DeviceId (Value Object)
+
   - Propósito: Identificador universal inmutable del microcontrolador (UUID v4).
   - Atributos:
     - value: UUID
   - Métodos:
     - + getValue(): UUID
-
 - MacAddress (Value Object)
+
   - Propósito: Dirección física de red del chip ESP32 (formato XX:XX:XX:XX:XX:XX).
   - Atributos:
     - value: String
   - Métodos:
     - + getValue(): String
     - - validate(value: String): void
-
 - SerialNumber (Value Object)
+
   - Propósito: Código alfanumérico grabado en el chasis físico del contenedor para identificación visual.
   - Atributos:
     - code: String
   - Métodos:
     - + getCode(): String
-
 - FirmwareVersion (Value Object)
+
   - Propósito: Representación formal del versionado semántico del firmware embebido (vX.Y.Z).
   - Atributos:
     - versionString: String
   - Métodos:
     - + getVersion(): String
-
 - BoxStatus (Enumeration)
+
   - Propósito: Estados válidos para el flujo operativo de los contenedores.
   - Valores: AVAILABLE, IN_TRANSIT, MAINTENANCE, DECOMMISSIONED.
-
 - ISmartBoxRepository (Repository Interface)
+
   - Propósito: Contrato abstracto para la persistencia transaccional del agregado SmartBox.
   - Métodos:
-    - + findById(id: SmartBoxId): Optional<SmartBox>
-    - + findBySerialNumber(sn: SerialNumber): Optional<SmartBox>
-    - + findByMacAddress(mac: MacAddress): Optional<SmartBox>
+    - + findById(id: SmartBoxId): Optional<SmartBox></smartbox>
+    - + findBySerialNumber(sn: SerialNumber): Optional<SmartBox></smartbox>
+    - + findByMacAddress(mac: MacAddress): Optional<SmartBox></smartbox>
     - + save(box: SmartBox): SmartBox
-
 - Domain Events
+
   - SmartBoxRegisteredEvent: Emite la incorporación de un nuevo contenedor con smartBoxId, serialNumber y occurredOn.
   - DevicePairedToSmartBoxEvent: Notifica la asociación exitosa de hardware con smartBoxId, deviceId, macAddress y occurredOn.
   - SmartBoxStatusChangedEvent: Notifica las transiciones de estado operativo con smartBoxId, newStatus y occurredOn.
@@ -1186,22 +1111,27 @@ Encapsula las reglas del negocio asociadas al inventario de cajas de reparto, la
 Punto perimetral de recepción de peticiones desde el panel de control web y desde el servicio Edge.
 
 - SmartBoxController (REST Controller)
+
   - Propósito: Expone endpoints administrativos para la gestión del inventario y la vinculación de hardware.
   - Métodos:
     - + registerBox(request: RegisterBoxRequestDto): ResponseEntity<ApiResponse`<SmartBoxDto>`>
+
       - Maneja POST /api/v1/smartboxes.
-    - + pairDevice(boxId: UUID, request: PairDeviceRequestDto): ResponseEntity<ApiResponse<Void>>
+    - + pairDevice(boxId: UUID, request: PairDeviceRequestDto): ResponseEntity<ApiResponse<Void></void>>
+
       - Maneja POST /api/v1/smartboxes/{boxId}/pair-device.
     - + getAvailableBoxes(): ResponseEntity<ApiResponse<List`<SmartBoxDto>`>>
-      - Maneja GET /api/v1/smartboxes/available.
 
+      - Maneja GET /api/v1/smartboxes/available.
 - DeviceStateController (REST Controller)
+
   - Propósito: Endpoint técnico consumido por el contenedor Edge Service para reportar latidos operativos (heartbeats) y telemetría de batería.
   - Métodos:
-    - + reportHeartbeat(request: HeartbeatRequestDto): ResponseEntity<Void>
-      - Maneja POST /api/v1/devices/heartbeat.
+    - + reportHeartbeat(request: HeartbeatRequestDto): ResponseEntity<Void></void>
 
+      - Maneja POST /api/v1/devices/heartbeat.
 - Data Transfer Objects (DTOs)
+
   - RegisterBoxRequestDto: serialNumber, maxPayloadWeightKg.
   - PairDeviceRequestDto: macAddress, initialFirmware.
   - HeartbeatRequestDto: macAddress, batteryLevel, isConnected.
@@ -1212,21 +1142,22 @@ Punto perimetral de recepción de peticiones desde el panel de control web y des
 Orquesta los casos de uso implementando CQRS, coordinando repositorios de persistencia y publicadores de eventos.
 
 - RegisterSmartBoxCommand & RegisterSmartBoxCommandHandler
+
   - Propósito: Coordina la verificación de duplicados por número de serie, instancia el agregado SmartBox, invoca la persistencia y emite el evento de creación.
   - Métodos del handler:
     - + handle(command: RegisterSmartBoxCommand): SmartBoxId
-
 - PairDeviceCommand & PairDeviceCommandHandler
+
   - Propósito: Valida la existencia del contenedor, crea la entidad ESP32Device tras validar su MacAddress, ejecuta SmartBox.pairDevice(...) y guarda los cambios.
   - Métodos del handler:
     - + handle(command: PairDeviceCommand): void
-
 - UpdateBoxStatusCommand & UpdateBoxStatusCommandHandler
+
   - Propósito: Ejecuta las transiciones controladas de disponibilidad según eventos de despacho o retorno.
   - Métodos del handler:
     - + handle(command: UpdateBoxStatusCommand): void
-
 - GetAvailableSmartBoxesQuery & GetAvailableSmartBoxesQueryHandler
+
   - Propósito: Consulta los contenedores aptos para ser asignados a nuevos despachos y los transforma a DTOs.
   - Métodos del handler:
     - + handle(query: GetAvailableSmartBoxesQuery): List`<SmartBoxDto>`
@@ -1236,23 +1167,21 @@ Orquesta los casos de uso implementando CQRS, coordinando repositorios de persis
 Implementa la persistencia concreta sobre el motor relacional MySQL mediante adaptadores transaccionales.
 
 - SmartBoxRepositoryImpl
+
   - Propósito: Implementa el contrato ISmartBoxRepository mediante Spring Data JPA.
   - Componentes: Inyecta SpringDataJpaSmartBoxRepository y utiliza SmartBoxPersistenceMapper para la conversión bidireccional entre las entidades de persistencia y los agregados de dominio.
-
 - SmartBoxEntity & ESP32DeviceEntity
+
   - Propósito: Mapeo relacional JPA para las tablas cdm_smart_boxes y cdm_devices.
-  - Atributos clave: Anotaciones @Entity, @Table, @OneToOne y @JoinColumn para garantizar la integridad referencial. 
+  - Atributos clave: Anotaciones @Entity, @Table, @OneToOne y @JoinColumn para garantizar la integridad referencial.
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.
 
 El diagrama de componentes (C4 Nivel 3) descompone la estructura interna del contenedor backend Cloud Core RESTful API para aislar las responsabilidades operativas asociadas al inventario de cajas inteligentes y al monitoreo del hardware embebido.
 
 - Controladores REST y perímetro de entrada: la interacción externa se canaliza a través de dos componentes especializados. Por un lado, SmartBoxController atiende las peticiones HTTP del administrador desde la aplicación web, procesando solicitudes de alta física de contenedores (POST /api/v1/smartboxes), vinculación de microcontroladores y consultas de disponibilidad de unidades. Por otro lado, DeviceStateController actúa como receptor de telemetría operativa, habilitando un canal ligero para que el contenedor Edge Service reporte periódicamente latidos de conectividad (heartbeats) y niveles de carga de la batería mediante transferencias JSON.
-
 - Orquestación en la capa de aplicación: el componente SmartBoxCommandHandler desacopla la recepción HTTP de la lógica interna de negocio. Este servicio de aplicación implementa transaccionalidad declarativa, valida restricciones de unicidad sobre las direcciones MAC y números de serie, invoca los métodos de mutación sobre la raíz de agregado y coordina la persistencia delegando el resultado al publicador de eventos del dominio.
-
 - Aislamiento del modelo de dominio: el componente SmartBox Aggregate & Entities encapsula las invariantes de negocio puras. Garantiza que una caja no pueda asociarse a más de un dispositivo ESP32 en simultáneo, previene transiciones de estado inválidas, como impedir que una unidad en mantenimiento pase a tránsito sin previa verificación técnica, y asegura que las dimensiones de carga no excedan la capacidad estructural establecida.
-
 - Persistencia y acceso a datos: la persistencia se resuelve mediante el componente SmartBox Repository, el cual implementa el contrato ISmartBoxRepository mediante abstracciones de Spring Data JPA. Este componente traduce el agregado de dominio en esquemas relacionales a través de mapeadores especializados (SmartBoxPersistenceMapper), interactuando mediante conexiones transaccionales JDBC hacia el motor relacional MySQL.
 
 <div align="center">
@@ -1266,12 +1195,10 @@ El diagrama de componentes (C4 Nivel 3) descompone la estructura interna del con
 El diagrama de clases UML modela las entidades, objetos de valor e interfaces que definen el núcleo del bounded context Container & Device Management, estructurado según los patrones tácticos de Domain-Driven Design sin dependencias de infraestructura.
 
 - Raíz de agregado (SmartBox): centraliza el ciclo de vida del contenedor. Mantiene visibilidad privada en todos sus atributos (-) para forzar la encapsulación estricta. La modificación de su estado operativo se rige por métodos públicos de negocio como markInTransit(), markAvailable() y sendToMaintenance(reason: String), garantizando que cualquier cambio de disponibilidad esté respaldado por un motivo auditable.
-
 - Entidad interna (ESP32Device): modela el microcontrolador físicamente montado en el chasis térmico. Posee identidad propia mediante el objeto de valor DeviceId y contiene la lógica para registrar variaciones en el porcentaje de batería mediante updateBattery(level: Integer), así como la actualización de su firmware tras despliegues inalámbricos mediante updateFirmware(version: FirmwareVersion).
-
 - Objetos de valor inmutables (Value Objects): proveen semántica al dominio. MacAddress valida internamente el formato hexadecimal físico estándar del chip Wi‑Fi/Bluetooth del ESP32; SerialNumber asegura la trazabilidad alfanumérica grabada en el chasis; y FirmwareVersion encapsula el control de versiones semántico (vX.Y.Z). La inmutabilidad de estos elementos garantiza que dos instancias con idéntico valor representen el mismo concepto en memoria sin efectos colaterales.
-
 - Relaciones y multiplicidades del modelo:
+
   - Composición fuerte (1 a 0..1): SmartBox contiene a ESP32Device, lo que implica que el dispositivo físico forma parte estructural del ciclo de vida del contenedor dentro del contexto operativo.
   - Asociaciones de composición (1 a 1): los objetos de valor SmartBoxId, SerialNumber, DeviceId, MacAddress y FirmwareVersion componen indivisiblemente a sus entidades correspondientes.
   - Realización de interfaces: la interface abstracta ISmartBoxRepository declara las operaciones de guardado y búsqueda por dirección MAC o número de serie, sirviendo de contrato para que la capa de infraestructura provea su implementación sin acoplar el núcleo de dominio.
@@ -1285,23 +1212,24 @@ El diagrama de clases UML modela las entidades, objetos de valor e interfaces qu
 El diseño relacional para el bounded context Container & Device Management se implementa en MySQL 8.0, garantizando normalización formal en tercera forma normal (3FN) y atomicidad transaccional (ACID).
 
 - Tabla cdm_devices:
+
   - Almacena las características técnicas y el estado de enlace del hardware.
   - id: clave primaria de longitud fija (VARCHAR(36)) para alojar identificadores UUID v4 generados en el dominio.
   - mac_address: cadena de longitud fija (VARCHAR(17)) con restricción de unicidad (UNIQUE) e índice dedicado (idx_cdm_devices_mac) para acelerar las validaciones durante el emparejamiento.
   - battery_level: entero validado entre 0 y 100 con valor por defecto de 100.
   - last_heartbeat: marca de tiempo configurada con actualización automática (ON UPDATE CURRENT_TIMESTAMP), permitiendo detectar desbalances de conectividad si transcurre un período prolongado sin reportes.
-
 - Tabla cdm_smart_boxes:
+
   - Gestiona las unidades de transporte asignables a los despachos.
   - id: clave primaria de tipo UUID (VARCHAR(36)).
   - serial_number: identificador físico con restricción única (UNIQUE) indexado para consultas operativas rápidas.
   - operational_status: almacena el valor textual del enum (AVAILABLE, IN_TRANSIT, MAINTENANCE, DECOMMISSIONED), respaldado por el índice idx_cdm_smart_boxes_status para optimizar las consultas de cajas disponibles al momento del despacho.
   - max_payload_weight_kg: valor decimal de precisión fija (DECIMAL(5,2)) para evitar errores de redondeo en cálculos de capacidad de carga.
-
 - Integridad referencial y relaciones:
+
   - La vinculación entre el contenedor y el dispositivo se establece mediante la clave foránea device_id en cdm_smart_boxes, la cual apunta a cdm_devices.id.
   - Cuenta con restricción de unicidad (UNIQUE), forzando una relación estricta de uno a uno (1:1) entre una caja y un módulo ESP32.
-  - La regla de eliminación está definida como ON DELETE SET NULL, garantizando que si un dispositivo ESP32 es dado de baja por avería o reemplazo en laboratorio, el registro histórico del contenedor SmartBox se preserve sin generar inconsistencias de integridad referencial. 
+  - La regla de eliminación está definida como ON DELETE SET NULL, garantizando que si un dispositivo ESP32 es dado de baja por avería o reemplazo en laboratorio, el registro histórico del contenedor SmartBox se preserve sin generar inconsistencias de integridad referencial.
 
 <div align="center">
     <img src="assets/CDM_database-diagram.png" alt="CDM Database diagram" style="margin: 10px 0;" width="80%"/>
@@ -1316,6 +1244,7 @@ El contexto delimitado Thermal Monitoring & Telemetry concentra la lógica relac
 La capa de dominio constituye el núcleo de las reglas de negocio del contexto Thermal Monitoring & Telemetry, manteniéndose independiente de frameworks, mecanismos de persistencia y servicios externos. Su función es representar el concepto de perfil térmico y establecer las reglas necesarias para interpretar cada lectura de temperatura.
 
 - ThermalProfile (Aggregate Root)
+
   - Propósito: Representa la configuración térmica asociada a un envío monitoreado, centralizando los límites de temperatura que determinan las condiciones aceptables durante el transporte.
   - Atributos:
     - id: ThermalProfileId
@@ -1325,13 +1254,16 @@ La capa de dominio constituye el núcleo de las reglas de negocio del contexto T
     - isActive: Boolean
   - Métodos:
     - + configureRange(range: ThresholdRange): void
+
       - Establece los límites mínimo y máximo permitidos para el transporte.
     - + evaluateTemperature(temperature: TemperatureValue): ThermalStatus
+
       - Determina si una lectura se encuentra dentro o fuera del rango configurado.
     - + deactivate(): void
-      - Inhabilita el perfil térmico cuando finaliza el monitoreo del envío.
 
+      - Inhabilita el perfil térmico cuando finaliza el monitoreo del envío.
 - TelemetryLog (Entity)
+
   - Propósito: Representa una lectura individual de telemetría térmica obtenida desde una SmartBox.
   - Atributos:
     - id: TelemetryLogId
@@ -1343,8 +1275,8 @@ La capa de dominio constituye el núcleo de las reglas de negocio del contexto T
     - + markAsNormal(): void
     - + markAsBreach(): void
     - + isWithinRange(profile: ThermalProfile): Boolean
-
 - ThermalProfileId (Value Object)
+
   - Propósito: Representa de manera única e inmutable el identificador del perfil térmico.
   - Atributos:
     - value: UUID
@@ -1352,13 +1284,14 @@ La capa de dominio constituye el núcleo de las reglas de negocio del contexto T
     - + getValue(): UUID
     - + equals(other: Object): Boolean
 - TelemetryLogId (Value Object)
+
   - Propósito: Identifica de forma única cada registro histórico de telemetría.
   - Atributos:
     - value: UUID
   - Métodos:
     - + getValue(): UUID
-
 - TemperatureValue (Value Object)
+
   - Propósito: Encapsula el valor numérico de temperatura y evita que el dominio trabaje con valores sin validación.
   - Atributos:
     - value: Decimal
@@ -1366,22 +1299,22 @@ La capa de dominio constituye el núcleo de las reglas de negocio del contexto T
   - Métodos:
     - + getValue(): Decimal
     - + isValid(): Boolean
-
 - CelsiusUnit (Value Object)
+
   - Propósito: Representa la unidad de temperatura utilizada por el sistema.
   - Atributos:
     - symbol: String
   - Métodos:
     - + getSymbol(): String
-
 - Timestamp (Value Object)
+
   - Propósito: Representa el instante exacto en el que fue obtenida una lectura.
   - Atributos:
     - value: DateTime
   - Métodos:
     - + getValue(): DateTime
-
 - ThresholdRange (Value Object)
+
   - Propósito: Encapsula los límites mínimo y máximo que determinan el rango térmico permitido.
   - Atributos:
     - minTemperature: TemperatureValue
@@ -1389,30 +1322,30 @@ La capa de dominio constituye el núcleo de las reglas de negocio del contexto T
   - Métodos:
     - + contains(temperature: TemperatureValue): Boolean
     - + isExceeded(temperature: TemperatureValue): Boolean
-
 - TemperatureMode (Enumeration)
+
   - Propósito: Define el tipo de conservación térmica requerido por el pedido.
   - Valores: COLD, HOT.
-
 - ThermalStatus (Enumeration)
+
   - Propósito: Define el resultado de la evaluación de una lectura.
   - Valores: WITHIN_RANGE, THERMAL_BREACH.
-
 - IThermalProfileRepository (Repository Interface)
+
   - Propósito: Define el contrato abstracto para la persistencia del agregado ThermalProfile.
   - Métodos:
     - + findById(id: ThermalProfileId): Optional
     - + findByOrderId(orderId: OrderId): Optional
     - + save(profile: ThermalProfile): ThermalProfile
-
 - ITelemetryRepository (Repository Interface)
+
   - Propósito: Define las operaciones necesarias para persistir y consultar los registros históricos de telemetría.
   - Métodos:
     - + save(log: TelemetryLog): TelemetryLog
     - + findLatestBySmartBoxId(boxId: SmartBoxId): Optional
     - + findBySmartBoxIdAndPeriod(boxId: SmartBoxId, period: TimeRange): List
-
 - Domain Events
+
   - TelemetryIngestedEvent: Se emite cuando una lectura de temperatura ha sido recibida y registrada correctamente.
   - ThermalProfileConfiguredEvent: Notifica la creación o actualización de un perfil térmico.
   - ThermalBreachDetectedEvent: Se emite cuando una lectura supera los límites establecidos para el envío.
@@ -1422,24 +1355,30 @@ La capa de dominio constituye el núcleo de las reglas de negocio del contexto T
 La capa de interfaz constituye el perímetro de comunicación del contexto, recibiendo las lecturas procedentes del Edge Service y exponiendo operaciones protegidas para la configuración y consulta del monitoreo térmico..
 
 - TelemetryController (REST Controller)
+
   - Propósito: Recibe los registros de temperatura generados por las SmartBoxes.
   - Métodos:
     - + ingestTelemetry(request: IngestTelemetryRequestDto): ResponseEntity`<ApiResponse>`
+
       - Maneja POST /api/v1/telemetry.
     - + getCurrentTemperature(boxId: UUID): ResponseEntity`<ApiResponse>`
+
       - Maneja GET /api/v1/telemetry/boxes/{boxId}/current.
     - + getHistory(boxId: UUID, request: HistoryRequestDto): ResponseEntity`<ApiResponse>`
-      - Maneja GET /api/v1/telemetry/boxes/{boxId}/history.
 
+      - Maneja GET /api/v1/telemetry/boxes/{boxId}/history.
 - ThermalProfileController (REST Controller)
+
   - Propósito: Permite al administrador configurar las condiciones térmicas de un envío.
   - Métodos:
     - + configureProfile(request: ConfigureThermalProfileRequestDto): ResponseEntity`<ApiResponse>`
+
       - Maneja POST /api/v1/thermal-profiles.
     - + getProfile(orderId: UUID): ResponseEntity`<ApiResponse>`
-      - Maneja GET /api/v1/thermal-profiles/orders/{orderId}.
 
+      - Maneja GET /api/v1/thermal-profiles/orders/{orderId}.
 - Data Transfer Objects (DTOs)
+
   - IngestTelemetryRequestDto: smartBoxId, temperature, timestamp.
   - ConfigureThermalProfileRequestDto: orderId, temperatureMode, minTemperature, maxTemperature.
   - TelemetryResponseDto: smartBoxId, temperature, timestamp, thermalStatus.
@@ -1450,28 +1389,29 @@ La capa de interfaz constituye el perímetro de comunicación del contexto, reci
 La capa de aplicación coordina los casos de uso del contexto mediante comandos y consultas, siguiendo el patrón CQRS utilizado en los demás Bounded Contexts del documento de referencia. Los handlers coordinan repositorios, entidades de dominio y publicación de eventos, evitando trasladar la lógica de negocio hacia los controladores.
 
 - IngestTelemetryDataCommand & IngestTelemetryDataCommandHandler
+
   - Propósito: Procesa una lectura recibida desde el Edge Service.
   - El handler valida la información recibida, recupera el perfil térmico correspondiente, crea TelemetryLog, ejecuta la evaluación de temperatura, persiste el registro y publica TelemetryIngestedEvent.
   - Si la temperatura se encuentra fuera del rango, publica ThermalBreachDetectedEvent..
   - Métodos:
     - + handle(command: IngestTelemetryDataCommand): TelemetryLogId
-
 - SetThermalProfileCommand & SetThermalProfileCommandHandler
+
   - Propósito: Crea o actualiza los límites térmicos asociados a un envío.
   - Métodos del handler:
     - + handle(command: SetThermalProfileCommand): ThermalProfileId
-
 - ProcessTemperatureReadingCommand & ProcessTemperatureReadingCommandHandler
+
   - Propósito: Evalúa una lectura contra el perfil térmico activo y determina su estado.
   - Métodos:
     - + handle(command: ProcessTemperatureReadingCommand): ThermalStatus
-
 - GetCurrentTemperatureQuery & GetCurrentTemperatureQueryHandler
+
   - Propósito: Recupera la última lectura registrada de una SmartBox.
   - Métodos:
     - + handle(query: GetCurrentTemperatureQuery): TelemetryResponseDto
-
 - GetThermalHistoryQuery & GetThermalHistoryQueryHandler
+
   - Propósito: Recupera el historial de lecturas térmicas para permitir el monitoreo y posterior auditoría.
   - Métodos:
     - + handle(query: GetThermalHistoryQuery): List`<TelemetryResponseDto>`
@@ -1481,24 +1421,24 @@ La capa de aplicación coordina los casos de uso del contexto mediante comandos 
 La infraestructura implementa los contratos definidos por las capas internas y conecta el modelo de dominio con los servicios tecnológicos de Cold2Hot.
 
 - ThermalProfileRepositoryImpl
+
   - Propósito: Implementa IThermalProfileRepository mediante Spring Data JPA y MySQL.
-
   - Utiliza ThermalProfilePersistenceMapper para convertir entre objetos persistentes y objetos de dominio.
-
 - TelemetryRepositoryImpl
+
   - Propósito: Implementa ITelemetryRepository para almacenar y consultar el historial térmico.
   - Utiliza TelemetryPersistenceMapper para separar el modelo relacional del modelo de dominio.
-
 - TelemetryEntity & ThermalProfileEntity
+
   - Propósito: Representan el mapeo JPA de las tablas tmt_telemetry_logs y tmt_thermal_profiles.
-
 - EdgeTelemetryAdapter
+
   - Propósito: Abstrae la recepción de datos provenientes del Edge Service instalado en la SmartBox.
-
 - DomainEventPublisher
-  - Propósito: Publica eventos de dominio como ThermalBreachDetectedEvent para que otros componentes puedan generar alertas o registrar auditoría.
 
+  - Propósito: Publica eventos de dominio como ThermalBreachDetectedEvent para que otros componentes puedan generar alertas o registrar auditoría.
 - TelemetrySyncAdapter
+
   - Propósito: Coordina la recepción de lecturas almacenadas temporalmente en SQLite cuando el Edge Service recupera la conectividad.
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.
@@ -1528,6 +1468,7 @@ TelemetryLog representa cada medición individual y se relaciona con Temperature
 El diseño para el bounded context Thermal Monitoring & Telemetry se implementa en MySQL 8.0. Está compuesto por las tablas normalizadas:
 
 - Tabla tmt_thermal_profiles
+
   - id: UUID, clave primaria.
   - order_id: UUID del envío asociado.
   - temperature_mode: COLD o HOT.
@@ -1536,8 +1477,8 @@ El diseño para el bounded context Thermal Monitoring & Telemetry se implementa 
   - is_active: indicador de vigencia.
   - created_at.
   - updated_at.
-
 - Tabla tmt_telemetry_logs
+
   - id: UUID, clave primaria.
   - thermal_profile_id: clave foránea.
   - smart_box_id: identificador de la SmartBox.
@@ -1560,6 +1501,7 @@ El contexto delimitado Access & Security administra los mecanismos de seguridad 
 La capa de dominio concentra las reglas relacionadas con la generación, expiración y validación del código de acceso, así como con la evaluación de eventos de seguridad.
 
 - SecurityPasscode (Aggregate Root)
+
   - Propósito: Representa el código temporal de acceso generado para autorizar la apertura de una SmartBox en destino.
   - Atributos:
     - id: SecurityPasscodeId
@@ -1572,8 +1514,8 @@ La capa de dominio concentra las reglas relacionadas con la generación, expirac
     - + validate(code: OTPCode, currentTime: Timestamp): UnlockResult
     - + expire(): void
     - + markAsUsed(): void
-
 - AccessAttempt (Entity)
+
   - Propósito: Registra cada intento realizado para utilizar un código de apertura.
   - Atributos:
     - id: AccessAttemptId
@@ -1582,8 +1524,8 @@ La capa de dominio concentra las reglas relacionadas con la generación, expirac
     - result: UnlockResult
   - Métodos:
     - + registerResult(result: UnlockResult): void
-
 - SecurityLog (Entity)
+
   - Propósito: Registra eventos relevantes relacionados con la seguridad física del contenedor.
   - Atributos:
     - id: SecurityLogId
@@ -1593,23 +1535,23 @@ La capa de dominio concentra las reglas relacionadas con la generación, expirac
     - tamperStatus: TamperStatus
   - Métodos:
     - + registerEvent(): void
-
 - OTPCode (Value Object)
+
   - Propósito: Representa el código numérico temporal utilizado para la apertura.
   - Atributos:
     - value: String
   - Métodos:
     - + getValue(): String
     - + validateFormat(): Boolean
-
 - ExpirationTime (Value Object)
+
   - Propósito: Representa el momento límite de validez del OTP.
   - Atributos:
     - value: DateTime
   - Métodos:
     - + isExpired(currentTime: DateTime): Boolean
-
 - TamperStatus (Value Object)
+
   - Propósito: Representa el resultado de la evaluación de los sensores de seguridad.
   - Atributos:
     - lidOpen: Boolean
@@ -1617,22 +1559,23 @@ La capa de dominio concentra las reglas relacionadas con la generación, expirac
   - Métodos:
     - + isUnauthorizedOpening(): Boolean
 - UnlockResult (Value Object)
+
   - Propósito: Representa el resultado de una solicitud de desbloqueo.
   - Valores: AUTHORIZED, INVALID_CODE, EXPIRED_CODE, ALREADY_USED, DENIED.
-
 - PasscodeStatus (Enumeration)
+
   - Valores: ACTIVE, USED, EXPIRED, REVOKED.
-
 - SecurityEventType (Enumeration)
-  - Valores: OTP_GENERATED, CONTAINER_UNLOCKED, INVALID_OTP, TAMPERING_DETECTED.
 
+  - Valores: OTP_GENERATED, CONTAINER_UNLOCKED, INVALID_OTP, TAMPERING_DETECTED.
 - ISecurityPasscodeRepository (Repository Interface)
+
   - Métodos:
     - + findById(id: SecurityPasscodeId): Optional
     - + findActiveByOrderId(orderId: OrderId): Optional
     - + save(passcode: SecurityPasscode): SecurityPasscode
-
 - Domain Events
+
   - OTPGeneratedEvent
   - ContainerUnlockedEvent
   - SecurityBreachDetectedEvent
@@ -1643,26 +1586,30 @@ La capa de dominio concentra las reglas relacionadas con la generación, expirac
 La capa de interfaz recibe solicitudes desde la Delivery Operator Mobile Application, el Edge Service y el panel administrativo.
 
 - SecurityController (REST Controller)
+
   - Propósito: Gestiona la generación y validación de códigos OTP.
-Métodos:
+    Métodos:
     - + generateOTP(request: GenerateOTPRequestDto): ResponseEntity`<ApiResponse>`
+
       - POST /api/v1/security/otp
     - + validateOTP(request: ValidateOTPRequestDto): ResponseEntity`<ApiResponse>`
-      - POST /api/v1/security/otp/validate
 
+      - POST /api/v1/security/otp/validate
 - UnlockController (REST Controller)
+
   - Propósito: Coordina las solicitudes de apertura física.
   - Métodos:
     - + unlockContainer(request: UnlockContainerRequestDto): ResponseEntity`<ApiResponse>`
-POST /api/v1/security/unlock
-
+        POST /api/v1/security/unlock
 - SecurityEventController (REST Controller)
+
   - Propósito: Recibe eventos de sensores de seguridad generados por la SmartBox.
   - Métodos:
     - + reportTamperEvent(request: TamperEventRequestDto): ResponseEntity`<ApiResponse>`
-      - POST /api/v1/security/tamper-events
 
+      - POST /api/v1/security/tamper-events
 - Data Transfer Objects (DTOs)
+
   - GenerateOTPRequestDto: orderId, smartBoxId.
   - ValidateOTPRequestDto: orderId, smartBoxId, otp.
   - UnlockContainerRequestDto: smartBoxId, otp.
@@ -1674,26 +1621,27 @@ POST /api/v1/security/unlock
 La capa de aplicación coordina los casos de uso relacionados con la seguridad utilizando Commands y Handlers.
 
 - GenerateOTPCommand & GenerateOTPCommandHandler
+
   - Propósito: Genera un nuevo código OTP para el pedido y SmartBox correspondientes.
   - Método:
     - + handle(command: GenerateOTPCommand): OTPCode
-
 - ValidateOTPCommand & ValidateOTPCommandHandler
+
   - Propósito: Recupera el código activo, verifica su validez y registra el resultado del intento.
   - Método:
     - + handle(command: ValidateOTPCommand): UnlockResult
-
 - EvaluateTamperRiskCommand & EvaluateTamperRiskCommandHandler
+
   - Propósito: Interpreta la combinación de estados del Reed Switch y TCRT5000 para determinar si existe un riesgo de manipulación.
   - Método:
     - + handle(command: EvaluateTamperRiskCommand): TamperStatus
-
 - UnlockContainerCommand & UnlockContainerCommandHandler
+
   - Propósito: Coordina la validación del OTP y la solicitud de apertura física del mecanismo de bloqueo.
   - Método:
     - + handle(command: UnlockContainerCommand): UnlockResult
-
 - GetSecurityHistoryQuery & GetSecurityHistoryQueryHandler
+
   - Propósito: Recupera los eventos e intentos de acceso asociados a una SmartBox.
   - Método:
     - + handle(query: GetSecurityHistoryQuery): List`<SecurityEventDto>`
@@ -1703,24 +1651,25 @@ La capa de aplicación coordina los casos de uso relacionados con la seguridad u
 La infraestructura implementa los mecanismos tecnológicos requeridos para conectar el dominio de seguridad con el Cloud Core y el hardware físico.
 
 - SecurityPasscodeRepositoryImpl
+
   - Propósito: Implementa ISecurityPasscodeRepository utilizando Spring Data JPA y MySQL.
-
 - SecurityLogRepositoryImpl
+
   - Propósito: Persiste los eventos e intentos relacionados con la seguridad física.
-
 - OTPGeneratorAdapter
+
   - Propósito: Genera códigos numéricos temporales utilizando un generador seguro y configurable.
-
 - EdgeUnlockAdapter
+
   - Propósito: Abstrae la comunicación con el Edge Service para transmitir la orden de apertura del mecanismo físico.
-
 - TamperEventAdapter
+
   - Propósito: Recibe los estados enviados por el Reed Switch y TCRT5000.
-
 - SecurityPersistenceMapper
-  - Propósito: Convierte entre entidades JPA y objetos de dominio.
 
+  - Propósito: Convierte entre entidades JPA y objetos de dominio.
 - SecurityAuditLogger
+
   - Propósito: Registra los intentos de acceso, desbloqueos autorizados y eventos de manipulación.
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.
@@ -1750,6 +1699,7 @@ La raíz SecurityPasscode debe controlar la transición de un código entre los 
 El diseño relacional se implementa en MySQL 8.0. del bounded context Access & Security. Está compuesto por las tablas normalizadas:
 
 - Tabla acs_security_passcodes
+
   - id: UUID, clave primaria.
   - order_id: UUID.
   - smart_box_id: UUID.
@@ -1758,16 +1708,16 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Access & S
   - status.
   - created_at.
   - used_at.
-
 - Tabla acs_access_attempts
+
   - id: UUID, clave primaria.
   - security_passcode_id: clave foránea.
   - security_passcode_id: FK.
   - attempted_at.
   - result.
   - operator_id.
-
 - Tabla acs_security_logs
+
   - id: UUID, clave primaria.
   - smart_box_id.
   - event_type.
@@ -1787,6 +1737,7 @@ El contexto delimitado Orders & Audit concentra la gestión del ciclo de vida de
 La capa de dominio representa el pedido, su estado de despacho y la evidencia generada durante la entrega.
 
 - Order (Aggregate Root)
+
   - Propósito: Representa el pedido que será transportado y controla su ciclo de vida dentro de Cold2Hot.
   - Atributos:
     - id: OrderId
@@ -1802,8 +1753,8 @@ La capa de dominio representa el pedido, su estado de despacho y la evidencia ge
     - + dispatch(): void
     - + complete(): void
     - + cancel(): void
-
 - DeliveryEvidence (Entity)
+
   - Propósito: Representa la evidencia fotográfica registrada por el operador al finalizar la entrega.
   - Atributos:
     - id: EvidenceId
@@ -1813,8 +1764,8 @@ La capa de dominio representa el pedido, su estado de despacho y la evidencia ge
   - Métodos:
     - + register(): void
     - + isValid(): Boolean
-
 - AuditReport (Entity)
+
   - Propósito: Representa la consolidación de evidencias y eventos de un pedido finalizado.
   - Atributos:
     - id: AuditReportId
@@ -1825,35 +1776,35 @@ La capa de dominio representa el pedido, su estado de despacho y la evidencia ge
   - Métodos:
     - + generate(): void
     - + markComplete(): void
-
 - OrderId (Value Object)
+
   - Propósito: Identifica unívocamente un pedido.
-
 - PhotoUrl (Value Object)
-  - Propósito: Representa la ubicación de una evidencia fotográfica almacenada externamente.
 
+  - Propósito: Representa la ubicación de una evidencia fotográfica almacenada externamente.
 - CustodyStatus (Value Object)
+
   - Propósito: Representa el resultado de la consolidación de los eventos de custodia.
   - Valores: COMPLIANT, INCIDENT_DETECTED, INCOMPLETE.
-
 - CompletionTimestamp (Value Object)
+
   - Propósito: Representa el momento en el cual se considera finalizada la entrega.
-
 - OrderStatus (Enumeration)
-  - Valores: CREATED, ASSIGNED, IN_TRANSIT, DELIVERED, COMPLETED, CANCELLED.
 
+  - Valores: CREATED, ASSIGNED, IN_TRANSIT, DELIVERED, COMPLETED, CANCELLED.
 - IOrderRepository (Repository Interface)
+
   - Métodos:
     - + findById(id: OrderId): Optional
     - + findByStatus(status: OrderStatus): List
     - + save(order: Order): Order
-
 - IAuditReportRepository (Repository Interface)
+
   - Métodos:
     - + findByOrderId(orderId: OrderId): Optional
     - + save(report: AuditReport): AuditReport
-
 - Domain Events
+
   - OrderDispatchedEvent
   - EvidenceUploadedEvent
   - AuditReportGeneratedEvent
@@ -1867,29 +1818,38 @@ La capa de interfaz recibe solicitudes desde la aplicación web administrativa y
   - Propósito: Gestiona las operaciones de creación, asignación y seguimiento de pedidos.
   - Métodos:
     - + createOrder(request: CreateOrderRequestDto): ResponseEntity`<ApiResponse>`
+
       - POST /api/v1/orders
     - + assignOrder(request: AssignOrderRequestDto): ResponseEntity`<ApiResponse>`
+
       - POST /api/v1/orders/{orderId}/assign
     - + getOrder(orderId: UUID): ResponseEntity`<ApiResponse>`
+
       - GET /api/v1/orders/{orderId}
     - + getActiveOrders(): ResponseEntity`<ApiResponse>`
+
       - GET /api/v1/orders/active
 
 DeliveryEvidenceController (REST Controller)
-  - Propósito: Recibe la evidencia fotográfica tomada por el operador.
-  - Métodos:
-    - + uploadEvidence(request: UploadEvidenceRequestDto): ResponseEntity`<ApiResponse>`
-      - POST /api/v1/orders/{orderId}/evidence
 
+- Propósito: Recibe la evidencia fotográfica tomada por el operador.
+- Métodos:
+
+  - + uploadEvidence(request: UploadEvidenceRequestDto): ResponseEntity`<ApiResponse>`
+
+    - POST /api/v1/orders/{orderId}/evidence
 - AuditController (REST Controller)
+
   - Propósito: Permite consultar y generar reportes de auditoría.
   - Métodos:
     - + generateReport(orderId: UUID): ResponseEntity`<ApiResponse>`
+
       - POST /api/v1/audits/orders/{orderId}
     - + getAuditReport(orderId: UUID): ResponseEntity`<ApiResponse>`
-      - GET /api/v1/audits/orders/{orderId}
 
+      - GET /api/v1/audits/orders/{orderId}
 - Data Transfer Objects (DTOs)
+
   - CreateOrderRequestDto: información básica del pedido y requerimiento térmico.
   - AssignOrderRequestDto: orderId, smartBoxId, operatorId.
   - OrderDto: información actual del pedido y estado de despacho.
@@ -1901,31 +1861,32 @@ DeliveryEvidenceController (REST Controller)
 La Application Layer coordina el ciclo de vida de los pedidos y la generación de evidencias.
 
 - CreateOrderCommand & CreateOrderCommandHandler
+
   - Propósito: Registra un nuevo pedido y solicita/configura las condiciones térmicas correspondientes.
   - Método:
     - + handle(command: CreateOrderCommand): OrderId
-
 - AssignOrderToBoxCommand & AssignOrderToBoxCommandHandler
+
   - Propósito: Vincula un pedido con una SmartBox disponible y un operador.
   - Método:
     - + handle(command: AssignOrderToBoxCommand): void
-
 - DispatchOrderCommand & DispatchOrderCommandHandler
+
   - Propósito: Cambia el pedido a estado IN_TRANSIT y publica OrderDispatchedEvent.
   - Método:
     - + handle(command: DispatchOrderCommand): void
-
 - CaptureDeliveryEvidenceCommand & CaptureDeliveryEvidenceCommandHandler
+
   - Propósito: Registra la fotografía de entrega y la asocia al pedido.
   - Método:
     - + handle(command: CaptureDeliveryEvidenceCommand): EvidenceId
-
 - GenerateAuditReportCommand & GenerateAuditReportCommandHandler
+
   - Propósito: Consolida la evidencia fotográfica y los eventos asociados al pedido para generar el reporte de auditoría.
   - Método:
     - + handle(command: GenerateAuditReportCommand): AuditReportId
-
 - GetOrderHistoryQuery & GetOrderHistoryQueryHandler
+
   - Propósito: Recupera el historial del pedido y su estado de custodia.
   - Método:
     - + handle(query: GetOrderHistoryQuery): OrderHistoryDto
@@ -1935,27 +1896,25 @@ La Application Layer coordina el ciclo de vida de los pedidos y la generación d
 La infraestructura implementa los mecanismos necesarios para persistir los pedidos y conectarse con los servicios que proporcionan evidencia y datos complementarios.
 
 - OrderRepositoryImpl
-Implementa IOrderRepository mediante Spring Data JPA y MySQL.
-
+  Implementa IOrderRepository mediante Spring Data JPA y MySQL.
 - AuditReportRepositoryImpl
-Persiste los reportes generados y sus metadatos.
-
+  Persiste los reportes generados y sus metadatos.
 - CloudinaryEvidenceAdapter
+
   - Propósito: Gestiona el almacenamiento de las fotografías tomadas por el repartidor.
-  -  Se establece explícitamente el uso de Cloudinary para la persistencia y distribución de archivos multimedia de auditoría.
-
+  - Se establece explícitamente el uso de Cloudinary para la persistencia y distribución de archivos multimedia de auditoría.
 - ThermalDataAdapter
+
   - Propósito: Consulta o consume eventos provenientes del contexto Thermal Monitoring & Telemetry.
-
 - SecurityEventAdapter
+
   - Propósito: Consume eventos generados por Access & Security.
-
 - AuditReportGenerator
+
   - Propósito: Consolida la información del pedido, evidencia fotográfica, historial térmico y eventos de seguridad.
-
 - OrderPersistenceMapper
-  - Propósito: Convierte entre entidades JPA y objetos del dominio.
 
+  - Propósito: Convierte entre entidades JPA y objetos del dominio.
 
 #### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
 
@@ -1982,10 +1941,10 @@ Los Value Objects OrderId, PhotoUrl, CustodyStatus y CompletionTimestamp proporc
 
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
-
 El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & Audit. Está compuesto por las tablas normalizadas:
 
 - Tabla ord_orders
+
   - id: UUID, clave primaria.
   - operator_id: UUID.
   - thermal_profile_id: UUID.
@@ -1993,15 +1952,15 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
   - created_at.
   - dispatched_at.
   - completed_at.
-
 - Tabla ord_delivery_evidence
+
   - id: UUID, clave primaria.
   - order_id: FK.
   - operator_id.
   - photo_url.
   - captured_at
-
 - Tabla ord_audit_reports
+
   - id: UUID, clave primaria.
   - order_id: FK.
   - custody_status.
@@ -2021,16 +1980,19 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 Para garantizar un flujo de trabajo homogéneo, reproducible y libre de discrepancias entre los entornos locales de los integrantes del equipo y las plataformas de despliegue en la nube, se estableció una configuración estandarizada de hardware, sistemas operativos, herramientas de terminal, entornos integrados de desarrollo (IDEs), runtimes y dependencias de compilación para cada una de las capas de la solución **Cold2Hot**.
 
 #### 1. Hardware y Estaciones de Trabajo
+
 * **Arquitectura de Procesamiento:** Equipos portátiles con arquitectura Apple Silicon (ARM64: Apple M1/M2/M3) y procesadores Intel x86_64, equipados con un mínimo de 16 GB de memoria RAM unificada y almacenamiento de estado sólido NVMe para soportar la ejecución simultánea de contenedores Docker, servidores de desarrollo en caliente y suites de análisis estático.
 * **Periféricos de Validación Sensorial:** Placas de desarrollo ESP32 NodeMCU de 30 pines, sensores de temperatura digital sumergibles Dallas DS18B20 con resistencia pull-up de 4.7 kΩ, módulos de switch magnético tipo Reed Switch (KY-025), sensores ópticos infrarrojos de reflexión (TCRT5000) y módulos relé de 5V para el accionamiento de solenoides de prueba.
 
 #### 2. Sistema Operativo y Herramientas de Base
+
 * **Sistema Operativo:** macOS Sonoma (14.x) / macOS Sequoia (15.x).
 * **Gestor de Paquetes del Sistema:** Homebrew v4.3+ para la provisión automatizada de binarios y dependencias de sistema.
 * **Shell e Intérprete de Línea de Comandos:** Zsh con emulador iTerm2 / Terminal integrado de macOS, configurado con herramientas de autocompletado y validación de sintaxis Git.
 * **Control de Versiones y CLI Cloud:** Git v2.45+ y GitHub CLI (`gh`) v2.55+ con autenticación vía tokens de acceso personal (PAT) y llaves SSH.
 
 #### 3. Entorno de Desarrollo Integrado (IDE) y Extensiones
+
 * **Editor Principal:** Visual Studio Code (v1.93+) y Cursor IDE.
 * **Extensiones Estandarizadas de Equipo:**
   * *Angular Language Service:* Autocompletado, navegación de definiciones y chequeo de tipos para plantillas y componentes de Angular 22.
@@ -2040,11 +2002,13 @@ Para garantizar un flujo de trabajo homogéneo, reproducible y libre de discrepa
   * *Thunder Client / REST Client:* Pruebas rápidas de peticiones HTTP locales hacia el API Gateway y microservicios.
 
 #### 4. Runtimes, Lenguajes y Gestores de Paquetes
+
 * **Node.js:** Versión v22.x LTS y v26.0 (utilizando `nvm` como gestor de versiones). Node.js v22 es el entorno mínimo requerido por el nuevo motor de compilación reactivo de Angular 22.
 * **Gestor de Paquetes:** npm v10.x / v11.x, garantizando la reproducción determinista de dependencias mediante archivos `package-lock.json`.
 * **Motor de Contenedores:** Docker Desktop Engine v27.x con Docker Compose v2.29+ para la orquestación multicontenedor local.
 
 #### 5. Frameworks y Librerías de la Capa Frontend (Web Application & Landing Page)
+
 * **Landing Page:** HTML5 semántico, CSS3 moderno con variables personalizadas (CSS Custom Properties para diseño responsivo mobile-first), JavaScript ES6+ modular sin dependencias externas pesadas, e integración del estándar BEM.
 * **Web Application:**
   * Framework: **Angular v22.0.0** configurado bajo el paradigma estricto de *Standalone Components* (sin `NgModules`).
@@ -2055,12 +2019,14 @@ Para garantizar un flujo de trabajo homogéneo, reproducible y libre de discrepa
   * Tipografías Corporativas: Google Fonts (*Space Grotesk* para encabezados e identidad visual, e *Inter* para lectura de datos y tablas).
 
 #### 6. Frameworks y Librerías de la Capa Backend (Cloud Microservices)
+
 * **Entorno del Servidor:** Node.js v20/v22 con framework **Express v4.21.2**.
 * **Enrutamiento Perimetral & Reverse Proxy:** `http-proxy-middleware v3.0.3` con soporte de reescritura de rutas (`pathRewrite`) para desacoplar el API Gateway de las rutas internas de los microservicios.
 * **Documentación Interactiva:** `swagger-ui-express v5.0.1` montado sobre la especificación OpenAPI 3.0.0.
 * **Seguridad y Trazabilidad:** `cors v2.8.5` configurado para intercambio seguro de recursos de origen cruzado y `morgan v1.10.0` para registro de accesos en formato combinado.
 
 #### 7. Herramientas de Desarrollo Embebido (IoT & Edge)
+
 * **IDE Embebido:** Arduino IDE v2.3.2 y PlatformIO Core.
 * **Toolchain de Compilación:** Espressif Xtensa ESP32 toolchain con soporte para framework Arduino-ESP32.
 * **Librerías C++ de Sensores:** `OneWire` v2.3.8 y `DallasTemperature` v3.9.0 para la comunicación sobre bus digital 1-Wire con el sensor térmico DS18B20.
@@ -2072,27 +2038,32 @@ Para garantizar un flujo de trabajo homogéneo, reproducible y libre de discrepa
 La gestión del código fuente del proyecto **Cold2Hot** se centraliza en la organización oficial pública de GitHub: **`1ASI0572-2620-8735-IoTeam`**. El desarrollo sigue rigurosamente el modelo de ramificación **GitFlow**, asegurando el aislamiento entre funcionalidades en desarrollo y versiones estables de producción.
 
 #### 1. Repositorios Oficiales del Ecosistema
+
 El software de la solución se encuentra segmentado en repositorios especializados según su responsabilidad arquitectónica:
 
-| Repositorio | Tipo de Producto | URL Oficial en GitHub | Rama de Producción | Rama de Integración |
-| :--- | :--- | :--- | :---: | :---: |
-| **`cold2hot-landing-page`** | Landing Page Promocional | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-landing-page](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-landing-page) | `master` | `develop` |
-| **`cold2hot-web-app`** | Aplicación Web Angular | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-web-app](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-web-app) | `master` | `develop` |
-| **`cold2hot-backend`** | Microservicios & API Gateway | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend) | `master` | `develop` |
-| **`cold2hot-report`** | Documentación y Reporte Final | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-report](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-report) | `master` | `develop` |
+| Repositorio                         | Tipo de Producto               | URL Oficial en GitHub                                                                                                                   | Rama de Producción | Rama de Integración |
+| :---------------------------------- | :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :-----------------: | :------------------: |
+| **`cold2hot-landing-page`** | Landing Page Promocional       | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-landing-page](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-landing-page) |     `master`     |     `develop`     |
+| **`cold2hot-web-app`**      | Aplicación Web Angular        | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-web-app](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-web-app)           |     `master`     |     `develop`     |
+| **`cold2hot-backend`**      | Microservicios & API Gateway   | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend)           |     `master`     |     `develop`     |
+| **`cold2hot-report`**       | Documentación y Reporte Final | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-report](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-report)             |     `master`     |     `develop`     |
 
 #### 2. Flujo de Ramificación GitFlow
+
 * **`master`:** Rama protegida que contiene exclusivamente código estable, probado y desplegado en los servidores de producción de la nube (GitHub Pages y Render.com). Todo cambio en esta rama debe provenir de un merge validado desde `develop` o un `hotfix`.
 * **`develop`:** Rama base de integración continua donde se consolidan las funcionalidades terminadas del Sprint. Sirve como punto de partida para las ramas de características.
 * **`feature/<alcance>-<nombre>`:** Ramas temporales creadas para implementar historias de usuario o tareas específicas (por ejemplo, `feature/chapter-6`, `feature/landing-roi-calc`, `feature/telemetry-ingest`). Una vez completada y probada la tarea, se integra a `develop` mediante un Pull Request.
 * **`hotfix/<descripcion>`:** Ramas urgentes generadas a partir de `master` para resolver fallos críticos en producción, integrándose posteriormente tanto a `master` como a `develop`.
 
 #### 3. Políticas de Pull Requests y Code Review
+
 * Queda estrictamente prohibido realizar commits directos sobre la rama `master` o `develop`.
 * Cada incorporación de código requiere la apertura de un Pull Request con descripción de los cambios realizados, comprobación de compilación exitosa y la aprobación explícita de al menos un revisor del equipo.
 
 #### 4. Convención de Mensajes de Confirmación (Conventional Commits)
+
 Se adopta la especificación estándar **Conventional Commits v1.0.0**, estructurada en el formato `<tipo>(<alcance opcional>): <descripción>`:
+
 * **`feat:`** Incorporación de una nueva funcionalidad visible o requerimiento funcional.
 * **`fix:`** Corrección de un fallo o error en el sistema.
 * **`docs:`** Modificaciones exclusivas de documentación, diagramas o archivos Markdown.
@@ -2103,7 +2074,9 @@ Se adopta la especificación estándar **Conventional Commits v1.0.0**, estructu
 * **`chore:`** Actualización de dependencias, scripts auxiliares o configuraciones de build.
 
 #### 5. Versionamiento Semántico
+
 Se emplea **Semantic Versioning 2.0.0 (SemVer)** bajo el formato `MAJOR.MINOR.PATCH`:
+
 * **MAJOR (X.0.0):** Cambios que introducen incompatibilidades o reestructuraciones profundas de la API o arquitectura.
 * **MINOR (1.X.0):** Adición de nuevas funcionalidades compatibles hacia atrás (hitos de entrega de Sprint como TB1).
 * **PATCH (1.0.X):** Correcciones menores de bugs o ajustes cosméticos compatibles hacia atrás.
@@ -2115,6 +2088,7 @@ Se emplea **Semantic Versioning 2.0.0 (SemVer)** bajo el formato `MAJOR.MINOR.PA
 Para salvaguardar la legibilidad, mantenibilidad y calidad técnica del código fuente, el equipo de desarrollo de **IoTeam** ha adoptado las siguientes directrices internacionales de estilo y codificación:
 
 #### 1. Guía de Estilo para HTML y CSS / Sass
+
 * **Estándar:** Basado en la *Google HTML/CSS Style Guide*.
 * **Nomenclatura BEM (Block Element Modifier):** Se utiliza la convención BEM para evitar colisiones de selectores y favorecer la modularidad. Los bloques representan componentes independientes (`.c2h-card`), los elementos representan partes constitutivas (`.c2h-card__title`), y los modificadores expresan variaciones de estado o diseño (`.c2h-card--thermal-hot`, `.c2h-card--thermal-cold`).
 * **Design Tokens mediante Variables CSS:** Los colores corporativos de temperatura y estado se centralizan en variables globales:
@@ -2126,6 +2100,7 @@ Para salvaguardar la legibilidad, mantenibilidad y calidad técnica del código 
 * **Accesibilidad (a11y):** Cumplimiento de WCAG 2.1 nivel AA: todos los elementos interactivos cuentan con atributos `aria-label`, foco visible (`:focus-visible`) y las alertas no dependen únicamente del color, sino de la combinación de color, icono y texto explicativo.
 
 #### 2. Guía de Estilo para TypeScript y Angular
+
 * **Estándar:** Basado en la *Google TypeScript Style Guide* y la *Official Angular Coding Style Guide*.
 * **Arquitectura Basada en Componentes Standalone:** Todo componente se declara con `standalone: true`, importando directamente sus dependencias (`CommonModule`, `RouterLink`, etc.) y prescindiendo de módulos monolíticos.
 * **Nomenclatura en Inglés:** La totalidad de identificadores (clases, interfaces, métodos, variables, rutas y comentarios de código) se escribe en idioma inglés para respetar estándares globales de la industria.
@@ -2137,6 +2112,7 @@ Para salvaguardar la legibilidad, mantenibilidad y calidad técnica del código 
   * Modelos: `<nombre>.model.ts`.
 
 #### 3. Guía de Estilo para Node.js y Express (Microservicios)
+
 * **Estándar:** Basado en la *Airbnb JavaScript Style Guide (ES6+)*.
 * **Formato de Código:** Identación estricta de 2 espacios, uso de comillas simples (`'`), punto y coma obligatorio (`;`) y constantes declaradas con `const`.
 * **Diseño de APIs RESTful:**
@@ -2146,6 +2122,7 @@ Para salvaguardar la legibilidad, mantenibilidad y calidad técnica del código 
   * Respuestas uniformes formateadas en JSON conteniendo siempre propiedades de confirmación, identificador generado y sellos temporales en formato ISO 8601 (`YYYY-MM-DDTHH:mm:ss.sssZ`).
 
 #### 4. Guía de Estilo para Firmware C++ (ESP32)
+
 * **Estándar:** *Arduino Style Guide* y convenciones de sistemas embebidos de bajo consumo.
 * **Multitarea No Bloqueante:** Prohibición de bucles de espera fija con `delay()`. Todo ciclo de lectura o envío de telemetría se gobierna mediante temporizadores basados en la función `millis()`.
 * **Identificadores de Hardware:** Constantes de pines de conexión nombradas en mayúsculas sostenidas (`ONE_WIRE_PIN`, `REED_SWITCH_PIN`, `SOLENOID_RELAY_PIN`).
@@ -2157,12 +2134,14 @@ Para salvaguardar la legibilidad, mantenibilidad y calidad técnica del código 
 La estrategia de despliegue de **Cold2Hot** responde a una arquitectura desacoplada de nube híbrida orientada a alta disponibilidad, seguridad con cifrado HTTPS de extremo a extremo y costos operativos cero durante la etapa de validación y sustentación académica.
 
 #### 1. Configuración de Despliegue de la Landing Page
+
 * **Plataforma Cloud:** **GitHub Pages**.
 * **Fuente de Construcción:** Rama `master`, directorio raíz (`/`).
 * **Protocolo de Seguridad:** Forzado de HTTPS automático con certificados TLS/SSL administrados por Let's Encrypt y servidos por la red de entrega de contenidos (CDN) global de GitHub.
 * **Enrutamiento Dinámico:** El script cliente (`js/main.js`) detecta dinámicamente si se ejecuta en entorno local (`localhost:4200`) o en la nube para enlazar fluidamente las llamadas a la acción (CTAs) con la aplicación web desplegada.
 
 #### 2. Configuración de Despliegue de la Aplicación Web Angular (`cold2hot-web-app`)
+
 * **Plataforma Cloud:** **GitHub Pages** con orquestación automatizada de **GitHub Actions (CI/CD)**.
 * **Archivo de Flujo de Trabajo (Workflow):** `.github/workflows/deploy.yml`.
 * **Etapas del Pipeline:**
@@ -2175,6 +2154,7 @@ La estrategia de despliegue de **Cold2Hot** responde a una arquitectura desacopl
 * **Configuración Alternativa de Despliegue Serverless (Vercel):** Se incorporó el archivo `vercel.json` con reglas de reescritura de rutas (`rewrites`) para soportar despliegues inmediatos en la infraestructura global de Vercel con un solo clic.
 
 #### 3. Configuración de Despliegue del Backend de Microservicios (`cold2hot-backend`)
+
 * **Plataforma Cloud:** **Render.com Cloud Web Services**.
 * **Tipo de Servicio:** Web Service en contenedor Node.js (Free Tier).
 * **Entorno de Ejecución:** `Node` v20/v22.
@@ -2192,9 +2172,6 @@ El siguiente diagrama ilustra la topología de despliegue de la solución, mostr
   <p><em>Figura 6.1.4: Diagrama de Despliegue de la Solución Cold2Hot (C4 Model Deployment Diagram)</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/deployment-diagram.png`  
-> *Descripción: Diagrama de Despliegue que muestre los nodos físicos del sistema: 1) Dispositivo Embebido ESP32 (sensores DS18B20, reed switch, cerrojo), 2) Edge Gateway (Raspberry Pi con SQLite y broker de sincronización), 3) Nube Render.com conteniendo el contenedor del API Gateway y los microservicios IAM y Telemetry con sus bases de datos, 4) Nube GitHub Pages alojando la Landing Page y la Web App Angular 22, y 5) Dispositivos Cliente (Navegador Web en Laptop/PC y Smartphone de Repartidor).*
-
 ---
 
 ## 6.2. Landing Page, Services & Applications Implementation
@@ -2207,19 +2184,19 @@ El **Sprint 1** comprendió la fase fundacional del desarrollo de software de **
 
 A continuación se presenta el registro formal de la sesión de planificación del Sprint 1 realizada por el equipo:
 
-| Campo | Detalle |
-| :--- | :--- |
-| **Sprint #** | **Sprint 1** |
-| **Fecha de Planificación** | 2026-09-22 |
-| **Horario** | 19:30 - 21:45 (GMT-5) |
-| **Ubicación** | Sesión virtual colaborativa vía Discord / Google Meet |
-| **Elaborado Por** | Teves Samaniego, Joan Fernando (Scrum Master) |
-| **Asistentes a la Reunión** | Alvarado De La Cruz, Juan Carlos<br>Carhuancote Dominguez, Gonzalo Alonso<br>Diestra Zambrano, Adriana Maria<br>Duran Diaz, Antonio Rodrigo<br>Nakasone Gomes, Marco Antonio<br>Shimabukuro Uku, Carlos Joel<br>Teves Samaniego, Joan Fernando |
-| **Resumen de la Revisión del Sprint Previo (Sprint 0)** | En la fase preparatoria (Sprint 0) se consolidaron los diagramas de arquitectura C4, los modelos tácticos de Domain-Driven Design (DDD) y los prototipos de alta fidelidad en Figma. El Product Owner validó la segmentación de la solución en microservicios perimetrales y aprobó los flujos de interacción de la SmartBox. |
-| **Resumen de la Retrospectiva del Sprint Previo (Sprint 0)** | El equipo identificó como oportunidad de mejora la necesidad de desacoplar los repositorios para evitar cuellos de botella en la compilación y acordó establecer pipelines de CI/CD tempranos para asegurar que cada incremento esté desplegado en la nube de forma continua. |
-| **Sprint 1 Goal** | *"Implementar y desplegar en producción la primera versión de la plataforma Cold2Hot, compuesta por la Landing Page comercial responsiva y la Aplicación Web de monitoreo térmico en Angular 22, junto con el API Gateway y los microservicios backend perimetrales de IAM y Telemetría documentados mediante OpenAPI/Swagger."* |
-| **Métrica de Cumplimiento del Sprint Goal** | 100% de productos digitales desplegados y con conectividad pública HTTPS verificable; 0 errores de compilación en pipelines de GitHub Actions; documentación OpenAPI interactiva operativa al 100%. |
-| **Velocidad Estimada del Sprint (Sprint Velocity)** | **54 Story Points (SP)** distribuidos en 10 historias de usuario y tareas técnicas transversales. |
+| Campo                                                              | Detalle                                                                                                                                                                                                                                                                                                                                 |
+| :----------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sprint #**                                                 | **Sprint 1**                                                                                                                                                                                                                                                                                                                      |
+| **Fecha de Planificación**                                  | 2026-09-22                                                                                                                                                                                                                                                                                                                              |
+| **Horario**                                                  | 19:30 - 21:45 (GMT-5)                                                                                                                                                                                                                                                                                                                   |
+| **Ubicación**                                               | Sesión virtual colaborativa vía Discord / Google Meet                                                                                                                                                                                                                                                                                 |
+| **Elaborado Por**                                            | Teves Samaniego, Joan Fernando (Scrum Master)                                                                                                                                                                                                                                                                                           |
+| **Asistentes a la Reunión**                                 | Alvarado De La Cruz, Juan CarlosCarhuancote Dominguez, Gonzalo AlonsoDiestra Zambrano, Adriana MariaDuran Diaz, Antonio RodrigoNakasone Gomes, Marco AntonioShimabukuro Uku, Carlos JoelTeves Samaniego, Joan Fernando                                                                                                                  |
+| **Resumen de la Revisión del Sprint Previo (Sprint 0)**     | En la fase preparatoria (Sprint 0) se consolidaron los diagramas de arquitectura C4, los modelos tácticos de Domain-Driven Design (DDD) y los prototipos de alta fidelidad en Figma. El Product Owner validó la segmentación de la solución en microservicios perimetrales y aprobó los flujos de interacción de la SmartBox.     |
+| **Resumen de la Retrospectiva del Sprint Previo (Sprint 0)** | El equipo identificó como oportunidad de mejora la necesidad de desacoplar los repositorios para evitar cuellos de botella en la compilación y acordó establecer pipelines de CI/CD tempranos para asegurar que cada incremento esté desplegado en la nube de forma continua.                                                       |
+| **Sprint 1 Goal**                                            | *"Implementar y desplegar en producción la primera versión de la plataforma Cold2Hot, compuesta por la Landing Page comercial responsiva y la Aplicación Web de monitoreo térmico en Angular 22, junto con el API Gateway y los microservicios backend perimetrales de IAM y Telemetría documentados mediante OpenAPI/Swagger."* |
+| **Métrica de Cumplimiento del Sprint Goal**                 | 100% de productos digitales desplegados y con conectividad pública HTTPS verificable; 0 errores de compilación en pipelines de GitHub Actions; documentación OpenAPI interactiva operativa al 100%.                                                                                                                                  |
+| **Velocidad Estimada del Sprint (Sprint Velocity)**          | **54 Story Points (SP)** distribuidos en 10 historias de usuario y tareas técnicas transversales.                                                                                                                                                                                                                                |
 
 ---
 
@@ -2227,15 +2204,15 @@ A continuación se presenta el registro formal de la sesión de planificación d
 
 Para asegurar una ejecución eficiente, ordenada y alineada con las competencias individuales, se asignaron líderes de aspecto y colaboradores técnicos para cada ámbito del desarrollo:
 
-| Miembro del Equipo | Rol de Liderazgo en el Sprint | Responsabilidades Técnicas Asignadas |
-| :--- | :--- | :--- |
-| **Nakasone Gomes, Marco Antonio** | *Cloud Deployment & CI/CD Lead / Architecture Integrator* | Configuración del pipeline de GitHub Actions para Angular 22, orquestación del backend en Render.com, implementación del API Gateway perimetral con reescritura de proxy y resolución de integración entre productos. |
-| **Diestra Zambrano, Adriana Maria** | *Angular Web Application Lead / UX Specialist* | Implementación de componentes standalone en Angular 22, traducción reactiva de tokens de diseño desde Figma, maquetación del dashboard térmico reactivo y modal de despacho con clave OTP. |
-| **Carhuancote Dominguez, Gonzalo Alonso** | *Backend Microservices & API Gateway Lead* | Desarrollo del microservicio IAM (endpoints `/auth/login` y `/auth/register`), orquestación multicontenedor en `docker-compose.yml` y configuración del middleware de CORS perimetral. |
-| **Shimabukuro Uku, Carlos Joel** | *IoT Telemetry & Embedded Lead* | Desarrollo del microservicio de Telemetría Térmica (`/ingest` y `/logs`), modelado de datos de sensores Dallas DS18B20 y pruebas de ingesta de telemetría en tiempo real. |
-| **Alvarado De La Cruz, Juan Carlos** | *Landing Page & Frontend Design Lead* | Maquetación HTML5/CSS3 semántica de la Landing Page, desarrollo de la calculadora interactiva de ROI en JavaScript y cableado de los Call-to-Actions (CTAs) hacia la Web App. |
-| **Duran Diaz, Antonio Rodrigo** | *QA, Testing Suite & OpenAPI Documentation Lead* | Diseño y especificación de contratos OpenAPI 3.0 en Swagger UI, pruebas de integración de endpoints HTTP y redacción de escenarios de prueba BDD en Gherkin. |
-| **Teves Samaniego, Joan Fernando** | *Scrum Master & Technical Documentation Lead* | Facilitación de ceremonias ágiles, control del Sprint Backlog, consolidación de evidencias de ejecución y redacción del Capítulo VI del informe. |
+| Miembro del Equipo                              | Rol de Liderazgo en el Sprint                               | Responsabilidades Técnicas Asignadas                                                                                                                                                                                      |
+| :---------------------------------------------- | :---------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nakasone Gomes, Marco Antonio**         | *Cloud Deployment & CI/CD Lead / Architecture Integrator* | Configuración del pipeline de GitHub Actions para Angular 22, orquestación del backend en Render.com, implementación del API Gateway perimetral con reescritura de proxy y resolución de integración entre productos. |
+| **Diestra Zambrano, Adriana Maria**       | *Angular Web Application Lead / UX Specialist*            | Implementación de componentes standalone en Angular 22, traducción reactiva de tokens de diseño desde Figma, maquetación del dashboard térmico reactivo y modal de despacho con clave OTP.                            |
+| **Carhuancote Dominguez, Gonzalo Alonso** | *Backend Microservices & API Gateway Lead*                | Desarrollo del microservicio IAM (endpoints`/auth/login` y `/auth/register`), orquestación multicontenedor en `docker-compose.yml` y configuración del middleware de CORS perimetral.                              |
+| **Shimabukuro Uku, Carlos Joel**          | *IoT Telemetry & Embedded Lead*                           | Desarrollo del microservicio de Telemetría Térmica (`/ingest` y `/logs`), modelado de datos de sensores Dallas DS18B20 y pruebas de ingesta de telemetría en tiempo real.                                           |
+| **Alvarado De La Cruz, Juan Carlos**      | *Landing Page & Frontend Design Lead*                     | Maquetación HTML5/CSS3 semántica de la Landing Page, desarrollo de la calculadora interactiva de ROI en JavaScript y cableado de los Call-to-Actions (CTAs) hacia la Web App.                                            |
+| **Duran Diaz, Antonio Rodrigo**           | *QA, Testing Suite & OpenAPI Documentation Lead*          | Diseño y especificación de contratos OpenAPI 3.0 en Swagger UI, pruebas de integración de endpoints HTTP y redacción de escenarios de prueba BDD en Gherkin.                                                           |
+| **Teves Samaniego, Joan Fernando**        | *Scrum Master & Technical Documentation Lead*             | Facilitación de ceremonias ágiles, control del Sprint Backlog, consolidación de evidencias de ejecución y redacción del Capítulo VI del informe.                                                                     |
 
 ---
 
@@ -2243,22 +2220,22 @@ Para asegurar una ejecución eficiente, ordenada y alineada con las competencias
 
 A continuación se detalla la tabla de control de estado del Sprint Backlog para el Sprint 1:
 
-| Sprint # | User Story Id | User Story Title | Task Id | Task Title | Task Description | Est. (h) | Assigned To | Status |
-| :---: | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
-| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución | T01.1 | Maquetación responsiva de secciones clave | Estructurar HTML5 semántico con Hero, Problem, Solution, Pricing y Formulario de Contacto. | 8 | Alvarado De La Cruz, J. | **Done** |
-| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución | T01.2 | Implementación de Calculadora de ROI | Desarrollar algoritmo en JS que calcule ahorro proyectado y reducción de reclamos térmicos. | 6 | Alvarado De La Cruz, J. | **Done** |
-| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución | T01.3 | Enrutamiento dinámico de CTAs hacia la Web App | Configurar detección de entorno (local vs. producción) para redirección fluida a la app web. | 4 | Nakasone Gomes, M. | **Done** |
-| **Sprint 1** | **US02** | Contacto y Solicitud de Demostración Comercial | T02.1 | Validación de formulario de contacto | Validar entradas con feedback accesible y botón dinámico para probar la plataforma web en vivo. | 4 | Alvarado De La Cruz, J. | **Done** |
-| **Sprint 1** | **US03** | Autenticación Segura de Administrador Web | T03.1 | Maquetación de vista Login (Figma W01) | Implementar vista dividida con identidad de marca Cold2Hot y formulario de credenciales. | 8 | Diestra Zambrano, A. | **Done** |
-| **Sprint 1** | **US03** | Autenticación Segura de Administrador Web | T03.2 | Endpoint de login en Microservicio IAM | Implementar endpoint `POST /auth/login` con validación y emisión de token JWT de sesión. | 6 | Carhuancote Dominguez, G. | **Done** |
-| **Sprint 1** | **US04** | Monitoreo Térmico de Envíos en Tiempo Real | T04.1 | Dashboard de Monitoreo (Figma W04/W05) | Construir vista de dashboard con 4 KPIs en vivo, filtros térmicos y gráfica de trayectoria térmica. | 12 | Diestra Zambrano, A. | **Done** |
-| **Sprint 1** | **US04** | Monitoreo Térmico de Envíos en Tiempo Real | T04.2 | Ingesta de telemetría de sensores DS18B20 | Implementar endpoint `POST /ingest` y `GET /logs` en el microservicio de telemetría térmica. | 8 | Shimabukuro Uku, C. | **Done** |
-| **Sprint 1** | **US05** | Creación de Despacho y Generación de Código OTP | T05.1 | Modal de Nuevo Despacho (Figma W06/W07) | Construir diálogo modal interactivo con selección de perfil Cold/Hot y generador de clave OTP de 6 dígitos. | 8 | Diestra Zambrano, A. | **Done** |
-| **Sprint 1** | **US06** | Gestión de Alertas Térmicas e Intrusión | T06.1 | Módulo de Alertas (Figma W08) | Construir panel de resolución de desvíos de temperatura y aperturas no autorizadas con badges de severidad. | 6 | Diestra Zambrano, A. | **Done** |
-| **Sprint 1** | **US07** | Inventario y Estado de Cajas Inteligentes | T07.1 | Módulo de SmartBoxes (Figma W12) | Construir vista de inventario con identificadores de hardware, nivel de batería y estado de cerrojo. | 6 | Diestra Zambrano, A. | **Done** |
-| **Sprint 1** | **US08** | Documentación de Microservicios con OpenAPI | T08.1 | Configuración de Swagger UI en microservicios | Crear especificaciones OpenAPI 3.0 para IAM y Telemetría montadas en `/docs`. | 6 | Duran Diaz, A. | **Done** |
-| **Sprint 1** | **US09** | Enrutamiento Perimetral con API Gateway | T09.1 | Implementación de Reverse Proxy Express | Configurar enrutamiento perimetral con `http-proxy-middleware`, CORS y reescritura de rutas. | 8 | Nakasone Gomes, M. | **Done** |
-| **Sprint 1** | **US10** | Despliegue en la Nube y Automatización CI/CD | T10.1 | Pipeline CI/CD GitHub Actions & Render | Configurar GitHub Pages para Landing y Web App, y servicio contenerizado en Render.com. | 10 | Nakasone Gomes, M. | **Done** |
+|      Sprint #      | User Story Id | User Story Title                                     | Task Id | Task Title                                      | Task Description                                                                                               | Est. (h) | Assigned To               |     Status     |
+| :----------------: | :------------: | :--------------------------------------------------- | :-----: | :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------- | :------: | :------------------------ | :------------: |
+| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución |  T01.1  | Maquetación responsiva de secciones clave      | Estructurar HTML5 semántico con Hero, Problem, Solution, Pricing y Formulario de Contacto.                    |    8    | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución |  T01.2  | Implementación de Calculadora de ROI           | Desarrollar algoritmo en JS que calcule ahorro proyectado y reducción de reclamos térmicos.                  |    6    | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución |  T01.3  | Enrutamiento dinámico de CTAs hacia la Web App | Configurar detección de entorno (local vs. producción) para redirección fluida a la app web.                |    4    | Nakasone Gomes, M.        | **Done** |
+| **Sprint 1** | **US02** | Contacto y Solicitud de Demostración Comercial      |  T02.1  | Validación de formulario de contacto           | Validar entradas con feedback accesible y botón dinámico para probar la plataforma web en vivo.              |    4    | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 1** | **US03** | Autenticación Segura de Administrador Web           |  T03.1  | Maquetación de vista Login (Figma W01)         | Implementar vista dividida con identidad de marca Cold2Hot y formulario de credenciales.                       |    8    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US03** | Autenticación Segura de Administrador Web           |  T03.2  | Endpoint de login en Microservicio IAM          | Implementar endpoint`POST /auth/login` con validación y emisión de token JWT de sesión.                   |    6    | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 1** | **US04** | Monitoreo Térmico de Envíos en Tiempo Real         |  T04.1  | Dashboard de Monitoreo (Figma W04/W05)          | Construir vista de dashboard con 4 KPIs en vivo, filtros térmicos y gráfica de trayectoria térmica.         |    12    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US04** | Monitoreo Térmico de Envíos en Tiempo Real         |  T04.2  | Ingesta de telemetría de sensores DS18B20      | Implementar endpoint`POST /ingest` y `GET /logs` en el microservicio de telemetría térmica.              |    8    | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 1** | **US05** | Creación de Despacho y Generación de Código OTP   |  T05.1  | Modal de Nuevo Despacho (Figma W06/W07)         | Construir diálogo modal interactivo con selección de perfil Cold/Hot y generador de clave OTP de 6 dígitos. |    8    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US06** | Gestión de Alertas Térmicas e Intrusión           |  T06.1  | Módulo de Alertas (Figma W08)                  | Construir panel de resolución de desvíos de temperatura y aperturas no autorizadas con badges de severidad.  |    6    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US07** | Inventario y Estado de Cajas Inteligentes            |  T07.1  | Módulo de SmartBoxes (Figma W12)               | Construir vista de inventario con identificadores de hardware, nivel de batería y estado de cerrojo.          |    6    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US08** | Documentación de Microservicios con OpenAPI         |  T08.1  | Configuración de Swagger UI en microservicios  | Crear especificaciones OpenAPI 3.0 para IAM y Telemetría montadas en`/docs`.                                |    6    | Duran Diaz, A.            | **Done** |
+| **Sprint 1** | **US09** | Enrutamiento Perimetral con API Gateway              |  T09.1  | Implementación de Reverse Proxy Express        | Configurar enrutamiento perimetral con`http-proxy-middleware`, CORS y reescritura de rutas.                  |    8    | Nakasone Gomes, M.        | **Done** |
+| **Sprint 1** | **US10** | Despliegue en la Nube y Automatización CI/CD        |  T10.1  | Pipeline CI/CD GitHub Actions & Render          | Configurar GitHub Pages para Landing y Web App, y servicio contenerizado en Render.com.                        |    10    | Nakasone Gomes, M.        | **Done** |
 
 ---
 
@@ -2266,18 +2243,18 @@ A continuación se detalla la tabla de control de estado del Sprint Backlog para
 
 La siguiente tabla consolida la evidencia de desarrollo extraída directamente de los historiales de commits en los repositorios de GitHub de la organización `1ASI0572-2620-8735-IoTeam`:
 
-| Repositorio | Rama | Commit Id | Commit Message | Commited on | Autor |
-| :--- | :--- | :---: | :--- | :---: | :--- |
-| **`cold2hot-landing-page`** | `master` | `ac29fe4` | `feat(landing-page): add initial Cold2Hot landing page` | 2026-10-05 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-landing-page`** | `master` | `bde6860` | `feat: connect landing page call-to-actions to web application with live demo routing` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-landing-page`** | `master` | `ac2f101` | `feat(routing): update smart dynamic redirection between GH Pages and Vercel` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-web-app`** | `develop` | `eafa51e` | `initial commit` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-web-app`** | `develop` | `3c9ea1c` | `feat: implement first version of Delivery Admin Web App based on Figma design` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-web-app`** | `develop` | `682b1f5` | `feat: add audit report export and return link to landing page` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-web-app`** | `master` | `11bc83f` | `feat(ci): add GitHub Actions Pages workflow and Vercel routing configuration` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-web-app`** | `master` | `3bffdc1` | `fix(ci): upgrade Node.js runner to v22 for Angular 22 compatibility` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-backend`** | `develop` | `15a9855` | `feat: setup initial microservices architecture with api-gateway, iam-service, telemetry-service and docker-compose` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
-| **`cold2hot-backend`** | `master` | `73c42a6` | `feat(deploy): add cloud orchestrator, pathRewrite proxy and render.yaml blueprint` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| Repositorio                         | Rama        |  Commit Id  | Commit Message                                                                                                         | Commited on | Autor                         |
+| :---------------------------------- | :---------- | :---------: | :--------------------------------------------------------------------------------------------------------------------- | :---------: | :---------------------------- |
+| **`cold2hot-landing-page`** | `master`  | `ac29fe4` | `feat(landing-page): add initial Cold2Hot landing page`                                                              | 2026-10-05 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-landing-page`** | `master`  | `bde6860` | `feat: connect landing page call-to-actions to web application with live demo routing`                               | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-landing-page`** | `master`  | `ac2f101` | `feat(routing): update smart dynamic redirection between GH Pages and Vercel`                                        | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `develop` | `eafa51e` | `initial commit`                                                                                                     | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `develop` | `3c9ea1c` | `feat: implement first version of Delivery Admin Web App based on Figma design`                                      | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `develop` | `682b1f5` | `feat: add audit report export and return link to landing page`                                                      | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `master`  | `11bc83f` | `feat(ci): add GitHub Actions Pages workflow and Vercel routing configuration`                                       | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `master`  | `3bffdc1` | `fix(ci): upgrade Node.js runner to v22 for Angular 22 compatibility`                                                | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-backend`**      | `develop` | `15a9855` | `feat: setup initial microservices architecture with api-gateway, iam-service, telemetry-service and docker-compose` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-backend`**      | `master`  | `73c42a6` | `feat(deploy): add cloud orchestrator, pathRewrite proxy and render.yaml blueprint`                                  | 2026-10-07 | Nakasone Gomes, Marco Antonio |
 
 ---
 
@@ -2286,16 +2263,19 @@ La siguiente tabla consolida la evidencia de desarrollo extraída directamente d
 Durante el Sprint 1 se implementaron suites de verificación en los tres productos desarrollados:
 
 #### 1. Pruebas Unitarias y de Compilación Estricta en Angular (`cold2hot-web-app`)
+
 * **Verificación de Componentes Standalone:** Se ejecutó la suite de pruebas unitarias mediante el runner de Angular (`npm test`), validando la instanciación correcta de `AppComponent`, `LoginComponent`, `MonitoringDashboardComponent`, `NewShipmentModalComponent`, `AlertsComponent` y `SmartBoxesComponent`.
 * **Comprobación de Compilación de Producción:** El comando `npm run build` ejecutado en el pipeline de GitHub Actions superó al 100% las restricciones de tamaño de bundle y chequeo de tipos estricto sin advertencias.
 
 #### 2. Pruebas de Integración y Enrutamiento en el API Gateway (`cold2hot-backend`)
+
 * Se verificó la disponibilidad de los microservicios aguas abajo a través del Gateway perimetral mediante tests automatizados con `curl` sobre el puerto 8080:
   * Healthcheck de Gateway: `GET /` responde `{"status":"HEALTHY"}` con código 200.
   * Reenvío a IAM: `POST /api/v1/iam/auth/login` redirige hacia `iam-service:3001` con reescritura de prefijo.
   * Reenvío a Telemetría: `POST /api/v1/telemetry/ingest` redirige hacia `telemetry-service:3002` persistiendo la lectura en memoria.
 
 #### 3. Especificación de Pruebas BDD con Gherkin (Archivos `.feature`)
+
 Se formalizaron los comportamientos esperados bajo el enfoque Behavior-Driven Development (BDD):
 
 ```gherkin
@@ -2340,6 +2320,7 @@ Feature: Administrator Authentication on Web Platform
 En esta sección se presentan las capturas de pantalla de los productos digitales en ejecución activa tanto en entornos locales de prueba como desplegados en la nube:
 
 #### 1. Landing Page Comercial en Ejecución
+
 La Landing Page presenta de forma clara la propuesta de valor de **Cold2Hot**, integrando llamadas a la acción directas hacia la aplicación web y una calculadora de ahorro financiero:
 
 <div align="center">
@@ -2347,20 +2328,15 @@ La Landing Page presenta de forma clara la propuesta de valor de **Cold2Hot**, i
   <p><em>Figura 6.2.1.6.1: Landing Page en ejecución - Sección Hero con botón de acceso a la plataforma web</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/landing-hero-cta.png`  
-> *Descripción: Captura de pantalla de la Landing Page desplegada en el navegador mostrando el Navbar con logo Cold2Hot, la barra superior con el botón "Ingresar a la App" y la sección Hero con el titular "Cada pedido llega tan bien como salió de tu cocina" y el botón "Probar plataforma en vivo 🚀".*
-
 <div align="center">
   <img src="assets/cap6/landing-roi-calculator.png" alt="Landing Page - Calculadora de ROI y Planes de Suscripción" width="90%"/>
   <p><em>Figura 6.2.1.6.2: Landing Page en ejecución - Calculadora interactiva de retorno de inversión (ROI)</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/landing-roi-calculator.png`  
-> *Descripción: Captura de pantalla de la sección de Calculadora de ROI en la Landing Page, mostrando los controles deslizantes de pedidos diarios, ticket promedio y porcentaje de reclamos, junto con el resultado de ahorro neto mensual proyectado y los planes comerciales.*
-
 ---
 
 #### 2. Aplicación Web Angular (`cold2hot-web-app`) en Ejecución
+
 La aplicación web implementa con alta fidelidad los wireframes y flujos del prototipo de Figma (`IoT-Prototype`):
 
 <div align="center">
@@ -2368,35 +2344,23 @@ La aplicación web implementa con alta fidelidad los wireframes y flujos del pro
   <p><em>Figura 6.2.1.6.3: Web App en ejecución - Pantalla de Login de Administrador (Figma W01)</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/app-login-view.png`  
-> *Descripción: Captura de la pantalla de Login (`/login`) en el navegador, mostrando el diseño dividido con la propuesta de valor a la izquierda ("Garantiza la cadena térmica de tus entregas"), y el formulario de credenciales a la derecha con acceso demo inmediato.*
-
 <div align="center">
   <img src="assets/cap6/app-dashboard-monitoring.png" alt="Web App - Dashboard de Monitoreo Térmico con KPIs y Telemetría DS18B20" width="90%"/>
   <p><em>Figura 6.2.1.6.4: Web App en ejecución - Dashboard de Monitoreo Térmico en Tiempo Real (Figma W04/W05)</em></p>
 </div>
-
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/app-dashboard-monitoring.png`  
-> *Descripción: Captura del Dashboard principal (`/dashboard/monitoring`) con la barra lateral oscura `#0E1726`, las 4 tarjetas de métricas en tiempo real (Envíos Activos, Cajas en Rango Óptimo, Alertas Térmicas Críticas, SmartBoxes Disponibles), el selector de idioma ES/EN, la tabla de telemetría con semáforos verde/rojo y el gráfico interactivo de trayectoria térmica.*
 
 <div align="center">
   <img src="assets/cap6/app-new-shipment-otp.png" alt="Web App - Modal de Nuevo Despacho y Generación de Código OTP" width="90%"/>
   <p><em>Figura 6.2.1.6.5: Web App en ejecución - Modal de Creación de Despacho y Generación de OTP (Figma W06/W07)</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/app-new-shipment-otp.png`  
-> *Descripción: Captura del diálogo modal desplegado al pulsar "Nuevo Despacho", mostrando el selector de perfil térmico (Caliente 65°C-80°C / Frío 2°C-8°C), asignación de SmartBox y el código OTP de 6 dígitos generado para la apertura por Bluetooth del repartidor.*
-
 <div align="center">
   <img src="assets/cap6/app-alerts-inventory.png" alt="Web App - Módulos de Alertas Críticas e Inventario de SmartBoxes" width="90%"/>
   <p><em>Figura 6.2.1.6.6: Web App en ejecución - Módulos de Alertas de Manipulación e Inventario (Figma W08/W12)</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/app-alerts-inventory.png`  
-> *Descripción: Captura de pantalla de la sección de Alertas Críticas (`/dashboard/alerts`) mostrando las alertas de desvío térmico y apertura indebida de tapa, y/o la vista de SmartBoxes (`/dashboard/smartboxes`) con el inventario de hardware y niveles de batería.*
-
-* **Enlace al Video de Demostración y Ejecución del Sprint 1:**  
-  [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210790_upc_edu_pe/cold2hot-sprint1-execution-demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210790_upc_edu_pe/cold2hot-sprint1-execution-demo)  
+* **Enlace al Video de Demostración y Ejecución del Sprint 1:**
+  [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210790_upc_edu_pe/cold2hot-sprint1-execution-demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210790_upc_edu_pe/cold2hot-sprint1-execution-demo)
   *(Demostración interactiva en video de 8 minutos con la navegación completa entre la Landing Page, el inicio de sesión, el monitoreo reactivo de telemetría y la descarga del reporte de custodia).*
 
 ---
@@ -2405,17 +2369,20 @@ La aplicación web implementa con alta fidelidad los wireframes y flujos del pro
 
 La documentación de los microservicios backend se elaboró bajo el estándar **OpenAPI Specification 3.0.0** y se encuentra desplegada interactivamente mediante **Swagger UI** en el servidor de producción de Render.
 
+* **Repositorio Oficial de Web Services:** [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend)
+* **Identificadores de Commits vinculados a Documentación (Sprint 1):** Commit `15a9855` (*setup initial microservices architecture with api-gateway, iam-service, telemetry-service and OpenAPI/Swagger documentation*) y Commit `73c42a6` (*feat(deploy): add cloud orchestrator, pathRewrite proxy and render.yaml blueprint*).
+
 #### 1. Catálogo Formal de Endpoints Implementados en el Sprint 1
 
-| Microservicio | Endpoint (Vía Gateway) | Verbo HTTP | Parámetros / Request Body | Respuestas (HTTP Status) | Descripción y Propósito |
-| :--- | :--- | :---: | :--- | :--- | :--- |
-| **API Gateway** | `/` | `GET` | Ninguno | `200 OK` (Catálogo de rutas y estado de salud) | Comprobación de estado general y catálogo perimetral de microservicios activos. |
-| **IAM Service** | `/api/v1/iam/auth/login` | `POST` | `{ "email": string, "password": string }` | `200 OK` (Token JWT + datos de usuario)<br>`400 Bad Request`<br>`401 Unauthorized` | Autenticación de administradores de restaurante y emisión de token de sesión. |
-| **IAM Service** | `/api/v1/iam/auth/register` | `POST` | `{ "restaurantName": string, "email": string, "password": string }` | `201 Created` (ID de restaurante)<br>`400 Bad Request` | Registro de nuevos establecimientos gastronómicos en la plataforma. |
-| **IAM Service** | `/api/v1/iam/health` | `GET` | Ninguno | `200 OK` (Status UP y timestamp) | Verificación de salud y disponibilidad del microservicio IAM. |
-| **Telemetry Service** | `/api/v1/telemetry/ingest` | `POST` | `{ "smartBoxId": string, "shipmentId": string, "temperature": number, "lidOpen": boolean }` | `201 Created` (Log generado con ID y fecha ISO)<br>`400 Bad Request` | Ingesta de lecturas de sensores térmicos DS18B20 enviadas desde el Edge o ESP32. |
-| **Telemetry Service** | `/api/v1/telemetry/logs` | `GET` | Ninguno | `200 OK` (Array de lecturas térmicas recientes) | Consulta de historial de telemetría térmica para trazabilidad y auditoría. |
-| **Telemetry Service** | `/api/v1/telemetry/health` | `GET` | Ninguno | `200 OK` (Status UP y timestamp) | Verificación de salud del microservicio de telemetría. |
+| Microservicio               | Endpoint (Vía Gateway)       | Verbo HTTP | Parámetros / Request Body                                                                    | Respuestas (HTTP Status)                                                     | Descripción y Propósito                                                         |
+| :-------------------------- | :---------------------------- | :--------: | :-------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| **API Gateway**       | `/`                         |  `GET`  | Ninguno                                                                                       | `200 OK` (Catálogo de rutas y estado de salud)                            | Comprobación de estado general y catálogo perimetral de microservicios activos. |
+| **IAM Service**       | `/api/v1/iam/auth/login`    |  `POST`  | `{ "email": string, "password": string }`                                                   | `200 OK` (Token JWT + datos de usuario)<br>`400 Bad Request`<br>`401 Unauthorized` | Autenticación de administradores de restaurante y emisión de token de sesión.  |
+| **IAM Service**       | `/api/v1/iam/auth/register` |  `POST`  | `{ "restaurantName": string, "email": string, "password": string }`                         | `201 Created` (ID de restaurante)<br>`400 Bad Request`                       | Registro de nuevos establecimientos gastronómicos en la plataforma.              |
+| **IAM Service**       | `/api/v1/iam/health`        |  `GET`  | Ninguno                                                                                       | `200 OK` (Status UP y timestamp)                                           | Verificación de salud y disponibilidad del microservicio IAM.                    |
+| **Telemetry Service** | `/api/v1/telemetry/ingest`  |  `POST`  | `{ "smartBoxId": string, "shipmentId": string, "temperature": number, "lidOpen": boolean }` | `201 Created` (Log generado con ID y fecha ISO)<br>`400 Bad Request`         | Ingesta de lecturas de sensores térmicos DS18B20 enviadas desde el Edge o ESP32. |
+| **Telemetry Service** | `/api/v1/telemetry/logs`    |  `GET`  | Ninguno                                                                                       | `200 OK` (Array de lecturas térmicas recientes)                           | Consulta de historial de telemetría térmica para trazabilidad y auditoría.     |
+| **Telemetry Service** | `/api/v1/telemetry/health`  |  `GET`  | Ninguno                                                                                       | `200 OK` (Status UP y timestamp)                                           | Verificación de salud del microservicio de telemetría.                          |
 
 #### 2. Evidencias de Interacción con Swagger UI en Render.com
 
@@ -2426,82 +2393,80 @@ A continuación se presentan las evidencias de interacción con las interfaces S
   <p><em>Figura 6.2.1.7.1: Interfaz OpenAPI / Swagger UI del Microservicio IAM en Render.com</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/swagger-iam-catalog.png`  
-> *Descripción: Captura de pantalla de la consola interactiva Swagger UI abierta en `https://cold2hot-backend.onrender.com/api/v1/iam/docs/`, mostrando la especificación OpenAPI 3.0 con el título "Cold2Hot - IAM Microservice API" y los endpoints POST /auth/login y POST /auth/register.*
-
 <div align="center">
   <img src="assets/cap6/swagger-iam-login-exec.png" alt="Swagger UI - Ejecución de POST /auth/login" width="90%"/>
   <p><em>Figura 6.2.1.7.2: Ejecución interactiva 'Try it out' de POST /auth/login en Swagger UI</em></p>
 </div>
-
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/swagger-iam-login-exec.png`  
-> *Descripción: Captura de pantalla en Swagger UI tras ejecutar 'Try it out' en el endpoint POST /auth/login con credenciales de prueba, mostrando el código de respuesta HTTP 200 y el JSON con el token JWT emitido.*
 
 <div align="center">
   <img src="assets/cap6/swagger-telemetry-catalog.png" alt="Swagger UI - Microservicio de Telemetría en Render" width="90%"/>
   <p><em>Figura 6.2.1.7.3: Interfaz OpenAPI / Swagger UI del Microservicio de Telemetría Térmica en Render.com</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/swagger-telemetry-catalog.png`  
-> *Descripción: Captura de pantalla de la consola Swagger UI abierta en `https://cold2hot-backend.onrender.com/api/v1/telemetry/docs/`, mostrando el título "Cold2Hot - Telemetry & Thermal Microservice API" con los endpoints POST /ingest y GET /logs.*
-
 <div align="center">
   <img src="assets/cap6/swagger-telemetry-ingest-exec.png" alt="Swagger UI - Ejecución de Ingesta POST /ingest" width="90%"/>
   <p><em>Figura 6.2.1.7.4: Ingesta de lectura térmica en POST /ingest con respuesta HTTP 201 Created</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/swagger-telemetry-ingest-exec.png`  
-> *Descripción: Captura de pantalla de la ejecución en Swagger UI del endpoint POST /ingest simulando una lectura de temperatura del sensor DS18B20 (68.5°C), mostrando el código de respuesta 201 Created y el registro de telemetría persistido.*
-
 ---
 
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review
 
-La totalidad de productos digitales que integran la plataforma **Cold2Hot** se encuentran **desplegados en producción, activos y accesibles públicamente a través de internet con cifrado seguro HTTPS**:
+Durante el **Sprint 1**, el equipo llevó a cabo el despliegue continuo y la puesta en producción de todos los productos digitales que conforman la solución **Cold2Hot**. Este proceso abarcó la creación y configuración de cuentas en los proveedores de nube seleccionados (**GitHub Pages** y **Render.com**), la configuración de flujos automatizados de Integración y Despliegue Continuo (**CI/CD mediante GitHub Actions**) y la verificación de conectividad y seguridad bajo el protocolo HTTPS.
 
-#### 1. Tabla de URLs Oficiales en Producción
+A continuación, se documentan los procesos de despliegue realizados para cada uno de los productos digitales que forman parte del alcance del Sprint 1, indicando sus URLs públicas de acceso y las evidencias de los paneles de administración cloud:
 
-| Producto Digital | Proveedor Cloud | URL Pública Oficial en Producción | Estado Operativo |
-| :--- | :---: | :--- | :---: |
-| **Landing Page** | GitHub Pages | [https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/) | 🟢 **LIVE / HEALTHY** |
-| **Web App (Angular 22)** | GitHub Pages | [https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/) | 🟢 **LIVE / HEALTHY** |
-| **API Gateway (Backend)** | Render.com | [https://cold2hot-backend.onrender.com/](https://cold2hot-backend.onrender.com/) | 🟢 **LIVE / HEALTHY** |
-| **IAM Swagger Docs** | Render.com | [https://cold2hot-backend.onrender.com/api/v1/iam/docs/](https://cold2hot-backend.onrender.com/api/v1/iam/docs/) | 🟢 **LIVE / HEALTHY** |
-| **Telemetry Swagger Docs** | Render.com | [https://cold2hot-backend.onrender.com/api/v1/telemetry/docs/](https://cold2hot-backend.onrender.com/api/v1/telemetry/docs/) | 🟢 **LIVE / HEALTHY** |
+##### 1. Despliegue de Cold2Hot Landing Page (GitHub Pages)
 
-#### 2. Evidencias de los Paneles de Administración Cloud
+Para la presencia comercial de Cold2Hot, se configuró el despliegue estático automatizado en el servicio **GitHub Pages** a partir del repositorio oficial `cold2hot-landing-page`:
+
+* **Proveedor Cloud:** GitHub Pages.
+* **Rama de Producción:** `master`.
+* **URL Pública de Despliegue:** [https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/)
+* **Proceso y Configuración Realizados:** Se configuró el origen de despliegue (*Source*) desde la raíz de la rama `master`, habilitando la opción obligatoria *Enforce HTTPS* para garantizar la transferencia segura de datos y el cálculo interactivo de ROI.
 
 <div align="center">
   <img src="assets/cap6/deployment-github-pages-landing.png" alt="Panel de GitHub Pages - cold2hot-landing-page" width="90%"/>
   <p><em>Figura 6.2.1.8.1: Panel de GitHub Pages para cold2hot-landing-page con estado 'Built and Active'</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/deployment-github-pages-landing.png`  
-> *Descripción: Captura de pantalla en GitHub -> Settings -> Pages del repositorio `cold2hot-landing-page`, mostrando el mensaje "Your site is live at https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/" con la casilla "Enforce HTTPS" marcada.*
+##### 2. Despliegue de Cold2Hot Web Application (GitHub Pages & CI/CD Actions)
+
+Para la aplicación web administrativa de monitoreo térmico desarrollada en Angular 22, se implementó un pipeline automatizado de compilación y publicación continua mediante **GitHub Actions** hacia **GitHub Pages**:
+
+* **Proveedor Cloud:** GitHub Pages.
+* **Automatización CI/CD:** GitHub Actions (Workflow `.github/workflows/deploy.yml`).
+* **Rama de Producción:** `master` (con soporte para compilaciones en `develop`).
+* **URL Pública de Despliegue:** [https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/)
+* **Proceso y Configuración Realizados:** Cada *push* a la rama `master` activa un contenedor `ubuntu-latest` que instala las dependencias de Node.js 22, compila la aplicación Angular para producción mediante `npm run build -- --configuration production --base-href /cold2hot-web-app/`, genera los artefactos en el directorio `dist/cold2hot-web-app/browser` e implementa la estrategia de fallback SPA mediante el script `404.html` para la correcta resolución de rutas en el cliente.
 
 <div align="center">
   <img src="assets/cap6/deployment-github-actions-webapp.png" alt="Pipeline de GitHub Actions - cold2hot-web-app" width="90%"/>
   <p><em>Figura 6.2.1.8.2: Ejecución exitosa del pipeline de CI/CD en GitHub Actions para cold2hot-web-app</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/deployment-github-actions-webapp.png`  
-> *Descripción: Captura de pantalla de la pestaña 'Actions' del repositorio `cold2hot-web-app`, mostrando el workflow "Deploy Angular App to GitHub Pages" con el icono de check verde (✓ Success) en la rama master.*
+##### 3. Despliegue de Web Services y API Gateway (Render.com)
+
+Para la capa de backend basada en microservicios perimetrales (IAM y Telemetría Térmica), se aprovisionó un servicio web en la plataforma cloud **Render.com**:
+
+* **Proveedor Cloud:** Render.com (Web Service PaaS).
+* **Entorno de Ejecución:** Node.js v20/v22 LTS.
+* **Rama de Producción:** `master`.
+* **URL Pública del API Gateway:** [https://cold2hot-backend.onrender.com/](https://cold2hot-backend.onrender.com/)
+* **URLs de Documentación Swagger / OpenAPI:**
+  * IAM Service API: [https://cold2hot-backend.onrender.com/api/v1/iam/docs/](https://cold2hot-backend.onrender.com/api/v1/iam/docs/)
+  * Telemetry Service API: [https://cold2hot-backend.onrender.com/api/v1/telemetry/docs/](https://cold2hot-backend.onrender.com/api/v1/telemetry/docs/)
+* **Proceso y Configuración Realizados:** Se conectó el repositorio `cold2hot-backend` mediante webhooks de Render para despliegue automático ante nuevos commits. Se configuró el comando de arranque `npm start` que ejecuta el orquestador `index.js`, enrutando dinámicamente el tráfico perimetral hacia los microservicios internos en los puertos 3001 y 3002 bajo certificado SSL/TLS gestionado.
 
 <div align="center">
   <img src="assets/cap6/deployment-render-backend.png" alt="Dashboard de Render.com - cold2hot-backend" width="90%"/>
   <p><em>Figura 6.2.1.8.3: Dashboard de Render.com mostrando el Web Service cold2hot-backend en estado 'Live'</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/deployment-render-backend.png`  
-> *Descripción: Captura de pantalla del dashboard de Render.com para el servicio `cold2hot-backend`, mostrando el distintivo verde "Live", la URL pública HTTPS y los logs de consola indicando que el API Gateway y los microservicios están escuchando peticiones.*
-
 <div align="center">
   <img src="assets/cap6/deployment-gateway-endpoint.png" alt="Respuesta del API Gateway en Producción" width="90%"/>
   <p><em>Figura 6.2.1.8.4: Verificación del endpoint raíz del API Gateway en Render respondiendo con catálogo JSON</em></p>
 </div>
-
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/deployment-gateway-endpoint.png`  
-> *Descripción: Captura de pantalla en el navegador o consola de terminal consultando `https://cold2hot-backend.onrender.com/`, mostrando la respuesta JSON con "status": "HEALTHY" y el diccionario de rutas hacia los microservicios IAM y Telemetry.*
 
 ---
 
@@ -2510,6 +2475,7 @@ La totalidad de productos digitales que integran la plataforma **Cold2Hot** se e
 Durante el transcurso del **Sprint 1**, el equipo de desarrollo de **IoTeam** demostró un alto nivel de madurez técnica y alineamiento con los principios ágiles de Scrum, sustentando sólidamente el cumplimiento del **Student Outcome ABET EAC 5**:
 
 #### 1. Dinámica de Trabajo y Distribución de Esfuerzo
+
 * Se realizaron reuniones diarias síncronas de sincronización (Daily Standups) de 15 minutos en Discord, enfocadas en identificar impedimentos técnicos tempranos (como la compatibilidad de Node.js 22 con Angular CLI y la configuración de los proxies perimetrales).
 * La distribución de tareas permitió que los 7 integrantes asumieran responsabilidades de liderazgo y desarrollo complementarias entre las capas web, cloud, backend e IoT.
 
@@ -2518,11 +2484,10 @@ Durante el transcurso del **Sprint 1**, el equipo de desarrollo de **IoTeam** de
   <p><em>Figura 6.2.1.9: Gráfico de actividad y frecuencia de commits en GitHub durante el Sprint 1</em></p>
 </div>
 
-> 📸 **[COLOCAR IMAGEN AQUÍ]:** `assets/cap6/sprint1-commits-graph.png`  
-> *Descripción: Captura de pantalla de la sección Insights -> Contributors o Commits de los repositorios de GitHub de la organización, mostrando las contribuciones del equipo durante el desarrollo del Sprint 1.*
-
 #### 2. Retrospectiva del Sprint 1 (Sprint Retrospective)
+
 Al culminar el Sprint, el equipo realizó una sesión de retrospectiva bajo la dinámica *Keep / Stop / Start*:
+
 * **Lo que debemos Mantener (Keep):**
   * La separación estricta de repositorios desacoplados para el frontend y backend.
   * El uso de pipelines automatizados de GitHub Actions que compilan y despliegan inmediatamente tras cada Pull Request aprobado.
@@ -2541,27 +2506,18 @@ Al culminar el Sprint, el equipo realizó una sesión de retrospectiva bajo la d
 ### Conclusiones
 
 - El problema abordado por Cold2Hot no se limita a la pérdida de temperatura de los alimentos durante el reparto: el trabajo de needfinding y las entrevistas evidenciaron que la falta de trazabilidad y de evidencia sobre la manipulación del pedido es igual de crítica para los administradores de operaciones de delivery, ya que es la que genera reclamos que hoy no pueden refutar.
-
 - El análisis competitivo mostró que las soluciones existentes en el mercado atienden el control térmico o la seguridad del contenedor de forma aislada, pero no de manera integrada ni con telemetría en tiempo real. Esa brecha es la que sustenta la propuesta de valor de Cold2Hot.
-
 - La aplicación de Domain-Driven Design permitió descomponer la solución en bounded contexts con responsabilidades claras (monitoreo térmico y telemetría, acceso y seguridad, gestión de contenedores y dispositivos, e identidad y acceso), lo que facilitó repartir el diseño entre los integrantes sin generar dependencias bloqueantes entre ellos.
-
 - El uso de un microcontrolador ESP32 junto con el sensor DS18B20 y el esquema de seguridad de dos niveles (Reed Switch e infrarrojo TCRT5000) resulta viable para los objetivos planteados, y su definición temprana permitió alinear el diseño de software con las restricciones reales del hardware.
-
 - La segmentación en dos perfiles de usuario con necesidades distintas —administradores de operaciones y repartidores— obligó a diseñar dos experiencias diferenciadas, una web de supervisión y una móvil de operación en ruta, en lugar de una única aplicación genérica.
-
 - El trabajo colaborativo sobre un repositorio compartido, con ramas por capítulo y revisión mediante Pull Requests, permitió que siete integrantes avanzaran en paralelo sobre un mismo documento manteniendo la trazabilidad de cada aporte.
 
 ### Recomendaciones
 
 - Validar con usuarios reales los umbrales de temperatura y los tiempos de alerta antes de la implementación, ya que los valores actuales provienen del análisis del problema y no de mediciones en ruta.
-
 - Incorporar métricas de línea base en los establecimientos piloto antes del despliegue, de modo que los objetivos planteados (reducción del 35% en reclamos por temperatura y 90% de entregas sin alertas críticas de manipulación) puedan medirse contra un punto de partida verificable.
-
 - Definir el comportamiento del dispositivo ante pérdida de conectividad durante el trayecto, contemplando el almacenamiento local de la telemetría y su sincronización posterior, para que no existan vacíos en la cadena de custodia.
-
 - Considerar el consumo energético del dispositivo y la autonomía de la batería como requisito no funcional explícito, dado que el sistema debe operar durante toda la jornada de reparto sin acceso a una fuente de alimentación fija.
-
 - Mantener actualizada la tabla de contenidos y verificar el documento antes de cada entrega, evitando el uso de formateadores automáticos de Markdown sobre el informe, ya que el documento contiene bloques HTML que dichas herramientas alteran.
 
 # Video About-the-Team
@@ -2599,6 +2555,7 @@ El video institucional del equipo de trabajo presenta la visión de la startup *
 La siguiente guía estructurada de preguntas fue aplicada durante las sesiones de entrevistas a los representantes de los dos segmentos objetivo del proyecto:
 
 #### Segmento 1: Administradores de Operaciones de Delivery
+
 * **Objetivo de la entrevista:** Identificar el impacto financiero de las quejas por temperatura y el costo de disputas por alimentos adulterados en la última milla.
 * **Preguntas clave:**
   1. ¿Qué volumen de pedidos despachan diariamente a través de canales de delivery?
@@ -2608,6 +2565,7 @@ La siguiente guía estructurada de preguntas fue aplicada durante las sesiones d
   5. ¿Qué nivel de utilidad tendría para su gestión contar con un reporte digital inmutable que certifique la temperatura y hora exacta de apertura con foto?
 
 #### Segmento 2: Operadores de Entrega (Repartidores Urbanos)
+
 * **Objetivo de la entrevista:** Comprender las fricciones cotidianas en ruta, la usabilidad de las mochilas convencionales y la percepción hacia mecanismos de bloqueo y evidencia fotográfica.
 * **Preguntas clave:**
   1. ¿Qué tipo de mochila o contenedor térmico utilizas y qué inconvenientes mecánicos presenta (cierres, velcros)?
@@ -2618,11 +2576,11 @@ La siguiente guía estructurada de preguntas fue aplicada durante las sesiones d
 
 ### Anexo B. Especificaciones Técnicas del Hardware IoT (SmartBox)
 
-| Componente | Modelo / Referencia | Función en la SmartBox Cold2Hot | Protocolo / Interfaz |
-| :--- | :--- | :--- | :--- |
-| **Microcontrolador Principal** | ESP32 NodeMCU 30 pines | Procesamiento central de lecturas de sensores, control del cerrojo y enlace inalámbrico | Wi-Fi 802.11 b/g/n y Bluetooth Low Energy (BLE 4.2) |
-| **Sensor de Temperatura** | Dallas DS18B20 sumergible | Medición continua de la temperatura del compartimento interno (-55°C a +125°C, precisión ±0.5°C) | 1-Wire Digital Bus (GPIO) |
-| **Sensor de Cierre / Tapa** | Reed Switch magnético KY-025 | Detección de alineación física de la tapa de la caja para alertar desajustes preventivos | Entrada digital con interrupción por hardware |
-| **Sensor de Intrusión / Extracción** | Sensor óptico infrarrojo TCRT5000 | Detección reflectiva de presencia física de paquetes en el compartimento para alertar extracciones en ruta | Entrada digital (comparador LM393) |
-| **Actuador de Bloqueo** | Cerrojo solenoide 12V DC | Bloqueo físico mecánico que impide la apertura del contenedor hasta la validación del OTP | Control por relé de 5V conectado a GPIO del ESP32 |
-| **Computador de Borde (Edge)** | Raspberry Pi Zero 2W / SoC Linux | Servidor local Flask + base de datos SQLite para resiliencia ante pérdida de cobertura celular | Conexión serie UART / GPIO con el ESP32 y Wi-Fi |
+| Componente                                   | Modelo / Referencia                | Función en la SmartBox Cold2Hot                                                                             | Protocolo / Interfaz                                |
+| :------------------------------------------- | :--------------------------------- | :----------------------------------------------------------------------------------------------------------- | :-------------------------------------------------- |
+| **Microcontrolador Principal**         | ESP32 NodeMCU 30 pines             | Procesamiento central de lecturas de sensores, control del cerrojo y enlace inalámbrico                     | Wi-Fi 802.11 b/g/n y Bluetooth Low Energy (BLE 4.2) |
+| **Sensor de Temperatura**              | Dallas DS18B20 sumergible          | Medición continua de la temperatura del compartimento interno (-55°C a +125°C, precisión ±0.5°C)       | 1-Wire Digital Bus (GPIO)                           |
+| **Sensor de Cierre / Tapa**            | Reed Switch magnético KY-025      | Detección de alineación física de la tapa de la caja para alertar desajustes preventivos                  | Entrada digital con interrupción por hardware      |
+| **Sensor de Intrusión / Extracción** | Sensor óptico infrarrojo TCRT5000 | Detección reflectiva de presencia física de paquetes en el compartimento para alertar extracciones en ruta | Entrada digital (comparador LM393)                  |
+| **Actuador de Bloqueo**                | Cerrojo solenoide 12V DC           | Bloqueo físico mecánico que impide la apertura del contenedor hasta la validación del OTP                 | Control por relé de 5V conectado a GPIO del ESP32  |
+| **Computador de Borde (Edge)**         | Raspberry Pi Zero 2W / SoC Linux   | Servidor local Flask + base de datos SQLite para resiliencia ante pérdida de cobertura celular              | Conexión serie UART / GPIO con el ESP32 y Wi-Fi    |
