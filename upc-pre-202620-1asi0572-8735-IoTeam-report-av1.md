@@ -2023,6 +2023,63 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ### 5.1.2. Web, Mobile and IoT Style Guidelines
 
+#### Responsive Web Style Guidelines (Landing Page y Web Application)
+
+Las interfaces web se construyen sobre la biblioteca de componentes **Angular Material**, personalizando estilos mediante variables CSS y tokens de diseño corporativos:
+
+* **Puntos de Quiebre Responsivos (Breakpoints):**
+  * `Handset / Mobile:` 0px – 599px (Layout linealizado de una columna, menús tipo Drawer lateral desplegable).
+  * `Tablet Portrait:` 600px – 959px (Distribución en 2 columnas, reducción de tamaño de tipografías de visualización).
+  * `Tablet Landscape / Laptop:` 960px – 1279px (Sidebar lateral visible en modo icono, tablas con scroll horizontal).
+  * `Desktop Standard:` 1280px – 1919px (Sidebar expandido completo, dashboards en matriz de 3 a 4 tarjetas por fila).
+  * `Wide Desktop:` >= 1920px (Contenedor centrado con ancho máximo de 1440px para preservar ergonomía visual).
+
+* **Componentes de Interfaz Web Específicos:**
+  * **Tablas de Monitoreo Térmico:** Filas con micro-gráficas de tendencia (Sparklines) que resumen las últimas 10 lecturas del sensor DS18B20 sin recargar la página.
+  * **Tarjetas de Estado de SmartBox:** Indicadores visuales con micro-badges que exhiben simultáneamente el porcentaje de batería del dispositivo, el estado de conectividad (MQTT/HTTP) y la temperatura actual.
+  * **Formularios de Creación de Envíos:** Diseñados con validación en tiempo real y retroalimentación inline, impidiendo el despacho si la SmartBox seleccionada presenta batería inferior al 15%.
+
+#### Mobile Application Style Guidelines (App del Operador de Entrega)
+
+La aplicación móvil está orientada a operadores que conducen motocicletas o bicicletas en entornos urbanos cambiantes (luz solar directa, vibración, uso de guantes de protección):
+
+* **Zona del Pulgar (Thumb Zone Ergonomics):** Los controles primarios (botón de escaneo BLE, teclado numérico para código OTP y disparador de cámara para evidencia de entrega) están situados en el tercio inferior de la pantalla para permitir manipulación ergonómica con una sola mano.
+* **Objetivos Táctiles Ampliados (Touch Targets):** Se incrementa el estándar a un mínimo de **56x56 dp** para todos los botones principales de operación en ruta.
+* **Modo de Alto Contraste Solar:** La interfaz utiliza bordes sólidos contrastados de 2px en lugar de sombras sutiles, y fondos de alto valor tonal para permitir visibilidad plena bajo luz solar intensa al mediodía.
+* **Retroalimentación Háptica y Acústica:**
+  * Vibración corta (50 ms): Confirmación de detección de señal Bluetooth de la caja.
+  * Doble pulsación háptica (100 ms cada una): Aceptación de código OTP y liberación del solenoide.
+  * Vibración larga intermitente (500 ms): Alerta de tapa mal cerrada mientras el operador inicia marcha.
+
+#### IoT Device Physical Interface Style Guidelines (Caja Inteligente Cold2Hot)
+
+El contenedor físico no cuenta con pantalla gráfica para maximizar la autonomía energética y resistencia climática (norma IP65), por lo que su interfaz de usuario ciberfísica se basa en señalizadores luminosos de alta visibilidad y retroalimentación sonora piezoeléctrica:
+
+##### Indicadores Luminosos LED en el Chasis del Contenedor
+
+| Indicador LED | Estado Físico | Frecuencia de Parpadeo | Significado Operativo |
+| :--- | :--- | :--- | :--- |
+| **LED Verde** | Encendido Continuo | Fijo | Caja bloqueada magnéticamente, temperatura dentro de rango seguro, batería > 20%. |
+| **LED Azul** | Parpadeo Lento | 1 Hz (1 ciclo/seg) | Modo anuncio BLE; esperando vinculación con la aplicación del repartidor. |
+| **LED Azul** | Encendido Continuo | Fijo | Enlace Bluetooth establecido y autenticado activamente con el teléfono móvil. |
+| **LED Ámbar** | Parpadeo Rápido | 4 Hz (4 ciclos/seg) | Código OTP verificado; solenoide desactivado temporalmente para permitir retiro de comida. |
+| **LED Rojo** | Parpadeo Estroboscópico | 8 Hz (8 ciclos/seg) | Alarma crítica: Apertura forzada detectada por sensor óptico/magnético o temperatura fuera de rango. |
+
+##### Señalización Acústica (Buzzer Piezoeléctrico a 80 dB)
+
+* **1 Tono Corto (150 ms, 1.2 kHz):** Confirmación de encendido del dispositivo y enganche correcto del cierre magnético (Reed switch cerrado).
+* **2 Tonos Ascendentes (100 ms, 2.0 kHz / 2.5 kHz):** Código OTP recibido válidamente vía BLE; cerradura destrabada.
+* **3 Tonos Cortos (100 ms cada uno):** Confirmación de evidencia fotográfica sincronizada y cierre final de orden.
+* **Tono Continuo Intermitente (500 ms encendido / 500 ms apagado):** Advertencia de contenedor abierto por más de 45 segundos en parada de entrega.
+
+##### Rotulación Física y Ergonomía del Contenedor
+
+* **Área de Proximidad BLE:** Serigrafía de alto relieve con icono normalizado de ondas de radio en la cara superior derecha del contenedor, indicando: *"Zona de enlace Bluetooth - Aproxime su dispositivo aquí"*.
+* **Código QR Láser Inalterable:** Placa metálica remachada en el lateral con código QR que contiene el Identificador Único Universal (UUID) y la dirección MAC de la caja para vinculación manual de contingencia.
+* **Mecanismo de Apertura:** Pestillo electromagnético tipo Solenoide de 12V con resorte de expulsión amortiguado de 6 mm que libera la tapa suavemente al ingresar el OTP, permitiendo al repartidor abrirla con un solo movimiento manual.
+
+---
+
 ## 5.2. Information Architecture
 
 ### 5.2.1. Organization Systems
