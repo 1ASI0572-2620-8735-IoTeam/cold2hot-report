@@ -2033,6 +2033,40 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ### 5.2.4. Searching Systems
 
+Los sistemas de búsqueda en Cold2Hot están diseñados para evitar la sobrecarga cognitiva del administrador ante volúmenes crecientes de despachos diarios, permitiendo localizar cualquier envío, alerta o dispositivo en menos de tres segundos.
+
+#### Opciones de Búsqueda Implementadas
+
+1. **Búsqueda Global Rápida (Omnibox Search en Web Application):**
+   * Accesible desde cualquier vista mediante el atajo de teclado universal `Ctrl + K` (o `Cmd + K` en macOS) o desde la cabecera fija de la aplicación.
+   * Permite realizar búsquedas instantáneas combinadas sobre:
+     * Código de Orden de Pedido (ej. `#ORD-84920`).
+     * Nombre o Apellidos del Cliente Receptor (ej. *"Fernández"*).
+     * Identificador o MAC de SmartBox (ej. `SB-014` o `A4:CF:12:89:BC:01`).
+     * Nombre del Operador de Entrega asignado (ej. *"Miguel Torres"*).
+     * Dirección o Georreferencia de Destino (ej. *"Av. Benavides 1240"*).
+
+2. **Búsqueda Parametrizada y Facetada (Filtros en Módulo de Auditoría y Envíos):**
+
+| Criterio de Filtrado | Tipo de Control UI | Opciones Disponibles | Impacto en la Consulta |
+| :--- | :--- | :--- | :--- |
+| **Rango Temporal** | Selector de Fecha / Calendario | Hoy, Ayer, Últimos 7 días, Últimos 30 días, Rango personalizado. | Delimita la consulta en base a la marca de tiempo de despacho. |
+| **Estado de Custodia** | Menú desplegable multi-selección | Todos, Custodia Verificada, Desvío Térmico, Apertura No Autorizada. | Filtra incidentes probatorios para resolver quejas de clientes. |
+| **Perfil Térmico** | Botones de alternancia (Chips) | Todos, Alimentos Calientes (+60 °C), Alimentos Fríos (<4 °C). | Segmenta el comportamiento del sensor DS18B20 según categoría. |
+| **SmartBox Asignada** | Autocompletado con búsqueda | Selector con listado de cajas disponibles y en ruta. | Permite auditar el rendimiento histórico de un contenedor físico específico. |
+| **Operador de Entrega** | Menú desplegable con buscador | Listado alfabético de repartidores registrados. | Evalúa el índice de cumplimiento individual de un conductor. |
+
+#### Comportamiento de la Interfaz y Presentación de Resultados
+
+* **Búsqueda Asíncrona con Debounce (300 ms):** Para optimizar el tráfico hacia la API REST y evitar peticiones excesivas mientras el usuario escribe, el sistema aplica una pausa de 300 milisegundos antes de ejecutar la consulta.
+* **Resaltado Visual de Coincidencias (Highlighting):** Los términos coincidentes con la cadena de búsqueda se destacan visualmente con un fondo amarillo suave (`#FEF08A`) en las celdas de la tabla de resultados.
+* **Manejo Integral de Estados de Interfaz:**
+  * *Estado de Carga (Loading State):* Se emplean esqueletos de carga (*Skeleton Loaders*) que replican la estructura de las filas de la tabla, ofreciendo sensación de inmediatez sin parpadeos visuales.
+  * *Estado con Resultados (Populated State):* Tabla paginada (10, 25, 50 registros por página) con capacidad de ordenamiento ascendente/descendente en cualquiera de las columnas (fecha, temperatura promedio, tiempo de entrega).
+  * *Estado Vacío / Sin Resultados (Empty State):* Ilustración gráfica vectorial acompañada del texto: *"No se encontraron envíos que coincidan con los criterios de búsqueda"*, junto a un botón prominente: *"Restablecer todos los filtros"*.
+
+---
+
 ### 5.2.5. Navigation Systems
 
 El sistema de navegación provee estructuras claras que garantizan que los usuarios comprendan en todo momento su ubicación actual dentro del sistema, qué acciones pueden llevar a cabo y cómo retornar a estados anteriores.
