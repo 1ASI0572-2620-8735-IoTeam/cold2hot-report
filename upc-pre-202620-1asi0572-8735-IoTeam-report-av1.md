@@ -2029,6 +2029,40 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ### 5.2.2. Labeling Systems
 
+El sistema de rotulado de Cold2Hot define etiquetas unívocas, concisas y orientadas a los modelos mentales de los usuarios, evitando ambigüedades técnicas y alineándose rigurosamente con el lenguaje ubicuo establecido en el proyecto.
+
+#### Tabla de Rotulado del Sistema por Canal Digital
+
+| Canal / Módulo | Elemento de Interfaz | Etiqueta Utilizada | Asociación y Modelo Mental del Usuario |
+| :--- | :--- | :--- | :--- |
+| **Landing Page** | Barra de Navegación | **Inicio** | Retorno a la cabecera principal de la página promocional. |
+| **Landing Page** | Barra de Navegación | **Solución** | Descripción tecnológica de la caja inteligente y sensores. |
+| **Landing Page** | Barra de Navegación | **Calculadora ROI** | Herramienta interactiva para proyectar ahorro mensual en dinero. |
+| **Landing Page** | Barra de Navegación | **Planes** | Precios y características de las suscripciones mensuales de software. |
+| **Landing Page** | Botón de Acción (CTA) | **Solicitar Demostración** | Formulario para agendar una prueba física de la caja con el equipo. |
+| **Landing Page** | Botón de Acción | **Iniciar Sesión** | Acceso directo a la plataforma web administrativa para clientes. |
+| **Web Application** | Menú Lateral (Sidebar) | **Panel Principal** | Vista panorámica de KPIs de entregas en curso y métricas del día. |
+| **Web Application** | Menú Lateral | **Monitoreo en Vivo** | Mapa y listado de pedidos en ruta con telemetría activa en tiempo real. |
+| **Web Application** | Menú Lateral | **Cajas Inteligentes** | Gestión del parque de dispositivos IoT, estado de baterías y mantenimiento. |
+| **Web Application** | Menú Lateral | **Historial y Auditoría** | Registro histórico inmutable de despachos con gráficas y fotos probatorias. |
+| **Web Application** | Menú Lateral | **Repartidores** | Directorio y control de cuentas de operadores de entrega asignados. |
+| **Web Application** | Menú Lateral | **Alertas** | Centro de notificaciones sobre desvíos térmicos o aperturas indebidas. |
+| **Web Application** | Menú Lateral | **Configuración** | Parámetros del restaurante, umbrales de temperatura y facturación. |
+| **Web Application** | Estado de Envío | **En Tránsito** | El pedido se encuentra en desplazamiento con el contenedor asegurado. |
+| **Web Application** | Estado de Envío | **Custodia Verificada** | Entrega completada sin rotura térmica ni aperturas no autorizadas. |
+| **Web Application** | Estado de Envío | **Incidencia Térmica** | Se superaron los umbrales de temperatura fijados para el alimento. |
+| **Web Application** | Estado de Envío | **Apertura Forzada** | Se detectó apertura física sin validación de código OTP previo. |
+| **Mobile Application** | Barra Inferior | **Mi Ruta** | Listado de pedidos que el repartidor debe entregar en su turno. |
+| **Mobile Application** | Barra Inferior | **Caja IoT** | Estado de la caja inteligente enlazada por Bluetooth y nivel de batería. |
+| **Mobile Application** | Botón de Acción | **Vincular por Bluetooth**| Inicia la búsqueda y conexión BLE con el contenedor asignado. |
+| **Mobile Application** | Botón de Acción | **Ingresar Código OTP** | Despliega el teclado numérico para destrabar la cerradura electromagnética. |
+| **Mobile Application** | Botón de Acción | **Tomar Foto de Entrega**| Abre la cámara para capturar la evidencia física del pedido entregado. |
+| **Mobile Application** | Botón de Acción | **Finalizar Entrega** | Confirma la entrega y envía la evidencia criptográfica a la nube. |
+| **Dispositivo IoT** | Chasis / Serigrafía | **Zona de Enlace BLE** | Punto exacto para aproximar el teléfono y optimizar la señal de radio. |
+| **Dispositivo IoT** | Placa Metálica | **ID Dispositivo** | Dirección MAC y número de serie único remachado en el chasis. |
+
+---
+
 ### 5.2.3. SEO Tags and Meta Tags
 
 Para maximizar el posicionamiento orgánico en motores de búsqueda de la Landing Page y garantizar optimización en tiendas de aplicaciones móviles (App Store Optimization - ASO), se especifican las etiquetas y metadatos estándar a continuación.
