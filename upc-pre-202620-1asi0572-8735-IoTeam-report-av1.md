@@ -2043,13 +2043,484 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ## 5.4. Applications UX/UI Design
 
+En esta sección presentamos cómo diseñamos la experiencia de las dos aplicaciones operativas de Cold2Hot: la **Delivery Admin Web App** (panel web para el administrador de operaciones) y la **Delivery Operator Mobile App** (app móvil para el repartidor). Las dos se conectan con la misma plataforma y con la SmartBox, así que las diseñamos juntas para que se sientan como un solo producto, con el mismo lenguaje visual que ya usamos en la Landing Page.
+
+Para tomar las decisiones partimos de lo que ya trabajamos en los capítulos anteriores:
+
+- **Los dos segmentos y sus User Personas**: el administrador, que necesita control y evidencia, y el repartidor, que necesita rapidez y respaldo ante penalizaciones injustas.
+- **Las User Stories del Capítulo III**: cada pantalla existe porque responde a una historia concreta (US03 a US20).
+- **La arquitectura del Capítulo IV**: el Container Diagram define qué hace cada app (la web consume el API Gateway; la móvil habla con la SmartBox por BLE y con el API cuando hay red).
+- **La arquitectura de información y la guía de estilos** (secciones 5.1 y 5.2), de las que tomamos paleta, tipografía, etiquetas y navegación.
+
+### Tecnología de cada aplicación
+ 
+| Aplicación | Usuario | Tecnología | Sistema de diseño base |
+| :--- | :--- | :--- | :--- |
+| Delivery Admin Web App | Administrador de operaciones de delivery | Angular + TypeScript | Material Design con Angular Material |
+| Delivery Operator Mobile App | Operador de entrega | Flutter + Dart | Material Design 3 (widgets de Flutter) |
+ 
+Usar Material Design en ambas nos permite que el compañero que desarrolla la web y quien desarrolle la app móvil reutilicen componentes ya probados (botones, tablas, diálogos, campos de texto) y solo les cambien los tokens de color, tipografía y forma de Cold2Hot.
+
+Un user goal es lo que el usuario quiere lograr, dicho con sus palabras y sin hablar de pantallas. Cada goal tiene su Wireflow y su User Flow.
+ 
+**Delivery Admin Web App - Administrador de operaciones**
+ 
+| ID | User goal | User Stories |
+| :---: | :--- | :--- |
+| WG1 | Crear mi cuenta e ingresar a la plataforma | US10, US11, US20 |
+| WG2 | Despachar un pedido con el perfil térmico correcto y obtener su código OTP | US03 |
+| WG3 | Vigilar mis envíos en ruta y reaccionar rápido ante una alerta | US04, US14, US16, US17 |
+| WG4 | Revisar una entrega para resolver un reclamo con evidencia | US05 |
+| WG5 | Registrar mis cajas y mis repartidores | US12, US13 |
+| WG6 | Elegir y pagar un plan de suscripción | US15 |
+| WG7 | Ver qué repartidores tienen más entregas perfectas | US19 |
+ 
+**Delivery Operator Mobile App - Operador de entrega**
+ 
+| ID | User goal | User Stories |
+| :---: | :--- | :--- |
+| MG1 | Ingresar a mi cuenta y ver mis pedidos asignados | US11, US20 |
+| MG2 | Conectarme por Bluetooth a la caja de mi pedido | US06 |
+| MG3 | Abrir la caja en el destino con el código OTP | US07 |
+| MG4 | Dejar evidencia fotográfica y cerrar la entrega | US08 |
+| MG5 | Corregir a tiempo una tapa mal cerrada durante el trayecto | Lean UX (seguridad de dos niveles) |
+
 ### 5.4.1. Applications Wireframes
+
+En los wireframes decidimos qué información va en cada pantalla, en qué orden y dónde está cada acción. Se elaboraron con Figma.
+
+#### 5.4.1.1. Delivery Operator Mobile App.
+
+La app del repartidor se usa en movimiento, con poco tiempo y atención dividida. Por eso diseñamos cada pantalla con una sola pregunta en mente: ¿qué necesita hacer ahora?.
+Tomamos tres decisiones de arquitectura de información que se ven en los wireframes:
+ 
+1. **Navegación inferior de tres pestañas** (Pedidos, Historial, Perfil), a la altura del pulgar. Durante una entrega activa la navegación se oculta y la pantalla muestra solo el flujo de esa entrega, para no distraer.
+2. **El estado de la caja manda.** En la pantalla de entrega en ruta, lo primero que se ve es el estado de la SmartBox (temperatura, cerrojo, batería y conexión). Es lo que el repartidor consulta con un vistazo.
+3. **Flujo lineal para cerrar la entrega.** Desbloquear, tomar la foto, revisar y enviar son pasos consecutivos con un botón principal grande y un indicador de progreso, igual que el orden real de lo que pasa en la puerta del cliente.
+
+![Wireframes Mobile App - autenticación y pedidos](./assets/ui/wireframes/mobile-wf-01-acceso-pedidos.png)
+*Figura 5.4.1. Wireframes M01 a M04 de la Delivery Operator Mobile App.*
+
+![Wireframes Mobile App - conexión y ruta](./assets/ui/wireframes/mobile-wf-02-conexion-ruta.png)
+*Figura 5.4.2. Wireframes M05 a M07 de la Delivery Operator Mobile App.*
+
+![Wireframes Mobile App - desbloqueo y evidencia](./assets/ui/wireframes/mobile-wf-03-desbloqueo-evidencia.png)
+*Figura 5.4.3. Wireframes M08 a M13 de la Delivery Operator Mobile App.*
+
+![Wireframes Mobile App - historial y perfil](./assets/ui/wireframes/mobile-wf-04-historial-perfil.png)
+*Figura 5.4.4. Wireframes M14 y M15 de la Delivery Operator Mobile App.*
+
+#### 5.4.1.2. Delivery Admin Web App.
+ 
+El administrador trabaja con la pantalla grande, vigilando varias cajas a la vez y tomando decisiones. Lo que más le importa es ver todo de un vistazo y llegar a la evidencia rápido cuando hay un reclamo. Las decisiones de arquitectura de información son:
+
+1. **Menú lateral agrupado por tareas**, con tres grupos: Operación (Monitoreo, Nuevo envío, Alertas), Auditoría (Historial, Analítica) y Administración (Operadores, Cajas, Plan y facturación, Configuración). Así el menú no se vuelve una lista larga y plana.
+2. **El dashboard es la pantalla de inicio.** Lo primero que se ve al entrar es el estado de todas las cajas activas, con las alertas arriba.
+3. **Del dato general al detalle.** Lista de cajas, detalle del envío y, al finalizar, el reporte de auditoría. El administrador siempre puede bajar un nivel o volver.
+
+![Wireframes Web App - acceso](./assets/ui/wireframes/web-wf-01-acceso.png)
+*Figura 5.4.5. Wireframes W01 a W03 de la Delivery Admin Web App (desktop).*
+ 
+![Wireframes Web App - monitoreo](./assets/ui/wireframes/web-wf-02-monitoreo.png)
+*Figura 5.4.6. Wireframes W04, W05 y W08 de la Delivery Admin Web App (desktop).*
+ 
+![Wireframes Web App - envíos](./assets/ui/wireframes/web-wf-03-envios.png)
+*Figura 5.4.7. Wireframes W06 y W07 de la Delivery Admin Web App (desktop).*
+ 
+![Wireframes Web App - auditoría](./assets/ui/wireframes/web-wf-04-auditoria.png)
+*Figura 5.4.8. Wireframes W09, W10 y W13 de la Delivery Admin Web App (desktop).*
+ 
+![Wireframes Web App - administración](./assets/ui/wireframes/web-wf-05-administracion.png)
+*Figura 5.4.9. Wireframes W11, W12, W14 y W15 de la Delivery Admin Web App (desktop).*
+
+**Versión Mobile Web Browser**
+El panel también tiene que poder consultarse desde el celular, por ejemplo cuando el administrador está fuera del local. Adaptamos las pantallas más usadas (W04, W05, W06 y W10) con estas reglas:
+- El menú lateral se convierte en un menú tipo hamburguesa que abre un panel deslizable con los mismos tres grupos.
+- Las tablas pasan a tarjetas apiladas: cada caja o envío es una tarjeta con su temperatura, batería y cerrojo.
+- Los formularios van en una sola columna y el botón principal queda fijo en la parte inferior.
+- Las gráficas ocupan todo el ancho y se pueden desplazar horizontalmente si el rango es largo.
+
+![Wireframes Web App - versión mobile web](./assets/ui/wireframes/web-wf-06-mobile-web.png)
+*Figura 5.4.10. Wireframes responsive (Mobile Web Browser) de W04, W05, W06 y W10.*
+
+
+**Se aplicaron los principios, el diseño inclusivo y la arquitectura de información**
+ 
+- **Patrón F de lectura.** En el dashboard, lo más importante resumen y alertas va arriba a la izquierda, donde empieza la lectura; el detalle se organiza en filas que se leen de izquierda a derecha.
+- **Agrupación y proximidad.** Cada caja es una fila o tarjeta con sus datos juntos de temperatura, batería, cerrojo, separada de las demás por espacio, no por líneas pesadas.
+- **Prevención de errores en formularios.** En W06 el perfil térmico se elige entre dos opciones visibles Frío y Caliente en vez de un campo libre, y solo se listan cajas disponibles. En W12 se valida el formato de la dirección MAC antes de enviar.
+- **Evidencia al alcance.** Desde el historial (W09) a la evidencia (W10) hay un solo paso: buscar el ID y abrir el detalle, porque ese es el momento de mayor presión para el administrador.
+- **Diseño inclusivo.** Todas las gráficas llevan etiquetas de texto y los estados llevan ícono y palabra, no solo color. El panel se puede navegar con teclado y los campos tienen etiqueta visible.
+- **Etiquetado consistente con la app móvil.** Mismos términos y mismos nombres de estado en web y móvil.
+
+---
 
 ### 5.4.2. Applications Wireflow Diagrams
 
+#### 5.4.2.1. Delivery Admin Web App.
+ 
+**WG1. Crear mi cuenta e ingresar a la plataforma**
+ 
+- **Persona:** Administrador de operaciones 
+- **User goal:** "Quiero crear la cuenta de mi restaurante y entrar a la plataforma para empezar a monitorear mis despachos."
+- **Wireflow:** W01 → W02 → W04 (con checklist de primeros pasos)
+![Wireflow WG1](./assets/ui/wireflows/web-wg1-registro-ingreso.png)
+*Figura 5.4.11. Wireflow WG1: registro e ingreso.*
+ 
+Explicación: El administrador llega a W01 desde el botón *Ingresar a la Web App* de la Landing Page. Si todavía no tiene cuenta, toca *Crear cuenta* y pasa a W02, un formulario dividido en dos bloques (sus datos y los del restaurante) para que no se sienta largo. Al terminar, el siguiente paso muestra W04 con un estado vacío que no deja al usuario perdido: una lista de primeros pasos (registrar una caja, invitar a un operador, elegir un plan) que lleva a W12, W11 y W14. Si ya tiene cuenta, ingresa directo a W04. El enlace *Olvidé mi contraseña* abre W03.
+
+**WG2. Despachar un pedido con el perfil térmico correcto y obtener su código OTP**
+ 
+- **Persona:** Administrador de operaciones
+- **User goal:** "Quiero registrar un pedido, decir si va frío o caliente y obtener el código para que el repartidor abra la caja."
+- **Wireflow:** W04 → W06 → W07 → W05
+![Wireflow WG2](./assets/ui/wireflows/web-wg2-crear-envio.png)
+*Figura 5.4.12. Wireflow WG2: creación de un envío.*
+ 
+Explicación: Desde el dashboard, el botón *Nuevo envío* abre W06. El formulario pide los datos del pedido, el operador y la caja solo aparecen las disponibles y, en un selector destacado, el perfil térmico. Al presionar Crear envío, el sistema responde con W07: un diálogo con el OTP en tamaño grande y el estado Pendiente, con el botón Copiar código para que el administrador se lo entregue al operador. Desde ahí pasa a W05 para seguir el envío. Mostramos el OTP en un diálogo y no en una pantalla aparte para que el administrador no pierda el contexto de lo que acaba de crear.
+ 
+**WG3. Vigilar mis envíos en ruta y reaccionar rápido ante una alerta**
+ 
+- **Persona:** Administrador de operaciones
+- **User goal:** "Quiero saber en tiempo real cómo van mis cajas y enterarme enseguida si algo sale mal."
+- **Wireflow:** W04 → W08 → W05
+![Wireflow WG3](./assets/ui/wireflows/web-wg3-monitoreo-alertas.png)
+*Figura 5.4.13. Wireflow WG3: monitoreo y atención de alertas.*
+ 
+Explicación: El dashboard (W04) muestra todas las cajas activas. Cuando llega una alerta aparece un contador en el ícono de alertas y la fila de la caja afectada cambia de estado. El administrador entra a W08, que ordena las alertas por gravedad primero las críticas por apertura no autorizada, luego las térmicas y por último las de batería baja, y desde ahí abre W05 para ver el detalle: la gráfica de temperatura contra el rango permitido y la línea de tiempo de eventos. Después puede marcar la alerta como atendida.
+ 
+**WG4. Revisar una entrega para resolver un reclamo con evidencia**
+ 
+- **Persona:** Administrador de operaciones
+- **User goal:** "Cuando un cliente reclama, quiero encontrar la entrega y mostrar qué pasó, con datos y fotos."
+- **Wireflow:** W09 → W10
+![Wireflow WG4](./assets/ui/wireflows/web-wg4-auditoria.png)
+*Figura 5.4.14. Wireflow WG4: auditoría de una entrega.*
+ 
+Explicación: En W09 el administrador escribe el ID del pedido en el buscador, que es el elemento más grande de la pantalla. El resultado cambia la tabla nuevo estado del wireframe y al abrirlo llega a W10, donde encuentra en una sola vista la gráfica térmica del trayecto, los horarios de apertura y las fotos de entrega. Esa vista reune lo que el administrador necesita para defenderse ante el cliente o la plataforma de delivery.
+ 
+**WG5. Registrar mis cajas y mis repartidores**
+ 
+- **Persona:** Administrador de operaciones
+- **User goal:** "Quiero dar de alta mis cajas y a mi equipo de reparto para empezar a usarlos."
+- **Wireflow:** W12 → diálogo de registro → W12 actualizada; W11 → diálogo de invitación → W11 actualizada
+![Wireflow WG5](./assets/ui/wireflows/web-wg5-cajas-operadores.png)
+*Figura 5.4.15. Wireflow WG5: registro de cajas y operadores.*
+ 
+Explicación: Ambas tareas siguen el mismo patrón para que se aprenda una vez: una tabla, un botón principal arriba a la derecha y un diálogo corto. En W12, Registrar caja pide la dirección MAC; al confirmar, la tabla se actualiza con la nueva caja y su batería. En W11, Invitar operador pide nombre y correo; al enviar, el operador aparece con estado Invitado hasta que active su cuenta.
+ 
+**WG6. Elegir y pagar un plan de suscripción**
+ 
+- **Persona:** Administrador de operaciones
+- **User goal:** "Quiero escoger el plan que se ajusta a mi flota y pagarlo para seguir usando el servicio."
+- **Wireflow:** W14 → formulario de pago → confirmación en W14
+![Wireflow WG6](./assets/ui/wireflows/web-wg6-suscripcion.png)
+*Figura 5.4.16. Wireflow WG6: suscripción a un plan.*
+ 
+Explicación: W14 repite los tres planes de la Landing Page (Starter, Pro y Enterprise) con la misma estructura y el plan Pro marcado como el más elegido, para que el administrador reconozca lo que ya vio antes de registrarse. Al elegir Starter o Pro, el paso siguiente muestra el formulario de método de pago y un resumen del monto; Enterprise lleva a contactar con ventas. Cuando el pago se aprueba, la pantalla vuelve a W14 con el plan actualizado.
+ 
+**WG7. Ver qué repartidores tienen más entregas perfectas**
+ 
+- **Persona:** Administrador de operaciones
+- **User goal:** "Quiero comparar a mis repartidores para reconocer a los mejores y detectar a quién apoyar."
+- **Wireflow:** W13 → W13 con mes seleccionado → W09 filtrado por operador
+![Wireflow WG7](./assets/ui/wireflows/web-wg7-analitica.png)
+*Figura 5.4.17. Wireflow WG7: analítica de repartidores.*
+ 
+Explicación: En W13 el administrador elige un mes y el gráfico se actualiza (nuevo estado del wireframe). Al tocar la barra de un operador, se abre el historial W09 ya filtrado por esa persona, para revisar sus entregas en detalle.
+ 
+#### 5.4.2.2. Delivery Operator Mobile App.
+ 
+**MG1. Ingresar a mi cuenta y ver mis pedidos asignados**
+ 
+- **Persona:** Operador de entrega
+- **User goal:** "Quiero entrar rápido a la app y ver qué pedidos tengo que entregar hoy."
+- **Wireflow:** M01 → M03 (y M01 → M02 → M01 si olvidó su contraseña)
+![Wireflow MG1](./assets/ui/wireflows/mobile-mg1-ingreso.png)
+*Figura 5.4.18. Wireflow MG1: ingreso y pedidos asignados.*
+ 
+Explicación: M01 tiene solo dos campos y un botón. Si la sesión ya está iniciada, la app salta directo a M03. Si el repartidor olvidó su contraseña, M02 le pide el correo y vuelve a M01 con un mensaje de confirmación. La cuenta del repartidor la crea el administrador (US12), por eso no incluimos un registro propio en la app.
+ 
+**MG2. Conectarme por Bluetooth a la caja de mi pedido**
+ 
+- **Persona:** Operador de entrega
+- **User goal:** "Quiero vincular mi celular con la caja del pedido para poder abrirla en el destino."
+- **Wireflow:** M03 → M04 → M05 → M06
+![Wireflow MG2](./assets/ui/wireflows/mobile-mg2-conexion-ble.png)
+*Figura 5.4.19. Wireflow MG2: conexión con la SmartBox.*
+ 
+Explicación: El repartidor elige su pedido en M03 y llega a M04, donde un recordatorio le pide activar el Bluetooth antes de salir. Conectar a la SmartBox abre M05, que muestra la búsqueda y la lista de cajas cercanas; la caja asignada al pedido aparece resaltada. Al vincularse, el LED de la caja confirma físicamente la conexión (US06) y la app muestra M06 con el estado de la caja. Que la confirmación sea doble (en el teléfono y en la caja) le da seguridad al repartidor de que está conectado a la caja correcta.
+ 
+**MG3. Abrir la caja en el destino con el código OTP**
+ 
+- **Persona:** Operador de entrega
+- **User goal:** "Al llegar con el cliente, quiero abrir la caja rápido con el código que me dieron."
+- **Wireflow:** M06 → M08 → M10 (y M08 → M09 → M08 si el código es incorrecto)
+![Wireflow MG3](./assets/ui/wireflows/mobile-mg3-desbloqueo-otp.png)
+*Figura 5.4.20. Wireflow MG3: desbloqueo con OTP.*
+ 
+Explicación: Desde M06, el botón Llegué al destino abre M08 con el teclado numérico ya desplegado. Al tocar Desbloquear se valida el código. Si es correcto, M10 confirma que el cerrojo se liberó. Si no lo es, el siguiente estado es M09, que mantiene las casillas a la vista, explica qué pasó y permite corregir sin volver a empezar.
+ 
+**MG4. Dejar evidencia fotográfica y cerrar la entrega**
+ 
+- **Persona:** Operador de entrega
+- **User goal:** "Quiero dejar una foto que pruebe que entregué bien el pedido, para que nadie me penalice injustamente."
+- **Wireflow:** M10 → M11 → M12 → M13
+![Wireflow MG4](./assets/ui/wireflows/mobile-mg4-evidencia.png)
+*Figura 5.4.21. Wireflow MG4: evidencia fotográfica y cierre.*
+ 
+Explicación: M10 lleva directo a la cámara (M11). Tras la captura, M12 muestra la foto en grande con Repetir y Enviar. Al enviar, M13 cierra el ciclo con un resumen. En las entrevistas, los repartidores vieron la foto como un respaldo a su trabajo, así que M13 lo refuerza con un mensaje de que la evidencia ya quedó asociada al pedido.
+ 
+**MG5. Corregir a tiempo una tapa mal cerrada durante el trayecto**
+ 
+- **Persona:** Operador de entrega
+- **User goal:** "Si la tapa quedó mal cerrada, quiero enterarme enseguida y arreglarlo sin que me tomen por sospechoso."
+- **Wireflow:** M06 → M07 → M06
+![Wireflow MG5](./assets/ui/wireflows/mobile-mg5-aviso-tapa.png)
+*Figura 5.4.22. Wireflow MG5: aviso preventivo por tapa mal cerrada.*
+ 
+Explicación: Durante M06, si los sensores detectan la tapa abierta con el pedido todavía dentro, la app pasa a M07 con un aviso preventivo. El tono es de ayuda, no de acusación: le dice qué ocurrió y qué hacer. Al cerrar bien la tapa vuelve a M06 con el aviso resuelto. Esta diferencia entre aviso preventivo y alerta crítica es la que definimos en la seguridad de dos niveles.
+ 
+---
 ### 5.4.3. Applications Mock-ups
 
+Los mock-ups son los wireframes con la identidad visual de Cold2Hot: color, tipografía, íconos, formas y estados. Los elaboramos en Figma a partir de los tokens de la Landing Page para que el producto se vea como una sola familia: quien entra desde el sitio web a la app reconoce enseguida los mismos colores, la misma tipografía y el mismo estilo de botones.
+
+#### Design System aplicado
+ 
+**Colores**
+ 
+Tomamos los colores de la Landing Page. Frío y caliente son los dos protagonistas de la marca, así que los usamos para representar los perfiles térmicos.
+ 
+| Token | Valor | Uso en las aplicaciones |
+| :--- | :--- | :--- |
+| `--cold` | `#2F80ED` | Perfil Frío, gráficos, íconos y elementos decorativos |
+| `--hot` | `#FF6B3D` | Perfil Caliente, gráficos y acentos |
+| `--ok` | `#12A46B` | Estado correcto (en rango, cerrado, entregado) |
+| `--warn` | `#F2A516` | Aviso preventivo |
+| `--ink` | `#0E1726` | Texto principal y botones primarios |
+| `--ink-2` | `#3C4A5E` | Texto secundario |
+| `--muted` | `#6B778A` | Metadatos y ayudas |
+| `--line` | `#E3E8ED` | Bordes y divisores |
+| `--bg` / `--bg-alt` | `#FFFFFF` / `#F5F8FC` | Fondo de pantallas y de secciones |
+| `--navy` | `#0B1422` | Barra lateral de la web y tema oscuro |
+
+**Ajustes de accesibilidad.** En las aplicaciones usamos las variantes más oscuras cuando se trata de texto, y agregamos un color para alertas críticas que la landing no necesitaba.
+
+| Combinación | Contraste | Decisión |
+| :--- | :---: | :--- |
+| `--ink` sobre blanco | 17.96:1 | Texto principal |
+| `--ink-2` sobre blanco | 9.00:1 | Texto secundario |
+| `--muted` sobre blanco | 4.53:1 | Solo metadatos de 14 sp o más |
+| Blanco sobre `--cold` (`#2F80ED`) | 3.87:1 | **No** se usa para texto normal; se usa `#1D63C4` (5.78:1) para botones y enlaces |
+| Blanco sobre `--hot` | 2.83:1 | **No** se usa; sobre `--hot` el texto es `--ink` (6.35:1) |
+| `--ok` sobre su fondo suave | 2.88:1 | **No** se usa; para texto de estado correcto se usa `#0B7A50` sobre `#E4F7EE` (4.81:1) |
+| Texto caliente `#C94A1F` sobre `#FFF0EA` | 4.22:1 | **No** se usa; se usa `#B03E16` (5.33:1) |
+| Blanco sobre alerta crítica `#B3261E` | 6.54:1 | Nuevo token `--danger` para alertas críticas |
+| `--ink` sobre `--warn` | 8.70:1 | Aviso preventivo |
+
+**Semántica de estados.** Cada estado se comunica con **color + ícono + texto**, nunca solo con color:
+
+| Estado | Color | Ícono | Texto de ejemplo |
+| :--- | :--- | :--- | :--- |
+| En rango / cerrado / entregado | Verde (`--ok-strong`) | Check | "En rango" |
+| Aviso preventivo | Ámbar (`--warn`) | Triángulo de advertencia | "Tapa mal cerrada" |
+| Desvío térmico | Naranja (`--hot-strong`) | Termómetro | "Fuera de rango" |
+| Alerta crítica | Rojo (`--danger`) | Escudo con exclamación | "Apertura no autorizada" |
+| Perfil Frío | Azul (`--cold-strong`) | Copo de nieve | "Frío" |
+| Perfil Caliente | Naranja (`--hot-strong`) | Llama | "Caliente" |
+
+**Tipografía.** *Space Grotesk* para títulos y cifras importantes (temperatura, OTP) y *Inter* para el resto, igual que la Landing Page.
+
+| Nivel | Fuente | Tamaño móvil | Tamaño web |
+| :--- | :--- | :---: | :---: |
+| Título de pantalla | Space Grotesk Bold | 24 sp | 32 px |
+| Título de sección | Space Grotesk SemiBold | 18 sp | 20 px |
+| Cifra destacada (temperatura, OTP) | Space Grotesk Bold | 32 sp | 40 px |
+| Cuerpo | Inter Regular | 16 sp | 16 px |
+| Metadato | Inter Medium | 14 sp | 14 px |
+ 
+**Forma, espaciado y elevación.** Esquinas de 16 px en tarjetas y de 10 px en campos; botones y etiquetas con forma de píldora, como en la landing. Cuadrícula de 8 px. Sombras suaves, sin bordes pesados.
+
+**Componentes principales**
+ 
+| Componente | Web (Angular Material) | Móvil (Flutter Material 3) |
+| :--- | :--- | :--- |
+| Navegación | `mat-sidenav` + `mat-toolbar` | `NavigationBar` de tres pestañas |
+| Botón primario | `mat-flat-button`, fondo `--ink`, forma de píldora | `FilledButton`, 56 dp de alto |
+| Campos | `mat-form-field` con etiqueta visible | `TextField` con etiqueta flotante |
+| Estado | `mat-chip` con ícono y texto | `Chip` con ícono y texto |
+| Datos | `mat-table` con paginación | `ListView` de tarjetas |
+| Mensajes | `mat-dialog`, `mat-snack-bar` | `showModalBottomSheet`, `SnackBar` |
+| Gráficas | Gráfico de línea (temperatura) y de barras (analítica) | Indicador de temperatura con rango |
+
+#### 5.4.3.1. Delivery Operator Mobile App.
+ 
+![Mock-ups Mobile App - acceso y pedidos](./assets/ui/mockups/mobile-mk-01-acceso-pedidos.png)
+*Figura 5.4.23. Mock-ups M01 a M04.*
+ 
+![Mock-ups Mobile App - conexión y ruta](./assets/ui/mockups/mobile-mk-02-conexion-ruta.png)
+*Figura 5.4.24. Mock-ups M05 a M07.*
+ 
+![Mock-ups Mobile App - desbloqueo](./assets/ui/mockups/mobile-mk-03-desbloqueo.png)
+*Figura 5.4.25. Mock-ups M08 a M10.*
+ 
+![Mock-ups Mobile App - evidencia y cierre](./assets/ui/mockups/mobile-mk-04-evidencia-cierre.png)
+*Figura 5.4.26. Mock-ups M11 a M13.*
+ 
+![Mock-ups Mobile App - historial y perfil](./assets/ui/mockups/mobile-mk-05-historial-perfil.png)
+*Figura 5.4.27. Mock-ups M14 y M15.*
+
+#### 5.4.3.2. Delivery Admin Web App.
+ 
+![Mock-ups Web App - acceso](./assets/ui/mockups/web-mk-01-acceso.png)
+*Figura 5.4.28. Mock-ups W01 a W03 (desktop).*
+ 
+![Mock-ups Web App - dashboard](./assets/ui/mockups/web-mk-02-dashboard.png)
+*Figura 5.4.29. Mock-up W04, dashboard de monitoreo (desktop).*
+ 
+![Mock-ups Web App - detalle del envío y alertas](./assets/ui/mockups/web-mk-03-detalle-alertas.png)
+*Figura 5.4.30. Mock-ups W05 y W08 (desktop).*
+ 
+![Mock-ups Web App - crear envío](./assets/ui/mockups/web-mk-04-crear-envio.png)
+*Figura 5.4.31. Mock-ups W06 y W07 (desktop).*
+ 
+![Mock-ups Web App - auditoría y analítica](./assets/ui/mockups/web-mk-05-auditoria-analitica.png)
+*Figura 5.4.32. Mock-ups W09, W10 y W13 (desktop).*
+ 
+![Mock-ups Web App - administración](./assets/ui/mockups/web-mk-06-administracion.png)
+*Figura 5.4.33. Mock-ups W11, W12, W14 y W15 (desktop).*
+ 
+![Mock-ups Web App - versión mobile web](./assets/ui/mockups/web-mk-07-mobile-web.png)
+*Figura 5.4.34. Mock-ups responsive (Mobile Web Browser) de W04, W05, W06 y W10.*
+
+---
+
 ### 5.4.4. Applications User Flow Diagrams
+
+#### 5.4.4.1. Delivery Admin Web App.
+ 
+**UF-WG1. Crear mi cuenta e ingresar a la plataforma**
+ 
+- **User goal:** Crear la cuenta del restaurante e ingresar a la plataforma.
+- **Happy path:** W01 → *Crear cuenta* → W02 → datos válidos → W04.
+- **Unhappy paths:** datos inválidos o correo ya registrado en W02; credenciales incorrectas en W01; contraseña olvidada.
+![User Flow WG1](./assets/ui/userflows/uf-wg1.png)
+*Figura 5.4.35. User Flow WG1: crear mi cuenta e ingresar a la plataforma.*
+ 
+Explicación: El flujo prioriza que el administrador no se quede bloqueado. Los errores se muestran junto al campo afectado y mantienen lo ya escrito. Al terminar el registro, W04 no aparece vacío sin más: muestra los primeros pasos para empezar a usar el producto.
+ 
+**UF-WG2. Despachar un pedido y obtener su código OTP**
+ 
+- **User goal:** Crear un envío con su perfil térmico y obtener el OTP.
+- **Happy path:** W04 → W06 → datos válidos → W07 → W05.
+- **Unhappy paths:** no hay cajas disponibles; datos incompletos o inválidos; falla al crear el envío.
+![User Flow WG2](./assets/ui/userflows/uf-wg2.png)
+*Figura 5.4.36. User Flow WG2: despachar un pedido y obtener su código OTP.*
+ 
+Explicación: Si no hay cajas disponibles, el flujo no deja al administrador sin salida: lo lleva a W12 para revisar o registrar cajas. El perfil térmico es obligatorio y no tiene valor por defecto, para que sea una decisión consciente en cada despacho.
+ 
+**UF-WG3. Vigilar mis envíos y reaccionar ante una alerta**
+ 
+- **User goal:** Monitorear las cajas en ruta y atender las alertas.
+- **Happy path:** W04 → *se muestra una alerta* → W08 → W05 → alerta atendida.
+- **Unhappy paths:** no hay envíos en ruta; se pierde la conexión con una caja; hay varias alertas simultáneas.
+![User Flow WG3](./assets/ui/userflows/uf-wg3.png)
+*Figura 5.4.37. User Flow WG3: vigilar mis envíos y reaccionar ante una alerta.*
+ 
+Explicación: Las alertas se atienden por gravedad. Si una caja pierde la conexión, el panel no muestra el último dato como si fuera actual: indica "sin datos recientes" con la hora del último registro, para no dar una falsa tranquilidad.
+ 
+**UF-WG4. Revisar una entrega para resolver un reclamo**
+ 
+- **User goal:** Encontrar una entrega y revisar su evidencia.
+- **Happy path:** W09 → buscar ID → W10 → ver gráfica, horarios y fotos.
+- **Unhappy paths:** el ID no existe; la entrega no tiene foto aún.
+![User Flow WG4](./assets/ui/userflows/uf-wg4.png)
+*Figura 5.4.38. User Flow WG4: revisar una entrega para resolver un reclamo.*
+ 
+Explicación: Si la foto todavía no llegó (por ejemplo, por falta de señal del repartidor), el panel lo dice con claridad en vez de mostrar un espacio vacío, para que el administrador sepa que la evidencia puede aparecer más tarde.
+ 
+**UF-WG5. Registrar mis cajas y mis repartidores**
+ 
+- **User goal:** Dar de alta cajas y operadores.
+- **Happy path:** W12 → *Registrar caja* → MAC válida → caja vinculada; W11 → *Invitar operador* → invitación enviada.
+- **Unhappy paths:** MAC con formato inválido; caja ya registrada; correo inválido o repetido.
+![User Flow WG5](./assets/ui/userflows/uf-wg5.png)
+*Figura 5.4.39. User Flow WG5: registrar mis cajas y mis repartidores.*
+ 
+Explicación: Las validaciones ocurren antes de enviar y el mensaje de error explica cómo corregirlo, por ejemplo mostrando el formato esperado de la dirección MAC.
+ 
+**UF-WG6. Elegir y pagar un plan de suscripción**
+ 
+- **User goal:** Seleccionar un plan y registrar el pago.
+- **Happy path:** W14 → elegir Starter o Pro → pago → plan actualizado.
+- **Unhappy paths:** pago rechazado; la flota supera el límite del plan; elección de Enterprise.
+![User Flow WG6](./assets/ui/userflows/uf-wg6.png)
+*Figura 5.4.40. User Flow WG6: elegir y pagar un plan de suscripción.*
+ 
+Explicación: El flujo evita que el administrador contrate un plan que no cubre su flota (por ejemplo, más de 5 cajas en Starter) y le propone el plan siguiente antes de pedir el pago.
+ 
+**UF-WG7. Ver el desempeño de los repartidores**
+ 
+- **User goal:** Comparar entregas exitosas por operador.
+- **Happy path:** W13 → elegir mes → ver gráfico → abrir las entregas de un operador en W09.
+- **Unhappy paths:** el mes no tiene datos.
+![User Flow WG7](./assets/ui/userflows/uf-wg7.png)
+*Figura 5.4.41. User Flow WG7: ver el desempeño de los repartidores.*
+ 
+Explicación: El gráfico no es un callejón sin salida: permite pasar de la cifra a las entregas que la componen.
+ 
+#### 5.4.4.2. Delivery Operator Mobile App.
+ 
+**UF-MG1. Ingresar y ver mis pedidos**
+ 
+- **User goal:** Entrar a la app y ver los pedidos asignados.
+- **Happy path:** M01 → credenciales correctas → M03.
+- **Unhappy paths:** credenciales incorrectas; cuenta aún no activada; sin conexión; contraseña olvidada; sin pedidos asignados.
+![User Flow MG1](./assets/ui/userflows/uf-mg1.png)
+*Figura 5.4.42. User Flow MG1: ingresar y ver mis pedidos.*
+ 
+Explicación: Mantener la sesión iniciada evita que el repartidor tenga que ingresar sus datos cada vez que arranca su turno. Los mensajes de error le dicen qué hacer, incluso cuando el problema está en el lado del restaurante.
+ 
+**UF-MG2. Conectarme a la caja de mi pedido**
+ 
+- **User goal:** Vincular el teléfono con la SmartBox asignada.
+- **Happy path:** M03 → M04 → M05 → vinculación exitosa → M06.
+- **Unhappy paths:** Bluetooth apagado; permisos negados; caja no encontrada; caja que no corresponde al pedido; falla de vinculación.
+![User Flow MG2](./assets/ui/userflows/uf-mg2.png)
+*Figura 5.4.43. User Flow MG2: conectarme a la caja de mi pedido.*
+ 
+Explicación: Es el flujo con más posibles fallos, por eso cada rama explica qué pasó y ofrece la acción para continuar. El paso de verificar que la caja corresponde al pedido evita usar una SmartBox equivocada.
+ 
+**UF-MG3. Abrir la caja con el OTP**
+ 
+- **User goal:** Desbloquear la caja en el destino.
+- **Happy path:** M06 → M08 → código correcto → M10.
+- **Unhappy paths:** código incorrecto; código vencido; intentos agotados; Bluetooth desconectado; sin internet.
+![User Flow MG3](./assets/ui/userflows/uf-mg3.png)
+*Figura 5.4.44. User Flow MG3: abrir la caja con el OTP.*
+ 
+Explicación: Si no hay internet, el desbloqueo sigue siendo posible porque la validación puede hacerse con la caja por Bluetooth, tal como lo definimos en la arquitectura del Capítulo IV; el evento se sincroniza después. Cuando el código falla, el mensaje no culpa al repartidor: indica si el código es incorrecto o está vencido y qué hacer.
+ 
+**UF-MG4. Dejar evidencia y cerrar la entrega**
+ 
+- **User goal:** Subir la foto de entrega y completar el pedido.
+- **Happy path:** M10 → M11 → M12 → *Enviar* → M13.
+- **Unhappy paths:** permiso de cámara negado; foto borrosa o mal encuadrada; sin internet; falla al subir.
+![User Flow MG4](./assets/ui/userflows/uf-mg4.png)
+*Figura 5.4.45. User Flow MG4: dejar evidencia y cerrar la entrega.*
+ 
+Explicación: Aunque no haya señal, el repartidor puede cerrar la entrega. La foto queda guardada y se envía cuando vuelve la conexión, con un estado visible en M13. Así la falta de internet no se convierte en un problema del repartidor.
+ 
+**UF-MG5. Corregir una tapa mal cerrada**
+ 
+- **User goal:** Resolver un aviso preventivo durante el trayecto.
+- **Happy path:** M06 → M07 → cierra la tapa → M06 con el aviso resuelto.
+- **Unhappy paths:** la tapa sigue abierta; se detecta que el pedido fue extraído.
+![User Flow MG5](./assets/ui/userflows/uf-mg5.png)
+*Figura 5.4.46. User Flow MG5: corregir una tapa mal cerrada.*
+ 
+Explicación: El flujo muestra la diferencia entre un descuido y una manipulación. Si el pedido sigue dentro, la app solo avisa al repartidor para que corrija. Si el pedido ya no está, se genera una alerta crítica para el administrador y el repartidor queda informado de que se notificó, sin sorpresas.
 
 ## 5.5. Applications Prototyping
 
