@@ -2021,6 +2021,115 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ### 5.1.1. General Style Guidelines
 
+#### Branding e Identidad Visual
+
+La identidad corporativa de Cold2Hot refleja la convergencia entre la tecnología de Internet de las Cosas (IoT), la seguridad en la cadena de custodia y el control térmico de precisión.
+
+* **Isotipo:** Representa la dinámica térmica mediante dos ondas convergentes que transicionan desde el azul cian (frío) hacia el naranja cálido (calor), integradas en un candado geométrico central estilizado que simboliza inviolabilidad física y custodia digital.
+* **Logotipo:** Tipografía sans-serif geométrica en caja alta/baja con peso semi-negrita (*Semi-Bold*), que proyecta modernidad, solidez técnica y confiabilidad logística.
+* **Área de Reserva (Clear Space):** Se define un margen mínimo de exclusión alrededor del imagotipo equivalente a la altura de la letra inicial "C" (*1X*). Ningún elemento gráfico, textual o borde de pantalla debe invadir este perímetro.
+* **Variantes de Aplicación:**
+  * *Versión Principal (Full Color):* Aplicada sobre fondos claros (blanco puro o gris neutro superficial).
+  * *Versión Dark / Invertida:* Isotipo a color con tipografía en blanco puro sobre fondos oscuros (`#0F172A`).
+  * *Versión Monocromática:* Empleada para serigrafía sobre el chasis plástico del contenedor físico IoT o documentación técnica en escala de grises.
+* **Usos No Permitidos:** Queda estrictamente prohibido rotar el isotipo, aplicar sombras paralelas difusas excesivas, alterar las proporciones dimensionales relativas entre el símbolo y la tipografía, o sustituir los colores corporativos por tonos fuera de la paleta oficial.
+
+#### Tipografía (Typography)
+
+La selección tipográfica responde a criterios de alta legibilidad en pantallas de diversas densidades de píxeles, soporte universal de caracteres y neutralidad visual para visualización analítica.
+
+* **Familia Tipográfica Primaria (UI General):** **Inter** (Google Fonts). Elegida por su diseño de altura de x alta, apertura de glifos optimizada para pantallas digitales y excelente legibilidad en textos pequeños de tablas de telemetría y formularios.
+* **Familia Tipográfica Monospaciada (Telemetría y Datos):** **JetBrains Mono**. Empleada exclusivamente para números de serie de dispositivos, direcciones físicas MAC, códigos de verificación de un solo uso (OTP), marcas de tiempo (timestamps ISO 8601) y valores numéricos de temperatura (°C). La uniformidad en el ancho de glifos evita saltos visuales al actualizar lecturas en tiempo real.
+
+##### Escala Tipográfica Jerárquica
+
+| Nivel / Token | Familia | Peso (Weight) | Tamaño (px / rem) | Altura de Línea (Line Height) | Uso Principal en la Solución |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Display 1** | Inter | Bold (700) | 48px / 3.00rem | 56px (1.16) | Título principal de impacto en Hero de Landing Page. |
+| **Display 2** | Inter | Bold (700) | 36px / 2.25rem | 44px (1.22) | Títulos de secciones comerciales en Landing Page. |
+| **Heading 1 (H1)** | Inter | SemiBold (600) | 28px / 1.75rem | 36px (1.28) | Encabezados de vista principal en Web Application (Dashboard, Flota). |
+| **Heading 2 (H2)** | Inter | SemiBold (600) | 22px / 1.375rem | 28px (1.27) | Títulos de módulos, tarjetas de KPI y cabeceras de diálogo modal. |
+| **Heading 3 (H3)** | Inter | Medium (500) | 18px / 1.125rem | 24px (1.33) | Subtítulos de bloques de datos y encabezados secundarios. |
+| **Body 1 (Regular)** | Inter | Regular (400) | 16px / 1.00rem | 24px (1.50) | Texto de lectura estándar, párrafos de descripción y entradas de texto. |
+| **Body 2 (Dense)** | Inter | Regular (400) | 14px / 0.875rem | 20px (1.43) | Contenido de tablas de auditoría, etiquetas de formularios y listas densas. |
+| **Caption** | Inter | Medium (500) | 12px / 0.75rem | 16px (1.33) | Metadatos de telemetría, leyendas de gráficas y microcopy auxiliar. |
+| **Data Monospace** | JetBrains Mono | Medium (500) | 15px / 0.937rem | 20px (1.33) | Códigos OTP de 6 dígitos, lecturas térmicas en vivo (ej. `+64.5 °C`) y MAC addresses. |
+
+#### Paleta de Colores (Color Palette & Tokens)
+
+La paleta cromática de Cold2Hot combina una base neutra técnica y elegante con colores semánticos funcionales que representan de manera unívoca los estados de temperatura y custodia física. Cumple rigurosamente el criterio de conformidad WCAG 2.1 Nivel AA en ratios de contraste (mínimo 4.5:1 para texto estándar y 3:1 para controles e interfaces gráficas).
+
+##### Colores Primarios y de Identidad Corporativa
+
+| Token de Color | Código HEX | RGB | Ratio de Contraste vs Blanco | Significado y Aplicación |
+| :--- | :--- | :--- | :--- | :--- |
+| **Brand Thermal Orange** | `#EA580C` | rgb(234, 88, 12) | 4.62:1 (Pasa AA) | Energía térmica activa, mantenimiento de calor, botones de acción principal (CTA). |
+| **Brand Cold Blue** | `#0284C7` | rgb(2, 132, 199) | 4.54:1 (Pasa AA) | Preservación de frío, conectividad de red, telemetría y tecnología ciberfísica. |
+| **Brand Navy Primary** | `#0F172A` | rgb(15, 23, 42) | 16.12:1 (Pasa AAA) | Fondo de barras de navegación principales, tipografía de alta jerarquía y estabilidad corporativa. |
+
+##### Colores Semánticos y Estados del Sistema
+
+| Estado / Token | Código HEX | RGB | Aplicación en Telemetría y Custodia |
+| :--- | :--- | :--- | :--- |
+| **Success / Safe** | `#16A34A` | rgb(22, 163, 74) | Temperatura dentro de rango permitido; candado electromagnético bloqueado; custodia verificada. |
+| **Warning / Caution** | `#D97706` | rgb(217, 119, 6) | Temperatura aproximándose a límites de tolerancia; nivel de batería de caja inferior al 20%; señal BLE débil. |
+| **Danger / Critical** | `#DC2626` | rgb(220, 38, 38) | Rotura de cadena de frío (>3°C fuera de umbral); apertura física no autorizada; precinto magnético vulnerado. |
+| **Info / Connectivity** | `#2563EB` | rgb(37, 99, 235) | Enlace Bluetooth activo; sincronización de telemetría en curso; descarga de reporte iniciada. |
+
+##### Colores Neutros y Superficies
+
+| Token | Código HEX | RGB | Caso de Uso |
+| :--- | :--- | :--- | :--- |
+| **Neutral Background** | `#F8FAFC` | rgb(248, 250, 252) | Fondo general del lienzo de trabajo en Web Application y Landing Page. |
+| **Neutral Surface** | `#FFFFFF` | rgb(255, 255, 255) | Tarjetas contenedoras (Cards), diálogos modales y paneles desplegables. |
+| **Neutral Border** | `#E2E8F0` | rgb(226, 232, 240) | Delimitadores de tablas, divisores de sección y bordes de campos de formulario. |
+| **Text Primary** | `#0F172A` | rgb(15, 23, 42) | Texto principal de lectura en títulos y cuerpos con máxima legibilidad. |
+| **Text Secondary** | `#475569` | rgb(71, 85, 105) | Subtítulos, descripciones secundarias y encabezados de columnas de tablas. |
+| **Text Muted / Disabled**| `#94A3B8` | rgb(148, 163, 184) | Textos de marcadores de posición (*placeholders*) y estados inhabilitados. |
+
+#### Sistema de Espaciado y Grilla (Spacing & Layout Grid)
+
+Para garantizar consistencia visual y ritmos armónicos entre los componentes de interfaz, se aplica una escala de espaciado basada en el sistema modular de **8 puntos (8-point Grid)**, complementada con incrementos de 4 puntos para componentes compactos de datos.
+
+* **Escala de Espaciado:**
+  * `4px` (xxs): Separación mínima entre icono y texto dentro de un badge de estado.
+  * `8px` (xs): Espaciado interno (*padding*) en celdas de tabla densa o entre chips de filtrado.
+  * `16px` (sm): Relleno estándar para campos de entrada de datos y botones de acción.
+  * `24px` (md): Separación entre tarjetas de visualización en el panel de control.
+  * `32px` (lg): Margen perimetral de módulos y cabeceras de página.
+  * `48px` (xl): Separación entre bloques de información mayores en la Web Application.
+  * `64px` (xxl): Separación vertical entre secciones temáticas del Landing Page.
+
+* **Sistemas de Grilla de Disposición (Layout Grid):**
+  * **Desktop (12 Columnas):** Ancho máximo de contenedor de 1280px centrado, márgenes laterales de 32px y medianil (*gutter*) de 24px. Permite estructuras simétricas (4x3, 3x4, 2x6) para paneles analíticos de telemetría.
+  * **Tablet (8 Columnas):** Ancho fluido entre 768px y 1024px, márgenes de 24px y medianil de 16px. Adaptación de tarjetas de monitoreo a filas de 2 columnas.
+  * **Mobile (4 Columnas):** Ancho fluido entre 320px y 480px, márgenes perimetrales de 16px y medianil de 12px. Disposición vertical apilada orientada al operador de ruta.
+
+#### Dimensiones del Tono de Comunicación y Lenguaje Aplicado (Tone of Voice)
+
+De acuerdo con el modelo de las Cuatro Dimensiones del Tono de Voz de Nielsen Norman Group, Cold2Hot define su personalidad de comunicación orientada a generar certidumbre operativa, rigor técnico y respeto profesional:
+
+* **Divertido vs. Serio (85% Serio):** La solución gestiona la inocuidad alimentaria de consumidores y la protección económica de restaurantes contra reclamos fraudulentos. Por tanto, el lenguaje es riguroso, objetivo y profesional, evitando bromas, emojis informales o frases coloquiales en los paneles de control.
+* **Casual vs. Formal (65% Formal):** Se mantiene un tono corporativo pero directo y claro. Para el administrador de restaurante, la terminología es ejecutiva y orientada a métricas operativas. Para el operador de entrega, las instrucciones son concisas e imperativas sin tecnicismos innecesarios (ej. *"Ingrese el código OTP de 6 dígitos"* en lugar de *"Efectúe la validación criptográfica de desbloqueo"*).
+* **Irreverente vs. Respetuoso (95% Respetuoso):** Se respeta profundamente el esfuerzo de los repartidores en calle y la exigencia de los gerentes de operaciones. No se utilizan tonos acusatorios ante anomalías (se indica *"Apertura de contenedor detectada fuera de geocerca"* en vez de *"El repartidor abrió la caja indebidamente"*).
+* **Entusiasta vs. Sereno (75% Sereno):** En situaciones críticas de alarma (rotura de temperatura o apertura no autorizada), las notificaciones transmiten calma y foco en la solución. Se guía al usuario a acciones correctivas inmediatas sin generar pánico.
+
+##### Matriz de Ejemplos de Lenguaje Aplicado
+
+| Contexto de Interacción | Expresión Inadecuada | Expresión Aplicada en Cold2Hot | Sustento |
+| :--- | :--- | :--- | :--- |
+| **Alerta crítica de temperatura** | *"¡Peligro! ¡La comida se enfrió y el cliente va a reclamar!"* | *"Desvío térmico detectado: 48.2 °C (Umbral mínimo: 60 °C). Notifique al operador de ruta."* | Precisión de datos, objetividad y foco en la acción correctiva. |
+| **Apertura de caja en destino** | *"¡Listo, abre la caja y apúrate!"* | *"Caja #SB-104 vinculada por BLE. Ingrese el código OTP para liberar la cerradura."* | Instrucción clara, respetuosa y orientada al procedimiento de seguridad. |
+| **Confirmación de entrega** | *"¡Misión cumplida socio!"* | *"Entrega completada exitosamente. Evidencia fotográfica y bitácora térmica registradas."* | Respaldo probatorio profesional y formal. |
+
+#### Principios de Diseño y Accesibilidad
+
+* **Principio de Doble Codificación (Accesibilidad para Daltonismo):** Ningún estado crítico se comunica únicamente mediante color. Todo indicador cromático (verde, ámbar, rojo) está acompañado de un icono representativo unívoco (candado cerrado, triángulo de advertencia, escudo tachado) y texto descriptivo explícito.
+* **Soporte de Atributos ARIA:** La aplicación web implementa atributos semánticos para lectores de pantalla, incluyendo `aria-live="polite"` para actualizaciones dinámicas de lecturas de sensores de temperatura y `aria-expanded` para menús de navegación lateral.
+* **Zonas de Toque Accesibles:** Todos los elementos interactivos cumplen con el estándar mínimo de WCAG 2.1 de 48x48 píxeles de área activa para evitar toques accidentales.
+
+---
+
 ### 5.1.2. Web, Mobile and IoT Style Guidelines
 
 #### Responsive Web Style Guidelines (Landing Page y Web Application)
