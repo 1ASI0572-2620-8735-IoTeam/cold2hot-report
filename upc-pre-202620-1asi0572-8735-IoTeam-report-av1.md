@@ -2035,6 +2035,65 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ### 5.2.5. Navigation Systems
 
+El sistema de navegación provee estructuras claras que garantizan que los usuarios comprendan en todo momento su ubicación actual dentro del sistema, qué acciones pueden llevar a cabo y cómo retornar a estados anteriores.
+
+#### Estructuras de Navegación por Canal Digital
+
+```mermaid
+flowchart TD
+    subgraph LandingPage ["Landing Page (Web Estática)"]
+        LP_Hero["Inicio / Hero"] --> LP_Sol["Solución IoT"]
+        LP_Sol --> LP_ROI["Calculadora ROI"]
+        LP_ROI --> LP_Precios["Planes y Precios"]
+        LP_Precios --> LP_Contacto["Contacto y Demo"]
+        LP_Contacto --> LP_Login["Acceso Clientes"]
+    end
+
+    subgraph WebApp ["Web Application (Administrador de Operaciones)"]
+        WA_Login["Inicio de Sesión"] --> WA_Dashboard["Panel Principal (Dashboard)"]
+        WA_Dashboard --> WA_Live["Monitoreo en Vivo (Mapa & Telemetría)"]
+        WA_Dashboard --> WA_Shipments["Gestión de Envíos (Crear / Despachar)"]
+        WA_Dashboard --> WA_SmartBoxes["Cajas Inteligentes (Flota & Baterías)"]
+        WA_Dashboard --> WA_Audit["Historial y Auditoría (Fotos & Temperaturas)"]
+        WA_Dashboard --> WA_Drivers["Directorio de Repartidores"]
+        WA_Dashboard --> WA_Settings["Configuración del Restaurante"]
+    end
+
+    subgraph MobileApp ["Mobile Application (Operador de Entrega)"]
+        MA_Auth["Autenticación del Repartidor"] --> MA_Home["Mi Ruta (Envíos Asignados)"]
+        MA_Home --> MA_BLE["Vinculación BLE con Caja Inteligente"]
+        MA_BLE --> MA_Unlock["Desbloqueo por OTP (Cerradura)"]
+        MA_Unlock --> MA_Photo["Captura de Evidencia Fotográfica"]
+        MA_Photo --> MA_Finish["Confirmación de Entrega Exitosa"]
+    end
+
+    LP_Login -.-> WA_Login
+```
+
+1. **Navegación Global (Principal):**
+   * *Landing Page:* Barra de navegación superior fija (*Sticky Navigation Bar*) con enlaces de ancla suaves a las secciones de la página, selector de idioma (EN/ES) y botón destacado de llamado a la acción *"Acceso a Clientes"*. En pantallas móviles, se colapsa en un menú hamburguesa accesible.
+   * *Web Application:* Barra de navegación lateral persistente (*Collapsible Sidebar*) anclada a la izquierda. Muestra iconos descriptivos de Material Design con etiquetas textuales claras. Puede contraerse para maximizar el área de visualización de mapas y telemetría de pantalla completa.
+   * *Mobile Application:* Barra de navegación inferior (*Bottom Navigation Bar*) con 3 destinos clave accesibles con el pulgar: *Mi Ruta*, *Caja IoT* y *Mi Perfil*.
+
+2. **Navegación Local (Secundaria):**
+   * *Web Application:* Pestañas horizontales (*Tabs*) dentro de la vista detallada de una SmartBox específica:
+     * *Pestaña 1: Telemetría Actual* (Lecturas de temperatura en vivo, estado del Reed switch y nivel de batería).
+     * *Pestaña 2: Historial Térmico* (Gráfica temporal de temperaturas registradas en el último trayecto).
+     * *Pestaña 3: Registro de Seguridad* (Marcas de tiempo de desbloqueos por OTP y eventos de apertura).
+     * *Pestaña 4: Diagnóstico de Hardware* (Firmware del ESP32, estado de sensores y calibración).
+
+3. **Navegación Contextual (Cross-linking):**
+   * Al recibir una notificación en la campana de alertas sobre una rotura térmica, hacer clic sobre la alerta redirige automáticamente a la vista de la orden afectada con el segmento anómalo de la gráfica resaltado.
+   * En la tabla de auditoría de pedidos, cada fila incluye un botón directo *"Ver Reporte Probatorio"* que abre el visor de evidencias fotográficas tomadas por el operador en el domicilio del comensal.
+
+4. **Navegación Suplementaria:**
+   * **Migas de Pan (Breadcrumbs):** Implementadas en la parte superior del panel administrativo para indicar la jerarquía actual de navegación (ej. `Panel Principal > Cajas Inteligentes > SmartBox #SB-102 > Historial Térmico`).
+   * **Pie de Página (Footer):** En el Landing Page, incluye mapa del sitio completo organizado en columnas temáticas (*Producto*, *Empresa*, *Seguridad & Legal*, *Contacto*), además de enlaces a términos de servicio conforme al código de ética profesional.
+
+5. **Navegación de Cortesía y Mecanismos de Retorno:**
+   * Botón explícito *"Volver"* en todas las vistas de detalle secundarias, preservando los filtros de búsqueda y la página seleccionada previamente.
+   * Cuadros de diálogo modales con confirmación ante intentos de cancelar la creación de un nuevo envío para evitar pérdida accidental de datos ingresados.
+
 ## 5.3. Landing Page UI Design
 
 ### 5.3.1. Landing Page Wireframe
