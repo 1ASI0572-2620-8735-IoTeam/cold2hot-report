@@ -2027,6 +2027,39 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ### 5.2.1. Organization Systems
 
+#### Estructuras de Organización Visual del Contenido
+
+1. **Organización Jerárquica (Visual Hierarchy):**
+   * *Landing Page:* Estructurada bajo un embudo de conversión descendente:
+     Hero (Propuesta de Valor) $\rightarrow$ Problemática y Pérdidas $\rightarrow$ Solución Tecnológica $\rightarrow$ Calculadora ROI $\rightarrow$ Planes y Precios $\rightarrow$ Contacto y Registro.
+   * *Web Application (Panel de Monitoreo):* Distribución en tres niveles de profundidad visual:
+     * *Nivel Macro (KPIs de Flota):* Envíos activos, porcentaje de cumplimiento térmico global y alertas críticas en curso.
+     * *Nivel Meso (Lista y Mapa de Despachos):* Tabla tabular ordenada cronológicamente y mapa georreferenciado con estado de cada vehículo.
+     * *Nivel Micro (Ficha Detallada de Envío):* Gráfica de telemetría continua de temperatura segundo a segundo, historial de aperturas del contenedor y fotografías de evidencia de entrega.
+   * *Mobile Application:* Jerarquía centrada en el estado de la tarea en curso: estado de la conexión BLE en la cabecera superior, temperatura actual y estado de cerradura en el cuerpo central, y botón de acción principal ("Ingresar OTP para Desbloquear") en el área inferior.
+
+2. **Organización Secuencial (Step-by-Step / Flujos Lineales):**
+   * *Flujo de Creación y Despacho de Pedido (Web Application):*
+     Paso 1: Datos del Pedido $\rightarrow$ Paso 2: Selección de Perfil Térmico (Frío/Caliente) $\rightarrow$ Paso 3: Asignación de SmartBox y Repartidor $\rightarrow$ Paso 4: Generación de OTP e Inicio de Custodia.
+   * *Flujo de Entrega y Custodia en Destino (Mobile Application):*
+     Paso 1: Detección BLE en Destino $\rightarrow$ Paso 2: Ingreso de Código OTP de 6 dígitos $\rightarrow$ Paso 3: Retiro de Alimentos y Cierre Físico $\rightarrow$ Paso 4: Captura Obligatoria de Fotografía $\rightarrow$ Paso 5: Cierre de Entrega.
+
+3. **Organización Matricial (Multi-dimensional):**
+   * *Módulo de Auditoría y Reportes (Web Application):* Permite cruzar simultáneamente múltiples dimensiones analíticas sin imponer una jerarquía rígida. Un usuario puede filtrar pedidos cruzando variables de fecha, sucursal del restaurante, operador de entrega, contenedor SmartBox asignado y resultado de la custodia (sin incidencias térmicas vs. con rotura térmica).
+   * *Inventario de Dispositivos SmartBox:* Matriz de gestión que relaciona el identificador físico del hardware con su estado operativo (Disponible, Asignado en ruta, En mantenimiento, Batería baja) y su sucursal de pertenencia.
+
+#### Esquemas de Categorización de Contenido
+
+* **Esquema Cronológico:** Utilizado en la bitácora de telemetría de temperatura en tiempo real (registros organizados de más reciente a más antiguo), en el historial de eventos de auditoría y en la bandeja de notificaciones operativas.
+* **Esquema Alfabético:** Aplicado en el directorio de operadores de entrega registrados, en el listado de locales y restaurantes clientes, y en el catálogo de perfiles térmicos preconfigurados (ej. *"Carnes calientes (+65 °C)"*, *"Comida rápida (+55 °C)"*, *"Helados artesanales (-18 °C)"*, *"Sushi y pescados crudos (+4 °C)"*).
+* **Esquema por Tópicos (Temático):** Empleado en el módulo de configuración general de la Web Application, agrupando las opciones en: *Dispositivos IoT*, *Gestión de Personal*, *Perfiles Térmicos de Alimentos*, *Facturación y Planes*, y *Seguridad y Accesos*.
+* **Esquema por Audiencia (Audience-Specific):** Vistas y niveles de acceso adaptados estrictamente al rol del usuario en la plataforma:
+  * *Audiencia 1 - Administrador de Operaciones (Restaurante):* Acceso integral a analítica de pérdidas evitadas, configuración de umbrales, auditoría de reclamos y gestión de personal.
+  * *Audiencia 2 - Operador de Entrega (Repartidor):* Acceso restringido exclusivamente a las órdenes de su turno, visualización del estado de su caja enlazada por Bluetooth y captura de evidencias.
+  * *Audiencia 3 - Visitante Comercial:* Acceso a información corporativa, casos de éxito, simulador interactivo de ahorro y cotizador de suscripciones en el Landing Page.
+
+---
+
 ### 5.2.2. Labeling Systems
 
 El sistema de rotulado de Cold2Hot define etiquetas unívocas, concisas y orientadas a los modelos mentales de los usuarios, evitando ambigüedades técnicas y alineándose rigurosamente con el lenguaje ubicuo establecido en el proyecto.
