@@ -2031,6 +2031,84 @@ El diseño relacional se implementa en MySQL 8.0. del bounded context Orders & A
 
 ### 5.2.3. SEO Tags and Meta Tags
 
+Para maximizar el posicionamiento orgánico en motores de búsqueda de la Landing Page y garantizar optimización en tiendas de aplicaciones móviles (App Store Optimization - ASO), se especifican las etiquetas y metadatos estándar a continuación.
+
+#### Meta Tags para Páginas Clave (Web y Landing Page)
+
+##### 1. Landing Page - Página de Inicio (`/index.html`)
+
+```html
+<!-- Metadatos Primarios -->
+<title>Cold2Hot | Cajas Inteligentes IoT y Trazabilidad Térmica para Delivery</title>
+<meta name="title" content="Cold2Hot | Cajas Inteligentes IoT y Trazabilidad Térmica para Delivery">
+<meta name="description" content="Protege la calidad y seguridad de tus pedidos en ruta con Cold2Hot. Contenedores inteligentes con control térmico, cerradura electromagnética por OTP y auditoría de entregas.">
+<meta name="keywords" content="cold2hot, cajas delivery inteligentes, trazabilidad termica, cadena de frio alimentos, seguridad delivery, cerradura iot, esp32 logistica">
+<meta name="author" content="IoTeam - Cold2Hot Technologies">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://cold2hot.io/">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cold2hot.io/">
+<meta property="og:title" content="Cold2Hot | Cajas Inteligentes IoT y Trazabilidad Térmica">
+<meta property="og:description" content="Elimina reclamos por comida fría o pedidos manipulados. Descubre el sistema IoT que revoluciona el delivery de última milla.">
+<meta property="og:image" content="https://cold2hot.io/assets/og-cover-cold2hot.png">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://cold2hot.io/">
+<meta name="twitter:title" content="Cold2Hot | Cajas Inteligentes IoT para Delivery">
+<meta name="twitter:description" content="Control térmico en tiempo real y cerradura segura por código OTP para reparto de comida.">
+<meta name="twitter:image" content="https://cold2hot.io/assets/twitter-card-cold2hot.png">
+```
+
+##### 2. Landing Page - Calculadora de Retorno de Inversión (`/roi-calculator`)
+
+```html
+<title>Calculadora de Ahorro y ROI Logístico | Cold2Hot</title>
+<meta name="description" content="Calcula cuánto dinero pierde tu restaurante al mes por quejas de temperatura o entregas disputadas y proyecta tu ahorro implementando Cold2Hot.">
+<meta name="keywords" content="calculadora roi delivery, ahorro logistica alimentos, reduccion reclamos pedidos, rentabilidad delivery comida">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cold2hot.io/roi-calculator">
+<meta property="og:title" content="Calcula el Retorno de Inversión con Cold2Hot">
+<meta property="og:description" content="Simula tu ahorro operativo mensual y descubre el impacto de blindar la cadena de custodia térmica.">
+```
+
+##### 3. Landing Page - Planes de Suscripción (`/pricing`)
+
+```html
+<title>Planes y Suscripciones de Software IoT | Cold2Hot</title>
+<meta name="description" content="Conoce nuestros planes de suscripción mensual para restaurantes y flotas de delivery. Monitoreo en tiempo real, auditoría fotográfica y soporte técnico continuo.">
+<meta name="keywords" content="precios software delivery, planes suscripcion iot, tarifas trazabilidad alimentos, cold2hot precios">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cold2hot.io/pricing">
+```
+
+##### 4. Web Application - Panel de Monitoreo (`/admin/dashboard`)
+
+```html
+<!-- Restricción de indexación para resguardar la privacidad de datos corporativos -->
+<title>Cold2Hot Admin | Panel de Control y Monitoreo de Flota</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+#### Elementos de Optimización para Tiendas de Aplicaciones Móviles (ASO)
+
+Para la distribución de la aplicación móvil de repartidores a través de Google Play Store y Apple App Store:
+
+| Parámetro ASO | Valor Asignado | Justificación Estratégica |
+| :--- | :--- | :--- |
+| **App Title** | Cold2Hot Driver: Reparto Seguro & Custodia IoT | Incluye el nombre de marca y términos clave de alta intención de búsqueda (Reparto, Seguro, Custodia, IoT). |
+| **App Subtitle (iOS)** | Desbloqueo por OTP y Trazabilidad | 30 caracteres directos orientados a la funcionalidad de valor para el conductor. |
+| **Categoría** | Empresa / Logística y Transporte (Business) | Clasificación precisa para herramientas de trabajo y productividad logística. |
+| **Descripción Breve** | Conecta tu caja inteligente por Bluetooth, destraba con OTP y certifica tu entrega con fotos. | Resumen de valor claro dentro del límite de 80 caracteres de Google Play. |
+| **Palabras Clave (Keywords)** | repartidor, delivery, caja inteligente, smartbox, cadena de custodia, termica, otp, evidencia fotografica, control logistico | Términos clave con balance entre volumen de búsqueda y relevancia funcional de la app. |
+| **Capturas de Pantalla (Screenshots)** | 5 capturas en resolución 1080x2400 px con rótulos destacados: (1) Enlace Bluetooth con un toque, (2) Monitoreo de temperatura en ruta, (3) Apertura rápida con OTP de 6 dígitos, (4) Captura y validación de fotografía de entrega, (5) Historial de entregas sin penalizaciones. | Guía visual que demuestra facilidad de uso y protección laboral para el repartidor. |
+
+---
+
 ### 5.2.4. Searching Systems
 
 Los sistemas de búsqueda en Cold2Hot están diseñados para evitar la sobrecarga cognitiva del administrador ante volúmenes crecientes de despachos diarios, permitiendo localizar cualquier envío, alerta o dispositivo en menos de tres segundos.
