@@ -2992,6 +2992,13 @@ Explicación: Aunque no haya señal, el repartidor puede cerrar la entrega. La f
 Explicación: El flujo muestra la diferencia entre un descuido y una manipulación. Si el pedido sigue dentro, la app solo avisa al repartidor para que corrija. Si el pedido ya no está, se genera una alerta crítica para el administrador y el repartidor queda informado de que se notificó, sin sorpresas.
 
 ## 5.5. Applications Prototyping
+Esta sección documenta los prototipos de interfaz de usuario (UI) y su funcionamiento. A continuación, se detallan los entregables y requisitos obligatorios:
+
+*   **Alcance de los Prototipos:** Crear prototipos interactivos para **Desktop** * que simulen la navegación según los flujos de usuario (*User Flow Diagrams*).
+*   **Introducción y Criterios:** Iniciar la sección explicando los criterios principales que justifican las decisiones de diseño e interacción.
+*   **Arquitectura de Información (AI):** Evidenciar cómo el sistema de navegación y los tipos de interacción elegidos se relacionan directamente con la AI propuesta.
+![User Flow MG5](./assets/ui/userflows/foto1.png)
+
 
 ## 5.6. IoT Device Design
 
