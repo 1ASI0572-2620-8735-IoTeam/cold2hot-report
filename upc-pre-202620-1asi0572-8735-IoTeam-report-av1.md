@@ -3001,6 +3001,95 @@ Esta sección documenta los prototipos de interfaz de usuario (UI) y su funciona
 
 
 ## 5.6. IoT Device Design
+Esta sección presenta la propuesta integral de diseño físico y diseño de circuito electrónico del dispositivo ciberfísico central de la solución: la **SmartBox Cold2Hot**. El diseño abarca desde la selección de materiales, ergonomía vehicular y distribución espacial de componentes, hasta el esquema circuital con el microcontrolador ESP32, sensores, actuadores de potencia y los flujos de interacción que gobiernan el prototipo en ruta.
+---
+### 5.6.1. Introducción y Criterios de Decisión de Diseño
+El diseño del dispositivo IoT responde a las exigencias operativas del transporte de alimentos en la última milla gastronómica, caracterizado por baches, vibración vehicular continua, variaciones climáticas abruptas y tiempos ajustados de entrega. Las decisiones de ingeniería se fundamentan en cinco criterios principales:
+1. **Ergonomía vehicular y facilidad de operación en calle:** El contenedor está optimizado para montarse de forma segura en parrillas de motocicletas o mochilas de reparto de bicicletas. Su apertura asistida mediante resorte permite operar el seguro con una sola mano sin soltar el manillar o teléfono celular.
+2. **Protección climática y aislamiento térmico (equivalencia IP65):** La estructura externa e interna previene la penetración de polvo y agua de lluvia, mientras que el núcleo de poliuretano expandido (PUR) de 35 mm asegura una conductividad térmica mínima ($k \le 0.024\text{ W/m}\cdot\text{K}$), preservando la temperatura de alimentos fríos (2 °C – 8 °C) o calientes (60 °C – 75 °C).
+3. **Seguridad física y cadena de custodia en dos niveles:** Para erradicar tanto los robos parciales de comida como las falsas alarmas provocadas por la vibración del vehículo, el sistema no depende de un único sensor: combina la detección magnética perimetral de tapa (**Reed Switch**) con la verificación óptica infrarroja de presencia interna de carga (**TCRT5000**), asegurando la validez jurídica de la bitácora.
+4. **Eficiencia y autonomía energética:** Con un paquete de baterías Li-Ion 18650 en configuración 3S (11.1 V nominal, 3000 mAh) y un regulador conmutado Step-Down Buck de alta eficiencia (>90%), el ESP32 y los sensores alcanzan una autonomía superior a 12 horas continuas de operación con muestreo periódico y enlace BLE activo.
+5. **Costo de manufactura y viabilidad comercial:** Se utilizan componentes estandarizados COTS (*Commercial Off-The-Shelf*) de bajo costo y alta disponibilidad en el mercado local, asegurando que el costo de fabricación por unidad no supere el umbral de viabilidad para micro y pequeñas empresas gastronómicas.
+#### Relación con las Decisiones de Arquitectura de Información (AI)
+El dispositivo IoT opera como el nodo periférico ciberfísico de la Arquitectura de Información definida en la sección **5.2**:
+* **Sistemas de Organización y Rotulado:** Cada SmartBox cuenta con una identidad unívoca modelada en la base de datos central (`box_id`, `mac_address`, `device_uuid`). La rotulación física incluye una placa metálica con código QR grabado por láser y serigrafía de zona BLE, vinculando inequívocamente el objeto material con el identificador de despacho digital.
+* **Visibilidad del Estado del Sistema (Heurística de Nielsen):** La arquitectura de información exige que el estado del despacho (*Dispatched*, *In Transit*, *Pending Unlock*, *Delivered*, *Tampered*) sea perceptible de inmediato sin necesidad de consultar el teléfono permanentemente. El hardware traduce estos estados a señales luminosas unívocas y timbres audibles a 80 dB.
+* **Integridad de Información Offline:** En zonas de sombra celular o túneles urbanos, la AI del sistema delega en el ESP32 la capacidad de autenticar el código OTP y registrar eventos de apertura en memoria Flash local protegida, sincronizando la bitácora de auditoría de forma asíncrona al restablecerse el enlace con la app móvil.
+#### Relación con la Guía de Estilos para IoT Device Physical Interfaces
+El diseño materializa con rigurosidad las pautas físicas establecidas en la sección **5.1.2**:
+* **Interfaz No Gráfica:** Se prescinde deliberadamente de pantallas LCD/OLED para maximizar la resistencia al impacto y optimizar el consumo de batería, confiando toda la retroalimentación en un panel frontal estanco de cuatro LEDs difusores de 5 mm y un buzzer piezoeléctrico de alta potencia.
+* **Codificación Lumínica LED:**
+  * **Verde (Fijo):** Contenedor bloqueado, temperatura en rango seguro y batería > 20%.
+  * **Azul (1 Hz parpadeo lento):** Modo anuncio BLE esperando emparejamiento con el repartidor.
+  * **Azul (Fijo):** Enlace Bluetooth autenticado con la aplicación móvil en ruta.
+  * **Ámbar (4 Hz parpadeo rápido):** Código OTP verificado válidamente; solenoide desactivado temporalmente para retiro de comida.
+  * **Rojo (8 Hz estroboscópico):** Alarma crítica por apertura no autorizada o rotura de umbral térmico.
+* **Patrones Tonales del Buzzer (80 dB):**
+  * *1 tono corto (150 ms, 1.2 kHz):* Encendido, autodiagnóstico exitoso y enganche de cerrojo.
+  * *2 tonos ascendentes (100 ms, 2.0 kHz / 2.5 kHz):* Desbloqueo autorizado por OTP.
+  * *3 tonos cortos (100 ms c/u):* Confirmación de entrega cerrada y bitácora guardada.
+  * *Tono continuo intermitente (500 ms encendido / 500 ms apagado):* Advertencia de tapa abierta más de 45 segundos en parada.
+---
+### 5.6.2. Propuesta de Diseño Físico del Dispositivo IoT
+La SmartBox Cold2Hot está diseñada bajo un enfoque bicameral para separar la carga gastronómica de los elementos electrónicos:
+* **Cámara Térmica de Alimentos:** Espacio isotérmico útil de 40 litros (dimensiones interiores: 380 mm de ancho, 340 mm de profundidad y 310 mm de altura) fabricado en polipropileno expandido (EPP) de grado alimentario, bacteriostático y de fácil sanitización. Aloja la sonda de acero inoxidable del sensor DS18B20 en el centro del volumen para evitar lecturas distorsionadas por contacto con las paredes, y un sensor óptico infrarrojo TCRT5000 enrasado en la base para detectar presencia o extracción del paquete.
+* **Gabinete Técnico Estanco:** Compartimento lateral sellado mediante junta perimétrica de neopreno con fijación por tornillos de acero inoxidable. Contiene la placa controladora ESP32, el módulo convertidor de voltaje DC-DC Buck, el módulo de relevador conmutador de potencia, la batería Li-Ion 3S y la placa de gestión de carga BMS. Este compartimento evita la penetración de condensación, vapores de comida o vertido accidental de líquidos.
+* **Mecanismo de Bloqueo y Expulsión:** Pestillo electromagnético tipo Solenoide de 12 V ubicado en el marco frontal con perno de acero cementado biselado a 45°. Al energizarse durante 5 segundos, retrae el perno permitiendo que un micro-resorte de acero inoxidable de 6 mm expulse suavemente la tapa hacia arriba, facilitando la apertura con una sola mano.
+* **Panel Superior de Interfaz y Enlace:** En la esquina superior derecha de la tapa se ubica la placa metálica grabada con el código QR inalterable y la serigrafía táctil de proximidad BLE. En el frontal superior se ubica la mirilla con los cuatro LEDs de estado y la rejilla acústica laberíntica del buzzer piezoeléctrico.
+![Diseño Físico de SmartBox](./assets/smartbox-physical-design.png)
+*Figura 5.6.1. Propuesta de diseño físico industrial, distribución espacial y cotas del contenedor Cold2Hot SmartBox.*
+---
+### 5.6.3. Propuesta de Diseño de Circuito Electrónico
+El circuito electrónico se organiza en torno a un microcontrolador **ESP32 NodeMCU-32S**, aprovechando sus capacidades de procesamiento de doble núcleo (uno dedicado a la pila de comunicaciones BLE/Wi-Fi y otro al control en tiempo real de sensores y actuadores).
+#### Especificación de Componentes de Hardware
+* **Unidad de Control:** Microcontrolador ESP32 NodeMCU-32S (Xtensa Dual-Core 32-bit LX6 @ 240 MHz, 520 KB SRAM, 4 MB Flash, BLE v4.2 y Wi-Fi 802.11 b/g/n).
+* **Sensor Térmico Digital (DS18B20):** Sonda de inmersión estanca en cápsula de acero inoxidable (6x50 mm). Opera bajo el protocolo 1-Wire sobre el pin GPIO4, requiriendo una resistencia de elevación (*pull-up*) de 4.7 kΩ entre la línea de datos y 3.3 V. Proporciona lecturas con resolución programable de 12 bits (0.0625 °C por paso) y precisión calibrada de ±0.5 °C entre -10 °C y +85 °C.
+* **Sensor Magnético de Tapa (Reed Switch):** Interruptor electromagnético normalmente abierto (NO) encapsulado en resina epoxi montado en el marco del chasis, accionado por un imán de neodimio N52 montado en la tapa. Conectado a GPIO18 configurado como entrada digital con resistencia pull-up externa de 10 kΩ y filtro por hardware contra rebotes mecánicos (*debounce*).
+* **Sensor Óptico de Carga (TCRT5000):** Módulo sensor de reflexión infrarroja con fototransistor y LED emisor IR acoplado a un comparador analógico LM393. Su salida digital (D0) se conecta al pin GPIO19 para indicar de inmediato la presencia del paquete sobre la base de la caja.
+* **Actuador de Cerradura (Solenoide 12V):** Pestillo electromagnético de 12 V DC (consumo pico de 900 mA a 1.1 A). Se controla desde GPIO23 a través de un módulo relé optoacoplado de 5 V (o etapa MOSFET de canal N IRLZ44N). Se incorpora en paralelo a la bobina un diodo de retorno libre (*flyback diode*) 1N4007 para disipar los picos de fuerza contraelectromotriz (*back-EMF*) generados al desenergizar el inductor.
+* **Transductor Acústico (Buzzer Piezoeléctrico):** Conectado al pin GPIO25 mediante modulación por ancho de pulsos (PWM) con el periférico LEDC del ESP32, permitiendo generar frecuencias audibles precisas entre 1.0 kHz y 2.5 kHz a 80 dB.
+* **Indicadores Luminosos (LEDs de Estado):** Cuatro diodos emisores de luz de 5 mm de alta luminosidad con resistencias limitadoras de corriente de 220 Ω cada uno:
+  * Verde: GPIO26.
+  * Azul: GPIO27.
+  * Ámbar: GPIO14.
+  * Rojo: GPIO12.
+* **Sistema de Alimentación y Regulación:**
+  * Batería Li-Ion 18650 en arreglo 3S (11.1 V nominal, 12.6 V carga completa, capacidad 3000 mAh).
+  * Placa BMS 3S (10 A) con protección ante sobrecarga, descarga profunda y cortocircuitos.
+  * Módulo Step-Down Buck DC-DC LM2596 de alta eficiencia regulado para entregar 5.0 V estables al pin `VIN` del ESP32, al módulo de relé y a los sensores.
+  * La línea de 12 V no regulada alimenta directamente el circuito de la cerradura electromagnética.
+  * Divisor de voltaje resistivo (100 kΩ / 33 kΩ) conectado al convertidor analógico digital ADC1 (GPIO34) para monitorear el porcentaje de descarga de la batería sin sobrepasar los 3.3 V tolerados.
+#### Mapeo de Pines (Pinout Mapping Table)
+| Componente | Tipo de Señal | GPIO ESP32 | Modo Pin | Nivel de Voltaje | Función en el Sistema |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **DS18B20** | Digital (1-Wire) | `GPIO4` | Input / Open Drain | 3.3 V (Pull-up 4.7kΩ) | Monitoreo continuo de temperatura interna |
+| **Reed Switch** | Digital (Interrupción) | `GPIO18` | Input (Pull-up) | 3.3 V | Detección física de apertura/cierre de tapa |
+| **TCRT5000** | Digital | `GPIO19` | Input | 3.3 V | Verificación óptica de presencia de carga |
+| **Relé / Solenoide** | Digital (Salida) | `GPIO23` | Output | 3.3 V → 5 V Opto | Activación del cerrojo electromagnético 12V |
+| **Buzzer** | Digital (PWM/LEDC) | `GPIO25` | Output | 3.3 V | Generación de patrones tonales audibles |
+| **LED Verde** | Digital (Salida) | `GPIO26` | Output | 3.3 V (Resistor 220Ω) | Indicador de estado seguro y operativo |
+| **LED Azul** | Digital (Salida) | `GPIO27` | Output | 3.3 V (Resistor 220Ω) | Indicador de estado y enlace Bluetooth (BLE) |
+| **LED Ámbar** | Digital (Salida) | `GPIO14` | Output | 3.3 V (Resistor 220Ω) | Indicador de código OTP verificado |
+| **LED Rojo** | Digital (Salida) | `GPIO12` | Output | 3.3 V (Resistor 220Ω) | Indicador de alarma crítica o anomalía |
+| **Monitor Batería** | Analógica (ADC) | `GPIO34` | Input ADC1 | 0 – 3.1 V (Divisor) | Lectura del nivel de carga de batería 3S |
+![Esquema de Circuito Electrónico](./assets/smartbox-circuit-schematic.png)
+*Figura 5.6.2. Diagrama esquemático y prototipo de circuito electrónico en Tinkercad Circuits / Fritzing del nodo SmartBox Cold2Hot.*
+---
+### 5.6.4. Flujos de Interacción del Prototipo Ciberfísico
+El prototipo implementa una máquina de estados determinista en el firmware del ESP32 que interactúa con la aplicación móvil del repartidor, garantizando la seguridad en ruta y el cumplimiento de la cadena de custodia:
+#### Descripción de los Flujos de Interacción
+* **Flujo 1: Encendido y Autodiagnóstico Inicial (POST - Power-On Self Test):** Al accionar el interruptor general, el ESP32 ejecuta una prueba de integridad periférica: verifica la respuesta en el bus 1-Wire del DS18B20, el estado del Reed Switch y el nivel de batería en GPIO34. Si el autodiagnóstico es satisfactorio, emite 1 tono corto de 150 ms en el buzzer, enciende el LED Verde continuo e inicia el servicio de anuncio BLE.
+* **Flujo 2: Emparejamiento BLE e Inicio de Despacho:** La SmartBox emite paquetes de anuncio BLE indicando su UUID. El repartidor escanea el código QR de la tapa con la Delivery Operator App. Al verificar que el UUID coincide con el pedido asignado, la app negocia el emparejamiento BLE seguro. El LED Azul pasa de parpadeo a encendido continuo y la aplicación transfiere al microcontrolador el perfil térmico (límites superior e inferior) y el hash criptográfico del código OTP.
+* **Flujo 3: Telemetría Térmica y Supervisión en Ruta:** Cada 10 segundos el ESP32 efectúa la lectura de la temperatura interna. Cada 60 segundos transmite un paquete de telemetría hacia la aplicación móvil (la cual lo reenvía por red celular a la API Cloud) con la temperatura, estado de batería y condición de sensores. Si la temperatura cruza el umbral crítico configurado, el ESP32 conmuta el LED Rojo a modo parpadeante y genera un evento de alerta preventiva.
+* **Flujo 4: Desbloqueo Electromagnético por Código OTP en Destino:** Al llegar a la dirección de entrega, el repartidor solicita el código OTP de 6 dígitos al cliente o lo ingresa en su pantalla móvil. La app transmite la clave validada mediante una característica BLE cifrada. El ESP32 contrasta la clave:
+  1. Conmuta el LED Ámbar a parpadeo rápido (4 Hz).
+  2. Emite dos tonos ascendentes (2.0 kHz / 2.5 kHz) en el buzzer.
+  3. Excita el pin GPIO23 durante 5.0 segundos activando el solenoide de 12 V.
+  4. El resorte expulsa la tapa y el repartidor retira la orden de comida.
+* **Flujo 5: Detección de Brecha de Seguridad de Dos Niveles (Tapa Abierta vs. Extracción No Autorizada):**
+  * *Caso A (Tapa mal cerrada en trayecto):* Si en ruta el sensor magnético Reed Switch detecta apertura pero el sensor óptico TCRT5000 reporta que el paquete aún permanece dentro, el sistema asume vibración o cierre flojo. La app del repartidor emite una vibración de advertencia y, si no se cierra en 45 segundos, el buzzer de la caja emite un tono intermitente hasta que la tapa se encaje correctamente.
+  * *Caso B (Violación / sustracción no autorizada):* Si el Reed Switch reporta apertura y simultáneamente el TCRT5000 detecta la ausencia del paquete sin que haya mediado un desbloqueo válido por OTP, el ESP32 activa inmediatamente el LED Rojo estroboscópico a 8 Hz, registra en Flash el incidente de vulneración y emite una alerta prioritaria hacia la nube para notificar al panel web del restaurante.
+* **Flujo 6: Cierre de Entrega y Registro de Evidencia:** Tras retirar los alimentos, el repartidor cierra la tapa (Reed Switch en bajo). El repartidor captura la fotografía de entrega en la app, la cual sincroniza el cierre de orden con la SmartBox. El buzzer emite tres tonos cortos confirmatorios (100 ms c/u) y el dispositivo retorna a estado de espera de bajo consumo para la siguiente asignación.
 
 
 # Capítulo VI: Product Implementation, Validation & Deployment
