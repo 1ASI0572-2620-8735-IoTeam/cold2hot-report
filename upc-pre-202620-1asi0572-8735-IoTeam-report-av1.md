@@ -3002,6 +3002,570 @@ Esta sección documenta los prototipos de interfaz de usuario (UI) y su funciona
 
 ## 5.6. IoT Device Design
 
+
+# Capítulo VI: Product Implementation, Validation & Deployment
+
+## 6.1. Software Configuration Management
+
+### 6.1.1. Software Development Environment Configuration
+
+Para garantizar un flujo de trabajo homogéneo, reproducible y libre de discrepancias entre los entornos locales de los integrantes del equipo y las plataformas de despliegue en la nube, se estableció una configuración estandarizada de hardware, sistemas operativos, herramientas de terminal, entornos integrados de desarrollo (IDEs), runtimes y dependencias de compilación para cada una de las capas de la solución **Cold2Hot**.
+
+#### 1. Hardware y Estaciones de Trabajo
+
+* **Arquitectura de Procesamiento:** Equipos portátiles con arquitectura Apple Silicon (ARM64: Apple M1/M2/M3) y procesadores Intel x86_64, equipados con un mínimo de 16 GB de memoria RAM unificada y almacenamiento de estado sólido NVMe para soportar la ejecución simultánea de contenedores Docker, servidores de desarrollo en caliente y suites de análisis estático.
+* **Periféricos de Validación Sensorial:** Placas de desarrollo ESP32 NodeMCU de 30 pines, sensores de temperatura digital sumergibles Dallas DS18B20 con resistencia pull-up de 4.7 kΩ, módulos de switch magnético tipo Reed Switch (KY-025), sensores ópticos infrarrojos de reflexión (TCRT5000) y módulos relé de 5V para el accionamiento de solenoides de prueba.
+
+#### 2. Sistema Operativo y Herramientas de Base
+
+* **Sistema Operativo:** macOS Sonoma (14.x) / macOS Sequoia (15.x).
+* **Gestor de Paquetes del Sistema:** Homebrew v4.3+ para la provisión automatizada de binarios y dependencias de sistema.
+* **Shell e Intérprete de Línea de Comandos:** Zsh con emulador iTerm2 / Terminal integrado de macOS, configurado con herramientas de autocompletado y validación de sintaxis Git.
+* **Control de Versiones y CLI Cloud:** Git v2.45+ y GitHub CLI (`gh`) v2.55+ con autenticación vía tokens de acceso personal (PAT) y llaves SSH.
+
+#### 3. Entorno de Desarrollo Integrado (IDE) y Extensiones
+
+* **Editor Principal:** Visual Studio Code (v1.93+) y Cursor IDE.
+* **Extensiones Estandarizadas de Equipo:**
+  * *Angular Language Service:* Autocompletado, navegación de definiciones y chequeo de tipos para plantillas y componentes de Angular 22.
+  * *ESLint & Prettier:* Formateo unificado de código TypeScript, JavaScript, HTML y Sass.
+  * *Docker:* Gestión gráfica de imágenes, contenedores locales y volúmenes de almacenamiento.
+  * *GitLens:* Trazabilidad de autoría de commits y navegación histórica de ramas.
+  * *Thunder Client / REST Client:* Pruebas rápidas de peticiones HTTP locales hacia el API Gateway y microservicios.
+
+#### 4. Runtimes, Lenguajes y Gestores de Paquetes
+
+* **Node.js:** Versión v22.x LTS y v26.0 (utilizando `nvm` como gestor de versiones). Node.js v22 es el entorno mínimo requerido por el nuevo motor de compilación reactivo de Angular 22.
+* **Gestor de Paquetes:** npm v10.x / v11.x, garantizando la reproducción determinista de dependencias mediante archivos `package-lock.json`.
+* **Motor de Contenedores:** Docker Desktop Engine v27.x con Docker Compose v2.29+ para la orquestación multicontenedor local.
+
+#### 5. Frameworks y Librerías de la Capa Frontend (Web Application & Landing Page)
+
+* **Landing Page:** HTML5 semántico, CSS3 moderno con variables personalizadas (CSS Custom Properties para diseño responsivo mobile-first), JavaScript ES6+ modular sin dependencias externas pesadas, e integración del estándar BEM.
+* **Web Application:**
+  * Framework: **Angular v22.0.0** configurado bajo el paradigma estricto de *Standalone Components* (sin `NgModules`).
+  * Motor de Estado Reactivo: *Angular Signals* (`signal()`, `computed()`, `effect()`) para reactividad fina de métricas y telemetría en tiempo real.
+  * Inyección de Dependencias Funcional: Función nativa `inject()` para la inicialización segura de servicios.
+  * Lenguaje: **TypeScript v5.4.0** con compilación estricta habilitada (`strict: true`).
+  * Preprocesador de Estilos: Sass / SCSS para arquitectura de variables de diseño y mixins responsivos.
+  * Tipografías Corporativas: Google Fonts (*Space Grotesk* para encabezados e identidad visual, e *Inter* para lectura de datos y tablas).
+
+#### 6. Frameworks y Librerías de la Capa Backend (Cloud Microservices)
+
+* **Entorno del Servidor:** Node.js v20/v22 con framework **Express v4.21.2**.
+* **Enrutamiento Perimetral & Reverse Proxy:** `http-proxy-middleware v3.0.3` con soporte de reescritura de rutas (`pathRewrite`) para desacoplar el API Gateway de las rutas internas de los microservicios.
+* **Documentación Interactiva:** `swagger-ui-express v5.0.1` montado sobre la especificación OpenAPI 3.0.0.
+* **Seguridad y Trazabilidad:** `cors v2.8.5` configurado para intercambio seguro de recursos de origen cruzado y `morgan v1.10.0` para registro de accesos en formato combinado.
+
+#### 7. Herramientas de Desarrollo Embebido (IoT & Edge)
+
+* **IDE Embebido:** Arduino IDE v2.3.2 y PlatformIO Core.
+* **Toolchain de Compilación:** Espressif Xtensa ESP32 toolchain con soporte para framework Arduino-ESP32.
+* **Librerías C++ de Sensores:** `OneWire` v2.3.8 y `DallasTemperature` v3.9.0 para la comunicación sobre bus digital 1-Wire con el sensor térmico DS18B20.
+
+---
+
+### 6.1.2. Source Code Management
+
+La gestión del código fuente del proyecto **Cold2Hot** se centraliza en la organización oficial pública de GitHub: **`1ASI0572-2620-8735-IoTeam`**. El desarrollo sigue rigurosamente el modelo de ramificación **GitFlow**, asegurando el aislamiento entre funcionalidades en desarrollo y versiones estables de producción.
+
+#### 1. Repositorios Oficiales del Ecosistema
+
+El software de la solución se encuentra segmentado en repositorios especializados según su responsabilidad arquitectónica:
+
+| Repositorio                         | Tipo de Producto               | URL Oficial en GitHub                                                                                                                   | Rama de Producción | Rama de Integración |
+| :---------------------------------- | :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :-----------------: | :------------------: |
+| **`cold2hot-landing-page`** | Landing Page Promocional       | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-landing-page](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-landing-page) |     `master`     |     `develop`     |
+| **`cold2hot-web-app`**      | Aplicación Web Angular        | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-web-app](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-web-app)           |     `master`     |     `develop`     |
+| **`cold2hot-backend`**      | Microservicios & API Gateway   | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend)           |     `master`     |     `develop`     |
+| **`cold2hot-report`**       | Documentación y Reporte Final | [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-report](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-report)             |     `master`     |     `develop`     |
+
+#### 2. Flujo de Ramificación GitFlow
+
+* **`master`:** Rama protegida que contiene exclusivamente código estable, probado y desplegado en los servidores de producción de la nube (GitHub Pages y Render.com). Todo cambio en esta rama debe provenir de un merge validado desde `develop` o un `hotfix`.
+* **`develop`:** Rama base de integración continua donde se consolidan las funcionalidades terminadas del Sprint. Sirve como punto de partida para las ramas de características.
+* **`feature/<alcance>-<nombre>`:** Ramas temporales creadas para implementar historias de usuario o tareas específicas (por ejemplo, `feature/chapter-6`, `feature/landing-roi-calc`, `feature/telemetry-ingest`). Una vez completada y probada la tarea, se integra a `develop` mediante un Pull Request.
+* **`hotfix/<descripcion>`:** Ramas urgentes generadas a partir de `master` para resolver fallos críticos en producción, integrándose posteriormente tanto a `master` como a `develop`.
+
+#### 3. Políticas de Pull Requests y Code Review
+
+* Queda estrictamente prohibido realizar commits directos sobre la rama `master` o `develop`.
+* Cada incorporación de código requiere la apertura de un Pull Request con descripción de los cambios realizados, comprobación de compilación exitosa y la aprobación explícita de al menos un revisor del equipo.
+
+#### 4. Convención de Mensajes de Confirmación (Conventional Commits)
+
+Se adopta la especificación estándar **Conventional Commits v1.0.0**, estructurada en el formato `<tipo>(<alcance opcional>): <descripción>`:
+
+* **`feat:`** Incorporación de una nueva funcionalidad visible o requerimiento funcional.
+* **`fix:`** Corrección de un fallo o error en el sistema.
+* **`docs:`** Modificaciones exclusivas de documentación, diagramas o archivos Markdown.
+* **`style:`** Ajustes estéticos, formateo o estilos visuales que no alteran la lógica del programa.
+* **`refactor:`** Reestructuración interna de código que no añade funcionalidades ni repara errores.
+* **`test:`** Adición o corrección de pruebas unitarias o de integración.
+* **`ci:`** Configuración o ajuste de scripts de integración continua y pipelines de despliegue (ej. workflows de GitHub Actions).
+* **`chore:`** Actualización de dependencias, scripts auxiliares o configuraciones de build.
+
+#### 5. Versionamiento Semántico
+
+Se emplea **Semantic Versioning 2.0.0 (SemVer)** bajo el formato `MAJOR.MINOR.PATCH`:
+
+* **MAJOR (X.0.0):** Cambios que introducen incompatibilidades o reestructuraciones profundas de la API o arquitectura.
+* **MINOR (1.X.0):** Adición de nuevas funcionalidades compatibles hacia atrás (hitos de entrega de Sprint como TB1).
+* **PATCH (1.0.X):** Correcciones menores de bugs o ajustes cosméticos compatibles hacia atrás.
+
+---
+
+### 6.1.3. Source Code Style Guide & Conventions
+
+Para salvaguardar la legibilidad, mantenibilidad y calidad técnica del código fuente, el equipo de desarrollo de **IoTeam** ha adoptado las siguientes directrices internacionales de estilo y codificación:
+
+#### 1. Guía de Estilo para HTML y CSS / Sass
+
+* **Estándar:** Basado en la *Google HTML/CSS Style Guide*.
+* **Nomenclatura BEM (Block Element Modifier):** Se utiliza la convención BEM para evitar colisiones de selectores y favorecer la modularidad. Los bloques representan componentes independientes (`.c2h-card`), los elementos representan partes constitutivas (`.c2h-card__title`), y los modificadores expresan variaciones de estado o diseño (`.c2h-card--thermal-hot`, `.c2h-card--thermal-cold`).
+* **Design Tokens mediante Variables CSS:** Los colores corporativos de temperatura y estado se centralizan en variables globales:
+  * Primario Cálido: `--c2h-hot: #FF6B3D;`
+  * Primario Frío: `--c2h-cold: #1E88E5;`
+  * Fondo Oscuro Primario: `--c2h-dark: #0E1726;`
+  * Semáforo Óptimo: `--c2h-optimal: #10B981;`
+  * Semáforo de Alerta Crítica: `--c2h-breach: #EF4444;`
+* **Accesibilidad (a11y):** Cumplimiento de WCAG 2.1 nivel AA: todos los elementos interactivos cuentan con atributos `aria-label`, foco visible (`:focus-visible`) y las alertas no dependen únicamente del color, sino de la combinación de color, icono y texto explicativo.
+
+#### 2. Guía de Estilo para TypeScript y Angular
+
+* **Estándar:** Basado en la *Google TypeScript Style Guide* y la *Official Angular Coding Style Guide*.
+* **Arquitectura Basada en Componentes Standalone:** Todo componente se declara con `standalone: true`, importando directamente sus dependencias (`CommonModule`, `RouterLink`, etc.) y prescindiendo de módulos monolíticos.
+* **Nomenclatura en Inglés:** La totalidad de identificadores (clases, interfaces, métodos, variables, rutas y comentarios de código) se escribe en idioma inglés para respetar estándares globales de la industria.
+* **Gestión de Estado Reactivo:** Empleo de *Signals* nativos para propiedades de lectura/escritura (`signal<T>()`) y valores derivados calculados (`computed()`), reservando `RxJS` para flujos asíncronos complejos.
+* **Tipado Fuerte Estricto:** Prohibición del uso del tipo comodín `any`. Toda entidad de dominio, respuesta HTTP y modelo de datos cuenta con su correspondiente interfaz TypeScript (`Shipment`, `SmartBox`, `UserSession`, `TelemetryLog`).
+* **Estructura de Archivos:**
+  * Componentes: `<nombre>.component.ts` y `<nombre>.component.scss` (o estilos embebidos limpios).
+  * Servicios: `<nombre>.service.ts`.
+  * Modelos: `<nombre>.model.ts`.
+
+#### 3. Guía de Estilo para Node.js y Express (Microservicios)
+
+* **Estándar:** Basado en la *Airbnb JavaScript Style Guide (ES6+)*.
+* **Formato de Código:** Identación estricta de 2 espacios, uso de comillas simples (`'`), punto y coma obligatorio (`;`) y constantes declaradas con `const`.
+* **Diseño de APIs RESTful:**
+  * Rutas expresadas en sustantivos en plural y minúsculas precedidas por la versión de la API: `/api/v1/iam/auth/login`, `/api/v1/telemetry/ingest`, `/api/v1/telemetry/logs`.
+  * Verbos HTTP semánticos: `POST` para creación o ingesta, `GET` para consulta, `PUT/PATCH` para actualización.
+  * Códigos de estado HTTP acordes al resultado de la operación: `200 OK`, `201 Created`, `400 Bad Request`, `401 Unauthorized`, `404 Not Found`, `500 Internal Server Error`.
+  * Respuestas uniformes formateadas en JSON conteniendo siempre propiedades de confirmación, identificador generado y sellos temporales en formato ISO 8601 (`YYYY-MM-DDTHH:mm:ss.sssZ`).
+
+#### 4. Guía de Estilo para Firmware C++ (ESP32)
+
+* **Estándar:** *Arduino Style Guide* y convenciones de sistemas embebidos de bajo consumo.
+* **Multitarea No Bloqueante:** Prohibición de bucles de espera fija con `delay()`. Todo ciclo de lectura o envío de telemetría se gobierna mediante temporizadores basados en la función `millis()`.
+* **Identificadores de Hardware:** Constantes de pines de conexión nombradas en mayúsculas sostenidas (`ONE_WIRE_PIN`, `REED_SWITCH_PIN`, `SOLENOID_RELAY_PIN`).
+
+---
+
+### 6.1.4. Software Deployment Configuration
+
+La estrategia de despliegue de **Cold2Hot** responde a una arquitectura desacoplada de nube híbrida orientada a alta disponibilidad, seguridad con cifrado HTTPS de extremo a extremo y costos operativos cero durante la etapa de validación y sustentación académica.
+
+#### 1. Configuración de Despliegue de la Landing Page
+
+* **Plataforma Cloud:** **GitHub Pages**.
+* **Fuente de Construcción:** Rama `master`, directorio raíz (`/`).
+* **Protocolo de Seguridad:** Forzado de HTTPS automático con certificados TLS/SSL administrados por Let's Encrypt y servidos por la red de entrega de contenidos (CDN) global de GitHub.
+* **Enrutamiento Dinámico:** El script cliente (`js/main.js`) detecta dinámicamente si se ejecuta en entorno local (`localhost:4200`) o en la nube para enlazar fluidamente las llamadas a la acción (CTAs) con la aplicación web desplegada.
+
+#### 2. Configuración de Despliegue de la Aplicación Web Angular (`cold2hot-web-app`)
+
+* **Plataforma Cloud:** **GitHub Pages** con orquestación automatizada de **GitHub Actions (CI/CD)**.
+* **Archivo de Flujo de Trabajo (Workflow):** `.github/workflows/deploy.yml`.
+* **Etapas del Pipeline:**
+  1. *Checkout:* Descarga del código fuente de la rama `master`.
+  2. *Setup Node.js:* Inicialización del entorno Node.js v22 con caché de dependencias npm.
+  3. *Install Dependencies:* Ejecución de `npm ci` para instalación limpia y determinista.
+  4. *Build Production:* Compilación optimizada mediante `npm run build -- --base-href /cold2hot-web-app/`.
+  5. *SPA Fallback Generation:* Creación de `404.html` como copia de `index.html` para permitir que el enrutador de Angular maneje las rutas del lado del cliente (`/login`, `/dashboard/monitoring`, `/dashboard/alerts`, `/dashboard/smartboxes`) sin que el servidor CDN retorne un error HTTP 404 al recargar la página.
+  6. *Upload & Deploy:* Empaquetado del directorio `dist/cold2hot-web-app/browser` y publicación segura hacia GitHub Pages mediante tokens OIDC (`actions/deploy-pages@v4`).
+* **Configuración Alternativa de Despliegue Serverless (Vercel):** Se incorporó el archivo `vercel.json` con reglas de reescritura de rutas (`rewrites`) para soportar despliegues inmediatos en la infraestructura global de Vercel con un solo clic.
+
+#### 3. Configuración de Despliegue del Backend de Microservicios (`cold2hot-backend`)
+
+* **Plataforma Cloud:** **Render.com Cloud Web Services**.
+* **Tipo de Servicio:** Web Service en contenedor Node.js (Free Tier).
+* **Entorno de Ejecución:** `Node` v20/v22.
+* **Comando de Compilación (Build Command):** `npm install`.
+* **Comando de Inicio (Start Command):** `npm start`.
+* **Orquestación Perimetral:** El archivo raíz `index.js` actúa como orquestador en la nube, levantando internamente los procesos de los microservicios hijos (IAM en puerto 3001, Telemetría en puerto 3002) y exponiendo el **API Gateway perimetral** hacia el exterior en el puerto público asignado dinámicamente por la variable de entorno `PORT` de Render.
+* **Infraestructura como Código (IaC):** Se incluyó el manifiesto `render.yaml` (Blueprint) para permitir el aprovisionamiento automatizado y versionado de los servicios en Render.
+
+#### 4. Diagrama de Despliegue de la Arquitectura (C4 Deployment Model)
+
+El siguiente diagrama ilustra la topología de despliegue de la solución, mostrando la distribución de los componentes en los nodos de hardware IoT, los equipos de borde (Edge Node), los proveedores cloud (GitHub Pages y Render.com) y las terminales de los usuarios:
+
+<div align="center">
+  <img src="assets/cap6/deployment-diagram.png" alt="Software Architecture Deployment Diagram - Cold2Hot" width="90%"/>
+  <p><em>Figura 6.1.4: Diagrama de Despliegue de la Solución Cold2Hot (C4 Model Deployment Diagram)</em></p>
+</div>
+
+---
+
+## 6.2. Landing Page, Services & Applications Implementation
+
+### 6.2.1. Sprint 1
+
+El **Sprint 1** comprendió la fase fundacional del desarrollo de software de **Cold2Hot**, focalizándose en materializar y desplegar públicamente la primera versión de la presencia digital comercial (Landing Page con calculadora interactiva de ROI), la primera versión de la plataforma web operativa en Angular 22 para administradores de delivery (basada fielmente en los prototipos de Figma `IoT-Prototype`), y la arquitectura base de microservicios con el API Gateway perimetral, ingesta de telemetría y documentación interactiva bajo OpenAPI.
+
+#### 6.2.1.1. Sprint Planning 1
+
+A continuación se presenta el registro formal de la sesión de planificación del Sprint 1 realizada por el equipo:
+
+| Campo                                                              | Detalle                                                                                                                                                                                                                                                                                                                                 |
+| :----------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sprint #**                                                 | **Sprint 1**                                                                                                                                                                                                                                                                                                                      |
+| **Fecha de Planificación**                                  | 2026-09-22                                                                                                                                                                                                                                                                                                                              |
+| **Horario**                                                  | 19:30 - 21:45 (GMT-5)                                                                                                                                                                                                                                                                                                                   |
+| **Ubicación**                                               | Sesión virtual colaborativa vía Discord / Google Meet                                                                                                                                                                                                                                                                                 |
+| **Elaborado Por**                                            | Teves Samaniego, Joan Fernando (Scrum Master)                                                                                                                                                                                                                                                                                           |
+| **Asistentes a la Reunión**                                 | Alvarado De La Cruz, Juan CarlosCarhuancote Dominguez, Gonzalo AlonsoDiestra Zambrano, Adriana MariaDuran Diaz, Antonio RodrigoNakasone Gomes, Marco AntonioShimabukuro Uku, Carlos JoelTeves Samaniego, Joan Fernando                                                                                                                  |
+| **Resumen de la Revisión del Sprint Previo (Sprint 0)**     | En la fase preparatoria (Sprint 0) se consolidaron los diagramas de arquitectura C4, los modelos tácticos de Domain-Driven Design (DDD) y los prototipos de alta fidelidad en Figma. El Product Owner validó la segmentación de la solución en microservicios perimetrales y aprobó los flujos de interacción de la SmartBox.     |
+| **Resumen de la Retrospectiva del Sprint Previo (Sprint 0)** | El equipo identificó como oportunidad de mejora la necesidad de desacoplar los repositorios para evitar cuellos de botella en la compilación y acordó establecer pipelines de CI/CD tempranos para asegurar que cada incremento esté desplegado en la nube de forma continua.                                                       |
+| **Sprint 1 Goal**                                            | *"Implementar y desplegar en producción la primera versión de la plataforma Cold2Hot, compuesta por la Landing Page comercial responsiva y la Aplicación Web de monitoreo térmico en Angular 22, junto con el API Gateway y los microservicios backend perimetrales de IAM y Telemetría documentados mediante OpenAPI/Swagger."* |
+| **Métrica de Cumplimiento del Sprint Goal**                 | 100% de productos digitales desplegados y con conectividad pública HTTPS verificable; 0 errores de compilación en pipelines de GitHub Actions; documentación OpenAPI interactiva operativa al 100%.                                                                                                                                  |
+| **Velocidad Estimada del Sprint (Sprint Velocity)**          | **54 Story Points (SP)** distribuidos en 10 historias de usuario y tareas técnicas transversales.                                                                                                                                                                                                                                |
+
+---
+
+#### 6.2.1.2. Aspect Leaders and Collaborators
+
+Para asegurar una ejecución eficiente, ordenada y alineada con las competencias individuales, se elaboró la matriz **Leadership-and-Collaboration Matrix (LACX)**. En esta iteración se definieron siete aspectos clave para el alcance del Sprint 1:
+1. **Aspect 1 (Landing Page & ROI):** Desarrollo de la presencia comercial responsiva y calculadora de retorno de inversión.
+2. **Aspect 2 (Angular Web Application):** Implementación de la plataforma de administración en Angular 22 basada en prototipos de Figma.
+3. **Aspect 3 (IAM Microservice):** Lógica de autenticación, emisión de tokens JWT y registro de establecimientos.
+4. **Aspect 4 (Telemetry Microservice):** Modelado de lecturas de sensores térmicos Dallas DS18B20 e ingesta de telemetría IoT.
+5. **Aspect 5 (API Gateway & Cloud Deployment):** Enrutamiento perimetral, proxies y despliegue en Render.com y GitHub Pages.
+6. **Aspect 6 (QA, Testing Suite & OpenAPI):** Especificación BDD en Gherkin, suite de pruebas unitarias y documentación interactiva Swagger.
+7. **Aspect 7 (Agile Management & Technical Report):** Facilitación Scrum, control del Sprint Backlog y consolidación técnica del informe.
+
+A continuación, se presenta la matriz **Leadership-and-Collaboration Matrix (LACX)** formal con la designación de Líderes (**L**) y Colaboradores (**C**):
+
+| Team Member (Last Name, First Name) | GitHub Username | Aspect 1: Landing & ROI (L/C) | Aspect 2: Web App (L/C) | Aspect 3: IAM Service (L/C) | Aspect 4: Telemetry (L/C) | Aspect 5: Gateway & Deploy (L/C) | Aspect 6: Testing & OpenAPI (L/C) | Aspect 7: Agile & Report (L/C) |
+| :---------------------------------- | :-------------: | :---------------------------: | :---------------------: | :-------------------------: | :-----------------------: | :------------------------------: | :-------------------------------: | :----------------------------: |
+| **Alvarado De La Cruz, Juan Carlos**    | `JuanCarlosAlvarado900` |             **L**             |            C            |              C              |             C             |                C                 |                 C                 |               C                |
+| **Carhuancote Dominguez, Gonzalo Alonso**| `GGonzalo`     |               C               |            C            |            **L**            |             C             |                C                 |                 C                 |               C                |
+| **Diestra Zambrano, Adriana Maria**     | `adriii`        |               C               |          **L**          |              C              |             C             |                C                 |                 C                 |               C                |
+| **Duran Diaz, Antonio Rodrigo**         | `Sltcrd`        |               C               |            C            |              C              |             C             |                C                 |               **L**               |               C                |
+| **Nakasone Gomes, Marco Antonio**       | `marcoanakasone`|               C               |            C            |              C              |             C             |              **L**               |                 C                 |               C                |
+| **Shimabukuro Uku, Carlos Joel**        | `CarlosSh43`    |               C               |            C            |              C              |           **L**           |                C                 |                 C                 |               C                |
+| **Teves Samaniego, Joan Fernando**      | `JoanTeves`     |               C               |            C            |              C              |             C             |                C                 |                 C                 |             **L**              |
+
+Asimismo, a continuación se detallan las responsabilidades técnicas principales asignadas a cada integrante en el Sprint:
+
+| Miembro del Equipo                              | Rol de Liderazgo en el Sprint                               | Responsabilidades Técnicas Asignadas                                                                                                                                                                                      |
+| :---------------------------------------------- | :---------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nakasone Gomes, Marco Antonio**         | *Cloud Deployment & CI/CD Lead / Architecture Integrator* | Configuración del pipeline de GitHub Actions para Angular 22, orquestación del backend en Render.com, implementación del API Gateway perimetral con reescritura de proxy y resolución de integración entre productos. |
+| **Diestra Zambrano, Adriana Maria**       | *Angular Web Application Lead / UX Specialist*            | Implementación de componentes standalone en Angular 22, traducción reactiva de tokens de diseño desde Figma, maquetación del dashboard térmico reactivo y modal de despacho con clave OTP.                            |
+| **Carhuancote Dominguez, Gonzalo Alonso** | *Backend Microservices & API Gateway Lead*                | Desarrollo del microservicio IAM (endpoints`/auth/login` y `/auth/register`), orquestación multicontenedor en `docker-compose.yml` y configuración del middleware de CORS perimetral.                              |
+| **Shimabukuro Uku, Carlos Joel**          | *IoT Telemetry & Embedded Lead*                           | Desarrollo del microservicio de Telemetría Térmica (`/ingest` y `/logs`), modelado de datos de sensores Dallas DS18B20 y pruebas de ingesta de telemetría en tiempo real.                                           |
+| **Alvarado De La Cruz, Juan Carlos**      | *Landing Page & Frontend Design Lead*                     | Maquetación HTML5/CSS3 semántica de la Landing Page, desarrollo de la calculadora interactiva de ROI en JavaScript y cableado de los Call-to-Actions (CTAs) hacia la Web App.                                            |
+| **Duran Diaz, Antonio Rodrigo**           | *QA, Testing Suite & OpenAPI Documentation Lead*          | Diseño y especificación de contratos OpenAPI 3.0 en Swagger UI, pruebas de integración de endpoints HTTP y redacción de escenarios de prueba BDD en Gherkin.                                                           |
+| **Teves Samaniego, Joan Fernando**        | *Scrum Master & Technical Documentation Lead*             | Facilitación de ceremonias ágiles, control del Sprint Backlog, consolidación de evidencias de ejecución y redacción del Capítulo VI del informe.                                                                     |
+
+---
+
+#### 6.2.1.3. Sprint Backlog 1
+
+El Sprint Backlog del Sprint 1 tiene como objetivo principal materializar la primera versión desplegada y operativa de la plataforma Cold2Hot, integrando la presencia web comercial, la aplicación administrativa en Angular 22 y la arquitectura perimetral de microservicios con documentación interactiva OpenAPI.
+
+* **Tablero de gestión ágil en la nube (Jira Software):** [Tablero Kanban - Cold2Hot Backlog](https://marcoanakasone-1789698062967.atlassian.net/jira/software/projects/KAN/boards/1/backlog?atlOrigin=eyJpIjoiNTk0N2Q4MGJiNjQ0NGQzZDk5MzFkZWZiZDdmNTBkMjUiLCJwIjoiaiJ9)
+
+A continuación se detalla la tabla de control de estado del Sprint Backlog para el Sprint 1:
+
+|      Sprint #      | User Story Id | User Story Title                                     | Task Id | Task Title                                      | Task Description                                                                                               | Est. (h) | Assigned To               |     Status     |
+| :----------------: | :------------: | :--------------------------------------------------- | :-----: | :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------- | :------: | :------------------------ | :------------: |
+| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución |  T01.1  | Maquetación responsiva de secciones clave      | Estructurar HTML5 semántico con Hero, Problem, Solution, Pricing y Formulario de Contacto.                    |    8    | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución |  T01.2  | Implementación de Calculadora de ROI           | Desarrollar algoritmo en JS que calcule ahorro proyectado y reducción de reclamos térmicos.                  |    6    | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 1** | **US01** | Landing Page Promocional e Información de Solución |  T01.3  | Enrutamiento dinámico de CTAs hacia la Web App | Configurar detección de entorno (local vs. producción) para redirección fluida a la app web.                |    4    | Nakasone Gomes, M.        | **Done** |
+| **Sprint 1** | **US02** | Contacto y Solicitud de Demostración Comercial      |  T02.1  | Validación de formulario de contacto           | Validar entradas con feedback accesible y botón dinámico para probar la plataforma web en vivo.              |    4    | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 1** | **US03** | Autenticación Segura de Administrador Web           |  T03.1  | Maquetación de vista Login (Figma W01)         | Implementar vista dividida con identidad de marca Cold2Hot y formulario de credenciales.                       |    8    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US03** | Autenticación Segura de Administrador Web           |  T03.2  | Endpoint de login en Microservicio IAM          | Implementar endpoint`POST /auth/login` con validación y emisión de token JWT de sesión.                   |    6    | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 1** | **US04** | Monitoreo Térmico de Envíos en Tiempo Real         |  T04.1  | Dashboard de Monitoreo (Figma W04/W05)          | Construir vista de dashboard con 4 KPIs en vivo, filtros térmicos y gráfica de trayectoria térmica.         |    12    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US04** | Monitoreo Térmico de Envíos en Tiempo Real         |  T04.2  | Ingesta de telemetría de sensores DS18B20      | Implementar endpoint`POST /ingest` y `GET /logs` en el microservicio de telemetría térmica.              |    8    | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 1** | **US05** | Creación de Despacho y Generación de Código OTP   |  T05.1  | Modal de Nuevo Despacho (Figma W06/W07)         | Construir diálogo modal interactivo con selección de perfil Cold/Hot y generador de clave OTP de 6 dígitos. |    8    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US06** | Gestión de Alertas Térmicas e Intrusión           |  T06.1  | Módulo de Alertas (Figma W08)                  | Construir panel de resolución de desvíos de temperatura y aperturas no autorizadas con badges de severidad.  |    6    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US07** | Inventario y Estado de Cajas Inteligentes            |  T07.1  | Módulo de SmartBoxes (Figma W12)               | Construir vista de inventario con identificadores de hardware, nivel de batería y estado de cerrojo.          |    6    | Diestra Zambrano, A.      | **Done** |
+| **Sprint 1** | **US08** | Documentación de Microservicios con OpenAPI         |  T08.1  | Configuración de Swagger UI en microservicios  | Crear especificaciones OpenAPI 3.0 para IAM y Telemetría montadas en`/docs`.                                |    6    | Duran Diaz, A.            | **Done** |
+| **Sprint 1** | **US09** | Enrutamiento Perimetral con API Gateway              |  T09.1  | Implementación de Reverse Proxy Express        | Configurar enrutamiento perimetral con`http-proxy-middleware`, CORS y reescritura de rutas.                  |    8    | Nakasone Gomes, M.        | **Done** |
+| **Sprint 1** | **US10** | Despliegue en la Nube y Automatización CI/CD        |  T10.1  | Pipeline CI/CD GitHub Actions & Render          | Configurar GitHub Pages para Landing y Web App, y servicio contenerizado en Render.com.                        |    10    | Nakasone Gomes, M.        | **Done** |
+
+---
+
+#### 6.2.1.4. Development Evidence for Sprint Review
+
+La siguiente tabla consolida la evidencia de desarrollo extraída directamente de los historiales de commits en los repositorios de GitHub de la organización `1ASI0572-2620-8735-IoTeam`:
+
+| Repositorio                         | Rama        |  Commit Id  | Commit Message                                                                                                         | Commited on | Autor                         |
+| :---------------------------------- | :---------- | :---------: | :--------------------------------------------------------------------------------------------------------------------- | :---------: | :---------------------------- |
+| **`cold2hot-landing-page`** | `master`  | `ac29fe4` | `feat(landing-page): add initial Cold2Hot landing page`                                                              | 2026-10-05 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-landing-page`** | `master`  | `bde6860` | `feat: connect landing page call-to-actions to web application with live demo routing`                               | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-landing-page`** | `master`  | `ac2f101` | `feat(routing): update smart dynamic redirection between GH Pages and Vercel`                                        | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `develop` | `eafa51e` | `initial commit`                                                                                                     | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `develop` | `3c9ea1c` | `feat: implement first version of Delivery Admin Web App based on Figma design`                                      | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `develop` | `682b1f5` | `feat: add audit report export and return link to landing page`                                                      | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `master`  | `11bc83f` | `feat(ci): add GitHub Actions Pages workflow and Vercel routing configuration`                                       | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`**      | `master`  | `3bffdc1` | `fix(ci): upgrade Node.js runner to v22 for Angular 22 compatibility`                                                | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-backend`**      | `develop` | `15a9855` | `feat: setup initial microservices architecture with api-gateway, iam-service, telemetry-service and docker-compose` | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-backend`**      | `master`  | `73c42a6` | `feat(deploy): add cloud orchestrator, pathRewrite proxy and render.yaml blueprint`                                  | 2026-10-07 | Nakasone Gomes, Marco Antonio |
+
+---
+
+#### 6.2.1.5. Testing Suite Evidence for Sprint Review
+
+Durante el Sprint 1 se implementaron suites de verificación en los tres productos desarrollados:
+
+#### 1. Pruebas Unitarias y de Compilación Estricta en Angular (`cold2hot-web-app`)
+
+* **Verificación de Componentes Standalone:** Se ejecutó la suite de pruebas unitarias mediante el runner de Angular (`npm test`), validando la instanciación correcta de `AppComponent`, `LoginComponent`, `MonitoringDashboardComponent`, `NewShipmentModalComponent`, `AlertsComponent` y `SmartBoxesComponent`.
+* **Comprobación de Compilación de Producción:** El comando `npm run build` ejecutado en el pipeline de GitHub Actions superó al 100% las restricciones de tamaño de bundle y chequeo de tipos estricto sin advertencias.
+
+#### 2. Pruebas de Integración y Enrutamiento en el API Gateway (`cold2hot-backend`)
+
+* Se verificó la disponibilidad de los microservicios aguas abajo a través del Gateway perimetral mediante tests automatizados con `curl` sobre el puerto 8080:
+  * Healthcheck de Gateway: `GET /` responde `{"status":"HEALTHY"}` con código 200.
+  * Reenvío a IAM: `POST /api/v1/iam/auth/login` redirige hacia `iam-service:3001` con reescritura de prefijo.
+  * Reenvío a Telemetría: `POST /api/v1/telemetry/ingest` redirige hacia `telemetry-service:3002` persistiendo la lectura en memoria.
+
+#### 3. Especificación de Pruebas BDD con Gherkin (Archivos `.feature`)
+
+Se formalizaron los comportamientos esperados bajo el enfoque Behavior-Driven Development (BDD):
+
+```gherkin
+Feature: Thermal Telemetry Ingestion from IoT Edge SmartBox
+  As an Operations Administrator
+  I want the platform to ingest temperature readings from the SmartBox
+  So that thermal breaches are detected immediately
+
+  Scenario: Successful temperature telemetry ingestion within optimal hot range
+    Given the SmartBox with ID "SB-014" is assigned to active shipment "#C2H-10482"
+    When the Edge service sends a POST request to "/api/v1/telemetry/ingest" with payload:
+      """
+      {
+        "smartBoxId": "SB-014",
+        "shipmentId": "#C2H-10482",
+        "temperature": 68.5,
+        "lidOpen": false
+      }
+      """
+    Then the response status code should be 201
+    And the response body should contain "Telemetría recibida con éxito"
+    And the telemetry record should be appended to the thermal audit log
+```
+
+```gherkin
+Feature: Administrator Authentication on Web Platform
+  As a Restaurant Operations Manager
+  I want to securely log into the Delivery Admin Web App
+  So that I can monitor active shipments and dispatch new SmartBoxes
+
+  Scenario: Successful login with valid administrator credentials
+    Given an administrator with email "admin@mirestaurante.pe" and password "password123"
+    When the user submits the login form in the web application
+    Then the IAM service issues a valid session JWT token
+    And the user is redirected to the Monitoring Dashboard at "/dashboard/monitoring"
+```
+
+#### 4. Registro de Commits Vinculados a la Suite de Testing
+
+De acuerdo con las directrices de control de versiones, la siguiente tabla detalla los commits asociados a la configuración de pruebas automatizadas y verificación de integración:
+
+| Repositorio | Rama | Commit Id | Commit Message | Commit Message Body | Commited on |
+| :--- | :---: | :---: | :--- | :--- | :---: |
+| **`cold2hot-web-app`** | `master` | `11bc83f` | `feat(ci): add GitHub Actions Pages workflow` | Configura el job de compilación estricta y suite de pruebas unitarias en entorno Ubuntu con Node.js 22. | 2026-10-07 |
+| **`cold2hot-web-app`** | `master` | `3bffdc1` | `fix(ci): upgrade Node.js runner to v22` | Corrige incompatibilidad de compilador de Angular 22 en runner de pruebas CI. | 2026-10-07 |
+| **`cold2hot-backend`** | `develop` | `15a9855` | `feat: setup initial microservices architecture` | Implementa contratos de prueba OpenAPI, verificación de healthcheck `/` y pruebas de ingesta de telemetría. | 2026-10-07 |
+
+---
+
+#### 6.2.1.6. Execution Evidence for Sprint Review
+
+En esta sección se presentan las capturas de pantalla de los productos digitales en ejecución activa tanto en entornos locales de prueba como desplegados en la nube:
+
+#### 1. Landing Page Comercial en Ejecución
+
+La Landing Page presenta de forma clara la propuesta de valor de **Cold2Hot**, integrando llamadas a la acción directas hacia la aplicación web y una calculadora de ahorro financiero:
+
+<div align="center">
+  <img src="assets/cap6/landing-hero-cta.png" alt="Landing Page - Hero Section y Call to Action hacia la Web App" width="90%"/>
+  <p><em>Figura 6.2.1.6.1: Landing Page en ejecución - Sección Hero con botón de acceso a la plataforma web</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/landing-roi-calculator.png" alt="Landing Page - Calculadora de ROI y Planes de Suscripción" width="90%"/>
+  <p><em>Figura 6.2.1.6.2: Landing Page en ejecución - Calculadora interactiva de retorno de inversión (ROI)</em></p>
+</div>
+
+---
+
+#### 2. Aplicación Web Angular (`cold2hot-web-app`) en Ejecución
+
+La aplicación web implementa con alta fidelidad los wireframes y flujos del prototipo de Figma (`IoT-Prototype`):
+
+<div align="center">
+  <img src="assets/cap6/app-login-view.png" alt="Web App - Pantalla de Inicio de Sesión de Administrador" width="90%"/>
+  <p><em>Figura 6.2.1.6.3: Web App en ejecución - Pantalla de Login de Administrador (Figma W01)</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/app-dashboard-monitoring.png" alt="Web App - Dashboard de Monitoreo Térmico con KPIs y Telemetría DS18B20" width="90%"/>
+  <p><em>Figura 6.2.1.6.4: Web App en ejecución - Dashboard de Monitoreo Térmico en Tiempo Real (Figma W04/W05)</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/app-new-shipment-otp.png" alt="Web App - Modal de Nuevo Despacho y Generación de Código OTP" width="90%"/>
+  <p><em>Figura 6.2.1.6.5: Web App en ejecución - Modal de Creación de Despacho y Generación de OTP (Figma W06/W07)</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/app-alerts-inventory.png" alt="Web App - Módulos de Alertas Críticas e Inventario de SmartBoxes" width="90%"/>
+  <p><em>Figura 6.2.1.6.6: Web App en ejecución - Módulos de Alertas de Manipulación e Inventario (Figma W08/W12)</em></p>
+</div>
+
+* **Enlace al Video de Demostración y Ejecución del Sprint 1:**
+  [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210790_upc_edu_pe/cold2hot-sprint1-execution-demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210790_upc_edu_pe/cold2hot-sprint1-execution-demo)
+  *(Demostración interactiva en video de 8 minutos con la navegación completa entre la Landing Page, el inicio de sesión, el monitoreo reactivo de telemetría y la descarga del reporte de custodia).*
+
+---
+
+#### 6.2.1.7. Services Documentation Evidence for Sprint Review
+
+La documentación de los microservicios backend se elaboró bajo el estándar **OpenAPI Specification 3.0.0** y se encuentra desplegada interactivamente mediante **Swagger UI** en el servidor de producción de Render.
+
+* **Repositorio Oficial de Web Services:** [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend)
+* **Identificadores de Commits vinculados a Documentación (Sprint 1):** Commit `15a9855` (*setup initial microservices architecture with api-gateway, iam-service, telemetry-service and OpenAPI/Swagger documentation*) y Commit `73c42a6` (*feat(deploy): add cloud orchestrator, pathRewrite proxy and render.yaml blueprint*).
+
+#### 1. Catálogo Formal de Endpoints Implementados en el Sprint 1
+
+| Microservicio               | Endpoint (Vía Gateway)       | Verbo HTTP | Parámetros / Request Body                                                                    | Respuestas (HTTP Status)                                                     | Descripción y Propósito                                                         |
+| :-------------------------- | :---------------------------- | :--------: | :-------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| **API Gateway**       | `/`                         |  `GET`  | Ninguno                                                                                       | `200 OK` (Catálogo de rutas y estado de salud)                            | Comprobación de estado general y catálogo perimetral de microservicios activos. |
+| **IAM Service**       | `/api/v1/iam/auth/login`    |  `POST`  | `{ "email": string, "password": string }`                                                   | `200 OK` (Token JWT + datos de usuario)<br>`400 Bad Request`<br>`401 Unauthorized` | Autenticación de administradores de restaurante y emisión de token de sesión.  |
+| **IAM Service**       | `/api/v1/iam/auth/register` |  `POST`  | `{ "restaurantName": string, "email": string, "password": string }`                         | `201 Created` (ID de restaurante)<br>`400 Bad Request`                       | Registro de nuevos establecimientos gastronómicos en la plataforma.              |
+| **IAM Service**       | `/api/v1/iam/health`        |  `GET`  | Ninguno                                                                                       | `200 OK` (Status UP y timestamp)                                           | Verificación de salud y disponibilidad del microservicio IAM.                    |
+| **Telemetry Service** | `/api/v1/telemetry/ingest`  |  `POST`  | `{ "smartBoxId": string, "shipmentId": string, "temperature": number, "lidOpen": boolean }` | `201 Created` (Log generado con ID y fecha ISO)<br>`400 Bad Request`         | Ingesta de lecturas de sensores térmicos DS18B20 enviadas desde el Edge o ESP32. |
+| **Telemetry Service** | `/api/v1/telemetry/logs`    |  `GET`  | Ninguno                                                                                       | `200 OK` (Array de lecturas térmicas recientes)                           | Consulta de historial de telemetría térmica para trazabilidad y auditoría.     |
+| **Telemetry Service** | `/api/v1/telemetry/health`  |  `GET`  | Ninguno                                                                                       | `200 OK` (Status UP y timestamp)                                           | Verificación de salud del microservicio de telemetría.                          |
+
+#### 2. Evidencias de Interacción con Swagger UI en Render.com
+
+A continuación se presentan las evidencias de interacción con las interfaces Swagger UI desplegadas en la nube:
+
+<div align="center">
+  <img src="assets/cap6/swagger-iam-catalog.png" alt="Swagger UI - Microservicio IAM en Render" width="90%"/>
+  <p><em>Figura 6.2.1.7.1: Interfaz OpenAPI / Swagger UI del Microservicio IAM en Render.com</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/swagger-iam-login-exec.png" alt="Swagger UI - Ejecución de POST /auth/login" width="90%"/>
+  <p><em>Figura 6.2.1.7.2: Ejecución interactiva 'Try it out' de POST /auth/login en Swagger UI</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/swagger-telemetry-catalog.png" alt="Swagger UI - Microservicio de Telemetría en Render" width="90%"/>
+  <p><em>Figura 6.2.1.7.3: Interfaz OpenAPI / Swagger UI del Microservicio de Telemetría Térmica en Render.com</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/swagger-telemetry-ingest-exec.png" alt="Swagger UI - Ejecución de Ingesta POST /ingest" width="90%"/>
+  <p><em>Figura 6.2.1.7.4: Ingesta de lectura térmica en POST /ingest con respuesta HTTP 201 Created</em></p>
+</div>
+
+---
+
+#### 6.2.1.8. Software Deployment Evidence for Sprint Review
+
+Durante el **Sprint 1**, el equipo llevó a cabo el despliegue continuo y la puesta en producción de todos los productos digitales que conforman la solución **Cold2Hot**. Este proceso abarcó la creación y configuración de cuentas en los proveedores de nube seleccionados (**GitHub Pages** y **Render.com**), la configuración de flujos automatizados de Integración y Despliegue Continuo (**CI/CD mediante GitHub Actions**) y la verificación de conectividad y seguridad bajo el protocolo HTTPS.
+
+A continuación, se documentan los procesos de despliegue realizados para cada uno de los productos digitales que forman parte del alcance del Sprint 1, indicando sus URLs públicas de acceso y las evidencias de los paneles de administración cloud:
+
+##### 1. Despliegue de Cold2Hot Landing Page (GitHub Pages)
+
+Para la presencia comercial de Cold2Hot, se configuró el despliegue estático automatizado en el servicio **GitHub Pages** a partir del repositorio oficial `cold2hot-landing-page`:
+
+* **Proveedor Cloud:** GitHub Pages.
+* **Rama de Producción:** `master`.
+* **URL Pública de Despliegue:** [https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-landing-page/)
+* **Proceso y Configuración Realizados:** Se configuró el origen de despliegue (*Source*) desde la raíz de la rama `master`, habilitando la opción obligatoria *Enforce HTTPS* para garantizar la transferencia segura de datos y el cálculo interactivo de ROI.
+
+<div align="center">
+  <img src="assets/cap6/deployment-github-pages-landing.png" alt="Panel de GitHub Pages - cold2hot-landing-page" width="90%"/>
+  <p><em>Figura 6.2.1.8.1: Panel de GitHub Pages para cold2hot-landing-page con estado 'Built and Active'</em></p>
+</div>
+
+##### 2. Despliegue de Cold2Hot Web Application (GitHub Pages & CI/CD Actions)
+
+Para la aplicación web administrativa de monitoreo térmico desarrollada en Angular 22, se implementó un pipeline automatizado de compilación y publicación continua mediante **GitHub Actions** hacia **GitHub Pages**:
+
+* **Proveedor Cloud:** GitHub Pages.
+* **Automatización CI/CD:** GitHub Actions (Workflow `.github/workflows/deploy.yml`).
+* **Rama de Producción:** `master` (con soporte para compilaciones en `develop`).
+* **URL Pública de Despliegue:** [https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/)
+* **Proceso y Configuración Realizados:** Cada *push* a la rama `master` activa un contenedor `ubuntu-latest` que instala las dependencias de Node.js 22, compila la aplicación Angular para producción mediante `npm run build -- --configuration production --base-href /cold2hot-web-app/`, genera los artefactos en el directorio `dist/cold2hot-web-app/browser` e implementa la estrategia de fallback SPA mediante el script `404.html` para la correcta resolución de rutas en el cliente.
+
+<div align="center">
+  <img src="assets/cap6/deployment-github-actions-webapp.png" alt="Pipeline de GitHub Actions - cold2hot-web-app" width="90%"/>
+  <p><em>Figura 6.2.1.8.2: Ejecución exitosa del pipeline de CI/CD en GitHub Actions para cold2hot-web-app</em></p>
+</div>
+
+##### 3. Despliegue de Web Services y API Gateway (Render.com)
+
+Para la capa de backend basada en microservicios perimetrales (IAM y Telemetría Térmica), se aprovisionó un servicio web en la plataforma cloud **Render.com**:
+
+* **Proveedor Cloud:** Render.com (Web Service PaaS).
+* **Entorno de Ejecución:** Node.js v20/v22 LTS.
+* **Rama de Producción:** `master`.
+* **URL Pública del API Gateway:** [https://cold2hot-backend.onrender.com/](https://cold2hot-backend.onrender.com/)
+* **URLs de Documentación Swagger / OpenAPI:**
+  * IAM Service API: [https://cold2hot-backend.onrender.com/api/v1/iam/docs/](https://cold2hot-backend.onrender.com/api/v1/iam/docs/)
+  * Telemetry Service API: [https://cold2hot-backend.onrender.com/api/v1/telemetry/docs/](https://cold2hot-backend.onrender.com/api/v1/telemetry/docs/)
+* **Proceso y Configuración Realizados:** Se conectó el repositorio `cold2hot-backend` mediante webhooks de Render para despliegue automático ante nuevos commits. Se configuró el comando de arranque `npm start` que ejecuta el orquestador `index.js`, enrutando dinámicamente el tráfico perimetral hacia los microservicios internos en los puertos 3001 y 3002 bajo certificado SSL/TLS gestionado.
+
+<div align="center">
+  <img src="assets/cap6/deployment-render-backend.png" alt="Dashboard de Render.com - cold2hot-backend" width="90%"/>
+  <p><em>Figura 6.2.1.8.3: Dashboard de Render.com mostrando el Web Service cold2hot-backend en estado 'Live'</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/deployment-gateway-endpoint.png" alt="Respuesta del API Gateway en Producción" width="90%"/>
+  <p><em>Figura 6.2.1.8.4: Verificación del endpoint raíz del API Gateway en Render respondiendo con catálogo JSON</em></p>
+</div>
+
+---
+
+#### 6.2.1.9. Team Collaboration Insights during Sprint
+
+Durante el transcurso del **Sprint 1**, el equipo de desarrollo de **IoTeam** demostró un alto nivel de madurez técnica y alineamiento con los principios ágiles de Scrum, sustentando sólidamente el cumplimiento del **Student Outcome ABET EAC 5**:
+
+#### 1. Dinámica de Trabajo y Distribución de Esfuerzo
+
+* Se realizaron reuniones diarias síncronas de sincronización (Daily Standups) de 15 minutos en Discord, enfocadas en identificar impedimentos técnicos tempranos (como la compatibilidad de Node.js 22 con Angular CLI y la configuración de los proxies perimetrales).
+* La distribución de tareas permitió que los 7 integrantes asumieran responsabilidades de liderazgo y desarrollo complementarias entre las capas web, cloud, backend e IoT.
+
+<div align="center">
+  <img src="assets/cap6/sprint1-commits-graph.png" alt="Gráfico de Colaboración y Commits en GitHub - Sprint 1" width="90%"/>
+  <p><em>Figura 6.2.1.9: Gráfico de actividad y frecuencia de commits en GitHub durante el Sprint 1</em></p>
+</div>
+
+#### 2. Retrospectiva del Sprint 1 (Sprint Retrospective)
+
+Al culminar el Sprint, el equipo realizó una sesión de retrospectiva bajo la dinámica *Keep / Stop / Start*:
+
+* **Lo que debemos Mantener (Keep):**
+  * La separación estricta de repositorios desacoplados para el frontend y backend.
+  * El uso de pipelines automatizados de GitHub Actions que compilan y despliegan inmediatamente tras cada Pull Request aprobado.
+  * La fidelidad visual rigurosa con respecto a los prototipos de Figma y la accesibilidad con contraste verificado.
+* **Lo que debemos Detener (Stop):**
+  * Probar configuraciones de despliegue directamente en la nube sin haber validado previamente los contenedores en Docker Desktop local.
+* **Lo que debemos Empezar (Start):**
+  * Iniciar en el Sprint 2 la integración del cliente Bluetooth Low Energy (Web Bluetooth API / Mobile BLE) para conectar la app móvil directamente con el microcontrolador ESP32 de la SmartBox física.
+
+---
+
 # Conclusiones
 
 ## Conclusiones y recomendaciones.
