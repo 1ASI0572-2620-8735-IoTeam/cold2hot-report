@@ -2997,7 +2997,7 @@ Esta sección documenta los prototipos de interfaz de usuario (UI) y su funciona
 *   **Alcance de los Prototipos:** Crear prototipos interactivos para **Desktop** * que simulen la navegación según los flujos de usuario (*User Flow Diagrams*).
 *   **Introducción y Criterios:** Iniciar la sección explicando los criterios principales que justifican las decisiones de diseño e interacción.
 *   **Arquitectura de Información (AI):** Evidenciar cómo el sistema de navegación y los tipos de interacción elegidos se relacionan directamente con la AI propuesta.
-![User Flow MG5](./assets/ui/userflows/foto1.png)
+![User Flow MG5](./assets/foto1.png)
 
 
 ## 5.6. IoT Device Design
