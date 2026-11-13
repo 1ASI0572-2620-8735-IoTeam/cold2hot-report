@@ -2568,7 +2568,7 @@ El **Sprint 2** corresponde a la fase de **desarrollo funcional del backend y de
 | **Asistentes a la Reunión**                                 | Alvarado De La Cruz, Juan CarlosCarhuancote Dominguez, Gonzalo AlonsoDiestra Zambrano, Adriana MariaDuran Diaz, Antonio RodrigoNakasone Gomes, Marco AntonioShimabukuro Uku, Carlos JoelTeves Samaniego, Joan Fernando                                                                                                                                              |
 | **Resumen de la Revisión del Sprint Previo (Sprint 1)**     | Se desplegaron en producción la Landing Page con calculadora de ROI, la Web Application Angular 22 basada en los prototipos de Figma y el API Gateway con los microservicios IAM y Telemetría documentados con OpenAPI/Swagger. Las limitaciones identificadas fueron el uso de datos de demostración en el frontend y el almacenamiento de telemetría únicamente en memoria. |
 | **Resumen de la Retrospectiva del Sprint Previo (Sprint 1)** | Se acordó mantener la separación de repositorios y los pipelines de CI/CD, validar los contenedores en Docker local antes de desplegar en la nube y priorizar la integración real entre frontend, backend y dispositivo IoT.                                                                                                                                       |
-| **Sprint 2 Goal**                                            | *"Desarrollar e integrar el backend y el frontend de Cold2Hot: persistir datos en PostgreSQL, completar los microservicios de IAM, Dispositivos, Telemetría y Alertas, Acceso (OTP) y Órdenes & Auditoría, y conectar la Web Application Angular a dichos servicios mediante el API Gateway, con despliegue continuo de las nuevas versiones."*                       |
+| **Sprint 2 Goal**                                            | *"Desarrollar e integrar el backend y el frontend de Cold2Hot: persistir datos en PostgreSQL, completar los microservicios de IAM, Contenedores (SmartBoxes), Telemetría y Alertas, Seguridad (OTP) y Órdenes & Auditoría, y conectar la Web Application Angular a dichos servicios mediante el API Gateway, con despliegue continuo de las nuevas versiones."*                       |
 | **Métrica de Cumplimiento del Sprint Goal**                 | 100% de las vistas de la Web App consumiendo endpoints reales (0 datos simulados); 5 microservicios documentados en OpenAPI y desplegados; flujo completo*login → crear envío → ingesta de telemetría → alerta → auditoría* ejecutable en producción.                                                                                                    |
 | **Velocidad Estimada del Sprint (Sprint Velocity)**          | **51 Story Points (SP)** distribuidos en 15 historias de usuario del Product Backlog y 3 tareas técnicas transversales (QA, despliegue y documentación).                                                                                                                                                                                                     |
 
@@ -2576,7 +2576,7 @@ El **Sprint 2** corresponde a la fase de **desarrollo funcional del backend y de
 
 | Capa                                  | Alcance de desarrollo                                                                                                                                                                                                                 | Historias de Usuario                |
 | :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------- |
-| **Backend (Cloud Microservices)**     | Persistencia PostgreSQL; IAM con registro, JWT, operadores y recuperación de contraseña; Device Service; Orders & Audit Service; Access Service con validación de OTP; motor de alertas térmicas y de apertura no autorizada.             | US03, US05, US07, US09, US10–US14, US16, US17, US20 |
+| **Backend (Cloud Microservices)**     | Persistencia PostgreSQL; IAM con registro, JWT, operadores y recuperación de contraseña; Container Service; Orders & Audit Service; Security Service con validación de OTP; motor de alertas térmicas y de apertura no autorizada.             | US03, US05, US07, US09, US10–US14, US16, US17, US20 |
 | **Frontend (Web Application)**        | Integración de todas las vistas con el API Gateway: login/registro, dashboard en tiempo real, nuevo despacho con OTP, alertas, SmartBoxes, historial de auditoría y gestión de operadores; interceptor JWT, guards de ruta e i18n.   | US03–US05, US10–US14, US16–US18, US20 |
 | **Landing Page**                      | Nueva versión con planes de suscripción dinámicos e internacionalización (ES/EN).                                                                                                                                                      | US02, US18                          |
 | **Despliegue**                        | Base de datos gestionada (Supabase PostgreSQL), orquestación de los nuevos servicios en Render.com y pipelines de CI/CD actualizados.                                                                                                   | Transversal                         |
@@ -2591,11 +2591,11 @@ Para el Sprint 2 se mantuvieron los siete aspectos de la matriz **LACX**, reorie
 2. **Aspect 2 (Web Application Integration):** Integración de la Web App Angular con los servicios reales, guards, interceptores y vistas nuevas.
 3. **Aspect 3 (IAM & Access Security Services):** Registro persistente, JWT, gestión de operadores, recuperación de contraseña y validación de OTP.
 4. **Aspect 4 (Telemetry & Alerts Service):** Persistencia de telemetría, consultas por envío y motor de reglas de alertas térmicas.
-5. **Aspect 5 (Gateway, Device & Orders Services, Deployment):** Device Service, Orders & Audit Service, extensión del API Gateway y despliegue en la nube.
+5. **Aspect 5 (Gateway, Container & Orders Services, Deployment):** Container Service, Orders & Audit Service, extensión del API Gateway y despliegue en la nube.
 6. **Aspect 6 (QA, Testing Suite & OpenAPI):** Pruebas unitarias e integración del backend, escenarios BDD y actualización de la documentación OpenAPI.
 7. **Aspect 7 (Agile Management & Technical Report):** Facilitación Scrum, control del Sprint Backlog y consolidación del informe.
 
-| Team Member (Last Name, First Name) | GitHub Username | Aspect 1: Landing v2 & i18n (L/C) | Aspect 2: Web App Integration (L/C) | Aspect 3: IAM & Access (L/C) | Aspect 4: Telemetry & Alerts (L/C) | Aspect 5: Gateway, Devices & Deploy (L/C) | Aspect 6: Testing & OpenAPI (L/C) | Aspect 7: Agile & Report (L/C) |
+| Team Member (Last Name, First Name) | GitHub Username | Aspect 1: Landing v2 & i18n (L/C) | Aspect 2: Web App Integration (L/C) | Aspect 3: IAM & Access (L/C) | Aspect 4: Telemetry & Alerts (L/C) | Aspect 5: Gateway, Containers & Deploy (L/C) | Aspect 6: Testing & OpenAPI (L/C) | Aspect 7: Agile & Report (L/C) |
 | :---------------------------------- | :-------------: | :-------------------------------: | :---------------------------------: | :--------------------------: | :--------------------------------: | :---------------------------------------: | :-------------------------------: | :----------------------------: |
 | **Alvarado De La Cruz, Juan Carlos**     | `JuanCarlosAlvarado900` |             **L**             |            C            |              C              |             C             |                C                 |                 C                 |               C                |
 | **Carhuancote Dominguez, Gonzalo Alonso**| `GGonzalo`     |               C               |            C            |            **L**            |             C             |                C                 |                 C                 |               C                |
@@ -2607,7 +2607,7 @@ Para el Sprint 2 se mantuvieron los siete aspectos de la matriz **LACX**, reorie
 
 | Miembro del Equipo                              | Rol de Liderazgo en el Sprint                                  | Responsabilidades Técnicas Asignadas                                                                                                                                                                                      |
 | :---------------------------------------------- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Nakasone Gomes, Marco Antonio**         | *Gateway, Device & Orders Services / Cloud Deployment Lead*  | Implementación del Device Service y del Orders & Audit Service, extensión del API Gateway con las nuevas rutas, migración a PostgreSQL gestionado y despliegue continuo en Render.com.                                  |
+| **Nakasone Gomes, Marco Antonio**         | *Gateway, Container & Orders Services / Cloud Deployment Lead*  | Implementación del Container Service y del Orders & Audit Service, extensión del API Gateway con las nuevas rutas, migración a PostgreSQL gestionado y despliegue continuo en Render.com.                                  |
 | **Diestra Zambrano, Adriana Maria**       | *Web Application Integration Lead*                           | Reemplazo de datos simulados por consumo de la API, servicios HTTP, interceptor JWT, guards de rutas y nuevas vistas (registro, operadores, historial de auditoría y recuperación de contraseña).                      |
 | **Carhuancote Dominguez, Gonzalo Alonso** | *IAM & Access Security Lead*                                 | Persistencia de usuarios y restaurantes, registro, middleware de validación JWT, gestión de operadores, recuperación de contraseña, validación de OTP con expiración y detección de apertura no autorizada.            |
 | **Shimabukuro Uku, Carlos Joel**          | *Telemetry, Alerts & Embedded Lead*                          | Persistencia de lecturas térmicas, consultas por envío, motor de reglas de alertas (temperatura, batería, sensor), y ajuste del firmware ESP32 para el envío periódico de lecturas.                                    |
@@ -2638,42 +2638,62 @@ Los identificadores de historias de usuario corresponden a los del Product Backl
 | **Sprint 2** | **US12** | Gestión de Operadores                  | T12.2   | Vista de gestión de operadores                         | Construir listado y formulario de alta de operadores de entrega en la Web App.                            |    6     | Diestra Zambrano, A.      | **Done** |
 | **Sprint 2** | **US20** | Recuperación de Contraseña            | T20.1   | Endpoint de recuperación de contraseña                | Implementar `POST /auth/forgot-password` y `POST /auth/reset-password` con token temporal.            |    4     | Carhuancote Dominguez, G. | **Done** |
 | **Sprint 2** | **US20** | Recuperación de Contraseña            | T20.2   | Vista de recuperación de contraseña                   | Construir flujo de solicitud y restablecimiento en la Web App.                                            |    3     | Diestra Zambrano, A.      | **Done** |
-| **Sprint 2** | **US13** | Registro de Caja (SmartBox)            | T13.1   | Device Service                                          | Implementar `POST/GET /devices` con registro por MAC address y asignación al restaurante.               |    8     | Nakasone Gomes, M.        | **Done** |
-| **Sprint 2** | **US13** | Registro de Caja (SmartBox)            | T13.2   | Módulo SmartBoxes conectado                            | Conectar el inventario de cajas de la Web App al Device Service y agregar alta de nuevas cajas.           |    4     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US13** | Registro de Caja (SmartBox)            | T13.1   | Container Service                                          | Implementar `POST/GET /smartboxes` con registro por MAC address y emparejamiento de dispositivo.               |    8     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | **US13** | Registro de Caja (SmartBox)            | T13.2   | Módulo SmartBoxes conectado                            | Conectar el inventario de cajas de la Web App al Container Service y agregar alta de nuevas cajas.           |    4     | Diestra Zambrano, A.      | **Done** |
 | **Sprint 2** | **US14** | Estado de Batería y Mantenimiento     | T14.1   | Reglas de batería baja y falla de sensor              | Generar alertas cuando la batería esté bajo el umbral o el sensor deje de reportar lecturas.             |    5     | Shimabukuro Uku, C.       | **Done** |
-| **Sprint 2** | **US03** | Creación de Envío                     | T03.1   | Orders Service: creación de envíos                    | Implementar `POST /shipments` con perfil térmico Cold/Hot, asignación de caja y generación de OTP.     |    8     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | **US03** | Creación de Envío                     | T03.1   | Orders Service: creación de envíos                    | Implementar `POST /orders` con perfil térmico Cold/Hot, asignación de caja y generación de OTP.     |    8     | Nakasone Gomes, M.        | **Done** |
 | **Sprint 2** | **US03** | Creación de Envío                     | T03.2   | Modal de nuevo despacho integrado                       | Conectar el modal de despacho al Orders Service y mostrar el OTP generado.                                |    5     | Diestra Zambrano, A.      | **Done** |
-| **Sprint 2** | **US07** | Desbloqueo por OTP                     | T07.1   | Access Service: validación de OTP                     | Implementar `POST /access/unlock` con OTP de un solo uso, expiración y registro del evento.             |    8     | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 2** | **US07** | Desbloqueo por OTP                     | T07.1   | Security Service: validación de OTP                     | Implementar `POST /security/unlock` y `/security/otp/validate` con OTP de un solo uso y registro de intentos.             |    8     | Carhuancote Dominguez, G. | **Done** |
 | **Sprint 2** | **US09** | Registro Térmico (Technical Story)    | T09.1   | Persistencia de telemetría                            | Migrar el almacenamiento en memoria a PostgreSQL con índices por envío y marca de tiempo.                |    10    | Shimabukuro Uku, C.       | **Done** |
 | **Sprint 2** | **US09** | Registro Térmico (Technical Story)    | T09.2   | Envío periódico desde el firmware ESP32               | Ajustar el sketch para enviar una lectura por minuto al endpoint `/ingest` mediante HTTPS.              |    5     | Shimabukuro Uku, C.       | **Done** |
-| **Sprint 2** | **US04** | Monitoreo en Tiempo Real               | T04.1   | Consulta de última lectura por envío                  | Implementar `GET /telemetry/shipments/{id}/latest` y `/history` para el dashboard.                      |    5     | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 2** | **US04** | Monitoreo en Tiempo Real               | T04.1   | Consulta de última lectura por envío                  | Implementar `GET /telemetry/boxes/{id}/current` y `/history` para el dashboard.                      |    5     | Shimabukuro Uku, C.       | **Done** |
 | **Sprint 2** | **US04** | Monitoreo en Tiempo Real               | T04.2   | Dashboard con datos reales                              | Reemplazar datos simulados por consulta periódica (polling) a la API y gráfica de trayectoria térmica.  |    8     | Diestra Zambrano, A.      | **Done** |
 | **Sprint 2** | **US16** | Alertas de Incumplimiento Térmico     | T16.1   | Motor de reglas de alertas térmicas                   | Evaluar cada lectura contra el rango del envío y generar alertas con severidad.                           |    8     | Shimabukuro Uku, C.       | **Done** |
 | **Sprint 2** | **US16** | Alertas de Incumplimiento Térmico     | T16.2   | Módulo de alertas conectado                            | Conectar el panel de alertas a la API con filtros de severidad y resolución de alertas.                  |    6     | Diestra Zambrano, A.      | **Done** |
 | **Sprint 2** | **US17** | Alertas de Apertura No Autorizada      | T17.1   | Detección de apertura sin OTP                          | Generar alerta cuando `lidOpen=true` se reciba sin un desbloqueo OTP válido previo.                      |    5     | Carhuancote Dominguez, G. | **Done** |
-| **Sprint 2** | **US05** | Historial y Auditoría                 | T05.1   | Orders & Audit Service: reportes de entrega           | Implementar `GET /audit/reports` con trazabilidad térmica y eventos de acceso por envío.                |    6     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | **US05** | Historial y Auditoría                 | T05.1   | Orders & Audit Service: reportes de entrega           | Implementar `GET/POST /orders/audits/{orderId}` con trazabilidad térmica y eventos de acceso por envío.                |    6     | Nakasone Gomes, M.        | **Done** |
 | **Sprint 2** | **US05** | Historial y Auditoría                 | T05.2   | Vista de historial y exportación                       | Construir la vista de historial de entregas con filtros y exportación de reporte.                         |    6     | Diestra Zambrano, A.      | **Done** |
 | **Sprint 2** | **US02** | Visualización de Planes               | T02.1   | Landing Page v2: planes dinámicos                      | Renderizar los planes de suscripción desde configuración y mejorar la sección de precios.                |    6     | Alvarado De La Cruz, J.   | **Done** |
 | **Sprint 2** | **US18** | Internacionalización (i18n)            | T18.1   | i18n en Landing Page                                    | Implementar selector de idioma ES/EN con diccionario de traducciones.                                     |    5     | Alvarado De La Cruz, J.   | **Done** |
 | **Sprint 2** | **US18** | Internacionalización (i18n)            | T18.2   | i18n en Web App                                         | Implementar traducciones ES/EN en las vistas de la aplicación Angular.                                    |    4     | Diestra Zambrano, A.      | **Done** |
-| **Sprint 2** | Transversal   | Calidad y Documentación               | TQ.1    | Pruebas unitarias e integración del backend            | Cubrir con pruebas automatizadas los cinco microservicios y el Gateway.                                   |    10    | Duran Diaz, A.            | **Done** |
+| **Sprint 2** | Transversal   | Calidad y Documentación               | TQ.1    | Pruebas unitarias e integración del backend            | Cubrir con pruebas los microservicios y el Gateway (simulador de telemetría y healthchecks).                                   |    10    | Duran Diaz, A.            | **Done** |
 | **Sprint 2** | Transversal   | Calidad y Documentación               | TQ.2    | Actualización de contratos OpenAPI                    | Documentar en Swagger UI los endpoints nuevos de los cinco microservicios.                                |    8     | Duran Diaz, A.            | **Done** |
-| **Sprint 2** | Transversal   | Despliegue en la Nube                  | TD.1    | Base de datos gestionada y despliegue multiservicio    | Aprovisionar PostgreSQL en Supabase, configurar variables de entorno y desplegar los servicios en Render. |    8     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | Transversal   | Despliegue en la Nube                  | TD.1    | Base de datos gestionada y despliegue multiservicio    | Aprovisionar PostgreSQL en Supabase (y Supabase Storage para la evidencia), configurar variables de entorno y desplegar los servicios en Render. |    8     | Nakasone Gomes, M.        | **Done** |
 | **Sprint 2** | Transversal   | Gestión Ágil e Informe                | TG.1    | Consolidación del informe del Sprint 2                | Registrar evidencias, retrospectiva y actualización de versiones del informe.                             |    6     | Teves Samaniego, J.       | **Done** |
 
 ---
 
 #### 6.2.2.4. Development Evidence for Sprint Review
 
-La evidencia de desarrollo debe extraerse del historial de commits de los repositorios de la organización `1ASI0572-2620-8735-IoTeam` correspondiente al periodo del Sprint 2.
+La siguiente tabla consolida la evidencia de desarrollo extraída del historial de commits de los repositorios de la organización `1ASI0572-2620-8735-IoTeam` durante el Sprint 2 (commits seleccionados; el historial completo se encuentra en cada repositorio).
 
-> **Pendiente:** al momento de redactar esta sección los repositorios `cold2hot-backend`, `cold2hot-web-app` y `cold2hot-landing-page` no registran commits posteriores al 2026-10-07. Una vez publicados los commits del Sprint 2, se debe completar la tabla con los datos reales (`git log --date=short --pretty='%h | %ad | %an | %s'`).
+| Repositorio | Rama | Commit Id | Commit Message | Commited on | Autor |
+| :---------- | :--- | :-------: | :------------- | :---------: | :---- |
+| **`cold2hot-backend`** | `develop` | `2eaff93` | `feat(container-service): add SmartBox & device management microservice` | 2026-11-13 | Diestra Zambrano, Adriana Maria |
+| **`cold2hot-backend`** | `develop` | `a8caf8b` | `feat(security-service): add OTP, unlock and tamper alerts microservice` | 2026-11-13 | Diestra Zambrano, Adriana Maria |
+| **`cold2hot-backend`** | `develop` | `67fde61` | `feat(iam): real auth with JWT, operators, profile and subscriptions` | 2026-11-13 | Diestra Zambrano, Adriana Maria |
+| **`cold2hot-backend`** | `develop` | `1fb49c2` | `feat(orders-service): add orders, delivery evidence, audit and analytics microservice` | 2026-11-13 | Diestra Zambrano, Adriana Maria |
+| **`cold2hot-backend`** | `develop` | `5925f90` | `feat(telemetry): thermal profiles, breach detection and box history` | 2026-11-13 | Diestra Zambrano, Adriana Maria |
+| **`cold2hot-backend`** | `develop` | `c0ec909` | `feat(iam-service): add JWT auth, persistent users, operators and password recovery` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-backend`** | `develop` | `44cb3de` | `feat(telemetry-service): persist readings and add per-shipment queries and thermal alert engine` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-backend`** | `develop` | `40ba1c8` | `feat(orders-service): add shipments with OTP generation and audit reports` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-backend`** | `develop` | `6c217b4` | `feat(deploy): orchestrate five services, update compose and add telemetry simulator` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-backend`** | `feature/backend-integration` | `c93abdb` | `feat(telemetry): notify security-service on lid open and close events` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-backend`** | `feature/postgres-persistence` | `b2d222b` | `feat(persistence): persistir el estado de los servicios en PostgreSQL (Supabase) cuando hay DATABASE_URL` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-backend`** | `feature/relational-telemetry` | `58e7e36` | `feat(telemetry): guardar perfiles, lecturas y alertas en tablas de PostgreSQL` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-backend`** | `feature/relational-persistence` | `52699fe` | `feat(persistence): pasar todos los servicios a tablas relacionales y la evidencia a Supabase Storage` | 2026-11-13 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-backend`** | `master` | `ad89991` | `Merge pull request #8 from 1ASI0572-2620-8735-IoTeam/feature/relational-persistence` | 2026-11-13 | Nakasone Gomes, Marco Antonio |
+| **`cold2hot-web-app`** | `develop` | `9b2b6c8` | `feat(core): add API config, JWT interceptor, route guards and real auth service` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `develop` | `5244e00` | `feat(auth): connect login to IAM and add register and password recovery flows` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `develop` | `360cded` | `feat(features): add audit history and operator management views` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `develop` | `df3f8b7` | `feat(monitoring): replace mock data with backend polling for shipments, alerts and smartboxes` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `develop` | `09dac89` | `feat(settings): add settings page with account, language, thermal defaults and service status` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `develop` | `0564c69` | `feat(smartboxes): add smartbox detail view with image and live data cards` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `develop` | `0f8304c` | `feat(web): adapt data layer to team orders, telemetry and IAM APIs` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `develop` | `825f4d9` | `feat(web): show OTP for support and delivery evidence in history` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
+| **`cold2hot-web-app`** | `master` | `a74bcd1` | `feat(web): conectar con el backend y agregar detalle de SmartBox, OTP y evidencia` | 2026-11-13 | Duran Diaz, Antonio Rodrigo |
 
-| Repositorio                         | Rama        |  Commit Id  | Commit Message | Commited on | Autor |
-| :---------------------------------- | :---------- | :---------: | :------------- | :---------: | :---- |
-| **`cold2hot-backend`**      | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
-| **`cold2hot-web-app`**      | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
-| **`cold2hot-landing-page`** | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+> **Pendiente:** `cold2hot-landing-page` no registra commits posteriores al 2026-10-07; la nueva versión de la Landing Page (planes dinámicos e i18n) debe publicarse para completar su evidencia.
 
 ---
 
@@ -2683,12 +2703,13 @@ El plan de pruebas del Sprint 2 extiende la suite del Sprint 1 a los cinco micro
 
 #### 1. Estrategia de Pruebas
 
-| Nivel                  | Producto                                 | Herramienta                      | Alcance                                                                                                 |
-| :--------------------- | :--------------------------------------- | :------------------------------- | :------------------------------------------------------------------------------------------------------ |
-| **Unitarias**          | Microservicios (`cold2hot-backend`)      | Jest                             | Reglas de dominio: validación de OTP, evaluación de rangos térmicos, generación de alertas.             |
-| **Integración**        | API Gateway y microservicios             | Jest + Supertest                 | Flujos HTTP de extremo a extremo a través del Gateway con base de datos de pruebas.                     |
-| **Unitarias**          | Web App (`cold2hot-web-app`)             | Runner de pruebas de Angular     | Componentes standalone, servicios HTTP, interceptor JWT y guards de ruta.                               |
-| **Aceptación (BDD)**   | Plataforma completa                      | Gherkin (`.feature`)             | Escenarios de negocio de las historias del sprint.                                                      |
+| Nivel                      | Producto                                  | Herramienta                          | Alcance y estado                                                                                                              |
+| :------------------------- | :---------------------------------------- | :----------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| **Unitarias**              | Web App (`cold2hot-web-app`)              | Runner de pruebas de Angular         | `app.spec.ts`: instanciación del componente raíz.                                                                             |
+| **Compilación y CI**       | Web App (`cold2hot-web-app`)              | GitHub Actions (`deploy.yml`)        | Compilación de producción y despliegue automático en cada push a `master` (ejecución #3 exitosa).                            |
+| **Integración / humo**     | API Gateway y microservicios              | Healthchecks y `scripts/simulate-telemetry.js` | Verificación de `/health` por servicio y simulación de lecturas térmicas a través del Gateway.                      |
+| **Aceptación (BDD)**       | Plataforma completa                       | Gherkin (`.feature`)                 | Escenarios de negocio de las historias del sprint (siguiente apartado).                                                       |
+| **Automatizadas backend**  | Microservicios (`cold2hot-backend`)       | Jest + Supertest                     | **Pendiente:** el repositorio aún no incluye una suite automatizada para los microservicios.                                  |
 
 #### 2. Especificación de Pruebas BDD del Sprint 2
 
@@ -2738,12 +2759,14 @@ Feature: Unauthorized Lid Opening Detection
 
 #### 3. Resultados de Ejecución y Commits Vinculados
 
-> **Pendiente:** completar con el resumen de pruebas ejecutadas (cantidad de pruebas aprobadas y cobertura) y con los commits reales que introdujeron la suite de pruebas del Sprint 2.
+**Resultado verificado:** el pipeline de GitHub Actions de la Web App (*Deploy Angular App to GitHub Pages*, ejecución #3, commit `a74bcd1`) finalizó con estado *Success* en 40 s, validando la compilación de producción tras la integración con el backend (ver Figura 6.2.2.8.3).
+
+> **Pendiente:** agregar pruebas automatizadas a los microservicios y registrar el resumen de pruebas ejecutadas (cantidad aprobada y cobertura).
 
 | Repositorio | Rama | Commit Id | Commit Message | Commit Message Body | Commited on |
 | :--- | :---: | :---: | :--- | :--- | :---: |
-| **`cold2hot-backend`** | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
-| **`cold2hot-web-app`** | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| **`cold2hot-backend`** | `develop` | `6c217b4` | `feat(deploy): orchestrate five services, update compose and add telemetry simulator` | Incorpora el simulador de telemetría para verificar ingesta y alertas a través del Gateway. | 2026-11-13 |
+| **`cold2hot-web-app`** | `master` | `a74bcd1` | `feat(web): conectar con el backend y agregar detalle de SmartBox, OTP y evidencia` | Dispara el pipeline de CI/CD con compilación de producción y despliegue en GitHub Pages. | 2026-11-13 |
 
 ---
 
@@ -2773,30 +2796,54 @@ La documentación de los servicios continúa bajo el estándar **OpenAPI Specifi
 
 #### 1. Catálogo de Endpoints del Sprint 2
 
-Los endpoints del Sprint 1 (`/auth/login`, `/auth/register`, `/ingest`, `/logs` y los `health`) se mantienen. A continuación se listan los endpoints incorporados o modificados en el Sprint 2:
+Cada microservicio expone su documentación interactiva en `/docs`. Los endpoints del Sprint 1 (`/auth/login`, `/auth/register`, `/ingest`, `/logs` y los `health`) se mantienen. A continuación se listan los endpoints incorporados en el Sprint 2, accesibles a través del API Gateway:
 
-| Microservicio             | Endpoint (Vía Gateway)                              | Verbo HTTP | Request Body / Parámetros                                                | Respuestas (HTTP Status)                              | Historia |
-| :------------------------ | :-------------------------------------------------- | :--------: | :----------------------------------------------------------------------- | :---------------------------------------------------- | :------- |
-| **IAM Service**           | `/api/v1/iam/auth/forgot-password`                  | `POST`   | `{ "email": string }`                                                  | `202 Accepted`<br>`404 Not Found`                     | US20     |
-| **IAM Service**           | `/api/v1/iam/auth/reset-password`                   | `POST`   | `{ "token": string, "newPassword": string }`                           | `200 OK`<br>`400 Bad Request`                         | US20     |
-| **IAM Service**           | `/api/v1/iam/operators`                             | `POST`   | `{ "fullName": string, "email": string, "password": string }`          | `201 Created`<br>`400 Bad Request`<br>`401 Unauthorized` | US12  |
-| **IAM Service**           | `/api/v1/iam/operators`                             | `GET`    | Header `Authorization: Bearer <JWT>`                                   | `200 OK` (lista de operadores)<br>`401 Unauthorized`  | US12     |
-| **IAM Service**           | `/api/v1/iam/operators/{id}`                        | `DELETE` | Parámetro de ruta `id`                                                 | `204 No Content`<br>`404 Not Found`                   | US12     |
-| **Device Service**        | `/api/v1/devices`                                   | `POST`   | `{ "macAddress": string, "alias": string }`                            | `201 Created`<br>`400 Bad Request`<br>`409 Conflict`  | US13     |
-| **Device Service**        | `/api/v1/devices`                                   | `GET`    | Ninguno                                                                  | `200 OK` (inventario con batería y estado de cerrojo) | US13, US14 |
-| **Orders Service**        | `/api/v1/orders/shipments`                          | `POST`   | `{ "smartBoxId": string, "profile": "COLD"\|"HOT", "minTemp": number, "maxTemp": number }` | `201 Created` (envío y OTP)<br>`400 Bad Request` | US03 |
-| **Orders Service**        | `/api/v1/orders/shipments`                          | `GET`    | Filtros opcionales `status`                                            | `200 OK`                                              | US03, US04 |
-| **Orders Service**        | `/api/v1/orders/audit/reports`                      | `GET`    | Filtros `from`, `to`, `shipmentId`                                     | `200 OK` (reportes de entrega)                        | US05     |
-| **Access Service**        | `/api/v1/access/unlock`                             | `POST`   | `{ "shipmentId": string, "otp": string }`                              | `200 OK`<br>`401 Unauthorized`<br>`409 Conflict`      | US07     |
-| **Telemetry Service**     | `/api/v1/telemetry/shipments/{id}/latest`           | `GET`    | Parámetro de ruta `id`                                                 | `200 OK`<br>`404 Not Found`                           | US04     |
-| **Telemetry Service**     | `/api/v1/telemetry/shipments/{id}/history`          | `GET`    | Parámetros `from`, `to`                                                | `200 OK` (serie térmica)                              | US04, US09 |
-| **Telemetry Service**     | `/api/v1/telemetry/alerts`                          | `GET`    | Filtros `severity`, `resolved`                                         | `200 OK`                                              | US16, US17 |
-| **Telemetry Service**     | `/api/v1/telemetry/alerts/{id}/resolve`             | `PATCH`  | Parámetro de ruta `id`                                                 | `200 OK`<br>`404 Not Found`                           | US16     |
+| Microservicio | Endpoint (vía Gateway, prefijo `/api/v1`) | Verbo HTTP | Propósito | Historia |
+| :--- | :--- | :---: | :--- | :--- |
+| **IAM Service** | `/iam/auth/forgot-password` | `POST` | Solicitar la recuperación de contraseña. | US20 |
+| **IAM Service** | `/iam/auth/reset-password` | `POST` | Restablecer la contraseña con token temporal. | US20 |
+| **IAM Service** | `/iam/users/me` | `GET`, `PUT` | Consultar y actualizar el perfil del usuario autenticado. | US11 |
+| **IAM Service** | `/iam/operators` | `GET`, `POST` | Listar y registrar operadores de entrega. | US12 |
+| **IAM Service** | `/iam/operators/{operatorId}/status` | `PATCH` | Activar o desactivar un operador. | US12 |
+| **IAM Service** | `/iam/subscriptions/plans` | `GET` | Consultar los planes de suscripción. | US15 |
+| **IAM Service** | `/iam/subscriptions/current` | `GET` | Consultar la suscripción vigente. | US15 |
+| **IAM Service** | `/iam/subscriptions/upgrade` | `POST` | Cambiar de plan. | US15 |
+| **Container Service** | `/containers/smartboxes` | `GET`, `POST` | Listar y registrar SmartBoxes por MAC address. | US13 |
+| **Container Service** | `/containers/smartboxes/available` | `GET` | Cajas disponibles para asignar a un envío. | US13 |
+| **Container Service** | `/containers/smartboxes/{boxId}` | `GET` | Detalle de una SmartBox. | US13 |
+| **Container Service** | `/containers/smartboxes/{boxId}/pair-device` | `POST` | Emparejar el dispositivo físico con la caja. | US13 |
+| **Container Service** | `/containers/smartboxes/{boxId}/status` | `PATCH` | Actualizar el estado de la caja. | US13 |
+| **Container Service** | `/containers/devices/heartbeat` | `POST` | Recibir estado y batería del dispositivo. | US14 |
+| **Container Service** | `/containers/alerts y /alerts/{alertId}/resolve` | `GET`, `PATCH` | Alertas de batería y falla de sensor; resolución. | US14 |
+| **Orders Service** | `/orders` | `GET`, `POST` | Listar y crear envíos con perfil térmico y OTP. | US03 |
+| **Orders Service** | `/orders/active` | `GET` | Envíos en tránsito. | US04 |
+| **Orders Service** | `/orders/{orderId}` | `GET` | Detalle de un envío. | US03 |
+| **Orders Service** | `/orders/{orderId}/evidence` | `POST` | Registrar la evidencia fotográfica de la entrega. | US08 |
+| **Orders Service** | `/orders/audits/{orderId}` | `GET`, `POST` | Consultar y generar el reporte de auditoría. | US05 |
+| **Orders Service** | `/orders/analytics/operators` | `GET` | Analítica de desempeño de repartidores. | US19 |
+| **Security Service** | `/security/otp` | `GET`, `POST` | Generar y consultar el OTP de un envío. | US07 |
+| **Security Service** | `/security/otp/validate` | `POST` | Validar un OTP. | US07 |
+| **Security Service** | `/security/unlock` | `POST` | Desbloquear la caja con un OTP válido. | US07 |
+| **Security Service** | `/security/locks/{smartBoxId}` | `GET` | Estado del cerrojo. | US07 |
+| **Security Service** | `/security/tamper-events` | `GET`, `POST` | Registrar y consultar aperturas no autorizadas. | US17 |
+| **Security Service** | `/security/access-attempts` | `GET` | Historial de intentos de acceso. | US07 |
+| **Security Service** | `/security/alerts y /alerts/{alertId}/resolve` | `GET`, `PATCH` | Alertas de seguridad y su resolución. | US17 |
+| **Telemetry Service** | `/telemetry/thermal-profiles` | `GET`, `POST` | Perfiles térmicos Cold/Hot con sus rangos. | US03, US16 |
+| **Telemetry Service** | `/telemetry/thermal-profiles/orders/{orderId}` | `GET` | Perfil térmico asociado a un envío. | US16 |
+| **Telemetry Service** | `/telemetry/boxes/{boxId}/current` | `GET` | Última lectura de una SmartBox. | US04 |
+| **Telemetry Service** | `/telemetry/boxes/{boxId}/history` | `GET` | Serie histórica de lecturas (parámetro `limit`). | US04, US09 |
+| **Telemetry Service** | `/telemetry/alerts y /alerts/{alertId}/resolve` | `GET`, `PATCH` | Alertas de incumplimiento térmico y resolución. | US16 |
 
-> **Nota:** el catálogo refleja el contrato planificado para el sprint. Debe contrastarse con la especificación OpenAPI desplegada y ajustarse a los endpoints finalmente implementados.
+* **Persistencia:** los servicios guardan su estado en tablas relacionales de PostgreSQL (Supabase): `iam_*`, `container_*`, `telemetry_*`, `orders_*` y `security_*`. La evidencia fotográfica se almacena en Supabase Storage.
+* **Commits vinculados a documentación y persistencia (Sprint 2):** `52699fe`, `58e7e36` y `b2d222b`.
+* **Swagger UI desplegado** (a través del API Gateway en Render):
+  * IAM: [https://cold2hot-backend.onrender.com/api/v1/iam/docs](https://cold2hot-backend.onrender.com/api/v1/iam/docs)
+  * Container: [https://cold2hot-backend.onrender.com/api/v1/containers/docs](https://cold2hot-backend.onrender.com/api/v1/containers/docs)
+  * Telemetry: [https://cold2hot-backend.onrender.com/api/v1/telemetry/docs](https://cold2hot-backend.onrender.com/api/v1/telemetry/docs)
+  * Orders & Audit: [https://cold2hot-backend.onrender.com/api/v1/orders/docs](https://cold2hot-backend.onrender.com/api/v1/orders/docs)
+  * Security: [https://cold2hot-backend.onrender.com/api/v1/security/docs](https://cold2hot-backend.onrender.com/api/v1/security/docs)
 
-* **Identificadores de commits vinculados a documentación (Sprint 2):** `[COMPLETAR]`
-* **URL de Swagger UI desplegado:** `[COMPLETAR]`
+> **Pendiente:** capturas de Swagger UI con los endpoints nuevos y una ejecución *Try it out*.
 
 ---
 
@@ -2804,21 +2851,38 @@ Los endpoints del Sprint 1 (`/auth/login`, `/auth/register`, `/ingest`, `/logs` 
 
 El despliegue del Sprint 2 mantiene la arquitectura desacoplada descrita en la sección 6.1.4 y agrega la base de datos gestionada y los nuevos servicios.
 
-| Producto                         | Plataforma                         | Actualización del Sprint 2                                                           | URL de producción |
-| :------------------------------- | :--------------------------------- | :----------------------------------------------------------------------------------- | :---------------- |
-| **Landing Page (v2)**            | GitHub Pages                       | Planes dinámicos e internacionalización ES/EN.                                       | `[COMPLETAR]`     |
-| **Web Application (v2)**         | GitHub Pages + GitHub Actions      | Integración completa con la API real y nuevas vistas.                                | `[COMPLETAR]`     |
-| **API Gateway y Microservicios** | Render.com                         | Incorporación de Device, Orders & Audit y Access Services con rutas en el Gateway.   | `[COMPLETAR]`     |
-| **Base de datos**                | Supabase (PostgreSQL gestionado)   | Esquemas por bounded context para IAM, dispositivos, telemetría, órdenes y accesos.  | No pública        |
+| Producto                         | Plataforma                           | Actualización del Sprint 2                                                                                  | URL de producción |
+| :------------------------------- | :----------------------------------- | :---------------------------------------------------------------------------------------------------------- | :---------------- |
+| **Landing Page (v2)**            | GitHub Pages                         | Planes dinámicos e internacionalización ES/EN.                                                              | `[COMPLETAR]`     |
+| **Web Application (v2)**         | GitHub Pages + GitHub Actions        | Integración con la API real, detalle de SmartBox, OTP y evidencia (commit `a74bcd1`).                       | [https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/dashboard/monitoring](https://1asi0572-2620-8735-ioteam.github.io/cold2hot-web-app/dashboard/monitoring) |
+| **API Gateway y Microservicios** | Render.com (`cold2hot-backend`)      | Cinco servicios (IAM, Container, Telemetry, Orders & Audit y Security) con rutas en el Gateway; despliegue del commit `ad89991`. | [https://cold2hot-backend.onrender.com/](https://cold2hot-backend.onrender.com/) |
+| **Base de datos**                | Supabase (`Cold2Hot-db`, PostgreSQL) | Tablas relacionales por bounded context; última migración `telemetry_relational_tables`.                    | No pública        |
 
 **Pasos de despliegue:**
 
-1. Aprovisionamiento de la instancia PostgreSQL y configuración de la variable de entorno `DATABASE_URL` en Render.
+1. Aprovisionamiento de la instancia PostgreSQL en Supabase y configuración de `DATABASE_URL`, `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY` en Render.
 2. Inclusión de las rutas de los nuevos servicios en el Gateway y en el orquestador `index.js`, actualizando `render.yaml`.
-3. Publicación de la rama `develop` en `master` de cada repositorio mediante Pull Request, lo que dispara el pipeline de GitHub Actions de la Web App.
-4. Verificación posterior del healthcheck de cada servicio y ejecución del flujo completo de extremo a extremo.
+3. Publicación en `master` de cada repositorio mediante Pull Request, lo que dispara el pipeline de GitHub Actions de la Web App.
+4. Verificación posterior del healthcheck de cada servicio y del flujo de extremo a extremo.
 
-> **Pendiente:** completar las URLs de producción y agregar capturas de los paneles de despliegue y de los pipelines ejecutados.
+#### Evidencias de despliegue
+
+<div align="center">
+  <img src="assets/cap6/sprint2-render-deploy.png" alt="Render.com - Despliegue de cold2hot-backend" width="90%"/>
+  <p><em>Figura 6.2.2.8.1: Despliegue de <code>cold2hot-backend</code> en Render.com desde el commit ad89991 (Merge PR #8): estado <em>Deploy succeeded - Live</em> con tráfico de la Web App hacia el Gateway</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/sprint2-supabase-db.png" alt="Supabase - Proyecto Cold2Hot-db" width="90%"/>
+  <p><em>Figura 6.2.2.8.2: Base de datos PostgreSQL <code>Cold2Hot-db</code> en Supabase (estado Healthy, entorno de producción)</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/cap6/sprint2-webapp-actions.png" alt="GitHub Actions - Deploy Angular App to GitHub Pages" width="90%"/>
+  <p><em>Figura 6.2.2.8.3: Pipeline de GitHub Actions de <code>cold2hot-web-app</code> (ejecución #3, estado Success en 40 s)</em></p>
+</div>
+
+> **Pendiente:** falta la evidencia y la URL de producción de la Landing Page v2.
 
 ---
 
