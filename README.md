@@ -15,6 +15,7 @@
 | **1.8.0** | 18/09/2026 | Nakasone Gomes, Marco Antonio         | Consolidación del informe, integración de ramas por capítulo, resolución de conflictos y redacción de conclusiones de AV1.                                                                                                                                             |
 | **1.9.0** | 30/09/2026 | Nakasone Gomes, Marco Antonio         | Normalización integral de formato, corrección de enlaces de imágenes, generación de diagramas arquitectónicos y adición de anexos.                                                                                                                                    |
 | **2.0.0** | 07/10/2026 | Nakasone Gomes, Marco Antonio         | Redacción completa del Capítulo VI: Product Implementation, Validation & Deployment, configuración de gestión de configuración de software, Sprint 1, evidencias de desarrollo, ejecución, documentación OpenAPI y despliegue cloud en producción para el hito TB1. |
+| **2.1.0** | 13/11/2026 | Nakasone Gomes, Marco Antonio         | Redacción del Sprint 2 (planning, LACX, backlog, plan de pruebas, catálogo de endpoints y despliegue), diseño de entrevistas de validación y estructura de evaluación heurística y video About-the-Product. |
 
 # Project Report Collaboration Insights
 
@@ -134,6 +135,21 @@ El desarrollo del informe de trabajo final para el proyecto **Cold2Hot** ha sido
       - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint](#6219-team-collaboration-insights-during-sprint)
+    - [6.2.2. Sprint 2](#622-sprint-2)
+      - [6.2.2.1. Sprint Planning 2](#6221-sprint-planning-2)
+      - [6.2.2.2. Aspect Leaders and Collaborators](#6222-aspect-leaders-and-collaborators)
+      - [6.2.2.3. Sprint Backlog 2](#6223-sprint-backlog-2)
+      - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
+      - [6.2.2.5. Testing Suite Evidence for Sprint Review](#6225-testing-suite-evidence-for-sprint-review)
+      - [6.2.2.6. Execution Evidence for Sprint Review](#6226-execution-evidence-for-sprint-review)
+      - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
+      - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.2.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
+  - [6.3. Validation Interviews](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
+    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
+    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-según-heurísticas)
+  - [6.4. Video About-the-Product](#64-video-about-the-product)
 - [Conclusiones](#conclusiones)
   - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Video About-the-Team](#video-about-the-team)
@@ -2531,6 +2547,446 @@ Al culminar el Sprint, el equipo realizó una sesión de retrospectiva bajo la d
   * Probar configuraciones de despliegue directamente en la nube sin haber validado previamente los contenedores en Docker Desktop local.
 * **Lo que debemos Empezar (Start):**
   * Iniciar en el Sprint 2 la integración del cliente Bluetooth Low Energy (Web Bluetooth API / Mobile BLE) para conectar la app móvil directamente con el microcontrolador ESP32 de la SmartBox física.
+
+---
+
+### 6.2.2. Sprint 2
+
+El **Sprint 2** corresponde a la fase de **desarrollo funcional del backend y del frontend** de **Cold2Hot**. Sobre la base fundacional del Sprint 1 (Landing Page, Web App con datos de demostración, API Gateway y microservicios IAM y Telemetría con almacenamiento en memoria), este sprint evoluciona la solución hacia una plataforma integrada de extremo a extremo: la Web App Angular deja de operar con datos simulados y consume los servicios reales a través del API Gateway, los microservicios incorporan persistencia en base de datos relacional y se implementan los bounded contexts restantes del diseño táctico del Capítulo IV (Container & Device Management, Access & Security y Orders & Audit).
+
+> **Nota de seguimiento:** los campos marcados como `[COMPLETAR]` requieren datos reales del equipo (fechas de reunión, identificadores de commit, resultados medidos). Las secciones con evidencia visual (capturas de pantalla y gráficos) se incorporarán en una iteración posterior de este informe.
+
+#### 6.2.2.1. Sprint Planning 2
+
+| Campo                                                              | Detalle                                                                                                                                                                                                                                                                                                                                                             |
+| :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Sprint #**                                                 | **Sprint 2**                                                                                                                                                                                                                                                                                                                                                  |
+| **Fecha de Planificación**                                  | 2026-10-14                                                                                                                                                                                                                                                                                                                                                       |
+| **Horario**                                                  | 19:30 - 21:15 (GMT-5)                                                                                                                                                                                                                                                                                                                                               |
+| **Ubicación**                                               | Sesión virtual colaborativa vía Discord / Google Meet                                                                                                                                                                                                                                                                                                             |
+| **Elaborado Por**                                            | Teves Samaniego, Joan Fernando (Scrum Master)                                                                                                                                                                                                                                                                                                                       |
+| **Asistentes a la Reunión**                                 | Alvarado De La Cruz, Juan CarlosCarhuancote Dominguez, Gonzalo AlonsoDiestra Zambrano, Adriana MariaDuran Diaz, Antonio RodrigoNakasone Gomes, Marco AntonioShimabukuro Uku, Carlos JoelTeves Samaniego, Joan Fernando                                                                                                                                              |
+| **Resumen de la Revisión del Sprint Previo (Sprint 1)**     | Se desplegaron en producción la Landing Page con calculadora de ROI, la Web Application Angular 22 basada en los prototipos de Figma y el API Gateway con los microservicios IAM y Telemetría documentados con OpenAPI/Swagger. Las limitaciones identificadas fueron el uso de datos de demostración en el frontend y el almacenamiento de telemetría únicamente en memoria. |
+| **Resumen de la Retrospectiva del Sprint Previo (Sprint 1)** | Se acordó mantener la separación de repositorios y los pipelines de CI/CD, validar los contenedores en Docker local antes de desplegar en la nube y priorizar la integración real entre frontend, backend y dispositivo IoT.                                                                                                                                       |
+| **Sprint 2 Goal**                                            | *"Desarrollar e integrar el backend y el frontend de Cold2Hot: persistir datos en PostgreSQL, completar los microservicios de IAM, Dispositivos, Telemetría y Alertas, Acceso (OTP) y Órdenes & Auditoría, y conectar la Web Application Angular a dichos servicios mediante el API Gateway, con despliegue continuo de las nuevas versiones."*                       |
+| **Métrica de Cumplimiento del Sprint Goal**                 | 100% de las vistas de la Web App consumiendo endpoints reales (0 datos simulados); 5 microservicios documentados en OpenAPI y desplegados; flujo completo*login → crear envío → ingesta de telemetría → alerta → auditoría* ejecutable en producción.                                                                                                    |
+| **Velocidad Estimada del Sprint (Sprint Velocity)**          | **51 Story Points (SP)** distribuidos en 15 historias de usuario del Product Backlog y 3 tareas técnicas transversales (QA, despliegue y documentación).                                                                                                                                                                                                     |
+
+**Alcance del Sprint 2 (derivado del Product Backlog del Capítulo III):**
+
+| Capa                                  | Alcance de desarrollo                                                                                                                                                                                                                 | Historias de Usuario                |
+| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------- |
+| **Backend (Cloud Microservices)**     | Persistencia PostgreSQL; IAM con registro, JWT, operadores y recuperación de contraseña; Device Service; Orders & Audit Service; Access Service con validación de OTP; motor de alertas térmicas y de apertura no autorizada.             | US03, US05, US07, US09, US10–US14, US16, US17, US20 |
+| **Frontend (Web Application)**        | Integración de todas las vistas con el API Gateway: login/registro, dashboard en tiempo real, nuevo despacho con OTP, alertas, SmartBoxes, historial de auditoría y gestión de operadores; interceptor JWT, guards de ruta e i18n.   | US03–US05, US10–US14, US16–US18, US20 |
+| **Landing Page**                      | Nueva versión con planes de suscripción dinámicos e internacionalización (ES/EN).                                                                                                                                                      | US02, US18                          |
+| **Despliegue**                        | Base de datos gestionada (Supabase PostgreSQL), orquestación de los nuevos servicios en Render.com y pipelines de CI/CD actualizados.                                                                                                   | Transversal                         |
+
+---
+
+#### 6.2.2.2. Aspect Leaders and Collaborators
+
+Para el Sprint 2 se mantuvieron los siete aspectos de la matriz **LACX**, reorientados al desarrollo de backend y frontend:
+
+1. **Aspect 1 (Landing Page v2 & i18n):** Nueva versión de la Landing Page con planes dinámicos e internacionalización.
+2. **Aspect 2 (Web Application Integration):** Integración de la Web App Angular con los servicios reales, guards, interceptores y vistas nuevas.
+3. **Aspect 3 (IAM & Access Security Services):** Registro persistente, JWT, gestión de operadores, recuperación de contraseña y validación de OTP.
+4. **Aspect 4 (Telemetry & Alerts Service):** Persistencia de telemetría, consultas por envío y motor de reglas de alertas térmicas.
+5. **Aspect 5 (Gateway, Device & Orders Services, Deployment):** Device Service, Orders & Audit Service, extensión del API Gateway y despliegue en la nube.
+6. **Aspect 6 (QA, Testing Suite & OpenAPI):** Pruebas unitarias e integración del backend, escenarios BDD y actualización de la documentación OpenAPI.
+7. **Aspect 7 (Agile Management & Technical Report):** Facilitación Scrum, control del Sprint Backlog y consolidación del informe.
+
+| Team Member (Last Name, First Name) | GitHub Username | Aspect 1: Landing v2 & i18n (L/C) | Aspect 2: Web App Integration (L/C) | Aspect 3: IAM & Access (L/C) | Aspect 4: Telemetry & Alerts (L/C) | Aspect 5: Gateway, Devices & Deploy (L/C) | Aspect 6: Testing & OpenAPI (L/C) | Aspect 7: Agile & Report (L/C) |
+| :---------------------------------- | :-------------: | :-------------------------------: | :---------------------------------: | :--------------------------: | :--------------------------------: | :---------------------------------------: | :-------------------------------: | :----------------------------: |
+| **Alvarado De La Cruz, Juan Carlos**     | `JuanCarlosAlvarado900` |             **L**             |            C            |              C              |             C             |                C                 |                 C                 |               C                |
+| **Carhuancote Dominguez, Gonzalo Alonso**| `GGonzalo`     |               C               |            C            |            **L**            |             C             |                C                 |                 C                 |               C                |
+| **Diestra Zambrano, Adriana Maria**      | `adriii`        |               C               |          **L**          |              C              |             C             |                C                 |                 C                 |               C                |
+| **Duran Diaz, Antonio Rodrigo**          | `Sltcrd`        |               C               |            C            |              C              |             C             |                C                 |               **L**               |               C                |
+| **Nakasone Gomes, Marco Antonio**        | `marcoanakasone`|               C               |            C            |              C              |             C             |              **L**               |                 C                 |               C                |
+| **Shimabukuro Uku, Carlos Joel**         | `CarlosSh43`    |               C               |            C            |              C              |           **L**           |                C                 |                 C                 |               C                |
+| **Teves Samaniego, Joan Fernando**       | `JoanTeves`     |               C               |            C            |              C              |             C             |                C                 |                 C                 |             **L**              |
+
+| Miembro del Equipo                              | Rol de Liderazgo en el Sprint                                  | Responsabilidades Técnicas Asignadas                                                                                                                                                                                      |
+| :---------------------------------------------- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nakasone Gomes, Marco Antonio**         | *Gateway, Device & Orders Services / Cloud Deployment Lead*  | Implementación del Device Service y del Orders & Audit Service, extensión del API Gateway con las nuevas rutas, migración a PostgreSQL gestionado y despliegue continuo en Render.com.                                  |
+| **Diestra Zambrano, Adriana Maria**       | *Web Application Integration Lead*                           | Reemplazo de datos simulados por consumo de la API, servicios HTTP, interceptor JWT, guards de rutas y nuevas vistas (registro, operadores, historial de auditoría y recuperación de contraseña).                      |
+| **Carhuancote Dominguez, Gonzalo Alonso** | *IAM & Access Security Lead*                                 | Persistencia de usuarios y restaurantes, registro, middleware de validación JWT, gestión de operadores, recuperación de contraseña, validación de OTP con expiración y detección de apertura no autorizada.            |
+| **Shimabukuro Uku, Carlos Joel**          | *Telemetry, Alerts & Embedded Lead*                          | Persistencia de lecturas térmicas, consultas por envío, motor de reglas de alertas (temperatura, batería, sensor), y ajuste del firmware ESP32 para el envío periódico de lecturas.                                    |
+| **Alvarado De La Cruz, Juan Carlos**      | *Landing Page v2 & Internationalization Lead*                | Planes de suscripción dinámicos, internacionalización ES/EN de la Landing Page y soporte al diccionario de traducciones de la Web App.                                                                                 |
+| **Duran Diaz, Antonio Rodrigo**           | *QA, Testing Suite & OpenAPI Documentation Lead*             | Pruebas unitarias y de integración de los cinco microservicios, escenarios BDD adicionales y actualización de los contratos OpenAPI 3.0.                                                                                 |
+| **Teves Samaniego, Joan Fernando**        | *Scrum Master & Technical Documentation Lead*                | Facilitación de ceremonias ágiles, control del Sprint Backlog, consolidación de evidencias y redacción del informe.                                                                                                     |
+
+---
+
+#### 6.2.2.3. Sprint Backlog 2
+
+* **Tablero de gestión ágil en la nube (Jira Software):** [Tablero Kanban - Cold2Hot Backlog](https://marcoanakasone-1789698062967.atlassian.net/jira/software/projects/KAN/boards/1/backlog?atlOrigin=eyJpIjoiNTk0N2Q4MGJiNjQ0NGQzZDk5MzFkZWZiZDdmNTBkMjUiLCJwIjoiaiJ9)
+
+Los identificadores de historias de usuario corresponden a los del Product Backlog del Capítulo III. La columna *Status* refleja el estado del tablero de Jira al 2026-11-13, donde todas las historias del sprint figuran en estado *Finalizado*.
+
+<div align="center">
+  <img src="assets/cap6/sprint2-jira-status.png" alt="Tablero Jira - estado de historias de usuario del Sprint 2" width="90%"/>
+  <p><em>Figura 6.2.2.3: Estado de las historias de usuario en la vista List de Jira (IoTeam)</em></p>
+</div>
+
+|      Sprint #      | User Story Id | User Story Title                       | Task Id | Task Title                                              | Task Description                                                                                          | Est. (h) | Assigned To               |  Status   |
+| :----------------: | :-----------: | :------------------------------------- | :-----: | :------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------- | :------: | :------------------------ | :-------: |
+| **Sprint 2** | **US10** | Registro de Restaurante                | T10.1   | Registro persistente en IAM                             | Implementar `POST /auth/register` con hash BCrypt y almacenamiento en PostgreSQL.                       |    6     | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 2** | **US10** | Registro de Restaurante                | T10.2   | Vista de registro en Web App                            | Construir formulario de registro de restaurante con validaciones y consumo del endpoint.                  |    6     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US11** | Inicio de Sesión (Web y App)           | T11.1   | Integración de login con IAM                            | Conectar el login Angular con el Gateway, almacenar el JWT y crear interceptor HTTP y guards de ruta.     |    6     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US11** | Inicio de Sesión (Web y App)           | T11.2   | Middleware de validación JWT                            | Implementar middleware de verificación y expiración de tokens reutilizable por los demás servicios.       |    4     | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 2** | **US12** | Gestión de Operadores                  | T12.1   | API de operadores                                       | Implementar `POST/GET/DELETE /operators` asociados al restaurante autenticado.                          |    6     | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 2** | **US12** | Gestión de Operadores                  | T12.2   | Vista de gestión de operadores                         | Construir listado y formulario de alta de operadores de entrega en la Web App.                            |    6     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US20** | Recuperación de Contraseña            | T20.1   | Endpoint de recuperación de contraseña                | Implementar `POST /auth/forgot-password` y `POST /auth/reset-password` con token temporal.            |    4     | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 2** | **US20** | Recuperación de Contraseña            | T20.2   | Vista de recuperación de contraseña                   | Construir flujo de solicitud y restablecimiento en la Web App.                                            |    3     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US13** | Registro de Caja (SmartBox)            | T13.1   | Device Service                                          | Implementar `POST/GET /devices` con registro por MAC address y asignación al restaurante.               |    8     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | **US13** | Registro de Caja (SmartBox)            | T13.2   | Módulo SmartBoxes conectado                            | Conectar el inventario de cajas de la Web App al Device Service y agregar alta de nuevas cajas.           |    4     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US14** | Estado de Batería y Mantenimiento     | T14.1   | Reglas de batería baja y falla de sensor              | Generar alertas cuando la batería esté bajo el umbral o el sensor deje de reportar lecturas.             |    5     | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 2** | **US03** | Creación de Envío                     | T03.1   | Orders Service: creación de envíos                    | Implementar `POST /shipments` con perfil térmico Cold/Hot, asignación de caja y generación de OTP.     |    8     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | **US03** | Creación de Envío                     | T03.2   | Modal de nuevo despacho integrado                       | Conectar el modal de despacho al Orders Service y mostrar el OTP generado.                                |    5     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US07** | Desbloqueo por OTP                     | T07.1   | Access Service: validación de OTP                     | Implementar `POST /access/unlock` con OTP de un solo uso, expiración y registro del evento.             |    8     | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 2** | **US09** | Registro Térmico (Technical Story)    | T09.1   | Persistencia de telemetría                            | Migrar el almacenamiento en memoria a PostgreSQL con índices por envío y marca de tiempo.                |    10    | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 2** | **US09** | Registro Térmico (Technical Story)    | T09.2   | Envío periódico desde el firmware ESP32               | Ajustar el sketch para enviar una lectura por minuto al endpoint `/ingest` mediante HTTPS.              |    5     | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 2** | **US04** | Monitoreo en Tiempo Real               | T04.1   | Consulta de última lectura por envío                  | Implementar `GET /telemetry/shipments/{id}/latest` y `/history` para el dashboard.                      |    5     | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 2** | **US04** | Monitoreo en Tiempo Real               | T04.2   | Dashboard con datos reales                              | Reemplazar datos simulados por consulta periódica (polling) a la API y gráfica de trayectoria térmica.  |    8     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US16** | Alertas de Incumplimiento Térmico     | T16.1   | Motor de reglas de alertas térmicas                   | Evaluar cada lectura contra el rango del envío y generar alertas con severidad.                           |    8     | Shimabukuro Uku, C.       | **Done** |
+| **Sprint 2** | **US16** | Alertas de Incumplimiento Térmico     | T16.2   | Módulo de alertas conectado                            | Conectar el panel de alertas a la API con filtros de severidad y resolución de alertas.                  |    6     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US17** | Alertas de Apertura No Autorizada      | T17.1   | Detección de apertura sin OTP                          | Generar alerta cuando `lidOpen=true` se reciba sin un desbloqueo OTP válido previo.                      |    5     | Carhuancote Dominguez, G. | **Done** |
+| **Sprint 2** | **US05** | Historial y Auditoría                 | T05.1   | Orders & Audit Service: reportes de entrega           | Implementar `GET /audit/reports` con trazabilidad térmica y eventos de acceso por envío.                |    6     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | **US05** | Historial y Auditoría                 | T05.2   | Vista de historial y exportación                       | Construir la vista de historial de entregas con filtros y exportación de reporte.                         |    6     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | **US02** | Visualización de Planes               | T02.1   | Landing Page v2: planes dinámicos                      | Renderizar los planes de suscripción desde configuración y mejorar la sección de precios.                |    6     | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 2** | **US18** | Internacionalización (i18n)            | T18.1   | i18n en Landing Page                                    | Implementar selector de idioma ES/EN con diccionario de traducciones.                                     |    5     | Alvarado De La Cruz, J.   | **Done** |
+| **Sprint 2** | **US18** | Internacionalización (i18n)            | T18.2   | i18n en Web App                                         | Implementar traducciones ES/EN en las vistas de la aplicación Angular.                                    |    4     | Diestra Zambrano, A.      | **Done** |
+| **Sprint 2** | Transversal   | Calidad y Documentación               | TQ.1    | Pruebas unitarias e integración del backend            | Cubrir con pruebas automatizadas los cinco microservicios y el Gateway.                                   |    10    | Duran Diaz, A.            | **Done** |
+| **Sprint 2** | Transversal   | Calidad y Documentación               | TQ.2    | Actualización de contratos OpenAPI                    | Documentar en Swagger UI los endpoints nuevos de los cinco microservicios.                                |    8     | Duran Diaz, A.            | **Done** |
+| **Sprint 2** | Transversal   | Despliegue en la Nube                  | TD.1    | Base de datos gestionada y despliegue multiservicio    | Aprovisionar PostgreSQL en Supabase, configurar variables de entorno y desplegar los servicios en Render. |    8     | Nakasone Gomes, M.        | **Done** |
+| **Sprint 2** | Transversal   | Gestión Ágil e Informe                | TG.1    | Consolidación del informe del Sprint 2                | Registrar evidencias, retrospectiva y actualización de versiones del informe.                             |    6     | Teves Samaniego, J.       | **Done** |
+
+---
+
+#### 6.2.2.4. Development Evidence for Sprint Review
+
+La evidencia de desarrollo debe extraerse del historial de commits de los repositorios de la organización `1ASI0572-2620-8735-IoTeam` correspondiente al periodo del Sprint 2.
+
+> **Pendiente:** al momento de redactar esta sección los repositorios `cold2hot-backend`, `cold2hot-web-app` y `cold2hot-landing-page` no registran commits posteriores al 2026-10-07. Una vez publicados los commits del Sprint 2, se debe completar la tabla con los datos reales (`git log --date=short --pretty='%h | %ad | %an | %s'`).
+
+| Repositorio                         | Rama        |  Commit Id  | Commit Message | Commited on | Autor |
+| :---------------------------------- | :---------- | :---------: | :------------- | :---------: | :---- |
+| **`cold2hot-backend`**      | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| **`cold2hot-web-app`**      | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| **`cold2hot-landing-page`** | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+
+---
+
+#### 6.2.2.5. Testing Suite Evidence for Sprint Review
+
+El plan de pruebas del Sprint 2 extiende la suite del Sprint 1 a los cinco microservicios y a las vistas integradas de la Web App.
+
+#### 1. Estrategia de Pruebas
+
+| Nivel                  | Producto                                 | Herramienta                      | Alcance                                                                                                 |
+| :--------------------- | :--------------------------------------- | :------------------------------- | :------------------------------------------------------------------------------------------------------ |
+| **Unitarias**          | Microservicios (`cold2hot-backend`)      | Jest                             | Reglas de dominio: validación de OTP, evaluación de rangos térmicos, generación de alertas.             |
+| **Integración**        | API Gateway y microservicios             | Jest + Supertest                 | Flujos HTTP de extremo a extremo a través del Gateway con base de datos de pruebas.                     |
+| **Unitarias**          | Web App (`cold2hot-web-app`)             | Runner de pruebas de Angular     | Componentes standalone, servicios HTTP, interceptor JWT y guards de ruta.                               |
+| **Aceptación (BDD)**   | Plataforma completa                      | Gherkin (`.feature`)             | Escenarios de negocio de las historias del sprint.                                                      |
+
+#### 2. Especificación de Pruebas BDD del Sprint 2
+
+```gherkin
+Feature: One-Time Password Unlock of the SmartBox
+  As a Delivery Courier
+  I want to unlock the SmartBox with the OTP provided for the shipment
+  So that I can hand over the order to the customer
+
+  Scenario: Successful unlock with a valid and unexpired OTP
+    Given the shipment "#C2H-10482" has an active OTP "482915"
+    When the courier sends a POST request to "/api/v1/access/unlock" with payload:
+      """
+      { "shipmentId": "#C2H-10482", "otp": "482915" }
+      """
+    Then the response status code should be 200
+    And the OTP "482915" should be marked as consumed
+    And an access event should be recorded in the audit log
+
+  Scenario: Rejected unlock with an already consumed OTP
+    Given the OTP "482915" for shipment "#C2H-10482" was already used
+    When the courier sends the same unlock request
+    Then the response status code should be 409
+    And no access event of type "UNLOCK" should be recorded
+```
+
+```gherkin
+Feature: Thermal Breach Alerting
+  As an Operations Administrator
+  I want to be notified when a shipment leaves its acceptable temperature range
+  So that I can act before the order reaches the customer
+
+  Scenario: Alert generated when a hot shipment drops below its minimum temperature
+    Given the active shipment "#C2H-10482" has a hot profile with a minimum of 60 degrees Celsius
+    When the SmartBox "SB-014" reports a temperature of 52.3 degrees Celsius
+    Then a thermal alert with severity "HIGH" should be created for the shipment
+    And the alert should appear in the Alerts module of the Web Application
+```
+
+```gherkin
+Feature: Unauthorized Lid Opening Detection
+  Scenario: Alert generated when the lid opens without a valid OTP unlock
+    Given the shipment "#C2H-10482" has no valid unlock event
+    When the SmartBox "SB-014" reports telemetry with "lidOpen" equal to true
+    Then an unauthorized access alert with severity "CRITICAL" should be created
+```
+
+#### 3. Resultados de Ejecución y Commits Vinculados
+
+> **Pendiente:** completar con el resumen de pruebas ejecutadas (cantidad de pruebas aprobadas y cobertura) y con los commits reales que introdujeron la suite de pruebas del Sprint 2.
+
+| Repositorio | Rama | Commit Id | Commit Message | Commit Message Body | Commited on |
+| :--- | :---: | :---: | :--- | :--- | :---: |
+| **`cold2hot-backend`** | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+| **`cold2hot-web-app`** | `develop` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]` |
+
+---
+
+#### 6.2.2.6. Execution Evidence for Sprint Review
+
+Esta sección debe documentar, con capturas de pantalla de los productos en ejecución, los siguientes flujos del Sprint 2:
+
+| N.º | Producto              | Flujo a evidenciar                                                         | Historias |
+| :-: | :-------------------- | :------------------------------------------------------------------------- | :-------- |
+| 1   | Landing Page v2       | Planes de suscripción dinámicos y selector de idioma ES/EN                 | US02, US18 |
+| 2   | Web Application       | Registro de restaurante e inicio de sesión contra IAM real                 | US10, US11 |
+| 3   | Web Application       | Dashboard de monitoreo con lecturas reales de la SmartBox                  | US04      |
+| 4   | Web Application       | Creación de despacho con OTP generado por el Orders Service                | US03      |
+| 5   | Web Application       | Panel de alertas térmicas y de apertura no autorizada                      | US16, US17 |
+| 6   | Web Application       | Inventario de SmartBoxes y gestión de operadores                           | US12–US14 |
+| 7   | Web Application       | Historial de auditoría y exportación de reporte                            | US05      |
+
+> **Pendiente:** insertar las capturas de pantalla correspondientes en `assets/cap6/` y referenciarlas como *Figura 6.2.2.6.N*.
+
+---
+
+#### 6.2.2.7. Services Documentation Evidence for Sprint Review
+
+La documentación de los servicios continúa bajo el estándar **OpenAPI Specification 3.0.0** y se publica mediante **Swagger UI** en el servidor de producción.
+
+* **Repositorio Oficial de Web Services:** [https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend](https://github.com/1ASI0572-2620-8735-IoTeam/cold2hot-backend)
+
+#### 1. Catálogo de Endpoints del Sprint 2
+
+Los endpoints del Sprint 1 (`/auth/login`, `/auth/register`, `/ingest`, `/logs` y los `health`) se mantienen. A continuación se listan los endpoints incorporados o modificados en el Sprint 2:
+
+| Microservicio             | Endpoint (Vía Gateway)                              | Verbo HTTP | Request Body / Parámetros                                                | Respuestas (HTTP Status)                              | Historia |
+| :------------------------ | :-------------------------------------------------- | :--------: | :----------------------------------------------------------------------- | :---------------------------------------------------- | :------- |
+| **IAM Service**           | `/api/v1/iam/auth/forgot-password`                  | `POST`   | `{ "email": string }`                                                  | `202 Accepted`<br>`404 Not Found`                     | US20     |
+| **IAM Service**           | `/api/v1/iam/auth/reset-password`                   | `POST`   | `{ "token": string, "newPassword": string }`                           | `200 OK`<br>`400 Bad Request`                         | US20     |
+| **IAM Service**           | `/api/v1/iam/operators`                             | `POST`   | `{ "fullName": string, "email": string, "password": string }`          | `201 Created`<br>`400 Bad Request`<br>`401 Unauthorized` | US12  |
+| **IAM Service**           | `/api/v1/iam/operators`                             | `GET`    | Header `Authorization: Bearer <JWT>`                                   | `200 OK` (lista de operadores)<br>`401 Unauthorized`  | US12     |
+| **IAM Service**           | `/api/v1/iam/operators/{id}`                        | `DELETE` | Parámetro de ruta `id`                                                 | `204 No Content`<br>`404 Not Found`                   | US12     |
+| **Device Service**        | `/api/v1/devices`                                   | `POST`   | `{ "macAddress": string, "alias": string }`                            | `201 Created`<br>`400 Bad Request`<br>`409 Conflict`  | US13     |
+| **Device Service**        | `/api/v1/devices`                                   | `GET`    | Ninguno                                                                  | `200 OK` (inventario con batería y estado de cerrojo) | US13, US14 |
+| **Orders Service**        | `/api/v1/orders/shipments`                          | `POST`   | `{ "smartBoxId": string, "profile": "COLD"\|"HOT", "minTemp": number, "maxTemp": number }` | `201 Created` (envío y OTP)<br>`400 Bad Request` | US03 |
+| **Orders Service**        | `/api/v1/orders/shipments`                          | `GET`    | Filtros opcionales `status`                                            | `200 OK`                                              | US03, US04 |
+| **Orders Service**        | `/api/v1/orders/audit/reports`                      | `GET`    | Filtros `from`, `to`, `shipmentId`                                     | `200 OK` (reportes de entrega)                        | US05     |
+| **Access Service**        | `/api/v1/access/unlock`                             | `POST`   | `{ "shipmentId": string, "otp": string }`                              | `200 OK`<br>`401 Unauthorized`<br>`409 Conflict`      | US07     |
+| **Telemetry Service**     | `/api/v1/telemetry/shipments/{id}/latest`           | `GET`    | Parámetro de ruta `id`                                                 | `200 OK`<br>`404 Not Found`                           | US04     |
+| **Telemetry Service**     | `/api/v1/telemetry/shipments/{id}/history`          | `GET`    | Parámetros `from`, `to`                                                | `200 OK` (serie térmica)                              | US04, US09 |
+| **Telemetry Service**     | `/api/v1/telemetry/alerts`                          | `GET`    | Filtros `severity`, `resolved`                                         | `200 OK`                                              | US16, US17 |
+| **Telemetry Service**     | `/api/v1/telemetry/alerts/{id}/resolve`             | `PATCH`  | Parámetro de ruta `id`                                                 | `200 OK`<br>`404 Not Found`                           | US16     |
+
+> **Nota:** el catálogo refleja el contrato planificado para el sprint. Debe contrastarse con la especificación OpenAPI desplegada y ajustarse a los endpoints finalmente implementados.
+
+* **Identificadores de commits vinculados a documentación (Sprint 2):** `[COMPLETAR]`
+* **URL de Swagger UI desplegado:** `[COMPLETAR]`
+
+---
+
+#### 6.2.2.8. Software Deployment Evidence for Sprint Review
+
+El despliegue del Sprint 2 mantiene la arquitectura desacoplada descrita en la sección 6.1.4 y agrega la base de datos gestionada y los nuevos servicios.
+
+| Producto                         | Plataforma                         | Actualización del Sprint 2                                                           | URL de producción |
+| :------------------------------- | :--------------------------------- | :----------------------------------------------------------------------------------- | :---------------- |
+| **Landing Page (v2)**            | GitHub Pages                       | Planes dinámicos e internacionalización ES/EN.                                       | `[COMPLETAR]`     |
+| **Web Application (v2)**         | GitHub Pages + GitHub Actions      | Integración completa con la API real y nuevas vistas.                                | `[COMPLETAR]`     |
+| **API Gateway y Microservicios** | Render.com                         | Incorporación de Device, Orders & Audit y Access Services con rutas en el Gateway.   | `[COMPLETAR]`     |
+| **Base de datos**                | Supabase (PostgreSQL gestionado)   | Esquemas por bounded context para IAM, dispositivos, telemetría, órdenes y accesos.  | No pública        |
+
+**Pasos de despliegue:**
+
+1. Aprovisionamiento de la instancia PostgreSQL y configuración de la variable de entorno `DATABASE_URL` en Render.
+2. Inclusión de las rutas de los nuevos servicios en el Gateway y en el orquestador `index.js`, actualizando `render.yaml`.
+3. Publicación de la rama `develop` en `master` de cada repositorio mediante Pull Request, lo que dispara el pipeline de GitHub Actions de la Web App.
+4. Verificación posterior del healthcheck de cada servicio y ejecución del flujo completo de extremo a extremo.
+
+> **Pendiente:** completar las URLs de producción y agregar capturas de los paneles de despliegue y de los pipelines ejecutados.
+
+---
+
+#### 6.2.2.9. Team Collaboration Insights during Sprint
+
+Durante el **Sprint 2** el equipo mantuvo la dinámica de trabajo del Sprint 1, con reuniones diarias de sincronización de 15 minutos, revisión de Pull Requests entre pares y control del avance en el tablero de Jira. El sprint implicó una mayor interdependencia entre las capas, ya que cada vista de la Web App depende de un endpoint del backend, lo que hizo necesario acordar los contratos OpenAPI antes de iniciar la implementación.
+
+#### 1. Reuniones del Sprint 2
+
+Todas las sesiones se realizaron de forma virtual (Discord / Google Meet), en horarios fuera de las clases del equipo.
+
+| N.º | Fecha                  | Horario (GMT-5) | Tipo de reunión                                      | Objetivo                                                                                       |
+| :-: | :--------------------- | :-------------: | :--------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| 1   | Miércoles 2026-10-14   | 19:30 - 21:15   | Sprint Planning 2                                    | Definir el Sprint Goal, seleccionar las historias del backlog y asignar líderes por aspecto.   |
+| 2   | Sábado 2026-10-24      | 16:00 - 17:30   | Sincronización Backend-Frontend                      | Acordar los contratos OpenAPI y el modelo de datos para integrar la Web App con los servicios. |
+| 3   | Miércoles 2026-11-04   | 19:30 - 20:30   | Seguimiento de avance e impedimentos                 | Revisar el avance por aspecto, resolver bloqueos de integración y ajustar el Sprint Backlog.    |
+| 4   | Martes 2026-11-10      | 19:30 - 21:00   | Revisión de integración y pruebas                    | Validar el flujo de extremo a extremo y revisar los resultados de la suite de pruebas.         |
+| 5   | Jueves 2026-11-12      | 20:00 - 21:30   | Sprint Review y Sprint Retrospective                 | Revisar el incremento desarrollado y realizar la dinámica Keep / Stop / Start.                 |
+
+#### 2. Dinámica de Trabajo y Distribución de Esfuerzo
+
+* El frontend (Aspect 2) y el backend (Aspects 3, 4 y 5) trabajaron en paralelo sobre contratos OpenAPI acordados al inicio del sprint, de modo que la integración no bloqueara el desarrollo de ninguna de las dos capas.
+* Cada integrante lideró al menos un aspecto y colaboró en los restantes, lo que sustenta el cumplimiento del **Student Outcome ABET EAC 5**.
+* La distribución de esfuerzo estimado es la siguiente:
+
+| Miembro                                   | Horas estimadas en el Sprint 2 | Aspecto liderado                  |
+| :---------------------------------------- | :----------------------------: | :-------------------------------- |
+| Diestra Zambrano, Adriana Maria           |              54                | Web Application Integration       |
+| Carhuancote Dominguez, Gonzalo Alonso     |              33                | IAM & Access Security             |
+| Shimabukuro Uku, Carlos Joel              |              33                | Telemetry, Alerts & Embedded      |
+| Nakasone Gomes, Marco Antonio             |              30                | Gateway, Devices & Deployment     |
+| Alvarado De La Cruz, Juan Carlos          |              11                | Landing Page v2 & i18n            |
+| Duran Diaz, Antonio Rodrigo               |              18                | QA, Testing & OpenAPI             |
+| Teves Samaniego, Joan Fernando            |               6                | Agile Management & Report         |
+
+> Las horas corresponden a la estimación del Sprint Backlog 2. Se recomienda rebalancear la carga de la Web App, concentrada en un único integrante, asignando colaboradores en las vistas de menor complejidad.
+
+#### 3. Retrospectiva del Sprint 2 (Sprint Retrospective)
+
+Realizada el 2026-11-12 (reunión N.º 5).
+
+> **Pendiente:** completar con los resultados de la sesión *Keep / Stop / Start*.
+
+* **Lo que debemos Mantener (Keep):** `[COMPLETAR]`
+* **Lo que debemos Detener (Stop):** `[COMPLETAR]`
+* **Lo que debemos Empezar (Start):** `[COMPLETAR]`
+
+---
+
+## 6.3. Validation Interviews
+
+Las entrevistas de validación tienen como finalidad comprobar con usuarios reales que las aplicaciones desplegadas (Landing Page y Web Application) resuelven los problemas identificados en el needfinding del Capítulo II y detectar problemas de usabilidad antes de continuar con el desarrollo.
+
+### 6.3.1. Diseño de Entrevistas
+
+#### 1. Objetivos de la Validación
+
+1. Verificar que el administrador de operaciones comprende la propuesta de valor de Cold2Hot a partir de la Landing Page.
+2. Comprobar que el administrador puede completar las tareas críticas de la Web App sin asistencia: iniciar sesión, crear un despacho, interpretar el monitoreo térmico, resolver una alerta y consultar el historial.
+3. Identificar problemas de usabilidad y evaluarlos con las heurísticas de Nielsen.
+4. Recoger la disposición de uso y de pago del segmento objetivo.
+
+#### 2. Segmentos y Perfil de los Participantes
+
+| Segmento                                         | Perfil                                                                                                   | Participantes objetivo |
+| :----------------------------------------------- | :------------------------------------------------------------------------------------------------------- | :--------------------: |
+| **Administradores de Operaciones de Delivery**   | Dueños o encargados de restaurantes o dark kitchens con servicio de delivery propio o tercerizado.       |        3 a 5           |
+| **Operadores de Entrega (Repartidores Urbanos)** | Repartidores con experiencia en entrega de comida preparada, para validar el flujo de desbloqueo por OTP. |        3 a 5           |
+
+#### 3. Formato de la Sesión
+
+* **Modalidad:** virtual o presencial, de 20 a 30 minutos por participante.
+* **Método:** prueba de usabilidad con tareas guiadas (*think-aloud*) sobre el producto desplegado, seguida de una entrevista semiestructurada.
+* **Registro:** notas de sesión y, con consentimiento del participante, grabación de pantalla y audio.
+
+| Fase | Duración  | Contenido                                                                                         |
+| :--: | :-------: | :------------------------------------------------------------------------------------------------ |
+| 1    | 3 min     | Presentación, consentimiento informado y contexto del participante.                               |
+| 2    | 5 min     | Exploración libre de la Landing Page y preguntas de comprensión.                                  |
+| 3    | 12 min    | Ejecución de tareas guiadas en la Web App.                                                        |
+| 4    | 7 min     | Preguntas de cierre y calificación de satisfacción.                                               |
+
+#### 4. Tareas Guiadas
+
+| Id  | Tarea                                                                              | Criterio de éxito                                   |
+| :-: | :--------------------------------------------------------------------------------- | :-------------------------------------------------- |
+| T1  | Iniciar sesión en la plataforma.                                                    | Accede al dashboard sin ayuda.                      |
+| T2  | Identificar cuántos envíos están en tránsito y cuál presenta una desviación.       | Identifica el envío correcto en menos de 1 minuto.  |
+| T3  | Crear un nuevo despacho en perfil caliente y anotar el código OTP.                  | Completa el modal y localiza el OTP.                |
+| T4  | Revisar y resolver una alerta térmica.                                              | Resuelve la alerta con el flujo previsto.           |
+| T5  | Consultar el historial de un envío y exportar el reporte.                           | Localiza el reporte y ejecuta la exportación.       |
+
+#### 5. Guion de Preguntas
+
+**Preguntas de comprensión (Landing Page):**
+1. En sus palabras, ¿qué ofrece Cold2Hot?
+2. ¿Qué tan útil le parece la calculadora de ROI? ¿Confiaría en el resultado?
+3. ¿Qué información adicional necesitaría para decidir contratar el servicio?
+
+**Preguntas de cierre (Web App):**
+1. ¿Qué fue lo más fácil y lo más difícil de las tareas realizadas?
+2. ¿Qué información del dashboard es la que usted revisaría con más frecuencia?
+3. ¿Cómo le gustaría ser notificado ante una alerta (correo, notificación en la plataforma, mensaje)?
+4. ¿Qué funcionalidad echa en falta?
+5. En una escala del 1 al 5, ¿qué tan probable es que recomiende la plataforma?
+6. ¿Cuánto estaría dispuesto a pagar mensualmente por este servicio?
+
+### 6.3.2. Registro de Entrevistas
+
+> **Pendiente:** el registro depende de la ejecución real de las entrevistas. Completar una fila por participante con los datos obtenidos, sin extrapolar resultados. Si se cuenta con consentimiento, adjuntar el enlace a la grabación.
+
+| Id  | Segmento                | Participante (nombre o seudónimo) | Fecha          | Entrevistador | Modalidad  | Enlace a evidencia | Tareas completadas (de 5) |
+| :-: | :---------------------- | :-------------------------------- | :------------- | :------------ | :--------- | :----------------- | :-----------------------: |
+| E1  | Administrador           | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
+| E2  | Administrador           | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
+| E3  | Administrador           | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
+| E4  | Operador de Entrega     | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
+| E5  | Operador de Entrega     | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
+
+**Resumen de hallazgos por entrevista:**
+
+| Id  | Hallazgos principales | Problemas de usabilidad detectados | Sugerencias del participante |
+| :-: | :-------------------- | :--------------------------------- | :--------------------------- |
+| E1  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
+| E2  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
+| E3  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
+| E4  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
+| E5  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
+
+### 6.3.3. Evaluaciones según heurísticas
+
+La evaluación se realiza con las **10 heurísticas de usabilidad de Nielsen**. Cada heurística se califica con la escala de severidad de 0 a 4 (0 = no es un problema; 1 = cosmético; 2 = menor; 3 = mayor; 4 = catastrófico) a partir de lo observado en las entrevistas.
+
+| N.º | Heurística                                                  | Qué se verifica en Cold2Hot                                                                  | Severidad (0-4) | Problema observado y mejora propuesta |
+| :-: | :---------------------------------------------------------- | :------------------------------------------------------------------------------------------- | :-------------: | :------------------------------------ |
+| 1   | Visibilidad del estado del sistema                          | Indicadores de temperatura, estado de cerrojo y carga en curso.                              | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 2   | Correspondencia entre el sistema y el mundo real            | Terminología de delivery (despacho, caja, OTP) y perfiles Cold/Hot.                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 3   | Control y libertad del usuario                              | Cancelar un despacho, cerrar modales, deshacer acciones.                                     | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 4   | Consistencia y estándares                                   | Coherencia visual entre vistas, botones y mensajes.                                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 5   | Prevención de errores                                       | Validaciones de formularios y confirmaciones antes de acciones críticas.                     | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 6   | Reconocimiento antes que recuerdo                           | Etiquetas visibles, filtros y navegación sin depender de la memoria.                         | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 7   | Flexibilidad y eficiencia de uso                            | Filtros, búsquedas y atajos para administradores con muchos envíos.                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 8   | Diseño estético y minimalista                               | Densidad de información del dashboard y jerarquía visual.                                    | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 9   | Ayudar a reconocer, diagnosticar y recuperarse de errores   | Claridad de los mensajes de error de login, OTP y conexión.                                  | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+| 10  | Ayuda y documentación                                       | Orientación sobre el significado de alertas y uso de la plataforma.                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
+
+**Conclusiones de la validación y acciones de mejora:** `[COMPLETAR una vez ejecutadas las entrevistas]`
+
+---
+
+## 6.4. Video About-the-Product
+
+El video **About-the-Product** presenta el producto Cold2Hot en funcionamiento, desde el problema que resuelve hasta la demostración de sus funcionalidades principales.
+
+* **Enlace al Video About-the-Product:** `[COMPLETAR]`
+* **Duración sugerida:** 5 a 8 minutos.
+
+**Estructura propuesta del video:**
+
+| Minuto | Contenido                                                                                              |
+| :----: | :----------------------------------------------------------------------------------------------------- |
+| 0:00   | Presentación del equipo IoTeam y del problema de la pérdida térmica y la manipulación de pedidos.       |
+| 0:45   | Landing Page: propuesta de valor, calculadora de ROI y planes de suscripción.                           |
+| 1:45   | Web Application: login, creación de despacho con OTP y generación de la clave de acceso.                |
+| 3:00   | Monitoreo térmico en tiempo real con telemetría de la SmartBox y panel de alertas.                      |
+| 4:15   | Historial de auditoría y exportación de reportes de entrega.                                            |
+| 5:00   | Arquitectura de microservicios, documentación Swagger y despliegue en la nube.                          |
+| 6:00   | Cierre y próximos pasos.                                                                                |
 
 ---
 
