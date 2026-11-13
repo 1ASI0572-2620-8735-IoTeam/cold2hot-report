@@ -225,8 +225,6 @@ El desarrollo del informe de trabajo final para el proyecto **Cold2Hot** ha sido
       - [6.2.2.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
   - [6.3. Validation Interviews](#63-validation-interviews)
     - [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
-    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
-    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-según-heurísticas)
   - [6.4. Video About-the-Product](#64-video-about-the-product)
 - [Conclusiones](#conclusiones)
   - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
@@ -4403,47 +4401,6 @@ Las entrevistas de validación tienen como finalidad comprobar con usuarios real
 4. ¿Qué funcionalidad echa en falta?
 5. En una escala del 1 al 5, ¿qué tan probable es que recomiende la plataforma?
 6. ¿Cuánto estaría dispuesto a pagar mensualmente por este servicio?
-
-### 6.3.2. Registro de Entrevistas
-
-> **Pendiente:** el registro depende de la ejecución real de las entrevistas. Completar una fila por participante con los datos obtenidos, sin extrapolar resultados. Si se cuenta con consentimiento, adjuntar el enlace a la grabación.
-
-| Id  | Segmento                | Participante (nombre o seudónimo) | Fecha          | Entrevistador | Modalidad  | Enlace a evidencia | Tareas completadas (de 5) |
-| :-: | :---------------------- | :-------------------------------- | :------------- | :------------ | :--------- | :----------------- | :-----------------------: |
-| E1  | Administrador           | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
-| E2  | Administrador           | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
-| E3  | Administrador           | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
-| E4  | Operador de Entrega     | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
-| E5  | Operador de Entrega     | `[COMPLETAR]`                     | `[COMPLETAR]`  | `[COMPLETAR]` | `[COMPLETAR]` | `[COMPLETAR]`   | `[COMPLETAR]`             |
-
-**Resumen de hallazgos por entrevista:**
-
-| Id  | Hallazgos principales | Problemas de usabilidad detectados | Sugerencias del participante |
-| :-: | :-------------------- | :--------------------------------- | :--------------------------- |
-| E1  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
-| E2  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
-| E3  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
-| E4  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
-| E5  | `[COMPLETAR]`         | `[COMPLETAR]`                      | `[COMPLETAR]`                |
-
-### 6.3.3. Evaluaciones según heurísticas
-
-La evaluación se realiza con las **10 heurísticas de usabilidad de Nielsen**. Cada heurística se califica con la escala de severidad de 0 a 4 (0 = no es un problema; 1 = cosmético; 2 = menor; 3 = mayor; 4 = catastrófico) a partir de lo observado en las entrevistas.
-
-| N.º | Heurística                                                  | Qué se verifica en Cold2Hot                                                                  | Severidad (0-4) | Problema observado y mejora propuesta |
-| :-: | :---------------------------------------------------------- | :------------------------------------------------------------------------------------------- | :-------------: | :------------------------------------ |
-| 1   | Visibilidad del estado del sistema                          | Indicadores de temperatura, estado de cerrojo y carga en curso.                              | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 2   | Correspondencia entre el sistema y el mundo real            | Terminología de delivery (despacho, caja, OTP) y perfiles Cold/Hot.                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 3   | Control y libertad del usuario                              | Cancelar un despacho, cerrar modales, deshacer acciones.                                     | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 4   | Consistencia y estándares                                   | Coherencia visual entre vistas, botones y mensajes.                                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 5   | Prevención de errores                                       | Validaciones de formularios y confirmaciones antes de acciones críticas.                     | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 6   | Reconocimiento antes que recuerdo                           | Etiquetas visibles, filtros y navegación sin depender de la memoria.                         | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 7   | Flexibilidad y eficiencia de uso                            | Filtros, búsquedas y atajos para administradores con muchos envíos.                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 8   | Diseño estético y minimalista                               | Densidad de información del dashboard y jerarquía visual.                                    | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 9   | Ayudar a reconocer, diagnosticar y recuperarse de errores   | Claridad de los mensajes de error de login, OTP y conexión.                                  | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-| 10  | Ayuda y documentación                                       | Orientación sobre el significado de alertas y uso de la plataforma.                          | `[COMPLETAR]`   | `[COMPLETAR]`                         |
-
-**Conclusiones de la validación y acciones de mejora:** `[COMPLETAR una vez ejecutadas las entrevistas]`
 
 ---
 
